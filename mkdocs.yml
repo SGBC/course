@@ -2,3 +2,5 @@ site_name: Bioinformatics course
 theme: cinder
 pages:
     - Home: index.md
+    - Unix: unix.md
+    - Installing Software: software.md
