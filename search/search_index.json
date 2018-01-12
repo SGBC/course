@@ -1,0 +1,54 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "SGBC Bioinformatics Course\n\n\nThis website is a collection of lectures and tutorials given during the annual Bioinformatics course given at \nSLU\n by the \nSGBC\n.\n\n\nWelcome to the course!\n\n\nTable of Content\n\n\n\n\nWeek 1\n\n\nIntroduction to the command-line\n\n\nExercises \n-- soon available\n\n\nProject organisation \n-- soon available\n\n\nCloud computing \n-- soon available\n\n\nInstalling Software\n\n\nVersion control with Git \n-- soon available\n\n\n\n\n\n\n\n\nLicense\n\n\nUnless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.\nTo view a copy of this license, visit \nhttp://creativecommons.org/licenses/by/4.0/\n or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.",
+            "title": "Home"
+        },
+        {
+            "location": "/#sgbc-bioinformatics-course",
+            "text": "This website is a collection of lectures and tutorials given during the annual Bioinformatics course given at  SLU  by the  SGBC .  Welcome to the course!",
+            "title": "SGBC Bioinformatics Course"
+        },
+        {
+            "location": "/#table-of-content",
+            "text": "Week 1  Introduction to the command-line  Exercises  -- soon available  Project organisation  -- soon available  Cloud computing  -- soon available  Installing Software  Version control with Git  -- soon available",
+            "title": "Table of Content"
+        },
+        {
+            "location": "/#license",
+            "text": "Unless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.\nTo view a copy of this license, visit  http://creativecommons.org/licenses/by/4.0/  or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.",
+            "title": "License"
+        },
+        {
+            "location": "/unix/",
+            "text": "Introduction to Unix\n\n\nMost of the introduction to Unix material can be found at \nhttps://software-carpentry.org\n\n\nMany thanks to them for existing!",
+            "title": "Unix"
+        },
+        {
+            "location": "/unix/#introduction-to-unix",
+            "text": "Most of the introduction to Unix material can be found at  https://software-carpentry.org  Many thanks to them for existing!",
+            "title": "Introduction to Unix"
+        },
+        {
+            "location": "/software/",
+            "text": "Installing software\n\n\nBioinformatics is a relatively new (It's younger that Erik!) and fast-progressing field.\nTherefore new software as well as new versions of existing software are released on a regular basis.\n\n\nDuring this course as well as during your future career as a bioinformatician ( );-) ) you will be confronted quite often to the installation of new software on UNIX platforms (i.e. the server you are using at the moment)\n\n\nCompiled and Interpreted languages\n\n\nProgramming languages in the bioinformatics world - and in general - can be separated in two categories: \nintepreted\n languages, and \ncompiled\n languages. While with \ninterpreted\n languages you write scripts, and execute them (as we saw with the \nbash\n scripts during the UNIX lesson) it is different for compiled languages: an extra step is required\n\n\nCompilation\n\n\nAs from \nWikipedia\n, compilation is the translation of source code into object code by a compiler.\n\n\nThat's right. The extra step required by compiled languages is translating the source code, that is the lines of code the programmer(s) wrote into a language that your computer understand better, usually binary (1s and 0s).\n\n\nThe big advantage of compiled languages is that they are much faster than interpreted languages. However, programming in them is usually slower and more difficult than in interpreted languages. Using them or not for a software project is a trade-off between development-time, and how much faster your software could run if it was programmed using a compiled language.\n\n\nThe most popular compiled language is the C programming language, which Linux is mainly written in.",
+            "title": "Installing Software"
+        },
+        {
+            "location": "/software/#installing-software",
+            "text": "Bioinformatics is a relatively new (It's younger that Erik!) and fast-progressing field.\nTherefore new software as well as new versions of existing software are released on a regular basis.  During this course as well as during your future career as a bioinformatician ( );-) ) you will be confronted quite often to the installation of new software on UNIX platforms (i.e. the server you are using at the moment)",
+            "title": "Installing software"
+        },
+        {
+            "location": "/software/#compiled-and-interpreted-languages",
+            "text": "Programming languages in the bioinformatics world - and in general - can be separated in two categories:  intepreted  languages, and  compiled  languages. While with  interpreted  languages you write scripts, and execute them (as we saw with the  bash  scripts during the UNIX lesson) it is different for compiled languages: an extra step is required",
+            "title": "Compiled and Interpreted languages"
+        },
+        {
+            "location": "/software/#compilation",
+            "text": "As from  Wikipedia , compilation is the translation of source code into object code by a compiler.  That's right. The extra step required by compiled languages is translating the source code, that is the lines of code the programmer(s) wrote into a language that your computer understand better, usually binary (1s and 0s).  The big advantage of compiled languages is that they are much faster than interpreted languages. However, programming in them is usually slower and more difficult than in interpreted languages. Using them or not for a software project is a trade-off between development-time, and how much faster your software could run if it was programmed using a compiled language.  The most popular compiled language is the C programming language, which Linux is mainly written in.",
+            "title": "Compilation"
+        }
+    ]
+}
