@@ -1,17 +1,20 @@
-# Welcome to MkDocs
+# SGBC Bioinformatics Course
 
-For full documentation visit [mkdocs.org](http://mkdocs.org).
+This website is a collection of lectures and tutorials given during the annual Bioinformatics course given at [SLU](https://www.slu.se) by the [SGBC](http://sgbc.slu.se).
 
-## Commands
+Welcome to the course!
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
+## Table of Content
 
-## Project layout
+* Week 1
+    * [Introduction to the command-line](unix)
+    * Exercises *-- soon available*
+    * Project organisation *-- soon available*
+    * Cloud computing *-- soon available*
+    * [Installing Software](software.md)
+    * Version control with Git *-- soon available*
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## License
+
+Unless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.
+To view a copy of this license, visit <http://creativecommons.org/licenses/by/4.0/> or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
