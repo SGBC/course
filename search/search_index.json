@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "SGBC Bioinformatics Course\n\n\nThis website is a collection of lectures and tutorials given during the annual Bioinformatics course given at \nSLU\n by the \nSGBC\n.\n\n\nWelcome to the course!\n\n\nTable of Content\n\n\n\n\nWeek 1\n\n\nIntroduction to the command-line\n\n\nExercises \n-- soon available\n\n\nProject organisation \n-- soon available\n\n\nCloud computing \n-- soon available\n\n\nInstalling Software\n\n\nVersion control with Git \n-- soon available\n\n\n\n\n\n\n\n\nLicense\n\n\nUnless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.\nTo view a copy of this license, visit \nhttp://creativecommons.org/licenses/by/4.0/\n or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.",
+            "text": "SGBC Bioinformatics Course\n\n\nThis website is a collection of lectures and tutorials given during the annual Bioinformatics course given at \nSLU\n by the \nSGBC\n.\n\n\nWelcome to the course!\n\n\nTable of Content\n\n\n\n\nWeek 1\n\n\nIntroduction to the command-line\n\n\nExercises \n-- soon available\n\n\nProject organisation \n-- soon available\n\n\nCloud computing \n-- soon available\n\n\nInstalling Software\n\n\nVersion control with Git \n-- soon available\n\n\n\n\n\n\n\n\nLicense\n\n\nUnless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.\nTo view a copy of this license, visit \nhttp://creativecommons.org/licenses/by/4.0/\n or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.\n\n\nContributors\n\n\nThe following people have contributed to these course material, in no particular order:\n\n\n\n\nHadrien Gourl\u00e9\n\n\nJuliette Hayer",
             "title": "Home"
         },
         {
@@ -19,6 +19,11 @@
             "location": "/#license",
             "text": "Unless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.\nTo view a copy of this license, visit  http://creativecommons.org/licenses/by/4.0/  or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.",
             "title": "License"
+        },
+        {
+            "location": "/#contributors",
+            "text": "The following people have contributed to these course material, in no particular order:   Hadrien Gourl\u00e9  Juliette Hayer",
+            "title": "Contributors"
         },
         {
             "location": "/unix/",
