@@ -24,3 +24,4 @@ To view a copy of this license, visit <http://creativecommons.org/licenses/by/4.
 The following people have contributed to these course material, in no particular order:
 
 * [Hadrien Gourlé](https://github.com/HadrienG)
+* [Juliette Hayer](https://github.com/jhayer)
