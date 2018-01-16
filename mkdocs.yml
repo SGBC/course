@@ -4,3 +4,9 @@ pages:
     - Home: index.md
     - Unix: unix.md
     - Installing Software: software.md
+
+markdown_extensions:
+  - admonition
+
+extra_css:
+    - css/admonition.css

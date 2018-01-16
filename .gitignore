@@ -1,2 +1,5 @@
 # venvs
 mkdocs_env/
+
+# mkdocs stuff
+site/
