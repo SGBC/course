@@ -216,7 +216,7 @@ protein Z is shown below:
     find the tutorial and user guide of DeepView
     [here](http://spdbv.vital-it.ch/).
 
-2.  Download to the archive [PDB\_files\_part6.zip]() and unzip it.
+2.  Download to the archive [PDB_files_part6.zip](files/PDB_files_part6.zip) and unzip it.
 
 3.  You might find 8 PDB files in the directory.
 
