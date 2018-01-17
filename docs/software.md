@@ -82,3 +82,103 @@ it should print the (rather long) error message of the blastn command.
 ## Downloading and unpacking
 
 Although most popular software can be installed with your distribution's package manager, sometimes (especially in some fast-growing areas of bioinformatics) the software you want isn't available through a package manager.
+
+We'll install [spades](http://cab.spbu.ru/software/spades/), a popular genome assembly tool. Let's imagine it is not available in the apt sources. We'd have to:
+
+- download the source code
+- compile the software
+- move it at the right place on our system
+
+Which is quite cumbersome, especially the compilation.
+Luckily, it is fairly common for developers to make linux binaries - that is compiled version of the software - already available for download.
+
+First let us create a directory for all our future installs:
+
+```bash
+mkdir -p ~/install
+cd ~/install
+```
+
+The spades binaries are available on their website, <http://cab.spbu.ru/software/spades/>
+
+Download them with
+
+```bash
+wget http://cab.spbu.ru/files/release3.11.1/SPAdes-3.11.1-Linux.tar.gz
+```
+
+and uncompress
+
+```bash
+tar xvf SPAdes-3.11.1-Linux.tar.gz
+```
+
+```bash
+cd SPAdes-3.11.1-Linux/bin/
+```
+
+and now if we execute `spades.py`
+
+```bash
+./spades.py
+```
+
+we get the help of the spades assembler!
+
+A minor inconvenience is that right now
+
+```bash
+pwd
+# /home/hadrien/install/SPAdes-3.11.1-Linux/bin
+```
+
+we have to always go to this directory to run `spades.py`, or call the software with the full path.
+We'd like to be able to execute `spades` from anywhere, like we do with `ls` and `cd`.
+
+In most linux distributions, which directory can contain software that are executed from anywhere is defined by an environment variable: `$PATH`
+
+Let us take a look:
+
+```bash
+echo $PATH
+# /home/hadrien/bin:/home/hadrien/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+```
+
+To make `spades.py` available from anywhere we have to put it in one of the above locations.
+
+!!! note
+    When `apt` installs software it usually places it in `/usr/bin`, which requires administration privileges.
+    This is why we needed `sudo` for installing packages earlier.
+
+```
+mkdir -p ~/.local/bin
+mv * ~/.local/bin/
+```
+
+Et voilà! Now you can execute `spades.py` from anywhere!
+
+## Installing from source
+
+The bwa source code is available on github, a popular code sharing platform (more on this in the git lesson!).
+Navigate to <https://github.com/lh3/bwa> then in release copy the link behind `bwa-0.7.17.tar.bz2`~~
+
+This time the binaries are not available. we'll have to compile the software ourselves
+
+Now paste in your terminal for downloading with `wget`
+
+```bash
+wget https://github.com/lh3/bwa/releases/download/v0.7.17/bwa-0.7.17.tar.bz2
+```
+
+```bash
+tar xvf bwa-0.7.17.tar.bz2
+cd bwa-0.7.17/
+```
+
+```bash
+sudo apt install make gcc zlib1g-dev
+```
+
+```bash
+make
+```
