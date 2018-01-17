@@ -291,6 +291,15 @@ During the following weeks we'll use a lot of different bioinformatics software 
 !!! note
     unless indicated otherwise, try with `apt` first
 
+!!! note
+    do not hesitate to ask your teacher for help!
+
 Let's install a few:
 
-*
+* [fastqc](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+* [scythe](https://github.com/vsbuffalo/scythe)
+* [sickle](https://github.com/najoshi/sickle)
+* [bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
+* [megahit](https://github.com/voutcn/megahit)
+* [quast](http://quast.sourceforge.net)
+* [prokka](https://github.com/tseemann/prokka)
