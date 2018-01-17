@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    <title></title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+
+
+    <link href="../css/admonition.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="..">Bioinformatics course</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">Proteins</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../unix/">Unix</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../software/">Installing Software</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fa fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="..">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../unix/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#introduction-to-protein-sequences-and-structures-analysis">Introduction to protein sequences and structures analysis</a></li>
+            <li class="second-level"><a href="#i-search-patterns-profiles">I - Search Patterns, Profiles</a></li>
+                
+            <li class="second-level"><a href="#ii-search-homolog-proteins-with-blast">II - Search homolog proteins with BLAST</a></li>
+                
+            <li class="second-level"><a href="#iii-multiple-sequences-alignment">III - Multiple sequences alignment</a></li>
+                
+            <li class="second-level"><a href="#iv-the-y-protein">IV - The Y protein</a></li>
+                
+                <li class="third-level"><a href="#1-identification-of-the-y-sequence-using-prosite-patterns">1. Identification of the Y sequence using PROSITE patterns</a></li>
+                <li class="third-level"><a href="#2-composition-analysis">2. Composition analysis</a></li>
+                <li class="third-level"><a href="#3-search-pattern-in-y">3. Search pattern in Y</a></li>
+                <li class="third-level"><a href="#4-identification-of-homologs-to-y">4. Identification of homologs to Y</a></li>
+            <li class="second-level"><a href="#v-secondary-structure-prediction-for-x-and-y">V - Secondary structure prediction for X and Y</a></li>
+                
+            <li class="second-level"><a href="#vi-comparison-with-solved-structures">VI - Comparison with solved structures</a></li>
+                
+                <li class="third-level"><a href="#1-the-z-protein">1. The Z protein</a></li>
+                <li class="third-level"><a href="#2-find-the-correct-structures">2. Find the correct structures</a></li>
+            <li class="second-level"><a href="#vii-tridimensional-protein-structure-play-with-3d-structures-using-swisspdbviewer-deepview">VII - Tridimensional protein structure: Play with 3D structures using SwissPDBViewer (DeepView)</a></li>
+                
+                <li class="third-level"><a href="#a-analyze-protein-structures-with-deepview">A - Analyze protein structures with DeepView</a></li>
+                <li class="third-level"><a href="#b-optional-if-you-want-to-use-rasmoljmol">B - Optional: if you want to use RasMol/Jmol</a></li>
+            <li class="second-level"><a href="#5-other-useful-commands">5. Other useful commands</a></li>
+                
+            <li class="second-level"><a href="#6-store-a-command-script-and-reload-it">6. Store a command script and reload it</a></li>
+                
+            <li class="second-level"><a href="#7-select-the-atoms-in-a-sphere">7. Select the atoms in a sphere</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="introduction-to-protein-sequences-and-structures-analysis">Introduction to protein sequences and structures analysis</h1>
+<hr>
+
+<p><strong>ToolBox that could be useful for protein sequences analysis:</strong></p>
+<p><a href="http://expasy.org/">http://expasy.org/</a></p>
+<p><a href="http://www.uniprot.org/">http://www.uniprot.org/</a></p>
+<p><a href="http://www.ebiokit.eu/">http://www.ebiokit.eu/</a></p>
+<p><a href="http://npsa-pbil.ibcp.fr">http://npsa-pbil.ibcp.fr</a></p>
+<p><a href="http://blast.ncbi.nlm.nih.gov/Blast.cgi">http://blast.ncbi.nlm.nih.gov/Blast.cgi</a></p>
+<p><a href="https://www.ebi.ac.uk/interpro/search/sequence-search">https://www.ebi.ac.uk/interpro</a></p>
+<p><a href="http://www.rcsb.org/pdb">http://www.rcsb.org/pdb</a></p>
+<hr>
+
+<p>After cloning and sequencing of coding DNA, the sequence of the X
+protein had been determined. The sequence of X is given here:</p>
+<p><em>LAAVSVDCSEYPKPACTLEYRPLCGSDNKTYGNKCNFCNAVVESNGTLTLSHFGKC</em></p>
+<p>In normal conditions, this X protein is expressed but we have no idea
+about it function. The goal of this practical work is to collect the
+maximum of information about structure and function of the X protein.</p>
+<h2 id="i-search-patterns-profiles">I - Search Patterns, Profiles</h2>
+<p>A way to identify the function of X is to look if it contains signatures
+(pattern) of a function or a protein family.</p>
+<p>2 options:</p>
+<p><a href="http://prosite.expasy.org/scanprosite/">http://prosite.expasy.org/scanprosite/</a></p>
+<p><a href="http://npsa-pbil.ibcp.fr">NPS@</a> and follow the link "ProScan: scan a
+sequence for sites/signatures against PROSITE database" (activate:
+Include documentation in result file).</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<ol>
+<li>
+<p>Which signature(s) could you identify? Which specific features in
+    this protein?</p>
+</li>
+<li>
+<p>Try to change the parameters and comment the results.</p>
+</li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>InterPro gives a summary of several methods. You can find it at the
+<a href="http://www.ebi.ac.uk/interpro/index.html">EBI</a>.</p>
+</div>
+<p>Keep the signatures that could attest the function in your notepad.</p>
+<ul>
+<li>What do you think about the function of X?</li>
+</ul>
+<h2 id="ii-search-homolog-proteins-with-blast">II - Search homolog proteins with BLAST</h2>
+<ol>
+<li>
+<p>Go to the <a href="http://blast.ncbi.nlm.nih.gov/Blast.cgi">NCBI BLAST</a> page</p>
+</li>
+<li>
+<p>Choose the Protein Blast (blastp)</p>
+</li>
+<li>
+<p>Paste your sequence</p>
+</li>
+<li>
+<p>Select the Swissprot database</p>
+</li>
+</ol>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Did you identify homologs? What are their function(s)?</p>
+</div>
+<h2 id="iii-multiple-sequences-alignment">III - Multiple sequences alignment</h2>
+<ol>
+<li>
+<p>Select several homolog sequences from the Blast results.</p>
+</li>
+<li>
+<p>Perform a multiple sequence alignment (MSA) of these sequence using
+    Clustal Omega for example</p>
+</li>
+<li>
+<p>Try other MSA tools (for example Tcoffee and Muscle)</p>
+</li>
+</ol>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Do you observe differences between the results obtained from
+different algorithms?</p>
+<p>What can you observe in these MSAs?</p>
+</div>
+<p><strong>Info</strong>: You could also retrieve the selected sequences in Fasta format
+and perform MSAs elsewhere</p>
+<p>Clustal Omega and Muscle: available in Seaview alignment viewer</p>
+<p>Tcoffee: <a href="http://tcoffee.vital-it.ch/apps/tcoffee/index.html">http://tcoffee.vital-it.ch/apps/tcoffee/index.html</a></p>
+<p>Other tools: <a href="http://expasy.org/genomics/sequence_alignment">http://expasy.org/genomics/sequence_alignment</a></p>
+<h2 id="iv-the-y-protein">IV - The Y protein</h2>
+<p>Another experiment had shown that the X protein was interacting
+specifically with another protein: Y.</p>
+<p>After purification of the active Y protein, from the complex, a partial
+sequence of Y was obtained (by protein extremity sequencing).</p>
+<p>The corresponding peptide could be:</p>
+<p><em>ISGGD</em> or <em>ISGGN</em></p>
+<h3 id="1-identification-of-the-y-sequence-using-prosite-patterns">1. Identification of the Y sequence using PROSITE patterns</h3>
+<ol>
+<li>
+<p>Design the pattern (regular expression) corresponding to these
+    peptides.</p>
+</li>
+<li>
+<p>Search the sequences containing this pattern in SwissProt using
+    <a href="http://hits.isb-sib.ch/cgi-bin/pattern_search">PATTERN SEARCH</a> at
+    SIB or
+    <a href="http://npsa-pbil.ibcp.fr/cgi-bin/npsa_automat.pl?page=/NPSA/npsa_pattinprot.html">PATTINPROT</a>
+    at NPS@.</p>
+</li>
+</ol>
+<p>If needed, use the help to design your pattern.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many results do you get? How can you identify the right one?</p>
+</div>
+<p>Once the Y protein sequence identified, copy the FASTA sequence in your
+notepad.</p>
+<h3 id="2-composition-analysis">2. Composition analysis</h3>
+<p>After purification of the Y active protein, the amino-acid composition
+has been determined (% of each aa in the protein) and is given in the
+following table:</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+<th align="left"></th>
+<th align="left"></th>
+<th align="left"></th>
+<th align="left"></th>
+<th align="left"></th>
+<th align="left"></th>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>A</strong></td>
+<td align="left">8.11</td>
+<td align="left"><strong>F</strong></td>
+<td align="left">2.70</td>
+<td align="left"><strong>L</strong></td>
+<td align="left">3.78</td>
+<td align="left"><strong>R</strong></td>
+<td align="left">4.32</td>
+<td align="left"><strong>X</strong></td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left"><strong>B</strong></td>
+<td align="left">0</td>
+<td align="left"><strong>G</strong></td>
+<td align="left">17.30</td>
+<td align="left"><strong>M</strong></td>
+<td align="left">1.08</td>
+<td align="left"><strong>S</strong></td>
+<td align="left">11.89</td>
+<td align="left"><strong>Y</strong></td>
+<td align="left">5.41</td>
+</tr>
+<tr>
+<td align="left"><strong>C</strong></td>
+<td align="left">2.16</td>
+<td align="left"><strong>H</strong></td>
+<td align="left">1.08</td>
+<td align="left"><strong>N</strong></td>
+<td align="left">5.41</td>
+<td align="left"><strong>T</strong></td>
+<td align="left">15.14</td>
+<td align="left"><strong>Z</strong></td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left"><strong>D</strong></td>
+<td align="left">3.78</td>
+<td align="left"><strong>I</strong></td>
+<td align="left">3.78</td>
+<td align="left"><strong>P</strong></td>
+<td align="left">2.70</td>
+<td align="left"><strong>V</strong></td>
+<td align="left">7.57</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>E</strong></td>
+<td align="left">1.08</td>
+<td align="left"><strong>K</strong></td>
+<td align="left">0.54</td>
+<td align="left"><strong>Q</strong></td>
+<td align="left">1.08</td>
+<td align="left"><strong>W</strong></td>
+<td align="left">1.08</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p>Compute the composition of the sequence that you retrieve. Use
+    <a href="http://web.expasy.org/protparam/">PROTPARAM</a> or the tool
+    'Amino-acid composition' at <a href="http://npsa-pbil.ibcp.fr">NPS@</a></p>
+</li>
+<li>
+<p>Compare this computed composition with the composition of Y
+    experimentally determined.</p>
+</li>
+</ol>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Do you observe differences? Explain.</p>
+</div>
+<h3 id="3-search-pattern-in-y">3. Search pattern in Y</h3>
+<p>Once the correct sequence of Y obtained, keep it in your notepad, you
+will need it for the following analyses.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Identify the signatures (motifs, Pfam profiles) of Y using PROSCAN
+and/or Interpro.</p>
+</div>
+<h3 id="4-identification-of-homologs-to-y">4. Identification of homologs to Y</h3>
+<ol>
+<li>
+<p>Use NCBI BLASTP or NPS@
+    <a href="https://npsa-prabi.ibcp.fr/cgi-bin/npsa_automat.pl?page=/NPSA/npsa_blast.html">BLASTP</a>
+    against SwissProt database to search sequences similar to Y.</p>
+</li>
+<li>
+<p>Use PSI-BLAST (with SwissProt) to see if you can detect more distant
+    sequences.</p>
+</li>
+<li>
+<p>Select sequences from BLAST and/or PSI-BLAST results to perform a
+    multiple sequence alignment.</p>
+</li>
+</ol>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<ol>
+<li>Did you observe difference in the results of BLAST and PSI-BLAST?
+Comment.</li>
+<li>Propose a strategy to retrieve all the proteins having the same
+catalytic activity as Y protein.</li>
+</ol>
+</div>
+<h2 id="v-secondary-structure-prediction-for-x-and-y">V - Secondary structure prediction for X and Y</h2>
+<ol>
+<li>
+<p>Go to the <a href="http://npsa-pbil.ibcp.fr/cgi-bin/npsa_automat.pl?page=/NPSA/npsa_seccons.html">consensus secondary structure
+    prediction</a>
+    page at NPS@.</p>
+</li>
+<li>
+<p>Analyze the secondary structure of the protein Y. Include secondary
+    structure predictions by methods (DPM, GOR1, PREDATOR, SIMPA96).</p>
+</li>
+</ol>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<ol>
+<li>Conclude on the organization of secondary structures.</li>
+<li>Perform the same analysis for X protein.</li>
+</ol>
+</div>
+<h2 id="vi-comparison-with-solved-structures">VI - Comparison with solved structures</h2>
+<h3 id="1-the-z-protein">1. The Z protein</h3>
+<p>The structure of a protein Z has just been published. The sequence of
+protein Z is shown below:</p>
+<p><em>IAGGEAITTGGSRCSLGFNVSVNGVAHALTAGHCTNISASWSIGTRTGTSFPNNDYGIIRHSNPAAANGRVYLYNGSYQD</em></p>
+<p><em>ITTAGNAFVGQAVQRSGSTTGLRSGSVTGLNATVNYGSSGIVYGMIQTNVCAQPGDSGGSLFAGSTALGLTSGGSGNCRT</em></p>
+<p><em>GGTTFYQPVTEALSAYGATVL</em></p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Could you use this information for the study of protein Y? Make your
+own analysis.</p>
+</div>
+<h3 id="2-find-the-correct-structures">2. Find the correct structures</h3>
+<ol>
+<li>
+<p>Download and install <a href="http://spdbv.vital-it.ch/disclaim.html">Deep-View -
+    SwissPDBViewer</a>. You can
+    find the tutorial and user guide of DeepView
+    <a href="http://spdbv.vital-it.ch/">here</a>.</p>
+</li>
+<li>
+<p>Download to the archive <a href="../files/PDB_files_part6.zip">PDB_files_part6.zip</a> and unzip it.</p>
+</li>
+<li>
+<p>You might find 8 PDB files in the directory.</p>
+</li>
+<li>
+<p>Open them with DeepView.</p>
+</li>
+<li>
+<p>Display the secondary structure representation mode (see part
+    VII-A-5 and/or the user guide).</p>
+</li>
+</ol>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Try to identify the structures corresponding to X and Y proteins.</p>
+</div>
+<h2 id="vii-tridimensional-protein-structure-play-with-3d-structures-using-swisspdbviewer-deepview">VII - Tridimensional protein structure: Play with 3D structures using SwissPDBViewer (DeepView)</h2>
+<ol>
+<li>
+<p>Go to the <a href="http://www.rcsb.org/pdb/home/home.do">Protein Data Bank</a></p>
+</li>
+<li>
+<p>Search and download the following PDB files: 1CRN, 1LDM.</p>
+</li>
+</ol>
+<p>You will visualize these protein structures using DeepView</p>
+<h3 id="a-analyze-protein-structures-with-deepview">A - Analyze protein structures with DeepView</h3>
+<h4 id="1-load-a-3d-structure">1. Load a 3D structure</h4>
+<p>File => Open</p>
+<p>Choose the 1CRN.pdb file that you have downloaded from the PDB.</p>
+<h4 id="2-visualize-the-number-of-chains">2. Visualize the number of chains</h4>
+<p>Is it only the protein or can we find ligands? Is it a monomer or a
+polymer?</p>
+<h4 id="3-visualize-the-general-shape">3. Visualize the general shape</h4>
+<p>Try to get the actual space taken by the molecule. You need to use the
+control panel and use the ':v' column to activate the space-filling
+spheres representation (+ menu Display > Render in solid 3D).</p>
+<p>Test also the Slab mode to visualize the space within the molecule:
+Display > Slab</p>
+<h4 id="4-display-a-distance-between-2-atoms-angle-between-3-atoms">4. Display a distance between 2 atoms, angle between 3 atoms</h4>
+<p>Use the graphical panel. You can now measure the real dimensions of your
+protein</p>
+<h4 id="5-visualize-secondary-structure-elements">5. Visualize secondary structure elements</h4>
+<p>In the control panel, activate "ribbon" (rbn). You can also color the
+molecule by secondary structures.</p>
+<h4 id="6-visualize-ligands-if-there-is-any">6. Visualize ligands (if there is any)</h4>
+<p>Select and color them. You could also remove the rest, or better, have a
+look at the residues that are around those ligands (radius function in
+the graphical panel).</p>
+<h4 id="7-analysis-of-other-protein-structures">7. Analysis of other protein structures</h4>
+<p>The teacher will give PDB codes of other structures to analyze. Choose
+DeepView or Rasmol/Jmol to do so, that is up to you!</p>
+<h3 id="b-optional-if-you-want-to-use-rasmoljmol">B - Optional: if you want to use RasMol/Jmol</h3>
+<h4 id="1-load-a-3d-structure_1">1. Load a 3D structure</h4>
+<p>File => Open</p>
+<p>Choose the 1CRN.pdb file that you have downloaded from the PDB.</p>
+<p><hr>
+<strong>HELP SECTION FOR RASMOL</strong></p>
+<p>Molecule main moves with the mouse:</p>
+<p>Left button: XY rotation</p>
+<p>Left button + Shift: Zoom</p>
+<p>Right button: Translation</p>
+<p>Right button + Shift: Z rotation</p>
+<p>Keep the graphical window and the command (text) window on your screen
+(> ​​is a command to type in the text window).</p>
+<p>For each selection (SELECT command), the number of selected atoms
+appears in the text window. After you can apply an action to be able to
+visualize the elements that you have selected (e.g. COLOR GREEN).</p>
+<p>Ctrl+Z does not exist in Rasmol. You can type the command RESET.</p>
+<p>If you want to come back in a standard representation of your molecule,
+type:</p>
+<pre><code>SELECT ALL
+
+CPK
+</code></pre>
+
+<p>=> This will reset previous actions on representation modes (but keep
+colors). CPK: space-filling spheres representation</p>
+<p>COLOR CPK: colors \'atom\' objects by the atom (element) type</p>
+<hr>
+
+<p><strong>Help for Jmol:</strong></p>
+<p>A lot of "actions" (color, selection...) are available by right clicking
+on the main screen</p>
+<p>To get the terminal window: menu File > Console</p>
+<hr>
+
+<h4 id="2-example-visualize-the-disulfide-bonds">2. Example: visualize the disulfide bonds</h4>
+<p>Type in the text window</p>
+<pre><code>SELECT CYS
+</code></pre>
+
+<p>The text window \"answers\" 36 atoms selected (selected cysteine's
+atoms)</p>
+<pre><code>COLOR GREEN
+</code></pre>
+
+<ul>
+<li>Observe the graphics window.</li>
+</ul>
+<pre><code>RESTRICT CYS
+</code></pre>
+
+<ul>
+<li>Compare with the SELECT command</li>
+</ul>
+<p>Highlight the disulfide bonds:</p>
+<pre><code>SSBONDS
+
+COLOR YELLOW
+
+SSBONDS 75
+
+COLOR CPK
+</code></pre>
+
+<h4 id="3-visualize-secondary-structure-elements">3. Visualize secondary structure elements</h4>
+<pre><code>SSBONDS OFF (remove SS bonds)
+
+SELECT ALL
+
+CARTOONS
+
+COLOR STRUCTURE
+</code></pre>
+
+<h4 id="4-display-a-distance-between-2-atoms">4. Display a distance between 2 atoms</h4>
+<p>Activate the compute distance mode typing:</p>
+<pre><code>SET PICKING DISTANCE
+</code></pre>
+
+<p>Then, you can click the 2 atoms.</p>
+<p>You can display angle values typing:</p>
+<pre><code>SET PICKING ANGLE
+</code></pre>
+
+<p>Then pick the 3 atoms</p>
+<h2 id="5-other-useful-commands">5. Other useful commands</h2>
+<pre><code>SHOW SEQUENCE
+
+SHOW INFO
+
+SELECT ALL
+
+CPK ON
+
+RESTRICT NOT HOH (remove water molecules)
+
+CPK OFF
+
+HBONDS
+
+SELECT CYCLIC AND NOT PRO
+
+STEREO ON
+</code></pre>
+
+<p>Try them to better understand the Rasmol command language.</p>
+<h2 id="6-store-a-command-script-and-reload-it">6. Store a command script and reload it</h2>
+<p>Repeat the actions described in paragraph 2</p>
+<pre><code>WRITE SCRIPT MY_SCRIPT.SC
+</code></pre>
+
+<p>Exit the software (File => Quit)</p>
+<p>Restart the software</p>
+<pre><code>SOURCE MY_SCRIPT.SC
+</code></pre>
+
+<h2 id="7-select-the-atoms-in-a-sphere">7. Select the atoms in a sphere</h2>
+<p>File => Close</p>
+<p>Load the file 1LDM.pdb</p>
+<p>Discover and analyze the molecule (number of channels, ligands, <em>etc</em>.)</p>
+<p>To select all the atoms in a 3Å radius sphere centered on a ligand
+(<em>e.g.</em> NAD)</p>
+<pre><code>SELECT ALL
+
+COLOR CHAIN
+
+SELECT WITHIN (3.0, NAD)
+
+CPK
+</code></pre>
+
+<p>Option => Slab Mode (comment).</p></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '..';
+    </script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="../search/require.js"></script>
+    <script src="../search/search.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

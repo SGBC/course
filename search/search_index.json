@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "SGBC Bioinformatics Course\n\n\nThis website is a collection of lectures and tutorials given during the annual Bioinformatics course given at \nSLU\n by the \nSGBC\n.\n\n\nWelcome to the course!\n\n\nTable of Content\n\n\n\n\nWeek 1\n\n\nIntroduction to the command-line\n\n\nExercises \n-- soon available\n\n\nProject organisation \n-- soon available\n\n\nCloud computing \n-- soon available\n\n\nInstalling Software\n\n\nVersion control with Git \n-- soon available\n\n\n\n\n\n\n\n\nLicense\n\n\nUnless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.\nTo view a copy of this license, visit \nhttp://creativecommons.org/licenses/by/4.0/\n or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.\n\n\nContributors\n\n\nThe following people have contributed to these course material, in no particular order:\n\n\n\n\nHadrien Gourl\u00e9\n\n\nJuliette Hayer",
+            "text": "SGBC Bioinformatics Course\n\n\nThis website is a collection of lectures and tutorials given during the annual Bioinformatics course given at \nSLU\n by the \nSGBC\n.\n\n\nWelcome to the course!\n\n\nTable of Content\n\n\n\n\n\n\nWeek 1\n\n\n\n\nIntroduction to proteins analysis\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\nIntroduction to the command-line\n\n\nExercises \n-- soon available\n\n\nProject organisation \n-- soon available\n\n\nCloud computing \n-- soon available\n\n\nInstalling Software\n\n\nVersion control with Git \n-- soon available\n\n\n\n\n\n\n\n\nLicense\n\n\nUnless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.\nTo view a copy of this license, visit \nhttp://creativecommons.org/licenses/by/4.0/\n or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.\n\n\nContributors\n\n\nThe following people have contributed to these course material, in no particular order:\n\n\n\n\nHadrien Gourl\u00e9\n\n\nJuliette Hayer",
             "title": "Home"
         },
         {
@@ -12,7 +12,7 @@
         },
         {
             "location": "/#table-of-content",
-            "text": "Week 1  Introduction to the command-line  Exercises  -- soon available  Project organisation  -- soon available  Cloud computing  -- soon available  Installing Software  Version control with Git  -- soon available",
+            "text": "Week 1   Introduction to proteins analysis     Week 2   Introduction to the command-line  Exercises  -- soon available  Project organisation  -- soon available  Cloud computing  -- soon available  Installing Software  Version control with Git  -- soon available",
             "title": "Table of Content"
         },
         {
@@ -24,6 +24,161 @@
             "location": "/#contributors",
             "text": "The following people have contributed to these course material, in no particular order:   Hadrien Gourl\u00e9  Juliette Hayer",
             "title": "Contributors"
+        },
+        {
+            "location": "/proteins/",
+            "text": "Introduction to protein sequences and structures analysis\n\n\n\n\n\nToolBox that could be useful for protein sequences analysis:\n\n\nhttp://expasy.org/\n\n\nhttp://www.uniprot.org/\n\n\nhttp://www.ebiokit.eu/\n\n\nhttp://npsa-pbil.ibcp.fr\n\n\nhttp://blast.ncbi.nlm.nih.gov/Blast.cgi\n\n\nhttps://www.ebi.ac.uk/interpro\n\n\nhttp://www.rcsb.org/pdb\n\n\n\n\n\nAfter cloning and sequencing of coding DNA, the sequence of the X\nprotein had been determined. The sequence of X is given here:\n\n\nLAAVSVDCSEYPKPACTLEYRPLCGSDNKTYGNKCNFCNAVVESNGTLTLSHFGKC\n\n\nIn normal conditions, this X protein is expressed but we have no idea\nabout it function. The goal of this practical work is to collect the\nmaximum of information about structure and function of the X protein.\n\n\nI - Search Patterns, Profiles\n\n\nA way to identify the function of X is to look if it contains signatures\n(pattern) of a function or a protein family.\n\n\n2 options:\n\n\nhttp://prosite.expasy.org/scanprosite/\n\n\nNPS@\n and follow the link \"ProScan: scan a\nsequence for sites/signatures against PROSITE database\" (activate:\nInclude documentation in result file).\n\n\n\n\nQuestion\n\n\n\n\n\n\nWhich signature(s) could you identify? Which specific features in\n    this protein?\n\n\n\n\n\n\nTry to change the parameters and comment the results.\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nInterPro gives a summary of several methods. You can find it at the\n\nEBI\n.\n\n\n\n\nKeep the signatures that could attest the function in your notepad.\n\n\n\n\nWhat do you think about the function of X?\n\n\n\n\nII - Search homolog proteins with BLAST\n\n\n\n\n\n\nGo to the \nNCBI BLAST\n page\n\n\n\n\n\n\nChoose the Protein Blast (blastp)\n\n\n\n\n\n\nPaste your sequence\n\n\n\n\n\n\nSelect the Swissprot database\n\n\n\n\n\n\n\n\nQuestion\n\n\nDid you identify homologs? What are their function(s)?\n\n\n\n\nIII - Multiple sequences alignment\n\n\n\n\n\n\nSelect several homolog sequences from the Blast results.\n\n\n\n\n\n\nPerform a multiple sequence alignment (MSA) of these sequence using\n    Clustal Omega for example\n\n\n\n\n\n\nTry other MSA tools (for example Tcoffee and Muscle)\n\n\n\n\n\n\n\n\nQuestion\n\n\nDo you observe differences between the results obtained from\ndifferent algorithms?\n\n\nWhat can you observe in these MSAs?\n\n\n\n\nInfo\n: You could also retrieve the selected sequences in Fasta format\nand perform MSAs elsewhere\n\n\nClustal Omega and Muscle: available in Seaview alignment viewer\n\n\nTcoffee: \nhttp://tcoffee.vital-it.ch/apps/tcoffee/index.html\n\n\nOther tools: \nhttp://expasy.org/genomics/sequence_alignment\n\n\nIV - The Y protein\n\n\nAnother experiment had shown that the X protein was interacting\nspecifically with another protein: Y.\n\n\nAfter purification of the active Y protein, from the complex, a partial\nsequence of Y was obtained (by protein extremity sequencing).\n\n\nThe corresponding peptide could be:\n\n\nISGGD\n or \nISGGN\n\n\n1. Identification of the Y sequence using PROSITE patterns\n\n\n\n\n\n\nDesign the pattern (regular expression) corresponding to these\n    peptides.\n\n\n\n\n\n\nSearch the sequences containing this pattern in SwissProt using\n    \nPATTERN SEARCH\n at\n    SIB or\n    \nPATTINPROT\n\n    at NPS@.\n\n\n\n\n\n\nIf needed, use the help to design your pattern.\n\n\n\n\nQuestion\n\n\nHow many results do you get? How can you identify the right one?\n\n\n\n\nOnce the Y protein sequence identified, copy the FASTA sequence in your\nnotepad.\n\n\n2. Composition analysis\n\n\nAfter purification of the Y active protein, the amino-acid composition\nhas been determined (% of each aa in the protein) and is given in the\nfollowing table:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA\n\n\n8.11\n\n\nF\n\n\n2.70\n\n\nL\n\n\n3.78\n\n\nR\n\n\n4.32\n\n\nX\n\n\n0\n\n\n\n\n\n\nB\n\n\n0\n\n\nG\n\n\n17.30\n\n\nM\n\n\n1.08\n\n\nS\n\n\n11.89\n\n\nY\n\n\n5.41\n\n\n\n\n\n\nC\n\n\n2.16\n\n\nH\n\n\n1.08\n\n\nN\n\n\n5.41\n\n\nT\n\n\n15.14\n\n\nZ\n\n\n0\n\n\n\n\n\n\nD\n\n\n3.78\n\n\nI\n\n\n3.78\n\n\nP\n\n\n2.70\n\n\nV\n\n\n7.57\n\n\n\n\n\n\n\n\n\n\nE\n\n\n1.08\n\n\nK\n\n\n0.54\n\n\nQ\n\n\n1.08\n\n\nW\n\n\n1.08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCompute the composition of the sequence that you retrieve. Use\n    \nPROTPARAM\n or the tool\n    'Amino-acid composition' at \nNPS@\n\n\n\n\n\n\nCompare this computed composition with the composition of Y\n    experimentally determined.\n\n\n\n\n\n\n\n\nQuestion\n\n\nDo you observe differences? Explain.\n\n\n\n\n3. Search pattern in Y\n\n\nOnce the correct sequence of Y obtained, keep it in your notepad, you\nwill need it for the following analyses.\n\n\n\n\nQuestion\n\n\nIdentify the signatures (motifs, Pfam profiles) of Y using PROSCAN\nand/or Interpro.\n\n\n\n\n4. Identification of homologs to Y\n\n\n\n\n\n\nUse NCBI BLASTP or NPS@\n    \nBLASTP\n\n    against SwissProt database to search sequences similar to Y.\n\n\n\n\n\n\nUse PSI-BLAST (with SwissProt) to see if you can detect more distant\n    sequences.\n\n\n\n\n\n\nSelect sequences from BLAST and/or PSI-BLAST results to perform a\n    multiple sequence alignment.\n\n\n\n\n\n\n\n\nQuestion\n\n\n\n\nDid you observe difference in the results of BLAST and PSI-BLAST?\nComment.\n\n\nPropose a strategy to retrieve all the proteins having the same\ncatalytic activity as Y protein.\n\n\n\n\n\n\nV - Secondary structure prediction for X and Y\n\n\n\n\n\n\nGo to the \nconsensus secondary structure\n    prediction\n\n    page at NPS@.\n\n\n\n\n\n\nAnalyze the secondary structure of the protein Y. Include secondary\n    structure predictions by methods (DPM, GOR1, PREDATOR, SIMPA96).\n\n\n\n\n\n\n\n\nQuestion\n\n\n\n\nConclude on the organization of secondary structures.\n\n\nPerform the same analysis for X protein.\n\n\n\n\n\n\nVI - Comparison with solved structures\n\n\n1. The Z protein\n\n\nThe structure of a protein Z has just been published. The sequence of\nprotein Z is shown below:\n\n\nIAGGEAITTGGSRCSLGFNVSVNGVAHALTAGHCTNISASWSIGTRTGTSFPNNDYGIIRHSNPAAANGRVYLYNGSYQD\n\n\nITTAGNAFVGQAVQRSGSTTGLRSGSVTGLNATVNYGSSGIVYGMIQTNVCAQPGDSGGSLFAGSTALGLTSGGSGNCRT\n\n\nGGTTFYQPVTEALSAYGATVL\n\n\n\n\nQuestion\n\n\nCould you use this information for the study of protein Y? Make your\nown analysis.\n\n\n\n\n2. Find the correct structures\n\n\n\n\n\n\nDownload and install \nDeep-View -\n    SwissPDBViewer\n. You can\n    find the tutorial and user guide of DeepView\n    \nhere\n.\n\n\n\n\n\n\nDownload to the archive \nPDB_files_part6.zip\n and unzip it.\n\n\n\n\n\n\nYou might find 8 PDB files in the directory.\n\n\n\n\n\n\nOpen them with DeepView.\n\n\n\n\n\n\nDisplay the secondary structure representation mode (see part\n    VII-A-5 and/or the user guide).\n\n\n\n\n\n\n\n\nQuestion\n\n\nTry to identify the structures corresponding to X and Y proteins.\n\n\n\n\nVII - Tridimensional protein structure: Play with 3D structures using SwissPDBViewer (DeepView)\n\n\n\n\n\n\nGo to the \nProtein Data Bank\n\n\n\n\n\n\nSearch and download the following PDB files: 1CRN, 1LDM.\n\n\n\n\n\n\nYou will visualize these protein structures using DeepView\n\n\nA - Analyze protein structures with DeepView\n\n\n1. Load a 3D structure\n\n\nFile => Open\n\n\nChoose the 1CRN.pdb file that you have downloaded from the PDB.\n\n\n2. Visualize the number of chains\n\n\nIs it only the protein or can we find ligands? Is it a monomer or a\npolymer?\n\n\n3. Visualize the general shape\n\n\nTry to get the actual space taken by the molecule. You need to use the\ncontrol panel and use the ':v' column to activate the space-filling\nspheres representation (+ menu Display > Render in solid 3D).\n\n\nTest also the Slab mode to visualize the space within the molecule:\nDisplay > Slab\n\n\n4. Display a distance between 2 atoms, angle between 3 atoms\n\n\nUse the graphical panel. You can now measure the real dimensions of your\nprotein\n\n\n5. Visualize secondary structure elements\n\n\nIn the control panel, activate \"ribbon\" (rbn). You can also color the\nmolecule by secondary structures.\n\n\n6. Visualize ligands (if there is any)\n\n\nSelect and color them. You could also remove the rest, or better, have a\nlook at the residues that are around those ligands (radius function in\nthe graphical panel).\n\n\n7. Analysis of other protein structures\n\n\nThe teacher will give PDB codes of other structures to analyze. Choose\nDeepView or Rasmol/Jmol to do so, that is up to you!\n\n\nB - Optional: if you want to use RasMol/Jmol\n\n\n1. Load a 3D structure\n\n\nFile => Open\n\n\nChoose the 1CRN.pdb file that you have downloaded from the PDB.\n\n\n\n\nHELP SECTION FOR RASMOL\n\n\nMolecule main moves with the mouse:\n\n\nLeft button: XY rotation\n\n\nLeft button + Shift: Zoom\n\n\nRight button: Translation\n\n\nRight button + Shift: Z rotation\n\n\nKeep the graphical window and the command (text) window on your screen\n(> \u200b\u200bis a command to type in the text window).\n\n\nFor each selection (SELECT command), the number of selected atoms\nappears in the text window. After you can apply an action to be able to\nvisualize the elements that you have selected (e.g. COLOR GREEN).\n\n\nCtrl+Z does not exist in Rasmol. You can type the command RESET.\n\n\nIf you want to come back in a standard representation of your molecule,\ntype:\n\n\nSELECT ALL\n\nCPK\n\n\n\n\n=> This will reset previous actions on representation modes (but keep\ncolors). CPK: space-filling spheres representation\n\n\nCOLOR CPK: colors \\'atom\\' objects by the atom (element) type\n\n\n\n\n\nHelp for Jmol:\n\n\nA lot of \"actions\" (color, selection...) are available by right clicking\non the main screen\n\n\nTo get the terminal window: menu File > Console\n\n\n\n\n\n2. Example: visualize the disulfide bonds\n\n\nType in the text window\n\n\nSELECT CYS\n\n\n\n\nThe text window \\\"answers\\\" 36 atoms selected (selected cysteine's\natoms)\n\n\nCOLOR GREEN\n\n\n\n\n\n\nObserve the graphics window.\n\n\n\n\nRESTRICT CYS\n\n\n\n\n\n\nCompare with the SELECT command\n\n\n\n\nHighlight the disulfide bonds:\n\n\nSSBONDS\n\nCOLOR YELLOW\n\nSSBONDS 75\n\nCOLOR CPK\n\n\n\n\n3. Visualize secondary structure elements\n\n\nSSBONDS OFF (remove SS bonds)\n\nSELECT ALL\n\nCARTOONS\n\nCOLOR STRUCTURE\n\n\n\n\n4. Display a distance between 2 atoms\n\n\nActivate the compute distance mode typing:\n\n\nSET PICKING DISTANCE\n\n\n\n\nThen, you can click the 2 atoms.\n\n\nYou can display angle values typing:\n\n\nSET PICKING ANGLE\n\n\n\n\nThen pick the 3 atoms\n\n\n5. Other useful commands\n\n\nSHOW SEQUENCE\n\nSHOW INFO\n\nSELECT ALL\n\nCPK ON\n\nRESTRICT NOT HOH (remove water molecules)\n\nCPK OFF\n\nHBONDS\n\nSELECT CYCLIC AND NOT PRO\n\nSTEREO ON\n\n\n\n\nTry them to better understand the Rasmol command language.\n\n\n6. Store a command script and reload it\n\n\nRepeat the actions described in paragraph 2\n\n\nWRITE SCRIPT MY_SCRIPT.SC\n\n\n\n\nExit the software (File => Quit)\n\n\nRestart the software\n\n\nSOURCE MY_SCRIPT.SC\n\n\n\n\n7. Select the atoms in a sphere\n\n\nFile => Close\n\n\nLoad the file 1LDM.pdb\n\n\nDiscover and analyze the molecule (number of channels, ligands, \netc\n.)\n\n\nTo select all the atoms in a 3\u00c5 radius sphere centered on a ligand\n(\ne.g.\n NAD)\n\n\nSELECT ALL\n\nCOLOR CHAIN\n\nSELECT WITHIN (3.0, NAD)\n\nCPK\n\n\n\n\nOption => Slab Mode (comment).",
+            "title": "Proteins"
+        },
+        {
+            "location": "/proteins/#introduction-to-protein-sequences-and-structures-analysis",
+            "text": "ToolBox that could be useful for protein sequences analysis:  http://expasy.org/  http://www.uniprot.org/  http://www.ebiokit.eu/  http://npsa-pbil.ibcp.fr  http://blast.ncbi.nlm.nih.gov/Blast.cgi  https://www.ebi.ac.uk/interpro  http://www.rcsb.org/pdb   After cloning and sequencing of coding DNA, the sequence of the X\nprotein had been determined. The sequence of X is given here:  LAAVSVDCSEYPKPACTLEYRPLCGSDNKTYGNKCNFCNAVVESNGTLTLSHFGKC  In normal conditions, this X protein is expressed but we have no idea\nabout it function. The goal of this practical work is to collect the\nmaximum of information about structure and function of the X protein.",
+            "title": "Introduction to protein sequences and structures analysis"
+        },
+        {
+            "location": "/proteins/#i-search-patterns-profiles",
+            "text": "A way to identify the function of X is to look if it contains signatures\n(pattern) of a function or a protein family.  2 options:  http://prosite.expasy.org/scanprosite/  NPS@  and follow the link \"ProScan: scan a\nsequence for sites/signatures against PROSITE database\" (activate:\nInclude documentation in result file).   Question    Which signature(s) could you identify? Which specific features in\n    this protein?    Try to change the parameters and comment the results.      Note  InterPro gives a summary of several methods. You can find it at the EBI .   Keep the signatures that could attest the function in your notepad.   What do you think about the function of X?",
+            "title": "I - Search Patterns, Profiles"
+        },
+        {
+            "location": "/proteins/#ii-search-homolog-proteins-with-blast",
+            "text": "Go to the  NCBI BLAST  page    Choose the Protein Blast (blastp)    Paste your sequence    Select the Swissprot database     Question  Did you identify homologs? What are their function(s)?",
+            "title": "II - Search homolog proteins with BLAST"
+        },
+        {
+            "location": "/proteins/#iii-multiple-sequences-alignment",
+            "text": "Select several homolog sequences from the Blast results.    Perform a multiple sequence alignment (MSA) of these sequence using\n    Clustal Omega for example    Try other MSA tools (for example Tcoffee and Muscle)     Question  Do you observe differences between the results obtained from\ndifferent algorithms?  What can you observe in these MSAs?   Info : You could also retrieve the selected sequences in Fasta format\nand perform MSAs elsewhere  Clustal Omega and Muscle: available in Seaview alignment viewer  Tcoffee:  http://tcoffee.vital-it.ch/apps/tcoffee/index.html  Other tools:  http://expasy.org/genomics/sequence_alignment",
+            "title": "III - Multiple sequences alignment"
+        },
+        {
+            "location": "/proteins/#iv-the-y-protein",
+            "text": "Another experiment had shown that the X protein was interacting\nspecifically with another protein: Y.  After purification of the active Y protein, from the complex, a partial\nsequence of Y was obtained (by protein extremity sequencing).  The corresponding peptide could be:  ISGGD  or  ISGGN",
+            "title": "IV - The Y protein"
+        },
+        {
+            "location": "/proteins/#1-identification-of-the-y-sequence-using-prosite-patterns",
+            "text": "Design the pattern (regular expression) corresponding to these\n    peptides.    Search the sequences containing this pattern in SwissProt using\n     PATTERN SEARCH  at\n    SIB or\n     PATTINPROT \n    at NPS@.    If needed, use the help to design your pattern.   Question  How many results do you get? How can you identify the right one?   Once the Y protein sequence identified, copy the FASTA sequence in your\nnotepad.",
+            "title": "1. Identification of the Y sequence using PROSITE patterns"
+        },
+        {
+            "location": "/proteins/#2-composition-analysis",
+            "text": "After purification of the Y active protein, the amino-acid composition\nhas been determined (% of each aa in the protein) and is given in the\nfollowing table:                   A  8.11  F  2.70  L  3.78  R  4.32  X  0    B  0  G  17.30  M  1.08  S  11.89  Y  5.41    C  2.16  H  1.08  N  5.41  T  15.14  Z  0    D  3.78  I  3.78  P  2.70  V  7.57      E  1.08  K  0.54  Q  1.08  W  1.08         Compute the composition of the sequence that you retrieve. Use\n     PROTPARAM  or the tool\n    'Amino-acid composition' at  NPS@    Compare this computed composition with the composition of Y\n    experimentally determined.     Question  Do you observe differences? Explain.",
+            "title": "2. Composition analysis"
+        },
+        {
+            "location": "/proteins/#3-search-pattern-in-y",
+            "text": "Once the correct sequence of Y obtained, keep it in your notepad, you\nwill need it for the following analyses.   Question  Identify the signatures (motifs, Pfam profiles) of Y using PROSCAN\nand/or Interpro.",
+            "title": "3. Search pattern in Y"
+        },
+        {
+            "location": "/proteins/#4-identification-of-homologs-to-y",
+            "text": "Use NCBI BLASTP or NPS@\n     BLASTP \n    against SwissProt database to search sequences similar to Y.    Use PSI-BLAST (with SwissProt) to see if you can detect more distant\n    sequences.    Select sequences from BLAST and/or PSI-BLAST results to perform a\n    multiple sequence alignment.     Question   Did you observe difference in the results of BLAST and PSI-BLAST?\nComment.  Propose a strategy to retrieve all the proteins having the same\ncatalytic activity as Y protein.",
+            "title": "4. Identification of homologs to Y"
+        },
+        {
+            "location": "/proteins/#v-secondary-structure-prediction-for-x-and-y",
+            "text": "Go to the  consensus secondary structure\n    prediction \n    page at NPS@.    Analyze the secondary structure of the protein Y. Include secondary\n    structure predictions by methods (DPM, GOR1, PREDATOR, SIMPA96).     Question   Conclude on the organization of secondary structures.  Perform the same analysis for X protein.",
+            "title": "V - Secondary structure prediction for X and Y"
+        },
+        {
+            "location": "/proteins/#vi-comparison-with-solved-structures",
+            "text": "",
+            "title": "VI - Comparison with solved structures"
+        },
+        {
+            "location": "/proteins/#1-the-z-protein",
+            "text": "The structure of a protein Z has just been published. The sequence of\nprotein Z is shown below:  IAGGEAITTGGSRCSLGFNVSVNGVAHALTAGHCTNISASWSIGTRTGTSFPNNDYGIIRHSNPAAANGRVYLYNGSYQD  ITTAGNAFVGQAVQRSGSTTGLRSGSVTGLNATVNYGSSGIVYGMIQTNVCAQPGDSGGSLFAGSTALGLTSGGSGNCRT  GGTTFYQPVTEALSAYGATVL   Question  Could you use this information for the study of protein Y? Make your\nown analysis.",
+            "title": "1. The Z protein"
+        },
+        {
+            "location": "/proteins/#2-find-the-correct-structures",
+            "text": "Download and install  Deep-View -\n    SwissPDBViewer . You can\n    find the tutorial and user guide of DeepView\n     here .    Download to the archive  PDB_files_part6.zip  and unzip it.    You might find 8 PDB files in the directory.    Open them with DeepView.    Display the secondary structure representation mode (see part\n    VII-A-5 and/or the user guide).     Question  Try to identify the structures corresponding to X and Y proteins.",
+            "title": "2. Find the correct structures"
+        },
+        {
+            "location": "/proteins/#vii-tridimensional-protein-structure-play-with-3d-structures-using-swisspdbviewer-deepview",
+            "text": "Go to the  Protein Data Bank    Search and download the following PDB files: 1CRN, 1LDM.    You will visualize these protein structures using DeepView",
+            "title": "VII - Tridimensional protein structure: Play with 3D structures using SwissPDBViewer (DeepView)"
+        },
+        {
+            "location": "/proteins/#a-analyze-protein-structures-with-deepview",
+            "text": "",
+            "title": "A - Analyze protein structures with DeepView"
+        },
+        {
+            "location": "/proteins/#1-load-a-3d-structure",
+            "text": "File => Open  Choose the 1CRN.pdb file that you have downloaded from the PDB.",
+            "title": "1. Load a 3D structure"
+        },
+        {
+            "location": "/proteins/#2-visualize-the-number-of-chains",
+            "text": "Is it only the protein or can we find ligands? Is it a monomer or a\npolymer?",
+            "title": "2. Visualize the number of chains"
+        },
+        {
+            "location": "/proteins/#3-visualize-the-general-shape",
+            "text": "Try to get the actual space taken by the molecule. You need to use the\ncontrol panel and use the ':v' column to activate the space-filling\nspheres representation (+ menu Display > Render in solid 3D).  Test also the Slab mode to visualize the space within the molecule:\nDisplay > Slab",
+            "title": "3. Visualize the general shape"
+        },
+        {
+            "location": "/proteins/#4-display-a-distance-between-2-atoms-angle-between-3-atoms",
+            "text": "Use the graphical panel. You can now measure the real dimensions of your\nprotein",
+            "title": "4. Display a distance between 2 atoms, angle between 3 atoms"
+        },
+        {
+            "location": "/proteins/#5-visualize-secondary-structure-elements",
+            "text": "In the control panel, activate \"ribbon\" (rbn). You can also color the\nmolecule by secondary structures.",
+            "title": "5. Visualize secondary structure elements"
+        },
+        {
+            "location": "/proteins/#6-visualize-ligands-if-there-is-any",
+            "text": "Select and color them. You could also remove the rest, or better, have a\nlook at the residues that are around those ligands (radius function in\nthe graphical panel).",
+            "title": "6. Visualize ligands (if there is any)"
+        },
+        {
+            "location": "/proteins/#7-analysis-of-other-protein-structures",
+            "text": "The teacher will give PDB codes of other structures to analyze. Choose\nDeepView or Rasmol/Jmol to do so, that is up to you!",
+            "title": "7. Analysis of other protein structures"
+        },
+        {
+            "location": "/proteins/#b-optional-if-you-want-to-use-rasmoljmol",
+            "text": "",
+            "title": "B - Optional: if you want to use RasMol/Jmol"
+        },
+        {
+            "location": "/proteins/#1-load-a-3d-structure_1",
+            "text": "File => Open  Choose the 1CRN.pdb file that you have downloaded from the PDB.   HELP SECTION FOR RASMOL  Molecule main moves with the mouse:  Left button: XY rotation  Left button + Shift: Zoom  Right button: Translation  Right button + Shift: Z rotation  Keep the graphical window and the command (text) window on your screen\n(> \u200b\u200bis a command to type in the text window).  For each selection (SELECT command), the number of selected atoms\nappears in the text window. After you can apply an action to be able to\nvisualize the elements that you have selected (e.g. COLOR GREEN).  Ctrl+Z does not exist in Rasmol. You can type the command RESET.  If you want to come back in a standard representation of your molecule,\ntype:  SELECT ALL\n\nCPK  => This will reset previous actions on representation modes (but keep\ncolors). CPK: space-filling spheres representation  COLOR CPK: colors \\'atom\\' objects by the atom (element) type   Help for Jmol:  A lot of \"actions\" (color, selection...) are available by right clicking\non the main screen  To get the terminal window: menu File > Console",
+            "title": "1. Load a 3D structure"
+        },
+        {
+            "location": "/proteins/#2-example-visualize-the-disulfide-bonds",
+            "text": "Type in the text window  SELECT CYS  The text window \\\"answers\\\" 36 atoms selected (selected cysteine's\natoms)  COLOR GREEN   Observe the graphics window.   RESTRICT CYS   Compare with the SELECT command   Highlight the disulfide bonds:  SSBONDS\n\nCOLOR YELLOW\n\nSSBONDS 75\n\nCOLOR CPK",
+            "title": "2. Example: visualize the disulfide bonds"
+        },
+        {
+            "location": "/proteins/#3-visualize-secondary-structure-elements",
+            "text": "SSBONDS OFF (remove SS bonds)\n\nSELECT ALL\n\nCARTOONS\n\nCOLOR STRUCTURE",
+            "title": "3. Visualize secondary structure elements"
+        },
+        {
+            "location": "/proteins/#4-display-a-distance-between-2-atoms",
+            "text": "Activate the compute distance mode typing:  SET PICKING DISTANCE  Then, you can click the 2 atoms.  You can display angle values typing:  SET PICKING ANGLE  Then pick the 3 atoms",
+            "title": "4. Display a distance between 2 atoms"
+        },
+        {
+            "location": "/proteins/#5-other-useful-commands",
+            "text": "SHOW SEQUENCE\n\nSHOW INFO\n\nSELECT ALL\n\nCPK ON\n\nRESTRICT NOT HOH (remove water molecules)\n\nCPK OFF\n\nHBONDS\n\nSELECT CYCLIC AND NOT PRO\n\nSTEREO ON  Try them to better understand the Rasmol command language.",
+            "title": "5. Other useful commands"
+        },
+        {
+            "location": "/proteins/#6-store-a-command-script-and-reload-it",
+            "text": "Repeat the actions described in paragraph 2  WRITE SCRIPT MY_SCRIPT.SC  Exit the software (File => Quit)  Restart the software  SOURCE MY_SCRIPT.SC",
+            "title": "6. Store a command script and reload it"
+        },
+        {
+            "location": "/proteins/#7-select-the-atoms-in-a-sphere",
+            "text": "File => Close  Load the file 1LDM.pdb  Discover and analyze the molecule (number of channels, ligands,  etc .)  To select all the atoms in a 3\u00c5 radius sphere centered on a ligand\n( e.g.  NAD)  SELECT ALL\n\nCOLOR CHAIN\n\nSELECT WITHIN (3.0, NAD)\n\nCPK  Option => Slab Mode (comment).",
+            "title": "7. Select the atoms in a sphere"
         },
         {
             "location": "/unix/",
