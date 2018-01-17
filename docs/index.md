@@ -8,14 +8,14 @@ Welcome to the course!
 
 * Week 1
     * [Introduction to proteins analysis](proteins)
-    
+
 * Week 2
     * [Introduction to the command-line](unix)
     * Exercises *-- soon available*
     * Project organisation *-- soon available*
     * Cloud computing *-- soon available*
-    * [Installing Software](software.md)
-    * Version control with Git *-- soon available*
+    * [Installing Software](software)
+    * [Version control with Git](git)
 
 ## License
 
