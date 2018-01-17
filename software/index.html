@@ -120,6 +120,16 @@
             <li class="second-level"><a href="#compiled-and-interpreted-languages">Compiled and Interpreted languages</a></li>
                 
                 <li class="third-level"><a href="#compilation">Compilation</a></li>
+            <li class="second-level"><a href="#package-managers">Package Managers</a></li>
+                
+            <li class="second-level"><a href="#downloading-and-unpacking">Downloading and unpacking</a></li>
+                
+            <li class="second-level"><a href="#installing-from-source">Installing from source</a></li>
+                
+            <li class="second-level"><a href="#installing-python-packages">Installing python packages</a></li>
+                
+            <li class="second-level"><a href="#exercises">Exercises</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -127,14 +137,238 @@
 <h1 id="installing-software">Installing software</h1>
 <p>Bioinformatics is a relatively new (It's younger that Erik!) and fast-progressing field.
 Therefore new software as well as new versions of existing software are released on a regular basis.</p>
-<p>During this course as well as during your future career as a bioinformatician ( );-) ) you will be confronted quite often to the installation of new software on UNIX platforms (i.e. the server you are using at the moment)</p>
+<p>During this course as well as during your future career as a bioinformatician ( ;-) ) you will be confronted quite often to the installation of new software on UNIX platforms (i.e. the server you are using at the moment)</p>
 <h2 id="compiled-and-interpreted-languages">Compiled and Interpreted languages</h2>
 <p>Programming languages in the bioinformatics world - and in general - can be separated in two categories: <em>intepreted</em> languages, and <em>compiled</em> languages. While with <em>interpreted</em> languages you write scripts, and execute them (as we saw with the <code>bash</code> scripts during the UNIX lesson) it is different for compiled languages: an extra step is required</p>
 <h3 id="compilation">Compilation</h3>
 <p>As from <a href="https://en.wikipedia.org/wiki/Compilation">Wikipedia</a>, compilation is the translation of source code into object code by a compiler.</p>
-<p>That's right. The extra step required by compiled languages is translating the source code, that is the lines of code the programmer(s) wrote into a language that your computer understand better, usually binary (1s and 0s).</p>
-<p>The big advantage of compiled languages is that they are much faster than interpreted languages. However, programming in them is usually slower and more difficult than in interpreted languages. Using them or not for a software project is a trade-off between development-time, and how much faster your software could run if it was programmed using a compiled language.</p>
-<p>The most popular compiled language is the C programming language, which Linux is mainly written in.</p></div>
+<p>That's right.
+The extra step required by compiled languages is translating the source code, that is the lines of code the programmer(s) wrote into a language that your computer understand better, usually binary (1s and 0s).</p>
+<p>The big advantage of compiled languages is that they are much faster than interpreted languages.
+However, programming in them is usually slower and more difficult than in interpreted languages. Using them or not for a software project is a trade-off between development-time, and how much faster your software could run if it was programmed using a compiled language.</p>
+<p>The most popular compiled language is the C programming language, which Linux is mainly written in.</p>
+<h2 id="package-managers">Package Managers</h2>
+<p>All modern linux distributions come with a <a href="https://en.wikipedia.org/wiki/Package_manager">package manager</a>, i.e. a tool that automates installation of software.
+In most cases the software manager download already compiled binaries and installs them in your system. We'll see how it works in a moment</p>
+<p>Let us install our first package!</p>
+<p>The package manager for <a href="https://www.ubuntu.com">Ubuntu</a> is called <a href="https://en.wikipedia.org/wiki/APT_(Debian)">APT</a>. Like most package managers, the syntax will look like this:</p>
+<pre><code>[package_manager] [action] [package_name]
+</code></pre>
+
+<p>We'll use apt to install a local version of <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=">ncbi-blast</a> that you've use previously.</p>
+<p>First we search if the package is available</p>
+<pre><code class="bash">apt search ncbi-blast
+</code></pre>
+
+<p>There seems to be two versions of it. The legacy version is probably outdated, so let us investigate the other one</p>
+<pre><code class="bash">apt show ncbi-blast+
+</code></pre>
+
+<p>It seems to be what we are looking for, we install it with:</p>
+<pre><code class="bash">apt install ncbi-blast+
+</code></pre>
+
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Did it work? What could have been wrong?</p>
+</div>
+<p>You should have gotten an error message asking if you are <code>root</code>.<br />
+The user <code>root</code> is the most powerful user in a linux system and usually has extra rights that a regular user does not have.<br />
+To install software in the default system location with apt, you have to have special permissions.<br />
+We can "borrow" those permissions from <code>root</code> by prefixing our command with <code>sudo</code>.</p>
+<pre><code class="bash">sudo apt install ncbi-blast+
+</code></pre>
+
+<p>Now if you execute</p>
+<pre><code class="bash">blastn -help
+</code></pre>
+
+<p>it should print the (rather long) error message of the blastn command.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Why does blast has different executable?<br />
+What is the difference between blastn and blastp?  </p>
+</div>
+<h2 id="downloading-and-unpacking">Downloading and unpacking</h2>
+<p>Although most popular software can be installed with your distribution's package manager, sometimes (especially in some fast-growing areas of bioinformatics) the software you want isn't available through a package manager.</p>
+<p>We'll install <a href="http://cab.spbu.ru/software/spades/">spades</a>, a popular genome assembly tool. Let's imagine it is not available in the apt sources. We'd have to:</p>
+<ul>
+<li>download the source code</li>
+<li>compile the software</li>
+<li>move it at the right place on our system</li>
+</ul>
+<p>Which is quite cumbersome, especially the compilation.
+Luckily, it is fairly common for developers to make linux binaries - that is compiled version of the software - already available for download.</p>
+<p>First let us create a directory for all our future installs:</p>
+<pre><code class="bash">mkdir -p ~/install
+cd ~/install
+</code></pre>
+
+<p>The spades binaries are available on their website, <a href="http://cab.spbu.ru/software/spades/">http://cab.spbu.ru/software/spades/</a></p>
+<p>Download them with</p>
+<pre><code class="bash">wget http://cab.spbu.ru/files/release3.11.1/SPAdes-3.11.1-Linux.tar.gz
+</code></pre>
+
+<p>and uncompress</p>
+<pre><code class="bash">tar xvf SPAdes-3.11.1-Linux.tar.gz
+</code></pre>
+
+<pre><code class="bash">cd SPAdes-3.11.1-Linux/bin/
+</code></pre>
+
+<p>and now if we execute <code>spades.py</code></p>
+<pre><code class="bash">./spades.py
+</code></pre>
+
+<p>we get the help of the spades assembler!</p>
+<p>A minor inconvenience is that right now</p>
+<pre><code class="bash">pwd
+# /home/hadrien/install/SPAdes-3.11.1-Linux/bin
+</code></pre>
+
+<p>we have to always go to this directory to run <code>spades.py</code>, or call the software with the full path.
+We'd like to be able to execute <code>spades</code> from anywhere, like we do with <code>ls</code> and <code>cd</code>.</p>
+<p>In most linux distributions, which directory can contain software that are executed from anywhere is defined by an environment variable: <code>$PATH</code></p>
+<p>Let us take a look:</p>
+<pre><code class="bash">echo $PATH
+# /home/hadrien/bin:/home/hadrien/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+</code></pre>
+
+<p>To make <code>spades.py</code> available from anywhere we have to put it in one of the above locations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When <code>apt</code> installs software it usually places it in <code>/usr/bin</code>, which requires administration privileges.
+This is why we needed <code>sudo</code> for installing packages earlier.</p>
+</div>
+<pre><code class="bash">mkdir -p ~/.local/bin
+mv * ~/.local/bin/
+</code></pre>
+
+<p>Et voilà! Now you can execute <code>spades.py</code> from anywhere!</p>
+<h2 id="installing-from-source">Installing from source</h2>
+<p>For some bioinformatics software, binaries are not available. In that case you have to download the source code, and compile it yourself for your system.</p>
+<p>This is the case of <a href="http://www.htslib.org">samtools</a> per example. <a href="http://www.htslib.org">samtools</a> is one of the most popular bioinformatics software and allows you to deal with <code>bam</code> and <code>sam</code> files (more about that later)</p>
+<p>We'll need a few things to be able to compile samtools, notably <a href="https://www.gnu.org/software/make/">make</a> and a C compiler, <a href="https://www.gnu.org/software/gcc/">gcc</a></p>
+<pre><code class="bash">sudo apt install make gcc
+</code></pre>
+
+<p>samtools also need some libraries that are not installed by default on an ubuntu system.</p>
+<pre><code>sudo apt install libncurses5-dev libbz2-dev liblzma-dev libcurl4-gnutls-dev
+</code></pre>
+
+<p>Now we can download and unpack the source code:</p>
+<pre><code class="bash">cd ~/install
+wget https://github.com/samtools/samtools/releases/download/1.6/samtools-1.6.tar.bz2
+tar xvf samtools-1.6.tar.bz2
+cd samtools-1.6
+</code></pre>
+
+<p>Compiling software written in C usually follows the same 3 steps.</p>
+<ol>
+<li><code>./configure</code> to configure the compilation options to our machine architecture</li>
+<li>we run <code>make</code> to compile the software</li>
+<li>we run <code>make install</code> to move the compiled binaries into a location in the <code>$PATH</code></li>
+</ol>
+<pre><code class="bash">./configure
+make
+make install
+</code></pre>
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Did <code>make install</code> succeed? Why not?</p>
+</div>
+<p>As we saw before, we need <code>sudo</code> to install packages to system locations with <code>apt</code>.
+<code>make install</code> follows the same principle and tries by default to install software in <code>/usr/bin</code></p>
+<p>We can change that default behavior by passing options to <code>configure</code>, but first we have to clean our installation:</p>
+<pre><code class="bash">make clean
+</code></pre>
+
+<p>than we can run configure, make and make install again</p>
+<pre><code class="bash">./configure --prefix=/home/$(whoami)/.local/
+make
+make install
+</code></pre>
+
+<pre><code class="bash">samtools
+</code></pre>
+
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>The bwa source code is available on github, a popular code sharing platform (more on this in the git lesson!).
+Navigate to <a href="https://github.com/lh3/bwa">https://github.com/lh3/bwa</a> then in release copy the link behind <code>bwa-0.7.17.tar.bz2</code><br />
+- Install bwa!</p>
+</div>
+<h2 id="installing-python-packages">Installing python packages</h2>
+<p>While compiled languages are faster than interpreted languages, they are usually harder to learn, code in and debug.
+For theses reasons you'll often find many bioinformatics packages written in interpreted languages such as <a href="https://www.python.org">python</a> or <a href="https://www.ruby-lang.org/en/">ruby</a>.</p>
+<p>While historically it has been a pain to install software written in interpreted languages, most modern languages now come with their own package managers! For example:</p>
+<ul>
+<li>Python has <code>pip</code></li>
+<li>Ruby has <code>gem</code></li>
+<li>Javascript has <code>npm</code></li>
+<li>...</li>
+</ul>
+<p>Most of theses package managers have similar syntaxes.
+We will focus on python here since it's one of the most popular languages in bioinformatics.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will notice the absence of R here.
+R is mostly used interactively and installing packages in R will be part of the R part of the course.</p>
+</div>
+<p>Your ubuntu comes with an old version of python. We start with installing a newer one</p>
+<pre><code class="bash">cd ~/install
+wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tar.xz
+tar xvf Python-3.6.4.tar.xz
+cd Python-3.6.4
+./configure --prefix=/home/$(whoami)/.local/
+make -j2
+make install
+</code></pre>
+
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What does the <code>make</code> option <code>-j2</code> do?</p>
+</div>
+<pre><code class="bash">which python3
+which pip3
+</code></pre>
+
+<p>We now have the newest python installed.</p>
+<p>Let us install our first python package</p>
+<pre><code class="bash">pip3 install multiqc
+</code></pre>
+
+<p>it should take a while and install <a href="http://multiqc.info">multiqc</a> as well as all the necessary dependencies.</p>
+<p>to see if multiqc was properly installed:</p>
+<pre><code class="bash">multiqc -h
+</code></pre>
+
+<h2 id="exercises">Exercises</h2>
+<p>During the following weeks we'll use a lot of different bioinformatics software to perform a variety of tasks.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Most software come with a file named <code>INSTALL</code> or <code>README</code>.
+Such file usually contains instructions on how to install!</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>unless indicated otherwise, try with <code>apt</code> first</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>do not hesitate to ask your teacher for help!</p>
+</div>
+<p>Let's install a few:</p>
+<ul>
+<li><a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">fastqc</a></li>
+<li><a href="https://github.com/vsbuffalo/scythe">scythe</a></li>
+<li><a href="https://github.com/najoshi/sickle">sickle</a></li>
+<li><a href="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml">bowtie2</a></li>
+<li><a href="https://github.com/voutcn/megahit">megahit</a></li>
+<li><a href="http://quast.sourceforge.net">quast</a></li>
+<li><a href="https://github.com/tseemann/prokka">prokka</a></li>
+</ul></div>
         
     </div>
 
