@@ -279,3 +279,18 @@ to see if multiqc was properly installed:
 ```bash
 multiqc -h
 ```
+
+## Exercises
+
+During the following weeks we'll use a lot of different bioinformatics software to perform a variety of tasks.
+
+!!! tip
+    Most software come with a file named `INSTALL` or `README`.
+    Such file usually contains instructions on how to install!
+
+!!! note
+    unless indicated otherwise, try with `apt` first
+
+Let's install a few:
+
+*
