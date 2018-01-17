@@ -150,7 +150,7 @@ To make `spades.py` available from anywhere we have to put it in one of the abov
     When `apt` installs software it usually places it in `/usr/bin`, which requires administration privileges.
     This is why we needed `sudo` for installing packages earlier.
 
-```
+```bash
 mkdir -p ~/.local/bin
 mv * ~/.local/bin/
 ```
@@ -159,26 +159,67 @@ Et voilà! Now you can execute `spades.py` from anywhere!
 
 ## Installing from source
 
-The bwa source code is available on github, a popular code sharing platform (more on this in the git lesson!).
-Navigate to <https://github.com/lh3/bwa> then in release copy the link behind `bwa-0.7.17.tar.bz2`~~
+For some bioinformatics software, binaries are not available. In that case you have to download the source code, and compile it yourself for your system.
 
-This time the binaries are not available. we'll have to compile the software ourselves
+This is the case of [samtools](http://www.htslib.org) per example. [samtools](http://www.htslib.org) is one of the most popular bioinformatics software and allows you to deal with `bam` and `sam` files (more about that later)
 
-Now paste in your terminal for downloading with `wget`
+We'll need a few things to be able to compile samtools, notably [make](https://www.gnu.org/software/make/) and a C compiler, [gcc](https://www.gnu.org/software/gcc/)
 
 ```bash
-wget https://github.com/lh3/bwa/releases/download/v0.7.17/bwa-0.7.17.tar.bz2
+sudo apt install make gcc
 ```
 
-```bash
-tar xvf bwa-0.7.17.tar.bz2
-cd bwa-0.7.17/
+samtools also need some libraries that are not installed by default on an ubuntu system.
+
+```
+sudo apt install libncurses5-dev libbz2-dev liblzma-dev libcurl4-gnutls-dev
 ```
 
-```bash
-sudo apt install make gcc zlib1g-dev
-```
+Now we can download and unpack the source code:
 
 ```bash
+wget https://github.com/samtools/samtools/releases/download/1.6/samtools-1.6.tar.bz2
+tar xvf samtools-1.6.tar.bz2
+cd samtools-1.6
+```
+
+Compiling software written in C usually follows the same 3 steps.
+
+1. `./configure` to configure the compilation options to our machine architecture
+2. we run `make` to compile the software
+3. we run `make install` to move the compiled binaries into a location in the `$PATH`
+
+```bash
+./configure
 make
+make install
 ```
+
+!!! warning
+    Did `make install` succeed? Why not?
+
+As we saw before, we need `sudo` to install packages to system locations with `apt`.
+`make install` follows the same principle and tries by default to install software in `/usr/bin`
+
+We can change that default behavior by passing options to `configure`, but first we have to clean our installation:
+
+```bash
+make clean
+```
+
+than we can run configure, make and make install again
+
+```bash
+./configure --prefix=/home/$(whoami)/.local/
+make
+make install
+```
+
+```bash
+samtools
+```
+
+!!! question
+    The bwa source code is available on github, a popular code sharing platform (more on this in the git lesson!).
+    Navigate to <https://github.com/lh3/bwa> then in release copy the link behind `bwa-0.7.17.tar.bz2`  
+    - Install bwa!
