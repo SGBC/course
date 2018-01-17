@@ -178,6 +178,7 @@ sudo apt install libncurses5-dev libbz2-dev liblzma-dev libcurl4-gnutls-dev
 Now we can download and unpack the source code:
 
 ```bash
+cd ~/install
 wget https://github.com/samtools/samtools/releases/download/1.6/samtools-1.6.tar.bz2
 tar xvf samtools-1.6.tar.bz2
 cd samtools-1.6
@@ -223,3 +224,58 @@ samtools
     The bwa source code is available on github, a popular code sharing platform (more on this in the git lesson!).
     Navigate to <https://github.com/lh3/bwa> then in release copy the link behind `bwa-0.7.17.tar.bz2`  
     - Install bwa!
+
+## Installing python packages
+
+While compiled languages are faster than interpreted languages, they are usually harder to learn, code in and debug.
+For theses reasons you'll often find many bioinformatics packages written in interpreted languages such as [python](https://www.python.org) or [ruby](https://www.ruby-lang.org/en/).
+
+While historically it has been a pain to install software written in interpreted languages, most modern languages now come with their own package managers! For example:
+
+* Python has `pip`
+* Ruby has `gem`
+* Javascript has `npm`
+* ...
+
+Most of theses package managers have similar syntaxes.
+We will focus on python here since it's one of the most popular languages in bioinformatics.
+
+!!! note
+    You will notice the absence of R here.
+    R is mostly used interactively and installing packages in R will be part of the R part of the course.
+
+Your ubuntu comes with an old version of python. We start with installing a newer one
+
+```bash
+cd ~/install
+wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tar.xz
+tar xvf Python-3.6.4.tar.xz
+cd Python-3.6.4
+./configure --prefix=/home/$(whoami)/.local/
+make -j2
+make install
+```
+
+!!! question
+    What does the `make` option `-j2` do?
+
+```bash
+which python3
+which pip3
+```
+
+We now have the newest python installed.
+
+Let us install our first python package
+
+```bash
+pip3 install multiqc
+```
+
+it should take a while and install [multiqc](http://multiqc.info) as well as all the necessary dependencies.
+
+to see if multiqc was properly installed:
+
+```bash
+multiqc -h
+```
