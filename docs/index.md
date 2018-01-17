@@ -7,6 +7,9 @@ Welcome to the course!
 ## Table of Content
 
 * Week 1
+    * [Introduction to proteins analysis](proteins)
+    
+* Week 2
     * [Introduction to the command-line](unix)
     * Exercises *-- soon available*
     * Project organisation *-- soon available*
