@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "SGBC Bioinformatics Course\n\n\nThis website is a collection of lectures and tutorials given during the annual Bioinformatics course given at \nSLU\n by the \nSGBC\n.\n\n\nWelcome to the course!\n\n\nTable of Content\n\n\n\n\n\n\nWeek 1\n\n\n\n\nIntroduction to proteins analysis\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\nIntroduction to the command-line\n\n\nExercises \n-- soon available\n\n\nProject organisation \n-- soon available\n\n\nCloud computing \n-- soon available\n\n\nInstalling Software\n\n\nVersion control with Git \n-- soon available\n\n\n\n\n\n\n\n\nLicense\n\n\nUnless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.\nTo view a copy of this license, visit \nhttp://creativecommons.org/licenses/by/4.0/\n or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.\n\n\nContributors\n\n\nThe following people have contributed to these course material, in no particular order:\n\n\n\n\nHadrien Gourl\u00e9\n\n\nJuliette Hayer",
+            "text": "SGBC Bioinformatics Course\n\n\nThis website is a collection of lectures and tutorials given during the annual Bioinformatics course given at \nSLU\n by the \nSGBC\n.\n\n\nWelcome to the course!\n\n\nTable of Content\n\n\n\n\n\n\nWeek 1\n\n\n\n\nIntroduction to proteins analysis\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\nIntroduction to the command-line\n\n\nExercises \n-- soon available\n\n\nProject organisation \n-- soon available\n\n\nCloud computing \n-- soon available\n\n\nInstalling Software\n\n\nVersion control with Git\n\n\n\n\n\n\n\n\nLicense\n\n\nUnless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.\nTo view a copy of this license, visit \nhttp://creativecommons.org/licenses/by/4.0/\n or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.\n\n\nContributors\n\n\nThe following people have contributed to these course material, in no particular order:\n\n\n\n\nHadrien Gourl\u00e9\n\n\nJuliette Hayer",
             "title": "Home"
         },
         {
@@ -12,7 +12,7 @@
         },
         {
             "location": "/#table-of-content",
-            "text": "Week 1   Introduction to proteins analysis     Week 2   Introduction to the command-line  Exercises  -- soon available  Project organisation  -- soon available  Cloud computing  -- soon available  Installing Software  Version control with Git  -- soon available",
+            "text": "Week 1   Introduction to proteins analysis     Week 2   Introduction to the command-line  Exercises  -- soon available  Project organisation  -- soon available  Cloud computing  -- soon available  Installing Software  Version control with Git",
             "title": "Table of Content"
         },
         {
@@ -234,6 +234,16 @@
             "location": "/software/#exercises",
             "text": "During the following weeks we'll use a lot of different bioinformatics software to perform a variety of tasks.   Tip  Most software come with a file named  INSTALL  or  README .\nSuch file usually contains instructions on how to install!    Note  unless indicated otherwise, try with  apt  first    Note  do not hesitate to ask your teacher for help!   Let's install a few:   fastqc  scythe  sickle  bowtie2  megahit  quast  prokka",
             "title": "Exercises"
+        },
+        {
+            "location": "/git/",
+            "text": "Introduction to Git\n\n\nMost of the introduction to Git material can be found at \nhttps://software-carpentry.org\n\n\nMany thanks to them for existing!",
+            "title": "Git"
+        },
+        {
+            "location": "/git/#introduction-to-git",
+            "text": "Most of the introduction to Git material can be found at  https://software-carpentry.org  Many thanks to them for existing!",
+            "title": "Introduction to Git"
         }
     ]
 }
