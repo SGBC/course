@@ -4,6 +4,7 @@ pages:
     - Home: index.md
     - Proteins: proteins.md
     - Unix: unix.md
+    - Cloud Computing: cloud.md
     - Installing Software: software.md
     - Git: git.md
 

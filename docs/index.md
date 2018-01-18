@@ -13,7 +13,7 @@ Welcome to the course!
     * [Introduction to the command-line](unix)
     * Exercises *-- soon available*
     * Project organisation *-- soon available*
-    * Cloud computing *-- soon available*
+    * [Cloud Computing](cloud)
     * [Installing Software](software)
     * [Version control with Git](git)
 
