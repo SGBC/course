@@ -11,7 +11,6 @@ Welcome to the course!
 
 * Week 2
     * [Introduction to the command-line](unix)
-    * Exercises *-- soon available*
     * Project organisation *-- soon available*
     * [Cloud Computing](cloud)
     * [Installing Software](software)
