@@ -182,13 +182,18 @@
         },
         {
             "location": "/unix/",
-            "text": "Introduction to Unix\n\n\nMost of the introduction to Unix material can be found at \nhttps://software-carpentry.org\n\n\nMany thanks to them for existing!",
+            "text": "Introduction to Unix\n\n\nMost of the introduction to Unix material can be found at \nhttps://software-carpentry.org\n\n\nMany thanks to them for existing!\n\n\nUseful resources\n\n\nBelow you will find links to various useful resources for learning or using the UNIX shell.\n\n\n\n\nLink to the course material from software carpentry\n\n\n\n\nreference of concepts and commands seen during the lesson\n\n\n\n\n\n\nshell commands explained\n - a website that shows the help text of any command\n\n\n\n\nawesome bash\n - an awesome list of resources about the bash shell\n\n\ntldp\n - the linux documentation project (the books can be hard to digest but are very thorough)",
             "title": "Unix"
         },
         {
             "location": "/unix/#introduction-to-unix",
             "text": "Most of the introduction to Unix material can be found at  https://software-carpentry.org  Many thanks to them for existing!",
             "title": "Introduction to Unix"
+        },
+        {
+            "location": "/unix/#useful-resources",
+            "text": "Below you will find links to various useful resources for learning or using the UNIX shell.   Link to the course material from software carpentry   reference of concepts and commands seen during the lesson    shell commands explained  - a website that shows the help text of any command   awesome bash  - an awesome list of resources about the bash shell  tldp  - the linux documentation project (the books can be hard to digest but are very thorough)",
+            "title": "Useful resources"
         },
         {
             "location": "/software/",
