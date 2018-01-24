@@ -72,3 +72,47 @@ ssh -i .ssh/azure_rsa student@IP_ADDRESS
 ```
 
 do not forget to replace `IP_ADDRESS` by your virtual machine ip in the above command!
+
+### Getting around
+
+Now that you are connected to the cloud, there is a few things you should know.
+
+- For all intents and purposes it is *almost* like being in the terminal of your own linux machine.
+All commands we've seen during the [unix shell](unix) lesson will work
+- you are administrator on your cloud machine. You have the power to break things...
+- ... but do not freak out! the machine is not actually real, so anything you break can be rebuilt in a matter of minutes
+- to exit the virtual machine, press `^D` or type `exit`
+
+### Transferring files
+
+One thing that *will* happen sooner while working in the cloud is that you will want to transfer files to or from your machine.
+
+The command to transfer files over `ssh` is very similar to `cp`and is called `scp`, for *secure* copy.
+
+#### Copying a file from your computer to the server
+
+On your computer, firstly create a file:
+
+```bash
+echo "I will put that file on my cloud machine!" > my_file.txt
+```
+
+then use `scp` to transfer the file
+
+```bash
+scp my_file.txt student@IP_ADDRESS:/home/student/
+```
+
+#### Copying a file from the server to your computer
+
+First, remove `my_file.txt` from your local computer
+
+```bash
+rm my_file.txt
+```
+
+then copy it back from the server
+
+```bash
+scp student@IP_ADDRESS:/home/student/my_file.txt .
+```
