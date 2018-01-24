@@ -242,13 +242,18 @@
         },
         {
             "location": "/git/",
-            "text": "Introduction to Git\n\n\nMost of the introduction to Git material can be found at \nhttps://software-carpentry.org\n\n\nMany thanks to them for existing!",
+            "text": "Introduction to Git\n\n\nMost of the introduction to Git material can be found at \nhttps://software-carpentry.org\n\n\nMany thanks to them for existing!\n\n\nUseful resources\n\n\n\n\nLink to the course material from software carpentry\n\n\nreference of concepts and commands seen during the lesson\n\n\nThe official git website\n\n\nComparison of popular git hosting services - Medium article\n\n\nhttps://choosealicense.com",
             "title": "Git"
         },
         {
             "location": "/git/#introduction-to-git",
             "text": "Most of the introduction to Git material can be found at  https://software-carpentry.org  Many thanks to them for existing!",
             "title": "Introduction to Git"
+        },
+        {
+            "location": "/git/#useful-resources",
+            "text": "Link to the course material from software carpentry  reference of concepts and commands seen during the lesson  The official git website  Comparison of popular git hosting services - Medium article  https://choosealicense.com",
+            "title": "Useful resources"
         }
     ]
 }
