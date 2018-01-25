@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    <title></title>
+
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+
+
+    <link href="../css/admonition.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="..">Bioinformatics course</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../proteins/">Proteins</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../unix/">Unix</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">Cloud Computing</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../software/">Installing Software</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../git/">Git</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fa fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../unix/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../software/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#introduction-to-cloud-computing">Introduction to Cloud Computing</a></li>
+            <li class="second-level"><a href="#what-is-the-cloud-anyway">What is the cloud anyway?</a></li>
+                
+                <li class="third-level"><a href="#popular-cloudhpc-services">Popular cloud/HPC services</a></li>
+            <li class="second-level"><a href="#connecting-to-another-computer">Connecting to another computer</a></li>
+                
+                <li class="third-level"><a href="#authentication">Authentication</a></li>
+                <li class="third-level"><a href="#first-connection">First connection</a></li>
+                <li class="third-level"><a href="#getting-around">Getting around</a></li>
+                <li class="third-level"><a href="#transferring-files">Transferring files</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="introduction-to-cloud-computing">Introduction to Cloud Computing</h1>
+<p>In this lesson you'll learn how to connect and use a linux server.
+Most bioinformaticians worldwide connect daily to cloud computing services to perform their analyses.</p>
+<p>There are several reasons for this.
+Firstly biology - like most other areas of science - is dealing with a deluge of data due to the rapid advancement of data collection methods.
+It is now common that data collected for an experiment doesn't fit on a researcher's laptop and that the resources needed for running an analysis far exceed a desktop computer's computing power.</p>
+<p>Secondly the vast majority of research software are developed and released for linux. Most people run MacOS or Windows on their desktop computers and laptop, which makes the installation of some software difficult or at the very least inconvenient.</p>
+<h2 id="what-is-the-cloud-anyway">What is the cloud anyway?</h2>
+<p>The cloud is basically lots of servers (thing big big computers) stacked together in a giant, powerful infrastructure. You can lend part of this infrastructure for your computing needs. While it is not cheap, it is generally scalable and guarantees a stable environment.</p>
+<p><img alt="There is no cloud" src="../img/nocloud.jpg" /></p>
+<p>In research there are two approaches to lend computing time and power: either (a) you lend computing time and resources from a commercial provider or you obtain access to a research computing infrastructure. Some countries have built national infrastructures where you can apply for computing time for your research projects.
+Most academic institutions or departments also have their own computing resources.</p>
+<h3 id="popular-cloudhpc-services">Popular cloud/HPC services</h3>
+<ul>
+<li>
+<p>Academic:</p>
+<ul>
+<li>🇸🇪 <a href="http://uppmax.uu.se">UPPMAX</a></li>
+<li>🇺🇸 <a href="https://www.jetstream-cloud.org">Jetstream</a></li>
+</ul>
+</li>
+<li>
+<p>Commercial:</p>
+<ul>
+<li><a href="https://aws.amazon.com">amazon web services</a></li>
+<li><a href="https://cloud.google.com">google cloud</a></li>
+<li><a href="https://azure.microsoft.com">microsoft azure</a></li>
+</ul>
+</li>
+</ul>
+<p>For this tutorial, we'll use Microsoft azure.</p>
+<h2 id="connecting-to-another-computer">Connecting to another computer</h2>
+<p>Connecting to another computer is usually done using the <a href="https://en.wikipedia.org/wiki/Secure_Shell">SSH</a> protocol, which is an encrypted way to connect over the network.
+Before connecting to our cloud computers, we need to create them.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While the cloud is effectively "someone else's computer" the way we use commercial cloud infrastructures is by create a virtual computer with the computing resources that we pay for.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For this course, your instructor will create a virtual instance on the Azure cloud for you</p>
+</div>
+<h3 id="authentication">Authentication</h3>
+<p>There are two main ways to authenticate to a remote server via SSH: using a password or using a cryptographic key.
+Using a key prevent people to try to guess your password and since brute-force attacks are very common on machines that have public IPs, we'll use keys.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>How do keys work?
+The keys we will use to connect to our machine work by pairs: a <strong>public</strong> key and a <strong>private</strong> key.
+Any machine you want to connect to using keys has to contain your public key, while the private key should always stay on your computer.
+When you try to connect to a machine and the two keys match, you successfully connect!
+Since your instructor will create a virtual machine for you, he will also provide you with a private key for this machine.</p>
+</div>
+<p>Put the private key your instructor gave you in the <code>~/.ssh</code> folder:</p>
+<pre><code class="bash">mkdir -p ~/.ssh
+chmod 700 ~/ssh
+mv ~/Downloads/azure_rsa ~/.ssh
+chmod 600 ~/.ssh/azure_rsa
+</code></pre>
+
+<h3 id="first-connection">First connection</h3>
+<p>Now you can connect to the virtual machine that was assigned to you</p>
+<pre><code class="bash">ssh -i .ssh/azure_rsa student@IP_ADDRESS
+</code></pre>
+
+<p>do not forget to replace <code>IP_ADDRESS</code> by your virtual machine ip in the above command!</p>
+<h3 id="getting-around">Getting around</h3>
+<p>Now that you are connected to the cloud, there is a few things you should know.</p>
+<ul>
+<li>For all intents and purposes it is <em>almost</em> like being in the terminal of your own linux machine.
+All commands we've seen during the <a href="../unix">unix shell</a> lesson will work</li>
+<li>you are administrator on your cloud machine. You have the power to break things...</li>
+<li>... but do not freak out! the machine is not actually real, so anything you break can be rebuilt in a matter of minutes</li>
+<li>to exit the virtual machine, press <code>^D</code> or type <code>exit</code></li>
+</ul>
+<h3 id="transferring-files">Transferring files</h3>
+<p>One thing that <em>will</em> happen sooner while working in the cloud is that you will want to transfer files to or from your machine.</p>
+<p>The command to transfer files over <code>ssh</code> is very similar to <code>cp</code>and is called <code>scp</code>, for <em>secure</em> copy.</p>
+<h4 id="copying-a-file-from-your-computer-to-the-server">Copying a file from your computer to the server</h4>
+<p>On your computer, firstly create a file:</p>
+<pre><code class="bash">echo &quot;I will put that file on my cloud machine!&quot; &gt; my_file.txt
+</code></pre>
+
+<p>then use <code>scp</code> to transfer the file</p>
+<pre><code class="bash">scp my_file.txt student@IP_ADDRESS:/home/student/
+</code></pre>
+
+<h4 id="copying-a-file-from-the-server-to-your-computer">Copying a file from the server to your computer</h4>
+<p>First, remove <code>my_file.txt</code> from your local computer</p>
+<pre><code class="bash">rm my_file.txt
+</code></pre>
+
+<p>then copy it back from the server</p>
+<pre><code class="bash">scp student@IP_ADDRESS:/home/student/my_file.txt .
+</code></pre></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '..';
+    </script>
+    <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="../search/require.js"></script>
+    <script src="../search/search.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

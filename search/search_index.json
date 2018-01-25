@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "SGBC Bioinformatics Course\n\n\nThis website is a collection of lectures and tutorials given during the annual Bioinformatics course given at \nSLU\n by the \nSGBC\n.\n\n\nWelcome to the course!\n\n\nTable of Content\n\n\n\n\n\n\nWeek 1\n\n\n\n\nIntroduction to proteins analysis\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\nIntroduction to the command-line\n\n\nExercises \n-- soon available\n\n\nProject organisation \n-- soon available\n\n\nCloud computing \n-- soon available\n\n\nInstalling Software\n\n\nVersion control with Git\n\n\n\n\n\n\n\n\nLicense\n\n\nUnless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.\nTo view a copy of this license, visit \nhttp://creativecommons.org/licenses/by/4.0/\n or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.\n\n\nContributors\n\n\nThe following people have contributed to these course material, in no particular order:\n\n\n\n\nHadrien Gourl\u00e9\n\n\nJuliette Hayer",
+            "text": "SGBC Bioinformatics Course\n\n\nThis website is a collection of lectures and tutorials given during the annual Bioinformatics course given at \nSLU\n by the \nSGBC\n.\n\n\nWelcome to the course!\n\n\nTable of Content\n\n\n\n\n\n\nWeek 1\n\n\n\n\nIntroduction to proteins analysis\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\nIntroduction to the command-line\n\n\nProject organisation \n-- soon available\n\n\nCloud Computing\n\n\nInstalling Software\n\n\nVersion control with Git\n\n\n\n\n\n\n\n\nLicense\n\n\nUnless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.\nTo view a copy of this license, visit \nhttp://creativecommons.org/licenses/by/4.0/\n or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.\n\n\nContributors\n\n\nThe following people have contributed to these course material, in no particular order:\n\n\n\n\nHadrien Gourl\u00e9\n\n\nJuliette Hayer",
             "title": "Home"
         },
         {
@@ -12,7 +12,7 @@
         },
         {
             "location": "/#table-of-content",
-            "text": "Week 1   Introduction to proteins analysis     Week 2   Introduction to the command-line  Exercises  -- soon available  Project organisation  -- soon available  Cloud computing  -- soon available  Installing Software  Version control with Git",
+            "text": "Week 1   Introduction to proteins analysis     Week 2   Introduction to the command-line  Project organisation  -- soon available  Cloud Computing  Installing Software  Version control with Git",
             "title": "Table of Content"
         },
         {
@@ -194,6 +194,61 @@
             "location": "/unix/#useful-resources",
             "text": "Below you will find links to various useful resources for learning or using the UNIX shell.   Link to the course material from software carpentry   reference of concepts and commands seen during the lesson    shell commands explained  - a website that shows the help text of any command   awesome bash  - an awesome list of resources about the bash shell  tldp  - the linux documentation project (the books can be hard to digest but are very thorough)",
             "title": "Useful resources"
+        },
+        {
+            "location": "/cloud/",
+            "text": "Introduction to Cloud Computing\n\n\nIn this lesson you'll learn how to connect and use a linux server.\nMost bioinformaticians worldwide connect daily to cloud computing services to perform their analyses.\n\n\nThere are several reasons for this.\nFirstly biology - like most other areas of science - is dealing with a deluge of data due to the rapid advancement of data collection methods.\nIt is now common that data collected for an experiment doesn't fit on a researcher's laptop and that the resources needed for running an analysis far exceed a desktop computer's computing power.\n\n\nSecondly the vast majority of research software are developed and released for linux. Most people run MacOS or Windows on their desktop computers and laptop, which makes the installation of some software difficult or at the very least inconvenient.\n\n\nWhat is the cloud anyway?\n\n\nThe cloud is basically lots of servers (thing big big computers) stacked together in a giant, powerful infrastructure. You can lend part of this infrastructure for your computing needs. While it is not cheap, it is generally scalable and guarantees a stable environment.\n\n\n\n\nIn research there are two approaches to lend computing time and power: either (a) you lend computing time and resources from a commercial provider or you obtain access to a research computing infrastructure. Some countries have built national infrastructures where you can apply for computing time for your research projects.\nMost academic institutions or departments also have their own computing resources.\n\n\nPopular cloud/HPC services\n\n\n\n\n\n\nAcademic:\n\n\n\n\n\ud83c\uddf8\ud83c\uddea \nUPPMAX\n\n\n\ud83c\uddfa\ud83c\uddf8 \nJetstream\n\n\n\n\n\n\n\n\nCommercial:\n\n\n\n\namazon web services\n\n\ngoogle cloud\n\n\nmicrosoft azure\n\n\n\n\n\n\n\n\nFor this tutorial, we'll use Microsoft azure.\n\n\nConnecting to another computer\n\n\nConnecting to another computer is usually done using the \nSSH\n protocol, which is an encrypted way to connect over the network.\nBefore connecting to our cloud computers, we need to create them.\n\n\n\n\nNote\n\n\nWhile the cloud is effectively \"someone else's computer\" the way we use commercial cloud infrastructures is by create a virtual computer with the computing resources that we pay for.\n\n\n\n\n\n\nNote\n\n\nFor this course, your instructor will create a virtual instance on the Azure cloud for you\n\n\n\n\nAuthentication\n\n\nThere are two main ways to authenticate to a remote server via SSH: using a password or using a cryptographic key.\nUsing a key prevent people to try to guess your password and since brute-force attacks are very common on machines that have public IPs, we'll use keys.\n\n\n\n\nNote\n\n\nHow do keys work?\nThe keys we will use to connect to our machine work by pairs: a \npublic\n key and a \nprivate\n key.\nAny machine you want to connect to using keys has to contain your public key, while the private key should always stay on your computer.\nWhen you try to connect to a machine and the two keys match, you successfully connect!\nSince your instructor will create a virtual machine for you, he will also provide you with a private key for this machine.\n\n\n\n\nPut the private key your instructor gave you in the \n~/.ssh\n folder:\n\n\nmkdir -p ~/.ssh\nchmod 700 ~/ssh\nmv ~/Downloads/azure_rsa ~/.ssh\nchmod 600 ~/.ssh/azure_rsa\n\n\n\n\nFirst connection\n\n\nNow you can connect to the virtual machine that was assigned to you\n\n\nssh -i .ssh/azure_rsa student@IP_ADDRESS\n\n\n\n\ndo not forget to replace \nIP_ADDRESS\n by your virtual machine ip in the above command!\n\n\nGetting around\n\n\nNow that you are connected to the cloud, there is a few things you should know.\n\n\n\n\nFor all intents and purposes it is \nalmost\n like being in the terminal of your own linux machine.\nAll commands we've seen during the \nunix shell\n lesson will work\n\n\nyou are administrator on your cloud machine. You have the power to break things...\n\n\n... but do not freak out! the machine is not actually real, so anything you break can be rebuilt in a matter of minutes\n\n\nto exit the virtual machine, press \n^D\n or type \nexit\n\n\n\n\nTransferring files\n\n\nOne thing that \nwill\n happen sooner while working in the cloud is that you will want to transfer files to or from your machine.\n\n\nThe command to transfer files over \nssh\n is very similar to \ncp\nand is called \nscp\n, for \nsecure\n copy.\n\n\nCopying a file from your computer to the server\n\n\nOn your computer, firstly create a file:\n\n\necho \"I will put that file on my cloud machine!\" > my_file.txt\n\n\n\n\nthen use \nscp\n to transfer the file\n\n\nscp my_file.txt student@IP_ADDRESS:/home/student/\n\n\n\n\nCopying a file from the server to your computer\n\n\nFirst, remove \nmy_file.txt\n from your local computer\n\n\nrm my_file.txt\n\n\n\n\nthen copy it back from the server\n\n\nscp student@IP_ADDRESS:/home/student/my_file.txt .",
+            "title": "Cloud Computing"
+        },
+        {
+            "location": "/cloud/#introduction-to-cloud-computing",
+            "text": "In this lesson you'll learn how to connect and use a linux server.\nMost bioinformaticians worldwide connect daily to cloud computing services to perform their analyses.  There are several reasons for this.\nFirstly biology - like most other areas of science - is dealing with a deluge of data due to the rapid advancement of data collection methods.\nIt is now common that data collected for an experiment doesn't fit on a researcher's laptop and that the resources needed for running an analysis far exceed a desktop computer's computing power.  Secondly the vast majority of research software are developed and released for linux. Most people run MacOS or Windows on their desktop computers and laptop, which makes the installation of some software difficult or at the very least inconvenient.",
+            "title": "Introduction to Cloud Computing"
+        },
+        {
+            "location": "/cloud/#what-is-the-cloud-anyway",
+            "text": "The cloud is basically lots of servers (thing big big computers) stacked together in a giant, powerful infrastructure. You can lend part of this infrastructure for your computing needs. While it is not cheap, it is generally scalable and guarantees a stable environment.   In research there are two approaches to lend computing time and power: either (a) you lend computing time and resources from a commercial provider or you obtain access to a research computing infrastructure. Some countries have built national infrastructures where you can apply for computing time for your research projects.\nMost academic institutions or departments also have their own computing resources.",
+            "title": "What is the cloud anyway?"
+        },
+        {
+            "location": "/cloud/#popular-cloudhpc-services",
+            "text": "Academic:   \ud83c\uddf8\ud83c\uddea  UPPMAX  \ud83c\uddfa\ud83c\uddf8  Jetstream     Commercial:   amazon web services  google cloud  microsoft azure     For this tutorial, we'll use Microsoft azure.",
+            "title": "Popular cloud/HPC services"
+        },
+        {
+            "location": "/cloud/#connecting-to-another-computer",
+            "text": "Connecting to another computer is usually done using the  SSH  protocol, which is an encrypted way to connect over the network.\nBefore connecting to our cloud computers, we need to create them.   Note  While the cloud is effectively \"someone else's computer\" the way we use commercial cloud infrastructures is by create a virtual computer with the computing resources that we pay for.    Note  For this course, your instructor will create a virtual instance on the Azure cloud for you",
+            "title": "Connecting to another computer"
+        },
+        {
+            "location": "/cloud/#authentication",
+            "text": "There are two main ways to authenticate to a remote server via SSH: using a password or using a cryptographic key.\nUsing a key prevent people to try to guess your password and since brute-force attacks are very common on machines that have public IPs, we'll use keys.   Note  How do keys work?\nThe keys we will use to connect to our machine work by pairs: a  public  key and a  private  key.\nAny machine you want to connect to using keys has to contain your public key, while the private key should always stay on your computer.\nWhen you try to connect to a machine and the two keys match, you successfully connect!\nSince your instructor will create a virtual machine for you, he will also provide you with a private key for this machine.   Put the private key your instructor gave you in the  ~/.ssh  folder:  mkdir -p ~/.ssh\nchmod 700 ~/ssh\nmv ~/Downloads/azure_rsa ~/.ssh\nchmod 600 ~/.ssh/azure_rsa",
+            "title": "Authentication"
+        },
+        {
+            "location": "/cloud/#first-connection",
+            "text": "Now you can connect to the virtual machine that was assigned to you  ssh -i .ssh/azure_rsa student@IP_ADDRESS  do not forget to replace  IP_ADDRESS  by your virtual machine ip in the above command!",
+            "title": "First connection"
+        },
+        {
+            "location": "/cloud/#getting-around",
+            "text": "Now that you are connected to the cloud, there is a few things you should know.   For all intents and purposes it is  almost  like being in the terminal of your own linux machine.\nAll commands we've seen during the  unix shell  lesson will work  you are administrator on your cloud machine. You have the power to break things...  ... but do not freak out! the machine is not actually real, so anything you break can be rebuilt in a matter of minutes  to exit the virtual machine, press  ^D  or type  exit",
+            "title": "Getting around"
+        },
+        {
+            "location": "/cloud/#transferring-files",
+            "text": "One thing that  will  happen sooner while working in the cloud is that you will want to transfer files to or from your machine.  The command to transfer files over  ssh  is very similar to  cp and is called  scp , for  secure  copy.",
+            "title": "Transferring files"
+        },
+        {
+            "location": "/cloud/#copying-a-file-from-your-computer-to-the-server",
+            "text": "On your computer, firstly create a file:  echo \"I will put that file on my cloud machine!\" > my_file.txt  then use  scp  to transfer the file  scp my_file.txt student@IP_ADDRESS:/home/student/",
+            "title": "Copying a file from your computer to the server"
+        },
+        {
+            "location": "/cloud/#copying-a-file-from-the-server-to-your-computer",
+            "text": "First, remove  my_file.txt  from your local computer  rm my_file.txt  then copy it back from the server  scp student@IP_ADDRESS:/home/student/my_file.txt .",
+            "title": "Copying a file from the server to your computer"
         },
         {
             "location": "/software/",
