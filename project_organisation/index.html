@@ -84,8 +84,8 @@
                 
                 
                 
-                    <li >
-                        <a href="../project_organisation/">Project Organisation</a>
+                    <li class="active">
+                        <a href="./">Project Organisation</a>
                     </li>
                 
                 
@@ -102,8 +102,8 @@
                 
                 
                 
-                    <li class="active">
-                        <a href="./">Git</a>
+                    <li >
+                        <a href="../git/">Git</a>
                     </li>
                 
                 
@@ -116,12 +116,12 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="next" href="../software/">
+                        <a rel="next" href="../unix/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li class="disabled">
-                        <a rel="prev" >
+                    <li >
+                        <a rel="prev" href="../cloud/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -134,24 +134,35 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#introduction-to-git">Introduction to Git</a></li>
-            <li class="second-level"><a href="#useful-resources">Useful resources</a></li>
+        <li class="first-level active"><a href="#project-organization-and-management-tutorial">Project organization and management tutorial</a></li>
+            <li class="second-level"><a href="#about-the-structure-or-architecture-of-your-bioinformatics-project">About the structure or architecture of your bioinformatics project</a></li>
+                
+            <li class="second-level"><a href="#more-about-data-structure-and-metadata">More about data structure and metadata</a></li>
                 
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="introduction-to-git">Introduction to Git</h1>
-<p>Most of the introduction to Git material can be found at <a href="https://software-carpentry.org">https://software-carpentry.org</a></p>
-<p>Many thanks to them for existing!</p>
-<h2 id="useful-resources">Useful resources</h2>
-<ul>
-<li><a href="http://swcarpentry.github.io/git-novice/">Link to the course material from software carpentry</a></li>
-<li><a href="http://swcarpentry.github.io/git-novice/reference/">reference of concepts and commands seen during the lesson</a></li>
-<li><a href="https://git-scm.com">The official git website</a></li>
-<li><a href="https://medium.com/flow-ci/github-vs-bitbucket-vs-gitlab-vs-coding-7cf2b43888a1">Comparison of popular git hosting services - Medium article</a></li>
-<li><a href="https://choosealicense.com">https://choosealicense.com</a></li>
-</ul></div>
+<h2 id="project-organization-and-management-tutorial">Project organization and management tutorial</h2>
+<p>This tutorial is inspired from Datacarpentry tutorial</p>
+<h3 id="about-the-structure-or-architecture-of-your-bioinformatics-project">About the structure or architecture of your bioinformatics project</h3>
+<p>Some good practice when you will organise your project directory on the server, on the cloud or any other machine where you will compute:</p>
+<p>Create 3 or 4 different directories within you project directory (use <code>mkdir</code>):</p>
+<p><code>data/</code> for keeping the raw data</p>
+<p><code>results/</code> for all the outputs from the multiple analyses that you will perform</p>
+<p><code>docs/</code> for all the notes written about the analyses carried out (ex: <code>history &gt; 20180125.logs</code> for the commands executed today)</p>
+<p><code>scripts/</code> for all the scripts that you will use to produce the results</p>
+<p>Here you can find a tutorial to practice:</p>
+<p><a href="http://www.datacarpentry.org/shell-genomics/06-organization/">Shell genomics: project organisation</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You should always have the raw data in (at least) one place and not modify them</p>
+</div>
+<h3 id="more-about-data-structure-and-metadata">More about data structure and metadata</h3>
+<p>The following tutorial will help you to learn good practice for the structure of your data and metadata:
+<a href="http://www.datacarpentry.org/organization-genomics/">Organisation of genomics project</a></p>
+<p>Some extra:
+<a href="http://www.datacarpentry.org/spreadsheet-ecology-lesson/">Spreadsheet ecology lesson</a></p></div>
         
     </div>
 

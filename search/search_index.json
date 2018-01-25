@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "SGBC Bioinformatics Course\n\n\nThis website is a collection of lectures and tutorials given during the annual Bioinformatics course given at \nSLU\n by the \nSGBC\n.\n\n\nWelcome to the course!\n\n\nTable of Content\n\n\n\n\n\n\nWeek 1\n\n\n\n\nIntroduction to proteins analysis\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\nIntroduction to the command-line\n\n\nProject organisation \n-- soon available\n\n\nCloud Computing\n\n\nInstalling Software\n\n\nVersion control with Git\n\n\n\n\n\n\n\n\nLicense\n\n\nUnless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.\nTo view a copy of this license, visit \nhttp://creativecommons.org/licenses/by/4.0/\n or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.\n\n\nContributors\n\n\nThe following people have contributed to these course material, in no particular order:\n\n\n\n\nHadrien Gourl\u00e9\n\n\nJuliette Hayer",
+            "text": "SGBC Bioinformatics Course\n\n\nThis website is a collection of lectures and tutorials given during the annual Bioinformatics course given at \nSLU\n by the \nSGBC\n.\n\n\nWelcome to the course!\n\n\nTable of Content\n\n\n\n\n\n\nWeek 1\n\n\n\n\nIntroduction to proteins analysis\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\nIntroduction to the command-line\n\n\nProject organisation\n\n\nCloud Computing\n\n\nInstalling Software\n\n\nVersion control with Git\n\n\n\n\n\n\n\n\nLicense\n\n\nUnless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.\nTo view a copy of this license, visit \nhttp://creativecommons.org/licenses/by/4.0/\n or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.\n\n\nContributors\n\n\nThe following people have contributed to these course material, in no particular order:\n\n\n\n\nHadrien Gourl\u00e9\n\n\nJuliette Hayer",
             "title": "Home"
         },
         {
@@ -12,7 +12,7 @@
         },
         {
             "location": "/#table-of-content",
-            "text": "Week 1   Introduction to proteins analysis     Week 2   Introduction to the command-line  Project organisation  -- soon available  Cloud Computing  Installing Software  Version control with Git",
+            "text": "Week 1   Introduction to proteins analysis     Week 2   Introduction to the command-line  Project organisation  Cloud Computing  Installing Software  Version control with Git",
             "title": "Table of Content"
         },
         {
@@ -194,6 +194,26 @@
             "location": "/unix/#useful-resources",
             "text": "Below you will find links to various useful resources for learning or using the UNIX shell.   Link to the course material from software carpentry   reference of concepts and commands seen during the lesson    shell commands explained  - a website that shows the help text of any command   awesome bash  - an awesome list of resources about the bash shell  tldp  - the linux documentation project (the books can be hard to digest but are very thorough)",
             "title": "Useful resources"
+        },
+        {
+            "location": "/project_organisation/",
+            "text": "Project organization and management tutorial\n\n\nThis tutorial is inspired from Datacarpentry tutorial\n\n\nAbout the structure or architecture of your bioinformatics project\n\n\nSome good practice when you will organise your project directory on the server, on the cloud or any other machine where you will compute:\n\n\nCreate 3 or 4 different directories within you project directory (use \nmkdir\n):\n\n\ndata/\n for keeping the raw data\n\n\nresults/\n for all the outputs from the multiple analyses that you will perform\n\n\ndocs/\n for all the notes written about the analyses carried out (ex: \nhistory > 20180125.logs\n for the commands executed today)\n\n\nscripts/\n for all the scripts that you will use to produce the results\n\n\nHere you can find a tutorial to practice:\n\n\nShell genomics: project organisation\n\n\n\n\nNote\n\n\nYou should always have the raw data in (at least) one place and not modify them\n\n\n\n\nMore about data structure and metadata\n\n\nThe following tutorial will help you to learn good practice for the structure of your data and metadata:\n\nOrganisation of genomics project\n\n\nSome extra:\n\nSpreadsheet ecology lesson",
+            "title": "Project Organisation"
+        },
+        {
+            "location": "/project_organisation/#project-organization-and-management-tutorial",
+            "text": "This tutorial is inspired from Datacarpentry tutorial",
+            "title": "Project organization and management tutorial"
+        },
+        {
+            "location": "/project_organisation/#about-the-structure-or-architecture-of-your-bioinformatics-project",
+            "text": "Some good practice when you will organise your project directory on the server, on the cloud or any other machine where you will compute:  Create 3 or 4 different directories within you project directory (use  mkdir ):  data/  for keeping the raw data  results/  for all the outputs from the multiple analyses that you will perform  docs/  for all the notes written about the analyses carried out (ex:  history > 20180125.logs  for the commands executed today)  scripts/  for all the scripts that you will use to produce the results  Here you can find a tutorial to practice:  Shell genomics: project organisation   Note  You should always have the raw data in (at least) one place and not modify them",
+            "title": "About the structure or architecture of your bioinformatics project"
+        },
+        {
+            "location": "/project_organisation/#more-about-data-structure-and-metadata",
+            "text": "The following tutorial will help you to learn good practice for the structure of your data and metadata: Organisation of genomics project  Some extra: Spreadsheet ecology lesson",
+            "title": "More about data structure and metadata"
         },
         {
             "location": "/cloud/",
