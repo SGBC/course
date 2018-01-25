@@ -1,2 +1,8 @@
 # venvs
 mkdocs_env/
+
+# mkdocs stuff
+site/
+
+# mac stuff
+.DS_Store

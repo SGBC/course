@@ -2,3 +2,14 @@ site_name: Bioinformatics course
 theme: cinder
 pages:
     - Home: index.md
+    - Proteins: proteins.md
+    - Unix: unix.md
+    - Cloud Computing: cloud.md
+    - Installing Software: software.md
+    - Git: git.md
+
+markdown_extensions:
+  - admonition
+
+extra_css:
+    - css/admonition.css

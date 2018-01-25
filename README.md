@@ -2,7 +2,7 @@
 
 Resources for our bioinformatics course
 
-## Dev
+## Development
 
 First install mkdocs (and the theme) in a virtual environment
 
@@ -20,21 +20,27 @@ git clone https://github.com/SGBC/course.git
 cd course
 ```
 
+The lessons are located in the `docs/` directory
+
 For a live preview in your browser do
 
 ```bash
 mkdocs serve &
 ```
 
-## Issues
+## Deployment
 
-*TODO*
+From the (up-to-date) `master` branch, do
 
-## License
-
-*TODO*
+```bash
+mkdocs gh-deploy
+```
 
 ## Contributing
+
+Please see how to contribute [here](CONTRIBUTING.md)
+
+## License
 
 This work is licensed under the Creative Commons Attribution 4.0 International License.
 To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
