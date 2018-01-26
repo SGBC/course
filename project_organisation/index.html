@@ -21,6 +21,9 @@
 
     <link href="../css/admonition.css" rel="stylesheet">
 
+
+    <link href="../css/navbar.css" rel="stylesheet">
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -84,12 +87,6 @@
                 
                 
                 
-                    <li class="active">
-                        <a href="./">Project Organisation</a>
-                    </li>
-                
-                
-                
                     <li >
                         <a href="../cloud/">Cloud Computing</a>
                     </li>
@@ -107,6 +104,18 @@
                     </li>
                 
                 
+                
+                    <li >
+                        <a href="../blast/">Command-line Blast</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">Project Organisation</a>
+                    </li>
+                
+                
                 </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -116,12 +125,12 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="next" href="../unix/">
+                        <a rel="next" href="../blast/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li >
-                        <a rel="prev" href="../cloud/">
+                    <li class="disabled">
+                        <a rel="prev" >
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -134,35 +143,279 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#project-organization-and-management-tutorial">Project organization and management tutorial</a></li>
-            <li class="second-level"><a href="#about-the-structure-or-architecture-of-your-bioinformatics-project">About the structure or architecture of your bioinformatics project</a></li>
+        <li class="first-level active"><a href="#project-organization-and-management">Project organization and management</a></li>
+            <li class="second-level"><a href="#structure-or-architecture-of-a-data-science-project">Structure or architecture of a data science project</a></li>
                 
             <li class="second-level"><a href="#more-about-data-structure-and-metadata">More about data structure and metadata</a></li>
                 
+        <li class="first-level "><a href="#exercise">Exercise</a></li>
+            <li class="second-level"><a href="#set-up">Set up</a></li>
+                
+            <li class="second-level"><a href="#downloading-the-data">Downloading the data</a></li>
+                
+            <li class="second-level"><a href="#our-first-analysis-script">Our first analysis script</a></li>
+                
+            <li class="second-level"><a href="#keeping-track-of-things">Keeping track of things</a></li>
+                
+            <li class="second-level"><a href="#saving-the-result">Saving the result</a></li>
+                
+            <li class="second-level"><a href="#improving-our-script">Improving our script</a></li>
+                
+            <li class="second-level"><a href="#investigating-further">Investigating further</a></li>
+                
+                <li class="third-level"><a href="#the-seq-command">The seq command</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="project-organization-and-management-tutorial">Project organization and management tutorial</h2>
-<p>This tutorial is inspired from Datacarpentry tutorial</p>
-<h3 id="about-the-structure-or-architecture-of-your-bioinformatics-project">About the structure or architecture of your bioinformatics project</h3>
+<h2 id="project-organization-and-management">Project organization and management</h2>
+<p>Most of the the project organization material can be found at <a href="https://software-carpentry.org">https://software-carpentry.org</a> and <a href="http://www.datacarpentry.org">http://www.datacarpentry.org</a></p>
+<p>Many thanks to them for existing!</p>
+<h3 id="structure-or-architecture-of-a-data-science-project">Structure or architecture of a data science project</h3>
 <p>Some good practice when you will organise your project directory on the server, on the cloud or any other machine where you will compute:</p>
+<blockquote>
 <p>Create 3 or 4 different directories within you project directory (use <code>mkdir</code>):</p>
 <p><code>data/</code> for keeping the raw data</p>
 <p><code>results/</code> for all the outputs from the multiple analyses that you will perform</p>
 <p><code>docs/</code> for all the notes written about the analyses carried out (ex: <code>history &gt; 20180125.logs</code> for the commands executed today)</p>
-<p><code>scripts/</code> for all the scripts that you will use to produce the results</p>
-<p>Here you can find a tutorial to practice:</p>
-<p><a href="http://www.datacarpentry.org/shell-genomics/06-organization/">Shell genomics: project organisation</a></p>
+<p><code>scripts/</code> for all the scripts that you will use to produce the results
+</p>
+</blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You should always have the raw data in (at least) one place and not modify them</p>
 </div>
 <h3 id="more-about-data-structure-and-metadata">More about data structure and metadata</h3>
-<p>The following tutorial will help you to learn good practice for the structure of your data and metadata:
-<a href="http://www.datacarpentry.org/organization-genomics/">Organisation of genomics project</a></p>
-<p>Some extra:
-<a href="http://www.datacarpentry.org/spreadsheet-ecology-lesson/">Spreadsheet ecology lesson</a></p></div>
+<ul>
+<li>
+<p>direct link to the tutorial used fo the lesson: <a href="http://www.datacarpentry.org/shell-genomics/06-organization/">Shell genomics: project organisation</a></p>
+</li>
+<li>
+<p>good practice for the structure of data and metadata of a genomics project: <a href="http://www.datacarpentry.org/organization-genomics/">Organisation of genomics project</a></p>
+</li>
+<li>
+<p>Some extra material: <a href="http://www.datacarpentry.org/spreadsheet-ecology-lesson/">Spreadsheet ecology lesson</a></p>
+</li>
+</ul>
+<h2 id="exercise">Exercise</h2>
+<p>This exercise combines the knowledge you have acquired during the <a href="../unix">unix</a>, <a href="../git">git</a> and <a href="../project_org">project organisation</a> lessons.</p>
+<p>You have designed an experiment where you are studying the species and weight of animals caught in plots in a study area.
+Data was collected by a third party a deposited in <a href="https://figshare.com/articles/Portal_Project_Teaching_Database/1314459">figshare</a>, a public database.</p>
+<p>Our goals are to download and exploring the data, while keeping an organised project directory that we will version control using git!</p>
+<h3 id="set-up">Set up</h3>
+<p>First we go to our Desktop and create a project directory</p>
+<pre><code class="bash">cd ~/Desktop
+mkdir 2018_animals
+cd 2018_animals
+</code></pre>
+
+<p>and initialize 2018_animals as a git repository</p>
+<pre><code class="bash">git init
+</code></pre>
+
+<p>As we saw during the project organization tutorial, it is good practice to separate data, results and scripts.
+Let us create those three directories</p>
+<pre><code class="bash">mkdir data results scripts
+</code></pre>
+
+<h3 id="downloading-the-data">Downloading the data</h3>
+<p>First we go to our <code>data</code> directory</p>
+<pre><code class="bash">cd data
+</code></pre>
+
+<p>then we download our data file and give it a more appropriate name</p>
+<pre><code class="bash">wget https://ndownloader.figshare.com/files/2292169
+mv 2292169 survey_data.csv
+</code></pre>
+
+<p>Since we'll never modify our raw data file (or at least we <em>do not want to!</em>) it is safer to remove the writing permissions</p>
+<pre><code class="bash">chmod -w survey_data.csv
+</code></pre>
+
+<p>Additionally since we are now unable to modify it, we do not want to track it in our git repository.
+We add a .gitignore and tell git to not track the <code>data/</code> directory</p>
+<pre><code class="bash">nano .gitignore
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>what if my data is really big?
+Usually when you download data that is several gigabytes large, they will usually be compressed.
+You learnt about compression during the <a href="../software">installing software</a> lesson.</p>
+</div>
+<p>Let us look at the first few lines of our file:</p>
+<pre><code class="bash">head data/data_joined.csv
+</code></pre>
+
+<p>Our data file is a <code>.csv</code> file, that is a file where fields are separated by commas <code>,</code>.
+Each row represent an animal that was caught in a plot, and each column contains information about that animal.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many animals do we have?</p>
+</div>
+<pre><code class="bash">wc -l data/data_joined.csv
+# 34787 data/data_joined.csv
+</code></pre>
+
+<p>It seems that our dataset contains 34787 lines.
+Since each line is an animals, we caught a grand total of 34787 animals over the course of our study.</p>
+<h3 id="our-first-analysis-script">Our first analysis script</h3>
+<p>we saw when we did the <code>head</code> command that all 10 first plots captured rodents.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Is rodent the only taxon that we have captured?</p>
+</div>
+<p>In our csv file, we can see that "taxa" is the 12th column.
+We can print only that column using the <code>cut</code> command</p>
+<pre><code class="bash">cut -d ',' -f 12 data/data_joined.csv | head
+</code></pre>
+
+<p>We still pipe in in head because we do not want to print 34787 line to our screen.
+Additionally <code>head</code> makes us notice that we still have the column header printed out</p>
+<pre><code class="bash">cut -d ',' -f 12 data/data_joined.csv | tail -n +2 | uniq -c
+</code></pre>
+
+<p>But while <code>uniq</code> is supposed to count all occurrence of a word, it only count similar <em>adjacent</em> occurrences.
+Before counting, we need to sort our input:</p>
+<pre><code class="bash">cut -d ',' -f 12 data/data_joined.csv | tail -n +2 | sort | uniq -c
+</code></pre>
+
+<p>We see that although we caught a vast majority of rodents, we also caught reptiles, birds and rabbits!</p>
+<p>Now that we have a working one-liner, let us put it into a script</p>
+<pre><code class="bash">nano scripts/taxa_count.sh
+</code></pre>
+
+<p>and write</p>
+<pre><code class="bash"># script that prints the count of species for csv files
+cut -d ',' -f 12 &quot;$1&quot; | tail -n +2 | sort | uniq -c
+</code></pre>
+
+<h3 id="keeping-track-of-things">Keeping track of things</h3>
+<p>Now keep track of your script in git</p>
+<pre><code class="bash">git add scripts/taxa_count.sh
+git commit -m 'added taxa_count'
+</code></pre>
+
+<p>as well as your gitignore</p>
+<pre><code class="bash">git add .gitignore
+git commit -m 'added gitignore'
+</code></pre>
+
+<h3 id="saving-the-result">Saving the result</h3>
+<pre><code class="bash">bash scripts/taxa_count.sh data/data_joined.csv &gt; results/taxa_count.txt
+</code></pre>
+
+<pre><code class="bash">cat results/taxa_count.txt
+</code></pre>
+
+<pre><code class="bash">git add results/taxa_count.txt
+git commit -m 'added results of taxa_count.sh'
+</code></pre>
+
+<h3 id="improving-our-script">Improving our script</h3>
+<p>We would also like to know the distribution of the numbers of animals caught in plots each year.
+The year is the 4th column in our dataset and our script, in its current state, always selects the 12th columns of a file.</p>
+<p>We can change our script to make it flexible so that the user can chose which columns they wishes to work on.</p>
+<pre><code class="bash">nano scripts/taxa_count.sh
+</code></pre>
+
+<pre><code class="bash"># script that prints the count of occurrence in one column for csv files
+cut -d ',' -f &quot;$2&quot; &quot;$1&quot; | tail -n +2 | sort | uniq -c
+</code></pre>
+
+<p>Now it doesn't make much sense to have it named <code>taxa_count.sh</code></p>
+<pre><code class="bash">mv scripts/taxa_count.sh scripts/column_count.sh
+</code></pre>
+
+<p>and let us not forget to keep track of our changes in git!</p>
+<pre><code class="bash">git add -A
+git commit -m 'made script more flexible about which column to cut on'
+</code></pre>
+
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>which year did we catch the most animals?
+try to answer programmatically.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>save the sorted output to a file in the <code>results</code> directory and keep track of it in git.</p>
+</div>
+<h3 id="investigating-further">Investigating further</h3>
+<p>We'd like to refine our animal count and knowing how many animals of each taxon were captured every year</p>
+<p>we can use <code>cut</code> on several columns like this:</p>
+<pre><code class="bash">cut -d ',' -f 4,12 &quot;data/data_joined.csv&quot; | tail -n +2 | sort | uniq -c
+</code></pre>
+
+<p>Now that we are ahhpy with our one-liner, let us save it in a script:</p>
+<pre><code class="bash">nano scripts/taxa_per_year.sh
+</code></pre>
+
+<p>then save the output to <code>results/taxa_per_year.txt</code></p>
+<pre><code>bash scripts/taxa_per_year.sh &gt; results/taxa_per_year.txt
+</code></pre>
+
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Which year was the first reptile captured?</p>
+</div>
+<p>The next step would be to refine our analysis by year. We will save one individual output for each year count</p>
+<h4 id="the-seq-command">The seq command</h4>
+<p>To perform what we want to do, we need to be able to loop over the years.
+The <code>seq</code> command can help us with that.</p>
+<p>First we try</p>
+<pre><code class="bash">seq 1 10
+</code></pre>
+
+<p>then</p>
+<pre><code class="bash">seq 1997 2002
+</code></pre>
+
+<p>and what about the span of years we are interested in?</p>
+<pre><code class="bash">seq 1977 2002
+</code></pre>
+
+<p>Great! So now does it work with a for loop?</p>
+<pre><code class="bash">for year in $(seq 1977 2002)
+    do
+        echo $year
+    done
+</code></pre>
+
+<p>It does!</p>
+<p>Before doing our analysis on each year, we still have to figure out how to do it on one year.</p>
+<pre><code class="bash">grep 1998 results/taxa_per_year.txt
+</code></pre>
+
+<p>"Grepping" the year seems to work.
+Now we need to save it into a file containing the year</p>
+<p>First let's create a directory where to store our results</p>
+<pre><code class="bash">mkdir results/years
+</code></pre>
+
+<p>and we try to redirect our yearly count into a file</p>
+<pre><code class="bash">grep 1998 results/taxa_per_year.txt &gt; results/years/1998-count.txt
+</code></pre>
+
+<pre><code>bash
+cat results/years/1998-count.txt
+</code></pre>
+
+<p>It seems to have worked.
+Now with the loop</p>
+<pre><code class="bash">for year in $(seq 1977 2002)
+    do
+        grep $year results/taxa_per_year.txt &gt; results/years/$year-count.txt
+    done
+</code></pre>
+
+<pre><code class="bash">ls results/years
+</code></pre>
+
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Put your loop in a script, and commit everything with <code>git</code></p>
+</div></div>
         
     </div>
 

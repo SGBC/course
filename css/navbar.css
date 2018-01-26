@@ -1,0 +1,12 @@
+.navbar-nav {
+    font-size: 12px;
+}
+.navbar-default {
+    background-color: #343838;
+    border-bottom: 3px #EBF2F2 solid;
+}
+.navbar-right {
+    font-size: 0px;
+    pointer-events: none;
+    cursor: default;
+}
