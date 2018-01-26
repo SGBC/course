@@ -1,0 +1,3 @@
+[submodule "tutorials"]
+	path = docs/tutorials
+	url = https://github.com/HadrienG/tutorials.git
