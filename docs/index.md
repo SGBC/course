@@ -11,10 +11,10 @@ Welcome to the course!
 
 * Week 2
     * [Introduction to the command-line](unix)
-    * [Project organisation](project_organisation)
     * [Cloud Computing](cloud)
     * [Installing Software](software)
     * [Version control with Git](git)
+    * [Project organisation](project_organisation)
 
 ## License
 

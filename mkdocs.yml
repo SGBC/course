@@ -4,10 +4,10 @@ pages:
     - Home: index.md
     - Proteins: proteins.md
     - Unix: unix.md
-    - Project Organisation: project_organisation.md
     - Cloud Computing: cloud.md
     - Installing Software: software.md
     - Git: git.md
+    - Project Organisation: project_organisation.md
 
 
 markdown_extensions:
