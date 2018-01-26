@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    <title></title>
+
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link href="../../../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+
+
+    <link href="../../../css/admonition.css" rel="stylesheet">
+
+
+    <link href="../../../css/navbar.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../../..">Bioinformatics course</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 1 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../proteins/">Proteins</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 2 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../unix/">Unix</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../cloud/">Cloud Computing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../software/">Installing Software</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../git/">Git</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../blast/">Command-line Blast</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../project_organisation/">Project Organisation</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 3 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../qc/">Quality Control</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../mapping/">Mapping and Variant Calling</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../assembly/">De-novo Genome Assembly</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Genome Annotation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../pan_genome/">Pan-genome Analysis</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../nanopore/">Nanopore Sequencing</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fa fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../assembly/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../pan_genome/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#genome-annotation">Genome Annotation</a></li>
+            <li class="second-level"><a href="#input-data">Input data</a></li>
+                
+            <li class="second-level"><a href="#running-prokka">Running prokka</a></li>
+                
+            <li class="second-level"><a href="#visualising-the-annotation">Visualising the annotation</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="genome-annotation">Genome Annotation</h1>
+<p>After you have de novo assembled your genome sequencing reads into contigs, it is useful to know what genomic features are on those contigs. The process of identifying and labelling those features is called genome annotation.</p>
+<p>Prokka is a “wrapper”; it collects together several pieces of software (from various authors), and so avoids “re-inventing the wheel”.</p>
+<p>Prokka finds and annotates features (both protein coding regions and RNA genes, i.e. tRNA, rRNA) present on on a sequence. Prokka uses a two-step process for the annotation of protein coding regions: first, protein coding regions on the genome are identified using <a href="http://prodigal.ornl.gov">Prodigal</a>; second, the function of the encoded protein is predicted by similarity to proteins in one of many protein or protein domain databases. Prokka is a software tool that can be used to annotate bacterial, archaeal and viral genomes quickly, generating standard output files in GenBank, EMBL and gff formats. More information about Prokka can be found <a href="https://github.com/tseemann/prokka">here</a>.</p>
+<h2 id="input-data">Input data</h2>
+<p>Prokka requires assembled contigs. You will need your best assembly from the assembly tutorial.</p>
+<p>Alternatively, you can download an assembly <a href="https://raw.githubusercontent.com/HadrienG/tutorials/master/data/assembly.fasta">here</a></p>
+<h2 id="running-prokka">Running prokka</h2>
+<pre><code>module load prokka
+awk '/^&gt;/{print &quot;&gt;ctg&quot; ++i; next}{print}' &lt; assembly.fasta &gt; good_contigs.fasta
+prokka --outdir annotation --kingdom Bacteria \
+--proteins m_genitalium.faa good_contigs.fasta
+</code></pre>
+
+<p>Once Prokka has finished, examine each of its output files.</p>
+<ul>
+<li>The GFF and GBK files contain all of the information about the features annotated (in different formats.)</li>
+<li>The .txt file contains a summary of the number of features annotated.</li>
+<li>The .faa file contains the protein sequences of the genes annotated.</li>
+<li>The .ffn file contains the nucleotide sequences of the genes annotated.</li>
+</ul>
+<h2 id="visualising-the-annotation">Visualising the annotation</h2>
+<p>Artemis is a graphical Java program to browse annotated genomes. Download it <a href="http://www.sanger.ac.uk/science/tools/artemis">here</a> and install it on your local computer.</p>
+<p>Copy the .gff file produced by prokka on your computer, and open it with artemis.</p>
+<p>You will be overwhelmed and/or confused at first, and possibly permanently. Here are some tips:</p>
+<ul>
+<li>There are 3 panels: feature map (top), sequence (middle), feature list (bottom)</li>
+<li>Click right-mouse-button on bottom panel and select Show products</li>
+<li>Zooming is done via the verrtical scroll bars in the two top panels</li>
+</ul></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../../..';
+    </script>
+    <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+    <script src="../../../js/base.js"></script>
+    <script src="../../../search/require.js"></script>
+    <script src="../../../search/search.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

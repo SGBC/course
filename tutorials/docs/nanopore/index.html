@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    <title></title>
+
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link href="../../../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+
+
+    <link href="../../../css/admonition.css" rel="stylesheet">
+
+
+    <link href="../../../css/navbar.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../../..">Bioinformatics course</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 1 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../proteins/">Proteins</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 2 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../unix/">Unix</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../cloud/">Cloud Computing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../software/">Installing Software</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../git/">Git</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../blast/">Command-line Blast</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../project_organisation/">Project Organisation</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 3 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../qc/">Quality Control</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../mapping/">Mapping and Variant Calling</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../assembly/">De-novo Genome Assembly</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../annotation/">Genome Annotation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../pan_genome/">Pan-genome Analysis</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Nanopore Sequencing</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fa fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../pan_genome/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="prev" >
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#introduction-to-nanopore-sequencing">Introduction to Nanopore Sequencing</a></li>
+            <li class="second-level"><a href="#get-the-data">Get the Data</a></li>
+                
+            <li class="second-level"><a href="#adapter-trimming">Adapter trimming</a></li>
+                
+            <li class="second-level"><a href="#assembly">Assembly</a></li>
+                
+            <li class="second-level"><a href="#polishing">Polishing</a></li>
+                
+            <li class="second-level"><a href="#compare-with-the-existing-assembly">Compare with the existing assembly</a></li>
+                
+            <li class="second-level"><a href="#annotation">Annotation</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="introduction-to-nanopore-sequencing">Introduction to Nanopore Sequencing</h1>
+<p>In this tutorial we will assemble the <em>E. coli</em> genome using a mix of long, error-prone reads from the MinION (Oxford Nanopore) and short reads from a HiSeq instrument (Illumina).</p>
+<p>The MinION data used in this tutorial come a test run by the <a href="http://lab.loman.net/2015/09/24/first-sqk-map-006-experiment/">Loman lab</a>.  <br />
+The Illumina data were simulated using <a href="https://github.com/HadrienG/InSilicoSeq">InSilicoSeq</a></p>
+<h2 id="get-the-data">Get the Data</h2>
+<p>First download the nanopore data</p>
+<pre><code class="bash">fastq-dump ERR1147227
+</code></pre>
+
+<p>You will not need the HiSeq data right away, but you can start the download in another window</p>
+<pre><code class="bash">curl -O -J -L https://osf.io/pxk7f/download
+curl -O -J -L https://osf.io/zax3c/download
+</code></pre>
+
+<p>look at basic stats of the nanopore reads</p>
+<pre><code class="bash">assembly-stats ERR1147227.fastq
+</code></pre>
+
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many nanopore reads do we have?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How long is the longest read?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What is the average read length?</p>
+</div>
+<h2 id="adapter-trimming">Adapter trimming</h2>
+<p>We'll use <a href="https://github.com/rrwick/Porechop">porechop</a> to remove the adapters from the reads.
+Additionally to trim the adapters at the 3' and 5' ends, porechop can split the reads if it finds adapters in the middle.</p>
+<pre><code class="bash">porechop -i ERR1147227.fastq -o ERR1147227_trimmed.fastq
+</code></pre>
+
+<h2 id="assembly">Assembly</h2>
+<p>We assemble the reads using miniasm</p>
+<pre><code class="bash">minimap2 -x ava-ont ERR1147227_trimmed.fastq ERR1147227_trimmed.fastq | \
+    gzip -1 &gt; ERR1147227.paf.gz
+miniasm -f ERR1147227_trimmed.fastq ERR1147227.paf.gz &gt; ERR1147227.gfa
+awk '/^S/{print &quot;&gt;&quot;$2&quot;\n&quot;$3}' ERR1147227.gfa | fold &gt; ERR1147227.fasta
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Miniasm is a fast but has no consensus step.
+The accuracy of the assembly will be equal to the base accuracy.</p>
+</div>
+<h2 id="polishing">Polishing</h2>
+<p>Since the miniasm assembly likely contains a lot if errors, we correct it with  Illumina reads.</p>
+<p>First we map the short reads against the assembly</p>
+<pre><code>bowtie2-build ERR1147227.fasta ERR1147227
+bowtie2 -x ERR1147227 -1 ecoli_hiseq_R1.fastq.gz -2 ecoli_hiseq_R2.fastq.gz | \
+    samtools view -bS -o ERR1147227.bam
+samtools sort ERR1147227.bam -o ERR1147227.sorted.bam
+samtools index ERR1147227.sorted.bam
+</code></pre>
+
+<p>then we run Pilon</p>
+<pre><code>pilon --genome ERR1147227.fasta --frags ERR1147227.sorted.bam \
+    --output ERR1147227_improved
+</code></pre>
+
+<p>which will correct eventual misamatches in our assembly and write the new improved assembly to <code>ERR1147227_improved.fasta</code></p>
+<p>For better results we should perform more than one round of polishing.</p>
+<h2 id="compare-with-the-existing-assembly">Compare with the existing assembly</h2>
+<p>Go to <a href="https://www.ncbi.nlm.nih.gov">https://www.ncbi.nlm.nih.gov</a> and search for NC_000913.
+Download the associated genome in fasta format and rename it to <code>ecoli_ref.fasta</code></p>
+<pre><code class="bash">nucmer --maxmatch -c 100 -p ecoli ERR1147227_trimmed.fastq ecoli_ref.fasta
+mummerplot --fat --filter --png --large -p ecoli ecoli.delta
+</code></pre>
+
+<p>then take a look at <code>ecoli.png</code></p>
+<h2 id="annotation">Annotation</h2>
+<pre><code class="bash">awk '/^&gt;/{print &quot;&gt;ctg&quot; ++i; next}{print}' &lt; ERR1147227_improved.fasta \
+    &gt; ERR1147227_formatted.fasta
+prokka --outdir annotation --kingdom Bacteria ERR1147227_formatted.fasta
+</code></pre>
+
+<p>You can open the output to see how it went</p>
+<pre><code class="bash">cat annotation/PROKKA_11232017.txt
+</code></pre>
+
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Does it fit your expecations? How many genes were you expecting?</p>
+</div></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../../..';
+    </script>
+    <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+    <script src="../../../js/base.js"></script>
+    <script src="../../../search/require.js"></script>
+    <script src="../../../search/search.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

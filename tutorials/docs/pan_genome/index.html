@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    <title></title>
+
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link href="../../../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+
+
+    <link href="../../../css/admonition.css" rel="stylesheet">
+
+
+    <link href="../../../css/navbar.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../../..">Bioinformatics course</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 1 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../proteins/">Proteins</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 2 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../unix/">Unix</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../cloud/">Cloud Computing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../software/">Installing Software</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../git/">Git</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../blast/">Command-line Blast</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../project_organisation/">Project Organisation</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 3 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../qc/">Quality Control</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../mapping/">Mapping and Variant Calling</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../assembly/">De-novo Genome Assembly</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../annotation/">Genome Annotation</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Pan-genome Analysis</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../nanopore/">Nanopore Sequencing</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fa fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../annotation/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../nanopore/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#pan-genome-analysis">Pan-Genome Analysis</a></li>
+            <li class="second-level"><a href="#getting-the-data">Getting the data</a></li>
+                
+            <li class="second-level"><a href="#annotation-of-the-genomes">Annotation of the genomes</a></li>
+                
+            <li class="second-level"><a href="#pan-genome-analysis_1">Pan-genome analysis</a></li>
+                
+            <li class="second-level"><a href="#plotting-the-result">Plotting the result</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="pan-genome-analysis">Pan-Genome Analysis</h1>
+<p>In this tutorial we will learn how to determine a pan-genome from a collection of isolate genomes.</p>
+<p>This tutorial is inspired from <a href="https://github.com/microgenomics/tutorials/blob/master/pangenome.md">Genome annotation and Pangenome Analysis</a> from the CBIB in Santiago, Chile</p>
+<h2 id="getting-the-data">Getting the data</h2>
+<p>We'll use six <em>Listeria monocytogenes</em> genomes in this tutorial.</p>
+<pre><code class="bash">wget https://github.com/HadrienG/tutorials/blob/master/data/pangenome.tar.gz
+tar xzf pangenome.tar.gz
+cd pangenome
+</code></pre>
+
+<p>These genomes correspond to isolates of <em>L. monocytogenes</em> reported in</p>
+<blockquote>
+<p>Xiangyu Deng, Adam M Phillippy, Zengxin Li, Steven L Salzberg and Wei Zhang. (2010) Probing the pan-genome of Listeria monocytogenes: new insights into intraspecific niche expansion and genomic diversification. doi:10.1186/1471-2164-11-500</p>
+</blockquote>
+<p>The six genomes you downloaded were selected based on their level of completeness (finished; contigs, etc) and their genotype (type I-III):</p>
+<table>
+<thead>
+<tr>
+<th>Genome Assembly</th>
+<th>Genome Accession</th>
+<th>Genotype</th>
+<th>Sequenced by</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GCA_000026705</td>
+<td>FM242711</td>
+<td>type I</td>
+<td>Institut_Pasteur</td>
+<td>Finished</td>
+</tr>
+<tr>
+<td>GCA_000008285</td>
+<td>AE017262</td>
+<td>type I</td>
+<td>TIGR</td>
+<td>Finished</td>
+</tr>
+<tr>
+<td>GCA_000168815</td>
+<td>AATL00000000</td>
+<td>type I</td>
+<td>Broad Institute</td>
+<td>79 contigs</td>
+</tr>
+<tr>
+<td>GCA_000196035</td>
+<td>AL591824</td>
+<td>type II</td>
+<td>European Consortium</td>
+<td>Finished</td>
+</tr>
+<tr>
+<td>GCA_000168635</td>
+<td>AARW00000000</td>
+<td>type II</td>
+<td>Broad Institute</td>
+<td>25 contigs</td>
+</tr>
+<tr>
+<td>GCA_000021185</td>
+<td>CP001175</td>
+<td>type III</td>
+<td>MSU</td>
+<td>Finished</td>
+</tr>
+</tbody>
+</table>
+<h2 id="annotation-of-the-genomes">Annotation of the genomes</h2>
+<p>By annotating the genomes we mean to add information regarding genes, their location, strandedness, and features and attributes. Now that you have the genomes, we need to annotate them to determine the location and attributes of the genes contained in them. We will use Prokka for the annotation.</p>
+<pre><code>prokka --kingdom Bacteria --outdir prokka_GCA_000008285 --genus Listeria --locustag GCA_000008285 GCA_000008285.1_ASM828v1_genomic.fna
+</code></pre>
+
+<p>Annotate the 6 genomes, by replacing the <code>-outdir</code> and <code>-locustag</code> and <code>fasta file</code> accordingly.</p>
+<h2 id="pan-genome-analysis_1">Pan-genome analysis</h2>
+<p>put all the .gff files in the same folder (e.g., ./gff) and run Roary</p>
+<p><code>roary -f results -e -n -v gff/*.gff</code></p>
+<p>Roary will get all the coding sequences, convert them into protein, and create pre-clusters. Then, using BLASTP and MCL, Roary will create clusters, and check for paralogs. Finally, Roary will take every isolate and order them by presence/absence of orthologs. The summary output is present in the <code>summary_statistics.txt</code> file.</p>
+<p>Additionally, Roary produces a <code>gene_presence_absence.csv</code> file that can be opened in any spreadsheet software to manually explore the results. In this file, you will find information such as gene name and gene annotation, and, of course, whether a gene is present in a genome or not.</p>
+<h2 id="plotting-the-result">Plotting the result</h2>
+<p>Roary comes with a python script that allows you to generate a few plots to graphically assess your analysis output.</p>
+<p>First, we need to generate a tree file from the alignment generated by Roary:</p>
+<pre><code>FastTree –nt –gtr core_gene_alignment.aln &gt; my_tree.newick
+</code></pre>
+
+<p>Then we can plot the Roary results:</p>
+<pre><code>roary_plots.py my_tree.newick gene_presence_absence.csv
+</code></pre></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../../..';
+    </script>
+    <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+    <script src="../../../js/base.js"></script>
+    <script src="../../../search/require.js"></script>
+    <script src="../../../search/search.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

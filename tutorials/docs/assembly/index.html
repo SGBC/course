@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    <title></title>
+
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link href="../../../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+
+
+    <link href="../../../css/admonition.css" rel="stylesheet">
+
+
+    <link href="../../../css/navbar.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../../..">Bioinformatics course</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 1 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../proteins/">Proteins</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 2 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../unix/">Unix</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../cloud/">Cloud Computing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../software/">Installing Software</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../git/">Git</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../blast/">Command-line Blast</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../project_organisation/">Project Organisation</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 3 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../qc/">Quality Control</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../mapping/">Mapping and Variant Calling</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">De-novo Genome Assembly</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../annotation/">Genome Annotation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../pan_genome/">Pan-genome Analysis</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../nanopore/">Nanopore Sequencing</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fa fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../mapping/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../annotation/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#de-novo-genome-assembly">De-novo Genome Assembly</a></li>
+            <li class="second-level"><a href="#getting-the-data">Getting the data</a></li>
+                
+            <li class="second-level"><a href="#de-novo-assembly">De-novo assembly</a></li>
+                
+            <li class="second-level"><a href="#quality-of-the-assembly">Quality of the Assembly</a></li>
+                
+            <li class="second-level"><a href="#fixing-misassemblies">Fixing misassemblies</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="de-novo-genome-assembly">De-novo Genome Assembly</h1>
+<p>In this practical we will perform the assembly of <em>M. genitalium</em>, a bacterium published in 1995 by Fraser et al in Science (<a href="https://www.ncbi.nlm.nih.gov/pubmed/7569993">abstract link</a>).</p>
+<h2 id="getting-the-data">Getting the data</h2>
+<p><em>M. genitalium</em> was sequenced using the MiSeq platform (2 * 150bp).
+The reads were deposited in the ENA Short Read Archive under the accession <a href="https://www.ebi.ac.uk/ena/data/view/ERR486840">ERR486840</a></p>
+<p>Download the 2 fastq files associated with the run.</p>
+<pre><code class="bash">wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR486/ERR486840/ERR486840_1.fastq.gz
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR486/ERR486840/ERR486840_2.fastq.gz
+</code></pre>
+
+<p>The files that were deposited in ENA were already trimmed, so we do not have to trim ourselves!</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many reads are in the files?</p>
+</div>
+<h2 id="de-novo-assembly">De-novo assembly</h2>
+<p>We will be using the MEGAHIT assembler to assemble our bacterium</p>
+<pre><code class="bash">megahit -1 ERR486840_1.fastq.gz -2 ERR486840_2.fastq.gz -o m_genitalium
+</code></pre>
+
+<p>This will take a few minutes.</p>
+<p>The result of the assembly is in the directory m_genitalium under the name <code>final.contigs.fa</code></p>
+<p>Let's make a copy of it</p>
+<pre><code class="bash">cp m_genitalium/final.contigs.fa m_genitalium.fasta
+</code></pre>
+
+<p>and look at it</p>
+<pre><code class="bash">head m_genitalium.fasta
+</code></pre>
+
+<h2 id="quality-of-the-assembly">Quality of the Assembly</h2>
+<p>QUAST is a software evaluating the quality of genome assemblies by computing various metrics, including</p>
+<p>Run Quast on your assembly</p>
+<pre><code class="bash">quast.py m_genitalium.fasta -o m_genitalium_report
+</code></pre>
+
+<p>and take a look at the text report</p>
+<pre><code class="bash">cat m_genitalium_report/report.txt
+</code></pre>
+
+<p>You should see something like</p>
+<pre><code>All statistics are based on contigs of size &gt;= 500 bp, unless otherwise noted (e.g., &quot;# contigs (&gt;= 0 bp)&quot; and &quot;Total length (&gt;= 0 bp)&quot; include all contigs).
+
+Assembly                    m_genitalium
+# contigs (&gt;= 0 bp)         17          
+# contigs (&gt;= 1000 bp)      8           
+# contigs (&gt;= 5000 bp)      7           
+# contigs (&gt;= 10000 bp)     6           
+# contigs (&gt;= 25000 bp)     5           
+# contigs (&gt;= 50000 bp)     2           
+Total length (&gt;= 0 bp)      584267      
+Total length (&gt;= 1000 bp)   580160      
+Total length (&gt;= 5000 bp)   577000      
+Total length (&gt;= 10000 bp)  570240      
+Total length (&gt;= 25000 bp)  554043      
+Total length (&gt;= 50000 bp)  446481      
+# contigs                   11          
+Largest contig              368542      
+Total length                582257      
+GC (%)                      31.71       
+N50                         368542      
+N75                         77939       
+L50                         1           
+L75                         2           
+# N's per 100 kbp           0.00    
+</code></pre>
+
+<p>which is a summary stats about our assembly.
+Additionally, the file <code>m_genitalium_report/report.html</code></p>
+<p>You can either download it and open it in your own web browser, or we make it available for your convenience:</p>
+<ul>
+<li><a href="../data/fastqc/report.html">m_genitalium_report/report.html</a></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>N50: length for which the collection of all contigs of that length or longer covers at least 50% of assembly length</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How well does the assembly total consensus size and coverage correspond to your earlier estimation?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many contigs in total did the assembly produce?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What is the N50 of the assembly? What does this mean?</p>
+</div>
+<h2 id="fixing-misassemblies">Fixing misassemblies</h2>
+<p>Pilon is a software tool which can be used to automatically improve draft assemblies.
+It attempts to make improvements to the input genome, including:</p>
+<ul>
+<li>Single base differences</li>
+<li>Small Indels</li>
+<li>Larger Indels or block substitution events</li>
+<li>Gap filling</li>
+<li>Identification of local misassemblies, including optional opening of new gaps</li>
+</ul>
+<p>Pilon then outputs a FASTA file containing an improved representation of the genome from the read data and an optional VCF file detailing variation seen between the read data and the input genome.</p>
+<p>Before running Pilon itself, we have to align our reads against the assembly</p>
+<pre><code>bowtie2-build m_genitalium.fasta m_genitalium
+bowtie2 -x m_genitalium -1 ERR486840_1.fastq.gz -2 ERR486840_2.fastq.gz | \
+    samtools view -bS -o m_genitalium.bam
+samtools sort m_genitalium.bam -o m_genitalium.sorted.bam
+samtools index m_genitalium.sorted.bam
+</code></pre>
+
+<p>then we run Pilon</p>
+<pre><code>pilon --genome m_genitalium.fasta --frags m_genitalium.sorted.bam --output m_genitalium_improved
+</code></pre>
+
+<p>which will correct eventual misamatches in our assembly and write the new improved assembly to <code>m_genitalium_improved.fasta</code></p></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../../..';
+    </script>
+    <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+    <script src="../../../js/base.js"></script>
+    <script src="../../../search/require.js"></script>
+    <script src="../../../search/search.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>
