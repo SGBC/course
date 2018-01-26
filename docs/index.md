@@ -17,6 +17,14 @@ Welcome to the course!
     * [Command-line Blast](blast)
     * [Project organisation](project_organisation)
 
+* Week 3
+    * [Quality Control](tutorials/docs/qc.md)
+    * [Mapping and Variant Calling](tutorials/docs/mapping.md)
+    * [De-novo Genome Assembly](tutorials/docs/assembly.md)
+    * [Genome Annotation](tutorials/docs/annotation.md)
+    * [Pan-genome Analysis](tutorials/docs/pan_genome.md)
+    * [Nanopore Sequencing](tutorials/docs/nanopore.md)
+
 ## License
 
 Unless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.
