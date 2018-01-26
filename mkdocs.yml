@@ -1,5 +1,8 @@
 site_name: Bioinformatics course
-theme: cinder
+
+theme:
+    name: cinder
+
 pages:
     - Home: index.md
     - Proteins: proteins.md
@@ -7,11 +10,12 @@ pages:
     - Cloud Computing: cloud.md
     - Installing Software: software.md
     - Git: git.md
+    - Command-line Blast: blast.md
     - Project Organisation: project_organisation.md
-
 
 markdown_extensions:
   - admonition
 
 extra_css:
     - css/admonition.css
+    - css/navbar.css

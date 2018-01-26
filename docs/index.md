@@ -14,6 +14,7 @@ Welcome to the course!
     * [Cloud Computing](cloud)
     * [Installing Software](software)
     * [Version control with Git](git)
+    * [Command-line Blast](blast)
     * [Project organisation](project_organisation)
 
 ## License
