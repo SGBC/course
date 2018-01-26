@@ -5,13 +5,22 @@ theme:
 
 pages:
     - Home: index.md
-    - Proteins: proteins.md
-    - Unix: unix.md
-    - Cloud Computing: cloud.md
-    - Installing Software: software.md
-    - Git: git.md
-    - Command-line Blast: blast.md
-    - Project Organisation: project_organisation.md
+    - Week 1:
+        - Proteins: proteins.md
+    - Week 2:
+        - Unix: unix.md
+        - Cloud Computing: cloud.md
+        - Installing Software: software.md
+        - Git: git.md
+        - Command-line Blast: blast.md
+        - Project Organisation: project_organisation.md
+    - Week 3:
+        - Quality Control: tutorials/docs/qc.md
+        - Mapping and Variant Calling: tutorials/docs/mapping.md
+        - De-novo Genome Assembly: tutorials/docs/assembly.md
+        - Genome Annotation: tutorials/docs/annotation.md
+        - Pan-genome Analysis: tutorials/docs/pan_genome.md
+        - Nanopore Sequencing: tutorials/docs/nanopore.md
 
 markdown_extensions:
   - admonition
