@@ -1,8 +1,12 @@
 # venvs
 mkdocs_env/
+fab_env
 
 # mkdocs stuff
 site/
 
 # mac stuff
 .DS_Store
+
+# python stuff
+*.pyc
