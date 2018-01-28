@@ -18,9 +18,11 @@ Then clone the directory
 ```bash
 git clone https://github.com/SGBC/course.git
 cd course
+git submodule update
 ```
 
-The lessons are located in the `docs/` directory
+The lessons are located in the `docs/` directory.
+For the lessons under `docs/tutorials/` the development is happening at <https://github.com/HadrienG/tutorials>
 
 For a live preview in your browser do
 
