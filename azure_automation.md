@@ -52,12 +52,12 @@ ssh -i ~/.ssh/azure_rsa student@ip_address
 
 ### Automate software installation
 
-Install fabric
+Install fabric and the azure sdk
 
 ```bash
 virtualenv --python=/usr/local/bin/python2.7 fab_env
 source fabric/bin/activate
-pip install fabric
+pip install fabric azure
 ```
 
 Move to the `fabfiles/` dirrectory of this repo

@@ -3,11 +3,13 @@
 
 from __future__ import print_function, with_statement
 from fabric.api import *
+from fabric.network import ssh
 
+from student_ips import IPS
 
-env.hosts = ['52.165.132.146', '52.173.138.133']
-# env.user = ['hadrien']  # will be 'student'
-# env.key_filename = '~/.ssh/azure_rsa'
+env.hosts = IPS
+env.user = 'student'
+env.key_filename = '~/.ssh/azure_rsa'
 
 
 FASTQC_WEB = 'https://www.bioinformatics.babraham.ac.uk/'
@@ -24,10 +26,12 @@ def get_path():
 
 @parallel
 def setup():
-    sudo('apt -y -qq update')
+    sudo('apt -y -qq update  && apt -y -qq upgrade')
     sudo('apt -y -qq install python-pip python-dev')
     sudo('apt -y -qq install unzip')
     sudo('apt -y -qq install make gcc')
+    sudo('apt -y -qq install libncurses5-dev libbz2-dev liblzma-dev')
+    sudo('apt -y -qq install zlib1g-dev libcurl4-gnutls-dev')
     run('mkdir -p ~/install')
     run('mkdir -p /home/$(whoami)/.local/bin')
 
