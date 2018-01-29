@@ -18,6 +18,7 @@ Welcome to the course!
     * [Project organisation](project_organisation)
 
 * Week 3
+    * [Sequencing Technologies](seq_tech)
     * [Quality Control](tutorials/docs/qc.md)
     * [Mapping and Variant Calling](tutorials/docs/mapping.md)
     * [De-novo Genome Assembly](tutorials/docs/assembly.md)
