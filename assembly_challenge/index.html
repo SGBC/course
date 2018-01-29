@@ -90,7 +90,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 2 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -119,8 +119,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">Command-line Blast</a>
+<li >
+    <a href="../blast/">Command-line Blast</a>
 </li>
 
                         
@@ -135,7 +135,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 3 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -152,8 +152,8 @@
 
                         
                             
-<li >
-    <a href="../assembly_challenge/">Assembly Challenge</a>
+<li class="active">
+    <a href="./">Assembly Challenge</a>
 </li>
 
                         
@@ -194,12 +194,12 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="next" href="../git/">
+                        <a rel="next" href="../tutorials/docs/qc/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../project_organisation/">
+                        <a rel="prev" href="../tutorials/docs/assembly/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -212,97 +212,42 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#command-line-blast">Command-line Blast</a></li>
-            <li class="second-level"><a href="#installing-blast">Installing blast</a></li>
+        <li class="first-level active"><a href="#assembly-challenge">Assembly Challenge</a></li>
+            <li class="second-level"><a href="#download-the-data">Download the Data</a></li>
                 
-            <li class="second-level"><a href="#getting-data">Getting data</a></li>
+            <li class="second-level"><a href="#assemblers-available">Assemblers available</a></li>
                 
-            <li class="second-level"><a href="#our-first-blast">Our first blast</a></li>
-                
-            <li class="second-level"><a href="#bigger-dataset">Bigger dataset</a></li>
+            <li class="second-level"><a href="#quality-assessment">Quality assessment</a></li>
                 
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="command-line-blast">Command-line Blast</h1>
-<h2 id="installing-blast">Installing blast</h2>
-<p>While you should have installed blast during the <a href="../software">installing software</a> tutorial, you can copy/paste the code block below to reinstall it if needed</p>
-<pre><code class="bash">sudo apt install ncbi-blast+
+<h1 id="assembly-challenge">Assembly Challenge</h1>
+<p>During this session, you will be asked to produce the best assembly possible of <em>Escherichia coli</em> str. K-12 MG1655.</p>
+<p>There are various assemblers already installed on your virtual machines but feel free to try and install others.
+Below you will find the commands needed to download the data, as well as links to the websites of some well-known assemblers and quality assessment tools.</p>
+<p>Good luck!</p>
+<h2 id="download-the-data">Download the Data</h2>
+<pre><code class="bash">curl -O -J -L https://osf.io/qszpw/download
+curl -O -J -L https://osf.io/jaf6d/download
 </code></pre>
 
-<h2 id="getting-data">Getting data</h2>
-<p>We will download some cows and human proteins from RefSeq</p>
-<pre><code class="bash">wget ftp://ftp.ncbi.nih.gov/refseq/B_taurus/mRNA_Prot/cow.1.protein.faa.gz
-wget ftp://ftp.ncbi.nih.gov/refseq/H_sapiens/mRNA_Prot/human.1.protein.faa.gz
-</code></pre>
-
-<p>Both these files are compressed. They are not <code>tar</code> archives, like we encountered earlier, but <code>gzip</code> files.
-To uncompress:</p>
-<pre><code class="bash">gzip -d *.gz
-</code></pre>
-
-<p>Let us take a look at the human file</p>
-<pre><code class="bash">head human.1.protein.faa
-</code></pre>
-
-<p>Both files contain protein sequences in the <a href="https://en.wikipedia.org/wiki/FASTA_format">FASTA format</a></p>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>How many sequences do I have in each file?</p>
-</div>
-<p>The files are slightly too big for our first time blasting things at the command-line.
-Let's downsize the cow file</p>
-<pre><code class="bash">head -6 cow.1.protein.faa &gt; cow.small.faa
-</code></pre>
-
-<h2 id="our-first-blast">Our first blast</h2>
-<p>Now we can blast these two cow sequences against the set of human sequences.</p>
-<p>First we need to build a blast database with our human sequences</p>
-<pre><code class="bash">makeblastdb -in human.1.protein.faa -dbtype prot
-ls
-</code></pre>
-
-<p>The <code>makeblastdb</code> produced a lot of extra files. Those files are indexes and necessary for blast to function.</p>
-<p>Now we can run blast</p>
-<pre><code class="bash">blastp -query cow.small.faa -db human.1.protein.faa -out cow_vs_human_blast_results.txt
-</code></pre>
-
-<p>We can look at the results using <code>less</code></p>
-<pre><code class="bash">less cow_vs_human_blast_results.txt
-</code></pre>
-
-<p>To know about the various options that we can use with blastp:</p>
-<pre><code class="bash">blastp -help
-</code></pre>
-
-<p>and for easier reading</p>
-<pre><code class="bash">blastp -help | less
-</code></pre>
-
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>How could I modify the previous blast command to filter the hits with an e-value of 1e-5</p>
-</div>
-<h2 id="bigger-dataset">Bigger dataset</h2>
-<p>Now that we succeeded using a small dataset of two proteins, let's try with a slightly bigger one.</p>
-<pre><code class="bash">head -199 cow.1.protein.faa &gt; cow.medium.faa
-</code></pre>
-
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>How many protein sequences does <code>cow.medium.faa</code> contain?</p>
-</div>
-<p>We run blast again</p>
-<pre><code class="bash">blastp -query cow.medium.faa -db human.1.protein.faa \
-    -out cow_vs_human_blast_results.tab -evalue 1e-5 \
-    -outfmt 6 -max_target_seqs 1
-</code></pre>
-
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>What do <code>-outfmt</code> and <code>-max_target_seqs</code> do?</p>
-</div></div>
+<h2 id="assemblers-available">Assemblers available</h2>
+<ul>
+<li><a href="https://github.com/voutcn/megahit">megahit</a></li>
+<li><a href="http://cab.spbu.ru/software/spades/">SPAdes</a></li>
+<li><a href="https://github.com/jts/sga">sga</a></li>
+<li><a href="https://github.com/bcgsc/abyss">Abyss</a></li>
+<li><a href="https://github.com/rrwick/Unicycler">Unicycler</a></li>
+</ul>
+<h2 id="quality-assessment">Quality assessment</h2>
+<ul>
+<li><a href="http://quast.sourceforge.net">quast</a></li>
+<li><a href="http://busco.ezlab.org/v2/">busco</a></li>
+<li><a href="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml">bowtie2</a></li>
+<li><a href="http://multiqc.info">multiqc</a></li>
+</ul></div>
         
     </div>
 

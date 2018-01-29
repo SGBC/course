@@ -153,7 +153,7 @@
                         
                             
 <li >
-    <a href="../mapping/">Mapping and Variant Calling</a>
+    <a href="../../../assembly_challenge/">Assembly Challenge</a>
 </li>
 
                         
@@ -194,7 +194,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="next" href="../mapping/">
+                        <a rel="next" href="../../../assembly_challenge/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
@@ -220,6 +220,8 @@
             <li class="second-level"><a href="#quality-of-the-assembly">Quality of the Assembly</a></li>
                 
             <li class="second-level"><a href="#fixing-misassemblies">Fixing misassemblies</a></li>
+                
+            <li class="second-level"><a href="#assembly-completeness">Assembly Completeness</a></li>
                 
     </ul>
 </div></div>
@@ -337,7 +339,23 @@ samtools index m_genitalium.sorted.bam
 <pre><code>pilon --genome m_genitalium.fasta --frags m_genitalium.sorted.bam --output m_genitalium_improved
 </code></pre>
 
-<p>which will correct eventual misamatches in our assembly and write the new improved assembly to <code>m_genitalium_improved.fasta</code></p></div>
+<p>which will correct eventual mismatches in our assembly and write the new improved assembly to <code>m_genitalium_improved.fasta</code></p>
+<h2 id="assembly-completeness">Assembly Completeness</h2>
+<p>Although quast output a range of metric to assess how contiguous our assembly is, having a long N50 does not guarantee a good assembly: it could be riddled by misassemblies!</p>
+<p>We will run <code>busco</code> to try to find marker genes in our assembly. Marker genes are conserved across a range of species and finding intact conserved genes in our assembly would be a good indication of its quality</p>
+<p>First we need to download and unpack the bacterial datasets used by <code>busco</code></p>
+<pre><code class="bash">wget http://busco.ezlab.org/datasets/bacteria_odb9.tar.gz
+tar xzf bacteria_odb9.tar.gz
+</code></pre>
+
+<p>then we can run <code>busco</code> with</p>
+<pre><code class="bash">BUSCO.py -i m_genitalium.fasta -l bacteria_odb9 -o busco_genitalium -m genome
+</code></pre>
+
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many marker genes has <code>busco</code> found? </p>
+</div></div>
         
     </div>
 
