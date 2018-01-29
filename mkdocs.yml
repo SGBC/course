@@ -17,7 +17,7 @@ pages:
     - Week 3:
         - Sequencing Technologies: seq_tech.md
         - Quality Control: tutorials/docs/qc.md
-        - Mapping and Variant Calling: tutorials/docs/mapping.md
+        - Assembly Challenge: assembly_challenge.md
         - De-novo Genome Assembly: tutorials/docs/assembly.md
         - Genome Annotation: tutorials/docs/annotation.md
         - Pan-genome Analysis: tutorials/docs/pan_genome.md

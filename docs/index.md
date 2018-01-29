@@ -20,8 +20,8 @@ Welcome to the course!
 * Week 3
     * [Sequencing Technologies](seq_tech)
     * [Quality Control](tutorials/docs/qc.md)
-    * [Mapping and Variant Calling](tutorials/docs/mapping.md)
     * [De-novo Genome Assembly](tutorials/docs/assembly.md)
+    * [Assembly Challenge](assembly_challenge)
     * [Genome Annotation](tutorials/docs/annotation.md)
     * [Pan-genome Analysis](tutorials/docs/pan_genome.md)
     * [Nanopore Sequencing](tutorials/docs/nanopore.md)

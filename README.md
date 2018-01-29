@@ -18,7 +18,7 @@ Then clone the directory
 ```bash
 git clone https://github.com/SGBC/course.git
 cd course
-git submodule update
+git submodule foreach git pull
 ```
 
 The lessons are located in the `docs/` directory.
