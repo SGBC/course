@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "SGBC Bioinformatics Course\n\n\nThis website is a collection of lectures and tutorials given during the annual Bioinformatics course given at \nSLU\n by the \nSGBC\n.\n\n\nWelcome to the course!\n\n\nTable of Content\n\n\n\n\n\n\nWeek 1\n\n\n\n\nIntroduction to proteins analysis\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\nIntroduction to the command-line\n\n\nCloud Computing\n\n\nInstalling Software\n\n\nVersion control with Git\n\n\nCommand-line Blast\n\n\nProject organisation\n\n\n\n\n\n\n\n\nWeek 3\n\n\n\n\nQuality Control\n\n\nMapping and Variant Calling\n\n\nDe-novo Genome Assembly\n\n\nGenome Annotation\n\n\nPan-genome Analysis\n\n\nNanopore Sequencing\n\n\n\n\n\n\n\n\nLicense\n\n\nUnless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.\nTo view a copy of this license, visit \nhttp://creativecommons.org/licenses/by/4.0/\n or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.\n\n\nContributors\n\n\nThe following people have contributed to these course material, in no particular order:\n\n\n\n\nHadrien Gourl\u00e9\n\n\nJuliette Hayer",
+            "text": "SGBC Bioinformatics Course\n\n\nThis website is a collection of lectures and tutorials given during the annual Bioinformatics course given at \nSLU\n by the \nSGBC\n.\n\n\nWelcome to the course!\n\n\nTable of Content\n\n\n\n\n\n\nWeek 1\n\n\n\n\nIntroduction to proteins analysis\n\n\n\n\n\n\n\n\nWeek 2\n\n\n\n\nIntroduction to the command-line\n\n\nCloud Computing\n\n\nInstalling Software\n\n\nVersion control with Git\n\n\nCommand-line Blast\n\n\nProject organisation\n\n\n\n\n\n\n\n\nWeek 3\n\n\n\n\nSequencing Technologies\n\n\nQuality Control\n\n\nMapping and Variant Calling\n\n\nDe-novo Genome Assembly\n\n\nGenome Annotation\n\n\nPan-genome Analysis\n\n\nNanopore Sequencing\n\n\n\n\n\n\n\n\nLicense\n\n\nUnless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.\nTo view a copy of this license, visit \nhttp://creativecommons.org/licenses/by/4.0/\n or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.\n\n\nContributors\n\n\nThe following people have contributed to these course material, in no particular order:\n\n\n\n\nHadrien Gourl\u00e9\n\n\nJuliette Hayer",
             "title": "Home"
         },
         {
@@ -12,7 +12,7 @@
         },
         {
             "location": "/#table-of-content",
-            "text": "Week 1   Introduction to proteins analysis     Week 2   Introduction to the command-line  Cloud Computing  Installing Software  Version control with Git  Command-line Blast  Project organisation     Week 3   Quality Control  Mapping and Variant Calling  De-novo Genome Assembly  Genome Annotation  Pan-genome Analysis  Nanopore Sequencing",
+            "text": "Week 1   Introduction to proteins analysis     Week 2   Introduction to the command-line  Cloud Computing  Installing Software  Version control with Git  Command-line Blast  Project organisation     Week 3   Sequencing Technologies  Quality Control  Mapping and Variant Calling  De-novo Genome Assembly  Genome Annotation  Pan-genome Analysis  Nanopore Sequencing",
             "title": "Table of Content"
         },
         {
@@ -404,6 +404,21 @@
             "location": "/project_organisation/#the-seq-command",
             "text": "To perform what we want to do, we need to be able to loop over the years.\nThe  seq  command can help us with that.  First we try  seq 1 10  then  seq 1997 2002  and what about the span of years we are interested in?  seq 1977 2002  Great! So now does it work with a for loop?  for year in $(seq 1977 2002)\n    do\n        echo $year\n    done  It does!  Before doing our analysis on each year, we still have to figure out how to do it on one year.  grep 1998 results/taxa_per_year.txt  \"Grepping\" the year seems to work.\nNow we need to save it into a file containing the year  First let's create a directory where to store our results  mkdir results/years  and we try to redirect our yearly count into a file  grep 1998 results/taxa_per_year.txt > results/years/1998-count.txt  bash\ncat results/years/1998-count.txt  It seems to have worked.\nNow with the loop  for year in $(seq 1977 2002)\n    do\n        grep $year results/taxa_per_year.txt > results/years/$year-count.txt\n    done  ls results/years   Question  Put your loop in a script, and commit everything with  git",
             "title": "The seq command"
+        },
+        {
+            "location": "/seq_tech/",
+            "text": "Sequencing Technologies\n\n\n\n\nThis is an embedded \nMicrosoft Office\n presentation, powered by \nOffice Online\n.\n\n\n\n\n\nExercise\n\n\nBegin by reading \nGoodwin \net. al.\n 2016\n\n\nYou will be divided into four groups; each group will focus on one sequencing technology: Illumina, Ion Torrent, PacBio and Oxford Nanopore.\n\n\nEach group will present a short review of the technology, pros and cons as well as how they are used currently.\n\n\n\n\nWhat are the unique characteristics of the technology?\n\n\nWhat are the major use-cases for the technology?\n\n\nDescribe the significant landmarks of the technology.\n\n\n\n\nWrite a short presentation about the technology and present for the group. 10 min in total, 5-7 min presentation and 3 min questions.",
+            "title": "Sequencing Technologies"
+        },
+        {
+            "location": "/seq_tech/#sequencing-technologies",
+            "text": "This is an embedded  Microsoft Office  presentation, powered by  Office Online .",
+            "title": "Sequencing Technologies"
+        },
+        {
+            "location": "/seq_tech/#exercise",
+            "text": "Begin by reading  Goodwin  et. al.  2016  You will be divided into four groups; each group will focus on one sequencing technology: Illumina, Ion Torrent, PacBio and Oxford Nanopore.  Each group will present a short review of the technology, pros and cons as well as how they are used currently.   What are the unique characteristics of the technology?  What are the major use-cases for the technology?  Describe the significant landmarks of the technology.   Write a short presentation about the technology and present for the group. 10 min in total, 5-7 min presentation and 3 min questions.",
+            "title": "Exercise"
         },
         {
             "location": "/tutorials/docs/qc/",
