@@ -6,6 +6,7 @@ from fabric.api import *
 from fabric.network import ssh
 
 from student_ips import IPS
+from assembly import assembly, assembly_extras
 
 env.hosts = IPS
 env.user = 'student'
@@ -13,10 +14,6 @@ env.key_filename = '~/.ssh/azure_rsa'
 
 FASTQC_WEB = 'https://launchpad.net/ubuntu/+archive/primary/+files/'
 FASTQC_DEB = 'fastqc_0.11.5+dfsg-3_all.deb'
-
-QUAST = 'https://github.com/ablab/quast/archive/quast_4.6.2.tar.gz'
-PILON_WEB = 'https://github.com/broadinstitute/pilon/releases/download/'
-PILON_FILE = 'v1.22/pilon-1.22.jar'
 
 BOWTIE2_WEB = 'https://github.com/BenLangmead/bowtie2/releases/download/'
 BOWTIE2_FILE = 'v2.3.4/bowtie2-2.3.4-linux-x86_64.zip'
@@ -26,10 +23,6 @@ SAMTOOLS_FILE = '1.6/samtools-1.6.tar.bz2'
 
 def host_type():
     run('uname')
-
-
-def profile():
-    run('source ~/.bashrc')
 
 
 @parallel
@@ -43,6 +36,7 @@ def setup():
     sudo('apt -y -qq install zlib1g-dev libcurl4-gnutls-dev')
     run('mkdir -p ~/install')
     run('mkdir -p /home/$(whoami)/.local/bin')
+    run('mkdir -p /home/$(whoami)/.local/share')
 
 
 @parallel
@@ -73,33 +67,6 @@ def qc():
 
 
 @parallel
-def assembly():
-    # megahit
-    with cd('~/install'):
-        run('git clone -q https://github.com/voutcn/megahit.git')
-    with cd('~/install/megahit'):
-        run('make')
-    run('mv ~/install/megahit/megahit /home/$(whoami)/.local/bin/')
-    run('mv ~/install/megahit/megahit_asm_core /home/$(whoami)/.local/bin/')
-    run('mv ~/install/megahit/megahit_toolkit /home/$(whoami)/.local/bin/')
-
-    # quast
-    with cd('~/install'):
-        run('wget --quiet %s' % QUAST)
-        run('tar xzf quast_4.6.2.tar.gz')
-    with cd('~/install/quast-quast_4.6.2'):
-        sudo('./setup.py install')
-
-    # pilon
-    with cd('~/install'):
-        run('wget --quiet %s%s' % (PILON_WEB, PILON_FILE))
-    sudo('mkdir -p /opt/pilon')
-    sudo('mv ~/install/pilon-1.22.jar /opt/pilon/pilon.jar')
-    run('echo -e \'#!bin/bash\njava -jar /opt/pilon/pilon.jar $@\n\' > pilon')
-    run('mv pilon /home/$(whoami)/.local/bin/')
-
-
-@parallel
 def alignment():
     # bowtie2
     with cd('~/install'):
@@ -119,10 +86,12 @@ def alignment():
 
 def cleanup():
     with cd('~/install'):
-        run('rm -rf fastqc*')
-        run('rm -rf scythe')
-        run('rm -rf sickle')
-        run('rm -rf megahit')
-        sudo('rm -rf quast*')
-        run('rm -rf bowtie2-2.3.4*')
-        run('rm -rf samtools-1.6*')
+        sudo('rm -rf *')
+
+
+def full_cleanup():
+    cleanup()
+    sudo('rm -rf ~/.local/')
+    run('mkdir -p /home/$(whoami)/.local/bin')
+    run('mkdir -p /home/$(whoami)/.local/share')
+    setup()
