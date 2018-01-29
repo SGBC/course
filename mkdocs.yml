@@ -15,6 +15,7 @@ pages:
         - Command-line Blast: blast.md
         - Project Organisation: project_organisation.md
     - Week 3:
+        - Sequencing Technologies: seq_tech.md
         - Quality Control: tutorials/docs/qc.md
         - Mapping and Variant Calling: tutorials/docs/mapping.md
         - De-novo Genome Assembly: tutorials/docs/assembly.md
