@@ -28,7 +28,20 @@ def assembly():
     run('mv ~/install/megahit/megahit ~/.local/bin/')
     run('mv ~/install/megahit/megahit_asm_core ~/.local/bin/')
     run('mv ~/install/megahit/megahit_toolkit ~/.local/bin/')
+    run('mv ~/install/megahit/megahit_sdbg_build ~/.local/bin/')
 
+    # pilon
+    with cd('~/install'):
+        run('wget --quiet %s%s' % (PILON_WEB, PILON_FILE))
+    sudo('mv ~/install/%s /usr/local/bin/' % PILON_FILE)
+    run('echo -e \'#!/bin/bash\njava -jar /usr/local/bin/%s $@\n\' > pilon'
+        % PILON_FILE)
+    run('chmod +x pilon')
+    run('mv pilon ~/.local/bin/')
+
+
+@parallel
+def assembly_qc():
     # quast
     sudo('apt -y -qq install csh libboost1.58-dev')
     with cd('~/install'):
@@ -37,13 +50,13 @@ def assembly():
     with cd('~/install/%s' % QUAST_DIR):
         sudo('./setup.py install')
 
-    # pilon
+    # busco
     with cd('~/install'):
-        run('wget --quiet %s%s' % (PILON_WEB, PILON_FILE))
-    sudo('mkdir -p /opt/pilon')
-    sudo('mv ~/install/%s /opt/pilon/pilon.jar' % PILON_FILE)
-    run('echo -e \'#!bin/bash\njava -jar /opt/pilon/pilon.jar $@\n\' > pilon')
-    run('mv pilon ~/.local/bin/')
+        run('git clone -q https://gitlab.com/ezlab/busco.git')
+    with cd('~/install/busco'):
+        sudo('python setup.py install')
+    run('mv busco ~/local/bin')
+    run('echo -e "export PATH=$PATH:~/.local/bin/busco/scripts" >> ~/.bashrc')
 
 
 @parallel
@@ -77,3 +90,11 @@ def assembly_extras():
 
     # abyss
     sudo('apt -y -qq install abyss')
+
+    # unicycler
+    sudo('apt -y -qq install python3 python3-pkg-resources python3-pip')
+    sudo('apt -y -qq install ncbi-blast+')
+    with cd('~/install'):
+        run('git clone -q https://github.com/rrwick/Unicycler.git')
+    with cd('~/install/Unicycler'):
+        sudo('python3 setup.py install')

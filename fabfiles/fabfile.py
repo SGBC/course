@@ -6,7 +6,7 @@ from fabric.api import *
 from fabric.network import ssh
 
 from student_ips import IPS
-from assembly import assembly, assembly_extras
+from assembly import assembly, assembly_qc, assembly_extras
 
 env.hosts = IPS
 env.user = 'student'
