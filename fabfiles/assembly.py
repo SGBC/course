@@ -10,6 +10,9 @@ QUAST_WEB = 'https://github.com/ablab/quast/archive/'
 QUAST_FILE = 'quast_4.6.2.tar.gz'
 QUAST_DIR = 'quast-quast_4.6.2'
 
+AUGUSTUS_WEB = 'http://bioinf.uni-greifswald.de/augustus/binaries/'
+AGUSTUS_FILE = 'augustus-3.3.tar.gz'
+
 PILON_WEB = 'https://github.com/broadinstitute/pilon/releases/download/v1.22/'
 PILON_FILE = 'pilon-1.22.jar'
 
@@ -51,12 +54,19 @@ def assembly_qc():
         sudo('./setup.py install')
 
     # busco
+    sudo('apt -y -qq install hmmer libboost-iostreams-dev')
     with cd('~/install'):
-        run('git clone -q https://gitlab.com/ezlab/busco.git')
+        run('wget --quiet %s%s' % (AUGUSTUS_WEB, AGUSTUS_FILE))
+    with cd('~/install/augustus'):
+        run('make')
+        sudo('make install')
+        sudo('cp /opt/augustus-3.3/scripts/* ~/.local/bin')
+        run('echo "export AUGUSTUS_CONFIG_PATH=/opt/augustus-3.3/config/" >> ~/.bashrc')
+    with cd('~/install'):
+        run('git clone -q https://gitlab.com/ezlab/busco.git -b 2.0.1')
     with cd('~/install/busco'):
-        sudo('python setup.py install')
-    run('mv busco ~/local/bin')
-    run('echo -e "export PATH=$PATH:~/.local/bin/busco/scripts" >> ~/.bashrc')
+        mv('BUSCO.py ~/.local/bin')
+        mv('BUSCO_plot.py ~/.local/bin')
 
 
 @parallel
