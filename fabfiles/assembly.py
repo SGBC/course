@@ -11,7 +11,8 @@ QUAST_FILE = 'quast_4.6.2.tar.gz'
 QUAST_DIR = 'quast-quast_4.6.2'
 
 AUGUSTUS_WEB = 'http://bioinf.uni-greifswald.de/augustus/binaries/'
-AGUSTUS_FILE = 'augustus-3.3.tar.gz'
+AUGUSTUS_FILE = 'augustus-3.3.tar.gz'
+AUGUSTUS_DIR = 'augustus-3.3'
 
 PILON_WEB = 'https://github.com/broadinstitute/pilon/releases/download/v1.22/'
 PILON_FILE = 'pilon-1.22.jar'
@@ -54,19 +55,21 @@ def assembly_qc():
         sudo('./setup.py install')
 
     # busco
-    sudo('apt -y -qq install hmmer libboost-iostreams-dev')
+    sudo('apt -y -qq install hmmer libboost-iostreams-dev libbamtools-dev')
     with cd('~/install'):
-        run('wget --quiet %s%s' % (AUGUSTUS_WEB, AGUSTUS_FILE))
+        run('wget --quiet %s%s' % (AUGUSTUS_WEB, AUGUSTUS_FILE))
+        run('tar xzf %s' % AUGUSTUS_FILE)
     with cd('~/install/augustus'):
         run('make')
         sudo('make install')
-        sudo('cp /opt/augustus-3.3/scripts/* ~/.local/bin')
-        run('echo "export AUGUSTUS_CONFIG_PATH=/opt/augustus-3.3/config/" >> ~/.bashrc')
+        sudo('cp -r /opt/%s/scripts/* ~/.local/bin' % AUGUSTUS_DIR)
+        run('echo "export AUGUSTUS_CONFIG_PATH=/opt/%s/config/" >> ~/.bashrc'
+            % AUGUSTUS_DIR)
     with cd('~/install'):
         run('git clone -q https://gitlab.com/ezlab/busco.git -b 2.0.1')
     with cd('~/install/busco'):
-        mv('BUSCO.py ~/.local/bin')
-        mv('BUSCO_plot.py ~/.local/bin')
+        run('mv BUSCO.py ~/.local/bin')
+        run('mv BUSCO_plot.py ~/.local/bin')
 
 
 @parallel
