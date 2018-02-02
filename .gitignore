@@ -10,3 +10,6 @@ site/
 
 # python stuff
 *.pyc
+
+# student ips
+fabfiles/student_ips.py

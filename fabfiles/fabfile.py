@@ -6,6 +6,7 @@ from fabric.api import *
 from fabric.network import ssh
 
 from student_ips import IPS
+from annotation import annotation, pan_genome
 from assembly import assembly, assembly_qc, assembly_extras
 
 env.hosts = IPS
