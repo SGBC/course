@@ -22,6 +22,11 @@ pages:
         - Genome Annotation: tutorials/docs/annotation.md
         - Pan-genome Analysis: tutorials/docs/pan_genome.md
         - Nanopore Sequencing: tutorials/docs/nanopore.md
+    - Week 4:
+        - RNA Sequencing : tutorials/docs/rna.md
+        - Metabarcoding: tutorials/docs/16S.md
+        - Metagenome assembly: tutorials/docs/meta_assembly.md
+        - Comparative metagenomics: tutorials/docs/wms.md
 
 markdown_extensions:
   - admonition

@@ -26,6 +26,12 @@ Welcome to the course!
     * [Pan-genome Analysis](tutorials/docs/pan_genome.md)
     * [Nanopore Sequencing](tutorials/docs/nanopore.md)
 
+* Week 4
+    * [RNA Sequencing](tutorials/docs/rna.md)
+    * [Metabarcoding](tutorials/docs/16S.md)
+    * [Metagenome assembly](tutorials/docs/meta_assembly.md)
+    * [Comparative metagenomics](tutorials/docs/wms.md)
+
 ## License
 
 Unless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.
