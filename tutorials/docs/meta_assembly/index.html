@@ -135,7 +135,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 3 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -158,8 +158,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">De-novo Genome Assembly</a>
+<li >
+    <a href="../assembly/">De-novo Genome Assembly</a>
 </li>
 
                         
@@ -186,7 +186,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 4 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -203,8 +203,8 @@
 
                         
                             
-<li >
-    <a href="../meta_assembly/">Metagenome assembly</a>
+<li class="active">
+    <a href="./">Metagenome assembly</a>
 </li>
 
                         
@@ -227,12 +227,12 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="next" href="../../../assembly_challenge/">
+                        <a rel="next" href="../16S/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../annotation/">
+                        <a rel="prev" href="../wms/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -245,162 +245,129 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#de-novo-genome-assembly">De-novo Genome Assembly</a></li>
-            <li class="second-level"><a href="#lecture">Lecture</a></li>
+        <li class="first-level active"><a href="#metagenome-assembly-and-binning">Metagenome assembly and binning</a></li>
+            <li class="second-level"><a href="#getting-the-data">Getting the Data</a></li>
                 
-            <li class="second-level"><a href="#practical">Practical</a></li>
+            <li class="second-level"><a href="#quality-control">Quality Control</a></li>
                 
-            <li class="second-level"><a href="#getting-the-data">Getting the data</a></li>
+            <li class="second-level"><a href="#assembly">Assembly</a></li>
                 
-            <li class="second-level"><a href="#de-novo-assembly">De-novo assembly</a></li>
+            <li class="second-level"><a href="#binning">Binning</a></li>
                 
-            <li class="second-level"><a href="#quality-of-the-assembly">Quality of the Assembly</a></li>
+            <li class="second-level"><a href="#checking-the-quality-of-the-bins">Checking the quality of the bins</a></li>
                 
-            <li class="second-level"><a href="#fixing-misassemblies">Fixing misassemblies</a></li>
+            <li class="second-level"><a href="#further-reading">Further reading</a></li>
                 
-            <li class="second-level"><a href="#assembly-completeness">Assembly Completeness</a></li>
-                
-                <li class="third-level"><a href="#course-literature">Course literature</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="de-novo-genome-assembly">De-novo Genome Assembly</h1>
-<h2 id="lecture">Lecture</h2>
-<iframe src='https://onedrive.live.com/embed?cid=2326C09709B01D03&resid=2326C09709B01D03%214404&authkey=AEb3xrVzZ9dfYag&em=2&wdAr=1.7777777777777777' width='610px' height='367px' frameborder='0'></iframe>
-
-<h2 id="practical">Practical</h2>
-<p>In this practical we will perform the assembly of <em>M. genitalium</em>, a bacterium published in 1995 by Fraser et al in Science (<a href="https://www.ncbi.nlm.nih.gov/pubmed/7569993">abstract link</a>).</p>
-<h2 id="getting-the-data">Getting the data</h2>
-<p><em>M. genitalium</em> was sequenced using the MiSeq platform (2 * 150bp).
-The reads were deposited in the ENA Short Read Archive under the accession <a href="https://www.ebi.ac.uk/ena/data/view/ERR486840">ERR486840</a></p>
-<p>Download the 2 fastq files associated with the run.</p>
-<pre><code class="bash">wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR486/ERR486840/ERR486840_1.fastq.gz
-wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR486/ERR486840/ERR486840_2.fastq.gz
+<h1 id="metagenome-assembly-and-binning">Metagenome assembly and binning</h1>
+<p>In this tutorial you'll learn how to inspect assemble metagenomic data and retrieve draft genomes from assembled metagenomes</p>
+<p>We'll use a mock community of 20 bacteria sequenced using the Illumina HiSeq.
+In reality the data were simulated using <a href="http://insilicoseq.readthedocs.io">InSilicoSeq</a>.</p>
+<p>The 20 bacteria in the dataset were selected from the <a href="http://ocean-microbiome.embl.de/companion.html">Tara Ocean study</a> that recovered 957 distinct Metagenome-assembled-genomes (or MAGs) that were previsouly unknown! (full list on <a href="https://figshare.com/articles/TARA-NON-REDUNDANT-MAGs/4902923/1">figshare</a> )</p>
+<h2 id="getting-the-data">Getting the Data</h2>
+<pre><code class="bash">mkdir -p ~/data
+cd ~/data
+curl -O -J -L https://osf.io/th9z6/download
+curl -O -J -L https://osf.io/k6vme/download
+chmod -w tara_reads_R*
 </code></pre>
 
-<p>The files that were deposited in ENA were already trimmed, so we do not have to trim ourselves!</p>
+<h2 id="quality-control">Quality Control</h2>
+<p>we'll use FastQC to check the quality of our data, as well as sickle for trimming the bad quality part of the reads.
+If you need a refresher on how and why to check the quality of sequence data, please check the <a href="../qc">Quality Control and Trimming</a> tutorial</p>
+<pre><code class="bash">mkdir -p ~/results
+cd ~/results
+ln -s ~/data/tara_reads_* .
+fastqc tara_reads_*.fastq.gz
+</code></pre>
+
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>How many reads are in the files?</p>
+<p>What is the average read length? The average quality?</p>
 </div>
-<h2 id="de-novo-assembly">De-novo assembly</h2>
-<p>We will be using the MEGAHIT assembler to assemble our bacterium</p>
-<pre><code class="bash">megahit -1 ERR486840_1.fastq.gz -2 ERR486840_2.fastq.gz -o m_genitalium
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Compared to single genome sequencing, what graphs differ?</p>
+</div>
+<p>Now we'll trim the reads using sickle</p>
+<pre><code>sickle pe -f tara_reads_R1.fastq.gz -r tara_reads_R2.fastq.gz -t sanger \
+    -o tara_trimmed_R1.fastq -p tara_trimmed_R2.fastq -s /dev/null
 </code></pre>
 
-<p>This will take a few minutes.</p>
-<p>The result of the assembly is in the directory m_genitalium under the name <code>final.contigs.fa</code></p>
-<p>Let's make a copy of it</p>
-<pre><code class="bash">cp m_genitalium/final.contigs.fa m_genitalium.fasta
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many reads were trimmed?</p>
+</div>
+<h2 id="assembly">Assembly</h2>
+<p>Megahit will be used for the assembly.</p>
+<pre><code>megahit -1 tara_trimmed_R1.fastq -2 tara_trimmed_R2.fastq -o tara_assembly
 </code></pre>
 
-<p>and look at it</p>
-<pre><code class="bash">head m_genitalium.fasta
+<p>the resulting assenmbly can be found under <code>tara_assembly/final.contigs.fa</code>.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many contigs does this assembly contain?</p>
+</div>
+<h2 id="binning">Binning</h2>
+<p>First we need to map the reads back against the assembly to get coverage information</p>
+<pre><code class="bash">ln -s tara_assembly/final.contigs.fa .
+bowtie2-build final.contigs.fa final.contigs
+bowtie2 -x final.contigs -1 tara_reads_R1.fastq.gz -2 tara_reads_R2.fastq.gz | \
+    samtools view -bS -o tara_to_sort.bam
+samtools sort tara_to_sort.bam -o tara.bam
+samtools index tara.bam
 </code></pre>
 
-<h2 id="quality-of-the-assembly">Quality of the Assembly</h2>
-<p>QUAST is a software evaluating the quality of genome assemblies by computing various metrics, including</p>
-<p>Run Quast on your assembly</p>
-<pre><code class="bash">quast.py m_genitalium.fasta -o m_genitalium_report
+<p>then we run metabat</p>
+<pre><code class="bash">runMetaBat.sh -m 1500 final.contigs.fa tara.bam
+mv final.contigs.fa.metabat-bins1500 metabat
 </code></pre>
 
-<p>and take a look at the text report</p>
-<pre><code class="bash">cat m_genitalium_report/report.txt
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many bins did we obtain?</p>
+</div>
+<h2 id="checking-the-quality-of-the-bins">Checking the quality of the bins</h2>
+<p>The first time you run <code>checkm</code> you have to create the database</p>
+<pre><code class="bash">sudo checkm data setRoot ~/.local/data/checkm
 </code></pre>
 
-<p>You should see something like</p>
-<pre><code>All statistics are based on contigs of size &gt;= 500 bp, unless otherwise noted (e.g., &quot;# contigs (&gt;= 0 bp)&quot; and &quot;Total length (&gt;= 0 bp)&quot; include all contigs).
-
-Assembly                    m_genitalium
-# contigs (&gt;= 0 bp)         17          
-# contigs (&gt;= 1000 bp)      8           
-# contigs (&gt;= 5000 bp)      7           
-# contigs (&gt;= 10000 bp)     6           
-# contigs (&gt;= 25000 bp)     5           
-# contigs (&gt;= 50000 bp)     2           
-Total length (&gt;= 0 bp)      584267      
-Total length (&gt;= 1000 bp)   580160      
-Total length (&gt;= 5000 bp)   577000      
-Total length (&gt;= 10000 bp)  570240      
-Total length (&gt;= 25000 bp)  554043      
-Total length (&gt;= 50000 bp)  446481      
-# contigs                   11          
-Largest contig              368542      
-Total length                582257      
-GC (%)                      31.71       
-N50                         368542      
-N75                         77939       
-L50                         1           
-L75                         2           
-# N's per 100 kbp           0.00    
+<pre><code class="bash">checkm lineage_wf -x fa metabat checkm/
+checkm bin_qa_plot -x fa checkm metabat plots
 </code></pre>
 
-<p>which is a summary stats about our assembly.
-Additionally, the file <code>m_genitalium_report/report.html</code></p>
-<p>You can either download it and open it in your own web browser, or we make it available for your convenience:</p>
-<ul>
-<li><a href="../data/fastqc/report.html">m_genitalium_report/report.html</a></li>
-</ul>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Which bins should we keep for downstream analysis?</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>N50: length for which the collection of all contigs of that length or longer covers at least 50% of assembly length</p>
+<p>checkm can plot a lot of metrics. If you have time, check the manual
+and try to produce different plots</p>
 </div>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>How well does the assembly total consensus size and coverage correspond to your earlier estimation?</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>if checkm fails at the phylogeny step, it is likely that your vm doesn't have enough RAM.
+pplacer requires about 35G of RAM to place the bins in the tree of life.</p>
+<p>In that case, execute the following</p>
+<p><code>cd ~/results</code><br />
+<code>curl -O -J -L https://osf.io/xuzhn/download</code><br />
+<code>tar xzf checkm.tar.gz</code><br />
+<code>checkm qa checkm/lineage.ms checkm</code>  </p>
 </div>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>How many contigs in total did the assembly produce?</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>What is the N50 of the assembly? What does this mean?</p>
-</div>
-<h2 id="fixing-misassemblies">Fixing misassemblies</h2>
-<p>Pilon is a software tool which can be used to automatically improve draft assemblies.
-It attempts to make improvements to the input genome, including:</p>
+<p>then plot the completeness</p>
+<pre><code class="bash">checkm bin_qa_plot -x fa checkm metabat plots
+</code></pre>
+
+<p>and take a look at <code>plots/bin_qa_plot.png</code></p>
+<h2 id="further-reading">Further reading</h2>
 <ul>
-<li>Single base differences</li>
-<li>Small Indels</li>
-<li>Larger Indels or block substitution events</li>
-<li>Gap filling</li>
-<li>Identification of local misassemblies, including optional opening of new gaps</li>
-</ul>
-<p>Pilon then outputs a FASTA file containing an improved representation of the genome from the read data and an optional VCF file detailing variation seen between the read data and the input genome.</p>
-<p>Before running Pilon itself, we have to align our reads against the assembly</p>
-<pre><code>bowtie2-build m_genitalium.fasta m_genitalium
-bowtie2 -x m_genitalium -1 ERR486840_1.fastq.gz -2 ERR486840_2.fastq.gz | \
-    samtools view -bS -o m_genitalium.bam
-samtools sort m_genitalium.bam -o m_genitalium.sorted.bam
-samtools index m_genitalium.sorted.bam
-</code></pre>
-
-<p>then we run Pilon</p>
-<pre><code>pilon --genome m_genitalium.fasta --frags m_genitalium.sorted.bam --output m_genitalium_improved
-</code></pre>
-
-<p>which will correct eventual mismatches in our assembly and write the new improved assembly to <code>m_genitalium_improved.fasta</code></p>
-<h2 id="assembly-completeness">Assembly Completeness</h2>
-<p>Although quast output a range of metric to assess how contiguous our assembly is, having a long N50 does not guarantee a good assembly: it could be riddled by misassemblies!</p>
-<p>We will run <code>busco</code> to try to find marker genes in our assembly. Marker genes are conserved across a range of species and finding intact conserved genes in our assembly would be a good indication of its quality</p>
-<p>First we need to download and unpack the bacterial datasets used by <code>busco</code></p>
-<pre><code class="bash">wget http://busco.ezlab.org/datasets/bacteria_odb9.tar.gz
-tar xzf bacteria_odb9.tar.gz
-</code></pre>
-
-<p>then we can run <code>busco</code> with</p>
-<pre><code class="bash">BUSCO.py -i m_genitalium.fasta -l bacteria_odb9 -o busco_genitalium -m genome
-</code></pre>
-
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>How many marker genes has <code>busco</code> found?</p>
-</div>
-<h3 id="course-literature">Course literature</h3>
-<p>Course litteraturer for today is:
-<iframe src="https://onedrive.live.com/embed?cid=2326C09709B01D03&resid=2326C09709B01D03%214408&authkey=AEaLmwF-LQqgjMc&em=2" width="476" height="288" frameborder="0" scrolling="no"></iframe></p></div>
+<li><a href="https://www.nature.com/articles/s41564-017-0012-7">Recovery of nearly 8,000 metagenome-assembled genomes substantially expands the tree of life</a></li>
+<li><a href="https://www.nature.com/articles/sdata2017203">The reconstruction of 2,631 draft metagenome-assembled genomes from the global oceans</a></li>
+</ul></div>
         
     </div>
 

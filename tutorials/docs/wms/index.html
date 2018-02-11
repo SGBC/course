@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    <title></title>
+
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link href="../../../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+
+
+    <link href="../../../css/admonition.css" rel="stylesheet">
+
+
+    <link href="../../../css/navbar.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../../..">Bioinformatics course</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 1 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../proteins/">Proteins</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 2 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../unix/">Unix</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../cloud/">Cloud Computing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../software/">Installing Software</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../git/">Git</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../blast/">Command-line Blast</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../project_organisation/">Project Organisation</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 3 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../seq_tech/">Sequencing Technologies</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../qc/">Quality Control</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../assembly_challenge/">Assembly Challenge</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../assembly/">De-novo Genome Assembly</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../annotation/">Genome Annotation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../pan_genome/">Pan-genome Analysis</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../nanopore/">Nanopore Sequencing</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 4 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../rna/">RNA Sequencing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../16S/">Metabarcoding</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../meta_assembly/">Metagenome assembly</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Comparative metagenomics</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fa fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../meta_assembly/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="prev" >
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#whole-metagenome-sequencin">Whole Metagenome Sequencin</a></li>
+            <li class="second-level"><a href="#table-of-contents">Table of Contents</a></li>
+                
+            <li class="second-level"><a href="#introduction">Introduction</a></li>
+                
+                <li class="third-level"><a href="#microbiome-used">Microbiome used</a></li>
+                <li class="third-level"><a href="#whole-metagenome-sequencing">Whole Metagenome Sequencing</a></li>
+            <li class="second-level"><a href="#softwares-required-for-this-tutorial">Softwares Required for this Tutorial</a></li>
+                
+            <li class="second-level"><a href="#getting-the-data-and-checking-their-quality">Getting the Data and Checking their Quality</a></li>
+                
+            <li class="second-level"><a href="#taxonomic-classification">Taxonomic Classification</a></li>
+                
+            <li class="second-level"><a href="#abundance-estimation-using-bracken">Abundance estimation using Bracken</a></li>
+                
+            <li class="second-level"><a href="#visualization">Visualization</a></li>
+                
+                <li class="third-level"><a href="#alternative-1-pavian">Alternative 1: Pavian</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="whole-metagenome-sequencin">Whole Metagenome Sequencin</h1>
+<h3 id="table-of-contents">Table of Contents</h3>
+<ul>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#the-pig-microbiome">The Pig Microbiome</a></li>
+<li><a href="#whole-metagenome-sequencing">Whole Metagenome Sequencing</a></li>
+</ul>
+</li>
+<li><a href="#softwares-required-for-this-tutorial">Softwares Required for this Tutorial</a></li>
+<li><a href="#getting-the-data-and-checking-their-quality">Getting the Data and Checking their Quality</a></li>
+<li><a href="#taxonomic-classification">Taxonomic Classification</a></li>
+<li><a href="#visualization">Visualization</a></li>
+</ul>
+<h3 id="introduction">Introduction</h3>
+<h4 id="microbiome-used">Microbiome used</h4>
+<p>In this tutorial we will compare samples from the Pig Gut Microbiome to samples from the Human Gut Microbiome. Below you'll find a brief description of the two projects:</p>
+<p>The Pig Microbiome:</p>
+<blockquote>
+<p>Pig is a main species for livestock and biomedicine. The pig genome sequence was recently reported. To boost research, we established a catalogue of the genes of the gut microbiome based on faecal samples of 287 pigs from France, Denmark and China. More than 7.6 million non-redundant genes representing 719 metagenomic species were identified by deep metagenome sequencing, highlighting more similarities with the human than with the mouse catalogue. The pig and human catalogues share only 12.6 and 9.3 % of their genes, respectively, but 70 and 95% of their functional pathways. The pig gut microbiota is influenced by gender, age and breed. Analysis of the prevalence of antibiotics resistance genes (ARGs) reflected antibiotics supplementation in each farm system, and revealed that non-antibiotics-fed animals still harbour ARGs. The pig catalogue creates a resource for whole metagenomics-based studies, highly valuable for research in biomedicine and for sustainable knowledge-based pig farming</p>
+</blockquote>
+<p>The Human Microbiome:</p>
+<blockquote>
+<p>We are facing a global metabolic health crisis provoked by an obesity epidemic. Here we report the human gut microbial composition in a population sample of 123 non-obese and 169 obese Danish individuals. We find two groups of individuals that differ by the number of gut microbial genes and thus gut bacterial richness. They harbour known and previously unknown bacterial species at different proportions; individuals with a low bacterial richness (23% of the population) are characterized by more marked overall adiposity, insulin resistance and dyslipidaemia and a more pronounced inflammatory phenotype when compared with high bacterial richness individuals. The obese individuals among the former also gain more weight over time. Only a few bacterial species are sufficient to distinguish between individuals with high and low bacterial richness, and even between lean and obese. Our classifications based on variation in the gut microbiome identify subsets of individuals in the general white adult population who may be at increased risk of progressing to adiposity-associated co-morbidities</p>
+</blockquote>
+<h4 id="whole-metagenome-sequencing">Whole Metagenome Sequencing</h4>
+<p>Whole Metagenome sequencing (WMS), or shotgun metagenome sequencing, is a relatively new and powerful sequencing approach that provides insight into community biodiversity and function. On the contrary of Metabarcoding, where only a specific region of the bacterial community (the 16s rRNA) is sequenced, WMS aims at sequencing all the genomic material present in the environment.</p>
+<p>The choice of shotgun or 16S approaches is usually dictated by the nature of the studies being conducted. For instance, 16S is well suited for analysis of large number of samples, i.e., multiple patients, longitudinal studies, etc. but offers limited taxonomical and functional resolution. WMS is generally more expensive but offers increased resolution, and allows the discovery of viruses as well as other mobile genetic elements.</p>
+<h3 id="softwares-required-for-this-tutorial">Softwares Required for this Tutorial</h3>
+<ul>
+<li><a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC</a></li>
+<li><a href="https://ccb.jhu.edu/software/kraken/">Kraken</a></li>
+<li><a href="https://ccb.jhu.edu/software/bracken/">Bracken</a></li>
+<li><a href="https://www.r-project.org/">R</a></li>
+<li><a href="https://github.com/fbreitwieser/pavian">Pavian</a></li>
+</ul>
+<h3 id="getting-the-data-and-checking-their-quality">Getting the Data and Checking their Quality</h3>
+<p>If you are reading this tutorial online and haven't cloned the directory, first download and unpack the data:</p>
+<pre><code>wget http://77.235.253.14/metlab/wms.tar
+tar xvf wms.tar
+cd wms
+</code></pre>
+
+<p>We'll use FastQC to check the quality of our data. FastQC can be downloaded and
+run on a Windows or Linux computer without installation. It is available <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">here</a></p>
+<p>Start FastQC and select the fastq file you just downloaded with <code>file -&gt; open</code><br />
+What do you think about the quality of the reads? Do they need trimming? Are there still adapters
+present? Overrepresented sequences?</p>
+<p>Alternatively, run fastqc on the command-line:</p>
+<p><code>fastqc *.fastq.gz</code></p>
+<p>If the quality appears to be good, it's because it was probably the cleaned reads that were deposited into SRA.
+We can directly move to the classification step.</p>
+<h3 id="taxonomic-classification">Taxonomic Classification</h3>
+<p><a href="https://ccb.jhu.edu/software/kraken/">Kraken</a> is a system for assigning taxonomic labels to short DNA sequences (i.e. reads)<br />
+Kraken aims to achieve high sensitivity and high speed by utilizing exact alignments of k-mers and a novel classification algorithm (sic).</p>
+<p>In short, kraken uses a new approach with exact k-mer matching to assign taxonomy to short reads. It is <em>extremely</em> fast compared to traditional
+approaches (i.e. BLAST).</p>
+<p>By default, the authors of kraken built their database based on RefSeq Bacteria, Archea and Viruses. We'll use it for the purpose of this tutorial.</p>
+<p><strong>NOTE: The database may have been installed already! Ask your instructor!</strong></p>
+<pre><code class="bash"># You might not need this step (for example if you're working on Uppmax!)
+wget https://ccb.jhu.edu/software/kraken/dl/minikraken.tgz
+tar xzf minikraken.tgz
+$KRAKEN_DB=minikraken_20141208
+</code></pre>
+
+<p>Now run kraken on the reads</p>
+<pre><code class="bash">mkdir kraken_results
+for i in *_1.fastq.gz
+do
+    prefix=$(basename $i _1.fastq.gz)
+    # set number of threads to number of cores if running under SLURM, otherwise use 2 threads
+    nthreads=${SLURM_NPROCS:=2}
+    kraken --db $KRAKEN_DB --threads ${nthreads} --fastq-input --gzip-compressed \
+        ${prefix}_1.fastq.gz ${prefix}_2.fastq.gz &gt; kraken_results/${prefix}.tab
+    kraken-report --db $KRAKEN_DB \
+        kraken_results/${prefix}.tab &gt; kraken_results/${prefix}_tax.txt
+done
+</code></pre>
+
+<p>which produces a tab-delimited file with an assigned TaxID for each read.</p>
+<p>Kraken includes a script called <code>kraken-report</code> to transform this file into a "tree" view with the percentage of reads assigned to each taxa. We've run this script at each step in the loop. Take a look at the <code>_tax.txt</code> files!</p>
+<h3 id="abundance-estimation-using-bracken">Abundance estimation using Bracken</h3>
+<p>Bracken (Bayesian Reestimation of Abundance with KrakEN) is a highly accurate statistical method that computes the abundance of species in DNA sequences from a metagenomics sample</p>
+<p>Before starting, you need to install Bracken:</p>
+<pre><code class="bash">cd
+git clone https://github.com/jenniferlu717/Bracken.git
+chmod 755 Bracken/*.py
+chmod 755 Bracken/*.pl
+export PATH=$PATH:$HOME/Bracken
+</code></pre>
+
+<p>Unfortunately, Uppmax lacks some perl packages necessary for Bracken to work:</p>
+<p>Follow the tutorial <a href="http://www.uppmax.uu.se/support/faq/software-faq/installing-local-perl-packages/">here</a> to install <code>cpanm</code></p>
+<p>then install the two perl libraries that are missing:</p>
+<pre><code class="bash">cpanm Parallel::ForkManager
+cpanm List::MoreUtils
+</code></pre>
+
+<p>Three steps are necessary to set up Kraken abundance estimation.</p>
+<ol>
+<li>
+<p>Classify all reads using Kraken and Generate a Kraken report file. We've done this!</p>
+</li>
+<li>
+<p>Search all library input sequences against the database and compute the classifications for each perfect read of ${READ_LENGTH} base pairs from one of the input sequences.</p>
+</li>
+</ol>
+<pre><code class="bash">find -L $KRAKEN_DB/library -name &quot;*.fna&quot; -o -name &quot;*.fa&quot; -o -name &quot;*.fasta&quot; &gt; genomes.list
+cat $(grep -v '^#' genomes.list) &gt; genomes.fasta
+kraken --db=${KRAKEN_DB} --fasta-input --threads=${SLURM_NPROCS:=10} kraken.fasta &gt; database.kraken
+count-kmer-abundances.pl --db=${KRAKEN_DB} --read-length=100 database.kraken &gt; database100mers.kraken_cnts
+</code></pre>
+
+<ol>
+<li>Generate the kmer distribution file</li>
+</ol>
+<pre><code class="bash">python generate_kmer_distribution.py -i database100mers.kraken_cnts -o KMER_DISTR.TXT
+</code></pre>
+
+<p>Now, given the expected kmer distribution for genomes in a kraken database along
+with a kraken report file, the number of reads belonging to each species (or
+genus) is estimated using the estimate_abundance.py file, run with the
+following command line:</p>
+<p><code>python estimate_abundance.py -i KRAKEN.REPORT -k KMER_DISTR.TXT -o OUTPUT_FILE.TXT</code></p>
+<p>Run this command for the six <code>_tax.txt</code> files that you generated with kraken!</p>
+<p>The following required parameters must be specified:
+- KRAKEN.REPORT     :: the kraken report generated for a given dataset
+- KMER_DISTR.TXT    :: the file generated by generate_kmer_distribution.py
+- OUTPUT_FILE.TXT   :: the desired name of the output file to be generated by the code</p>
+<h3 id="visualization">Visualization</h3>
+<h4 id="alternative-1-pavian">Alternative 1: Pavian</h4>
+<p>Pavian is a web application for exploring metagenomics classification results.</p>
+<p>Install and run Pavian:</p>
+<p>(In R or Rstudio)</p>
+<pre><code class="R">## Installs required packages from CRAN and Bioconductor
+source(&quot;https://raw.githubusercontent.com/fbreitwieser/pavian/master/inst/shinyapp/install-pavian.R&quot;)
+pavian::runApp(port=5000)
+</code></pre>
+
+<p>Pavian will be available at http://127.0.0.1:5000</p></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../../..';
+    </script>
+    <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+    <script src="../../../js/base.js"></script>
+    <script src="../../../search/require.js"></script>
+    <script src="../../../search/search.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

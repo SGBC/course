@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    <title></title>
+
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link href="../../../css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+
+
+    <link href="../../../css/admonition.css" rel="stylesheet">
+
+
+    <link href="../../../css/navbar.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../../..">Bioinformatics course</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 1 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../proteins/">Proteins</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 2 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../unix/">Unix</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../cloud/">Cloud Computing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../software/">Installing Software</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../git/">Git</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../blast/">Command-line Blast</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../project_organisation/">Project Organisation</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 3 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../seq_tech/">Sequencing Technologies</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../qc/">Quality Control</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../assembly_challenge/">Assembly Challenge</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../assembly/">De-novo Genome Assembly</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../annotation/">Genome Annotation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../pan_genome/">Pan-genome Analysis</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../nanopore/">Nanopore Sequencing</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 4 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../rna/">RNA Sequencing</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Metabarcoding</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../meta_assembly/">Metagenome assembly</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../wms/">Comparative metagenomics</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fa fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../rna/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../meta_assembly/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#metabarcoding">Metabarcoding</a></li>
+            <li class="second-level"><a href="#before-starting">Before Starting</a></li>
+                
+            <li class="second-level"><a href="#install-and-load-packages">Install and Load Packages</a></li>
+                
+            <li class="second-level"><a href="#download-the-data">Download the Data</a></li>
+                
+            <li class="second-level"><a href="#filtering-and-trimming">Filtering and Trimming</a></li>
+                
+            <li class="second-level"><a href="#learn-the-error-rates">Learn the Error Rates</a></li>
+                
+            <li class="second-level"><a href="#dereplication">Dereplication</a></li>
+                
+            <li class="second-level"><a href="#sample-inference">Sample inference</a></li>
+                
+            <li class="second-level"><a href="#merge-paired-end-reads">Merge Paired-end Reads</a></li>
+                
+            <li class="second-level"><a href="#construct-sequence-table">Construct Sequence Table</a></li>
+                
+            <li class="second-level"><a href="#remove-chimeras">Remove Chimeras</a></li>
+                
+            <li class="second-level"><a href="#assign-taxonomy">Assign Taxonomy</a></li>
+                
+            <li class="second-level"><a href="#phylogenetic-tree">Phylogenetic Tree</a></li>
+                
+            <li class="second-level"><a href="#phyloseq">Phyloseq</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="metabarcoding">Metabarcoding</h1>
+<p>This tutorial is aimed at being a walkthrough of the DADA2 pipeline.
+It uses the data of the now famous <a href="http://www.mothur.org/wiki/MiSeq_SOP">MiSeq SOP</a> by the Mothur authors but analyses the data using DADA2.</p>
+<p>DADA2 is a relatively new method to analyse amplicon data which uses exact variants instead of OTUs.    </p>
+<p>The advantages of the DADA2 method is described in the <a href="http://dx.doi.org/10.1038/ismej.2017.119">paper</a></p>
+<h2 id="before-starting">Before Starting</h2>
+<p>There are two ways to follow this tutorial: you can copy and paste all the codes blocks below in R directly, or you can download this document in the Rmarkdown format and execute the cells.</p>
+<ul>
+<li><a href="../data/16S.Rmd">Link to the document in Rmarkdown</a></li>
+</ul>
+<h2 id="install-and-load-packages">Install and Load Packages</h2>
+<p>First install DADA2 and other necessary packages</p>
+<pre><code class="r">source('https://bioconductor.org/biocLite.R')
+biocLite('dada2')
+biocLite('phyloseq')
+biocLite('DECIPHER')
+install.packages('ggplot2')
+install.packages('phangorn')
+</code></pre>
+
+<p>Now load the packages and verify you have the correct DADA2 version</p>
+<pre><code class="r">library(dada2)
+library(ggplot2)
+library(phyloseq)
+library(phangorn)
+library(DECIPHER)
+packageVersion('dada2')
+</code></pre>
+
+<h2 id="download-the-data">Download the Data</h2>
+<p>You will also need to download the data, as well as the SILVA database</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you are following the tutorial on the website, the following block of commands has to be executed outside of R.
+If you run this tutorial with the R notebook, you can simply execute the cell block</p>
+</div>
+<pre><code class="bash">wget http://www.mothur.org/w/images/d/d6/MiSeqSOPData.zip
+unzip MiSeqSOPData.zip
+rm -r __MACOSX/
+cd MiSeq_SOP
+wget https://zenodo.org/record/824551/files/silva_nr_v128_train_set.fa.gz
+wget https://zenodo.org/record/824551/files/silva_species_assignment_v128.fa.gz
+cd ..
+</code></pre>
+
+<p>Back in R, check that you have downloaded the data</p>
+<pre><code class="r">path &lt;- 'MiSeq_SOP'
+list.files(path)
+</code></pre>
+
+<h2 id="filtering-and-trimming">Filtering and Trimming</h2>
+<p>First we create two lists with the sorted name of the reads: one for the forward reads, one for the reverse reads</p>
+<pre><code class="r">raw_forward &lt;- sort(list.files(path, pattern=&quot;_R1_001.fastq&quot;,
+                               full.names=TRUE))
+
+raw_reverse &lt;- sort(list.files(path, pattern=&quot;_R2_001.fastq&quot;,
+                               full.names=TRUE))
+
+# we also need the sample names
+sample_names &lt;- sapply(strsplit(basename(raw_forward), &quot;_&quot;),
+                       `[`,  # extracts the first element of a subset
+                       1)
+</code></pre>
+
+<p>then we visualise the quality of our reads</p>
+<pre><code class="r">plotQualityProfile(raw_forward[1:2])
+plotQualityProfile(raw_reverse[1:2])
+</code></pre>
+
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What do you think of the read quality?</p>
+</div>
+<p>The forward reads are good quality (although dropping a bit at the end as usual) while the reverse are way worse.</p>
+<p>Based on these profiles, we will truncate the forward reads at position 240 and the reverse reads at position 160 where the quality distribution crashes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>in this tutorial we perform the trimming using DADA2's own functions.
+If you wish to do it outside of DADA2, you can refer to the <a href="../qc/">Quality Control tutorial</a></p>
+</div>
+<hr />
+<p>Dada2 requires us to define the name of our output files</p>
+<pre><code class="r"># place filtered files in filtered/ subdirectory
+filtered_path &lt;- file.path(path, &quot;filtered&quot;)
+
+filtered_forward &lt;- file.path(filtered_path,
+                              paste0(sample_names, &quot;_R1_trimmed.fastq.gz&quot;))
+
+filtered_reverse &lt;- file.path(filtered_path,
+                              paste0(sample_names, &quot;_R2_trimmed.fastq.gz&quot;))
+</code></pre>
+
+<p>We’ll use standard filtering parameters: <code>maxN=0</code> (DADA22 requires no Ns), <code>truncQ=2</code>, <code>rm.phix=TRUE</code> and <code>maxEE=2</code>.
+The maxEE parameter sets the maximum number of “expected errors” allowed in a read, which <a href="http://www.drive5.com/usearch/manual/expected_errors.html">according to the USEARCH authors</a> is a better filter than simply averaging quality scores.</p>
+<pre><code class="r">out &lt;- filterAndTrim(raw_forward, filtered_forward, raw_reverse,
+                     filtered_reverse, truncLen=c(240,160), maxN=0,
+                     maxEE=c(2,2), truncQ=2, rm.phix=TRUE, compress=TRUE,
+                     multithread=TRUE)
+head(out)
+</code></pre>
+
+<h2 id="learn-the-error-rates">Learn the Error Rates</h2>
+<p>The DADA2 algorithm depends on a parametric error model and every amplicon dataset has a slightly different error rate.
+The <code>learnErrors</code> of Dada2 learns the error model from the data and will help DADA2 to fits its method to your data</p>
+<pre><code class="r">errors_forward &lt;- learnErrors(filtered_forward, multithread=TRUE)
+errors_reverse &lt;- learnErrors(filtered_reverse, multithread=TRUE)
+</code></pre>
+
+<p>then we visualise the estimated error rates</p>
+<pre><code class="r">plotErrors(errors_forward, nominalQ=TRUE) +
+    theme_minimal()
+</code></pre>
+
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Do you think the error model fits your data correctly?</p>
+</div>
+<h2 id="dereplication">Dereplication</h2>
+<p>From the Dada2 documentation:</p>
+<blockquote>
+<p><strong>Dereplication</strong> combines all identical sequencing reads into into “unique sequences” with a corresponding “abundance”: the number of reads with that unique sequence.
+<strong>Dereplication</strong> substantially reduces computation time by eliminating redundant comparisons.</p>
+</blockquote>
+<pre><code class="r">derep_forward &lt;- derepFastq(filtered_forward, verbose=TRUE)
+derep_reverse &lt;- derepFastq(filtered_reverse, verbose=TRUE)
+# name the derep-class objects by the sample names
+names(derep_forward) &lt;- sample_names
+names(derep_reverse) &lt;- sample_names
+</code></pre>
+
+<h2 id="sample-inference">Sample inference</h2>
+<p>We are now ready to apply the core sequence-variant inference algorithm to the dereplicated data.</p>
+<pre><code class="r">dada_forward &lt;- dada(derep_forward, err=errors_forward, multithread=TRUE)
+dada_reverse &lt;- dada(derep_reverse, err=errors_reverse, multithread=TRUE)
+
+# inspect the dada-class object
+dada_forward[[1]]
+</code></pre>
+
+<p>The DADA2 algorithm inferred 128 real sequence variants from the 1979 unique sequences in the first sample.</p>
+<h2 id="merge-paired-end-reads">Merge Paired-end Reads</h2>
+<p>Now that the reads are trimmed, dereplicated and error-corrected we can merge them together</p>
+<pre><code class="r">merged_reads &lt;- mergePairs(dada_forward, derep_forward, dada_reverse,
+                           derep_reverse, verbose=TRUE)
+
+# inspect the merger data.frame from the first sample
+head(merged_reads[[1]])
+</code></pre>
+
+<h2 id="construct-sequence-table">Construct Sequence Table</h2>
+<p>We can now construct a sequence table of our mouse samples, a higher-resolution version of the OTU table produced by traditional methods.</p>
+<pre><code class="r">seq_table &lt;- makeSequenceTable(merged_reads)
+dim(seq_table)
+
+# inspect distribution of sequence lengths
+table(nchar(getSequences(seq_table)))
+</code></pre>
+
+<h2 id="remove-chimeras">Remove Chimeras</h2>
+<p>The <code>dada</code> method used earlier removes substitutions and indel errors but chimeras remain.
+We remove the chimeras with</p>
+<pre><code class="r">seq_table_nochim &lt;- removeBimeraDenovo(seq_table, method='consensus',
+                                       multithread=TRUE, verbose=TRUE)
+dim(seq_table_nochim)
+
+# which percentage of our reads did we keep?
+sum(seq_table_nochim) / sum(seq_table)
+</code></pre>
+
+<p>As a final check of our progress, we’ll look at the number of reads that made it through each step in the pipeline</p>
+<pre><code class="r">get_n &lt;- function(x) sum(getUniques(x))
+
+track &lt;- cbind(out, sapply(dada_forward, get_n), sapply(merged_reads, get_n),
+               rowSums(seq_table), rowSums(seq_table_nochim))
+
+colnames(track) &lt;- c('input', 'filtered', 'denoised', 'merged', 'tabled',
+                     'nonchim')
+rownames(track) &lt;- sample_names
+head(track)
+</code></pre>
+
+<p>We kept the majority of our reads!</p>
+<h2 id="assign-taxonomy">Assign Taxonomy</h2>
+<p>Now we assign taxonomy to our sequences using the SILVA database</p>
+<pre><code class="r">taxa &lt;- assignTaxonomy(seq_table_nochim,
+                       'MiSeq_SOP/silva_nr_v128_train_set.fa.gz',
+                       multithread=TRUE)
+taxa &lt;- addSpecies(taxa, 'MiSeq_SOP/silva_species_assignment_v128.fa.gz')
+</code></pre>
+
+<p>for inspecting the classification</p>
+<pre><code class="r">taxa_print &lt;- taxa  # removing sequence rownames for display only
+rownames(taxa_print) &lt;- NULL
+head(taxa_print)
+</code></pre>
+
+<h2 id="phylogenetic-tree">Phylogenetic Tree</h2>
+<p>DADA2 is reference-free so we have to build the tree ourselves</p>
+<p>We first align our sequences</p>
+<pre><code class="r">sequences &lt;- getSequences(seq_table)
+names(sequences) &lt;- sequences  # this propagates to the tip labels of the tree
+alignment &lt;- AlignSeqs(DNAStringSet(sequences), anchor=NA)
+</code></pre>
+
+<p>Then we build a neighbour-joining tree then fit a maximum likelihood tree using the neighbour-joining tree as a starting point</p>
+<pre><code class="r">phang_align &lt;- phyDat(as(alignment, 'matrix'), type='DNA')
+dm &lt;- dist.ml(phang_align)
+treeNJ &lt;- NJ(dm)  # note, tip order != sequence order
+fit = pml(treeNJ, data=phang_align)
+
+## negative edges length changed to 0!
+
+fitGTR &lt;- update(fit, k=4, inv=0.2)
+fitGTR &lt;- optim.pml(fitGTR, model='GTR', optInv=TRUE, optGamma=TRUE,
+                    rearrangement = 'stochastic',
+                    control = pml.control(trace = 0))
+detach('package:phangorn', unload=TRUE)
+</code></pre>
+
+<h2 id="phyloseq">Phyloseq</h2>
+<p>First load the metadata</p>
+<pre><code class="r">sample_data &lt;- read.table(
+    'https://hadrieng.github.io/tutorials/data/16S_metadata.txt',
+    header=TRUE, row.names=&quot;sample_name&quot;)
+</code></pre>
+
+<p>We can now construct a phyloseq object from our output and newly created metadata</p>
+<pre><code class="r">physeq &lt;- phyloseq(otu_table(seq_table_nochim, taxa_are_rows=FALSE),
+                   sample_data(sample_data),
+                   tax_table(taxa),
+                   phy_tree(fitGTR$tree))
+# remove mock sample
+physeq &lt;- prune_samples(sample_names(physeq) != 'Mock', physeq)
+physeq
+</code></pre>
+
+<p>Let's look at the alpha diversity of our samples</p>
+<pre><code class="r">plot_richness(physeq, x='day', measures=c('Shannon', 'Fisher'), color='when') +
+    theme_minimal()
+</code></pre>
+
+<p>No obvious differences. Let's look at ordination methods (beta diversity)</p>
+<p>We can perform an MDS with euclidean distance (mathematically equivalent to a PCA)</p>
+<pre><code class="r">ord &lt;- ordinate(physeq, 'MDS', 'euclidean')
+plot_ordination(physeq, ord, type='samples', color='when',
+                title='PCA of the samples from the MiSeq SOP') +
+    theme_minimal()
+</code></pre>
+
+<p>now with the Bray-Curtis distance</p>
+<pre><code class="r">ord &lt;- ordinate(physeq, 'NMDS', 'bray')
+plot_ordination(physeq, ord, type='samples', color='when',
+                title='PCA of the samples from the MiSeq SOP') +
+    theme_minimal()
+</code></pre>
+
+<p>There we can see a clear difference between our samples.</p>
+<p>Let us take a look a the distribution of the most abundant families</p>
+<pre><code class="r">top20 &lt;- names(sort(taxa_sums(physeq), decreasing=TRUE))[1:20]
+physeq_top20 &lt;- transform_sample_counts(physeq, function(OTU) OTU/sum(OTU))
+physeq_top20 &lt;- prune_taxa(top20, physeq_top20)
+plot_bar(physeq_top20, x='day', fill='Family') +
+    facet_wrap(~when, scales='free_x') +
+    theme_minimal()
+</code></pre>
+
+<p>We can place them in a tree</p>
+<pre><code class="r">bacteroidetes &lt;- subset_taxa(physeq, Phylum %in% c('Bacteroidetes'))
+plot_tree(bacteroidetes, ladderize='left', size='abundance',
+          color='when', label.tips='Family')
+</code></pre></div>
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="../../../js/jquery-1.10.2.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../../..';
+    </script>
+    <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+    <script src="../../../js/base.js"></script>
+    <script src="../../../search/require.js"></script>
+    <script src="../../../search/search.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>
