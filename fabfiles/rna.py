@@ -15,6 +15,7 @@ KEY = 'E298A3A825C0D65DFD57CBB651716619E084DAB9'
 REPO = 'https://cran.rstudio.com/bin/linux/ubuntu'
 
 
+@parallel
 def quant():
     # salmon
     with cd('~/install'):

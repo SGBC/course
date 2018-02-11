@@ -5,10 +5,10 @@ from __future__ import print_function, with_statement
 from fabric.api import *
 from fabric.network import ssh
 
-from student_ips import IPS
+from student_ips import IPS, PASSWORD
 from annotation import annotation, pan_genome
 from assembly import assembly, assembly_qc, assembly_extras
-from metagenomics import binning
+from metagenomics import binning, metabarcoding
 from rna import quant
 
 env.hosts = IPS
@@ -29,6 +29,10 @@ RSTUDIO_FILE = 'rstudio-server-1.0.143-amd64.deb'
 
 def host_type():
     run('uname')
+
+
+def passwd():
+    sudo('echo "student:%s" | sudo chpasswd' % PASSWORD)
 
 
 @parallel
@@ -104,6 +108,7 @@ def full_cleanup():
     setup()
 
 
+@parallel
 def rstudio():
     sudo('apt -y -qq install gdebi-core r-base r-base-dev')
     with cd('~/install'):

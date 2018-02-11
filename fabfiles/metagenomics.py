@@ -21,6 +21,7 @@ CHECKM_DB_FILE = 'checkm_data_2015_01_16.tar.gz'
 CHECKM_DB_DIR = '~/.local/data/checkm'
 
 
+@parallel
 def binning():
     # metabat
     with cd('~/install'):
@@ -52,3 +53,10 @@ def binning():
     #     run('wget --quiet %s%s' % (CHECKM_DB_WEB, CHECKM_DB_FILE))
     #     run('tar xzf %s' % CHECKM_DB_FILE)
     # sudo('checkm data setRoot %s' % CHECKM_DB_DIR)
+
+
+@parallel
+def metabarcoding():
+    with cd('~/install'):
+        run('curl -O -J -L https://osf.io/7tcr2/download')
+        sudo('Rscript install_16S.R')
