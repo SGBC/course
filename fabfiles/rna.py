@@ -12,9 +12,10 @@ SALMON_DIR = 'Salmon-latest_linux_x86_64'
 
 KEY_SERVER = 'keyserver.ubuntu.com'
 KEY = 'E298A3A825C0D65DFD57CBB651716619E084DAB9'
+REPO = 'https://cran.rstudio.com/bin/linux/ubuntu'
 
 
-def quantification():
+def quant():
     # salmon
     with cd('~/install'):
         run('wget --quiet %s%s' % (SALMON_WEB, SALMON_FILE))
@@ -24,8 +25,11 @@ def quantification():
 
     # r packages
     sudo('apt-key adv --keyserver %s --recv-keys %s' % (KEY_SERVER, KEY))
+    sudo('add-apt-repository "deb [arch=amd64,i386] %s xenial/"' % REPO)
+    sudo('apt-get update')
     sudo('apt -y -qq install --allow-unauthenticated r-base r-base-dev')
-    sudo('apt -y -qq install --allow-unauthenticated libxml2-dev')
+    sudo('apt -y -qq install --allow-unauthenticated libxml2-dev libssl-dev')
+    sudo('apt -y -qq install libmariadb-client-lgpl-dev')
     sudo('apt -y -qq install --allow-unauthenticated libcurl4-openssl-dev')
     with cd('~/install'):
         run('curl -O -J -L https://osf.io/a7kqz/download')

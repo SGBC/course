@@ -9,7 +9,7 @@ from student_ips import IPS
 from annotation import annotation, pan_genome
 from assembly import assembly, assembly_qc, assembly_extras
 from metagenomics import binning
-from rna import quantification
+from rna import quant
 
 env.hosts = IPS
 env.user = 'student'
