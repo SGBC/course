@@ -5,9 +5,11 @@ from __future__ import print_function, with_statement
 from fabric.api import *
 from fabric.network import ssh
 
-from student_ips import IPS
+from student_ips import IPS, PASSWORD
 from annotation import annotation, pan_genome
 from assembly import assembly, assembly_qc, assembly_extras
+from metagenomics import binning, metabarcoding
+from rna import quant
 
 env.hosts = IPS
 env.user = 'student'
@@ -21,9 +23,16 @@ BOWTIE2_FILE = 'v2.3.4/bowtie2-2.3.4-linux-x86_64.zip'
 SAMTOOLS_WEB = 'https://github.com/samtools/samtools/releases/download/'
 SAMTOOLS_FILE = '1.6/samtools-1.6.tar.bz2'
 
+RSTUDIO_WEB = 'https://download2.rstudio.org/'
+RSTUDIO_FILE = 'rstudio-server-1.0.143-amd64.deb'
+
 
 def host_type():
     run('uname')
+
+
+def passwd():
+    sudo('echo "student:%s" | sudo chpasswd' % PASSWORD)
 
 
 @parallel
@@ -38,6 +47,7 @@ def setup():
     run('mkdir -p ~/install')
     run('mkdir -p /home/$(whoami)/.local/bin')
     run('mkdir -p /home/$(whoami)/.local/share')
+    run('mkdir -p /home/$(whoami)/.local/lib')
 
 
 @parallel
@@ -96,3 +106,11 @@ def full_cleanup():
     run('mkdir -p /home/$(whoami)/.local/bin')
     run('mkdir -p /home/$(whoami)/.local/share')
     setup()
+
+
+@parallel
+def rstudio():
+    sudo('apt -y -qq install gdebi-core r-base r-base-dev')
+    with cd('~/install'):
+        run('wget --quiet %s%s' % (RSTUDIO_WEB, RSTUDIO_FILE))
+        sudo('gdebi -n %s' % RSTUDIO_FILE)
