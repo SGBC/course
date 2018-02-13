@@ -8,7 +8,7 @@ from fabric.network import ssh
 from student_ips import IPS, PASSWORD
 from annotation import annotation, pan_genome
 from assembly import assembly, assembly_qc, assembly_extras
-from metagenomics import binning, metabarcoding
+from metagenomics import binning, metabarcoding, kraken
 from rna import quant
 
 env.hosts = IPS

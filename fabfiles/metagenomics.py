@@ -20,6 +20,10 @@ CHECKM_DB_WEB = 'https://data.ace.uq.edu.au/public/CheckM_databases/'
 CHECKM_DB_FILE = 'checkm_data_2015_01_16.tar.gz'
 CHECKM_DB_DIR = '~/.local/data/checkm'
 
+KRAKEN_WEB = 'https://github.com/DerrickWood/kraken/archive/'
+KRAKEN_FILE = 'v1.1.tar.gz'
+KRAKEN_DIR = 'kraken-1.1'
+
 
 @parallel
 def binning():
@@ -53,6 +57,22 @@ def binning():
     #     run('wget --quiet %s%s' % (CHECKM_DB_WEB, CHECKM_DB_FILE))
     #     run('tar xzf %s' % CHECKM_DB_FILE)
     # sudo('checkm data setRoot %s' % CHECKM_DB_DIR)
+
+
+@parallel
+def kraken():
+    # kraken
+    with cd('~/install'):
+        run('wget --quiet %s%s' % (KRAKEN_WEB, KRAKEN_FILE))
+        run('tar xzf %s' % KRAKEN_FILE)
+    with cd('~/install/%s' % KRAKEN_DIR):
+        run('./install_kraken.sh ~/.local/kraken')
+    run('ln -s /home/student/.local/kraken/kraken ~/.local/bin/')
+    run('ln -s /home/student/.local/kraken/kraken-build ~/.local/bin/')
+    run('ln -s /home/student/.local/kraken/kraken-filter ~/.local/bin/')
+    run('ln -s /home/student/.local/kraken/kraken-mpa-report ~/.local/bin/')
+    run('ln -s /home/student/.local/kraken/kraken-report ~/.local/bin/')
+    run('ln -s /home/student/.local/kraken/kraken-translate ~/.local/bin/')
 
 
 @parallel
