@@ -254,15 +254,14 @@
                 <li class="third-level"><a href="#whole-metagenome-sequencing">Whole Metagenome Sequencing</a></li>
             <li class="second-level"><a href="#softwares-required-for-this-tutorial">Softwares Required for this Tutorial</a></li>
                 
+            <li class="second-level"><a href="#prepare-and-organise-your-working-directory">Prepare and organise your working directory</a></li>
+                
             <li class="second-level"><a href="#getting-the-data-and-checking-their-quality">Getting the Data and Checking their Quality</a></li>
                 
             <li class="second-level"><a href="#taxonomic-classification">Taxonomic Classification</a></li>
                 
-            <li class="second-level"><a href="#abundance-estimation-using-bracken">Abundance estimation using Bracken</a></li>
+            <li class="second-level"><a href="#visualization-with-pavian">Visualization with Pavian</a></li>
                 
-            <li class="second-level"><a href="#visualization">Visualization</a></li>
-                
-                <li class="third-level"><a href="#alternative-1-pavian">Alternative 1: Pavian</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -298,24 +297,49 @@
 <ul>
 <li><a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC</a></li>
 <li><a href="https://ccb.jhu.edu/software/kraken/">Kraken</a></li>
-<li><a href="https://ccb.jhu.edu/software/bracken/">Bracken</a></li>
 <li><a href="https://www.r-project.org/">R</a></li>
 <li><a href="https://github.com/fbreitwieser/pavian">Pavian</a></li>
 </ul>
-<h3 id="getting-the-data-and-checking-their-quality">Getting the Data and Checking their Quality</h3>
-<p>If you are reading this tutorial online and haven't cloned the directory, first download and unpack the data:</p>
-<pre><code>wget http://77.235.253.14/metlab/wms.tar
-tar xvf wms.tar
-cd wms
+<h3 id="prepare-and-organise-your-working-directory">Prepare and organise your working directory</h3>
+<p>You will first login to your virtual machine using the IP provided by the teachers.
+All the exercise will be performed on your VM in the cloud.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you login with the ssh command, please add the option -X at the end of it to be able to use graphical interface</p>
+</div>
+<pre><code class="bash">mkdir ~/wms
+cd ~/wms
+mkdir data
+mkdir results
+mkdir scripts
 </code></pre>
 
-<p>We'll use FastQC to check the quality of our data. FastQC can be downloaded and
-run on a Windows or Linux computer without installation. It is available <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">here</a></p>
-<p>Start FastQC and select the fastq file you just downloaded with <code>file -&gt; open</code><br />
+<h3 id="getting-the-data-and-checking-their-quality">Getting the Data and Checking their Quality</h3>
+<p>As the data were very big, we have prepared performed a downsampling on all 6 datasets (3 pigs and 3 humans).
+We will first download and unpack the data.</p>
+<pre><code class="bash">cd ~/wms/data
+curl -O -J -L https://osf.io/h9x6e/download
+tar xvf subset_wms.tar.gz
+cd sub_100000
+</code></pre>
+
+<p>We'll use FastQC to check the quality of our data.
+FastQC should be already installed on your VM, so you need to type</p>
+<pre><code>fastqc
+</code></pre>
+
+<p>When FastQC has started you can select the fastq file you just downloaded with <code>file -&gt; open</code><br />
 What do you think about the quality of the reads? Do they need trimming? Are there still adapters
 present? Overrepresented sequences?</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>FastQC can be downloaded and run on a Windows or Linux computer without installation.
+It is available <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">here</a></p>
+</div>
 <p>Alternatively, run fastqc on the command-line:</p>
-<p><code>fastqc *.fastq.gz</code></p>
+<pre><code class="bash">fastqc *.fastq
+</code></pre>
+
 <p>If the quality appears to be good, it's because it was probably the cleaned reads that were deposited into SRA.
 We can directly move to the classification step.</p>
 <h3 id="taxonomic-classification">Taxonomic Classification</h3>
@@ -323,89 +347,59 @@ We can directly move to the classification step.</p>
 Kraken aims to achieve high sensitivity and high speed by utilizing exact alignments of k-mers and a novel classification algorithm (sic).</p>
 <p>In short, kraken uses a new approach with exact k-mer matching to assign taxonomy to short reads. It is <em>extremely</em> fast compared to traditional
 approaches (i.e. BLAST).</p>
-<p>By default, the authors of kraken built their database based on RefSeq Bacteria, Archea and Viruses. We'll use it for the purpose of this tutorial.</p>
-<p><strong>NOTE: The database may have been installed already! Ask your instructor!</strong></p>
-<pre><code class="bash"># You might not need this step (for example if you're working on Uppmax!)
-wget https://ccb.jhu.edu/software/kraken/dl/minikraken.tgz
-tar xzf minikraken.tgz
-$KRAKEN_DB=minikraken_20141208
+<p>By default, the authors of kraken built their database based on RefSeq Bacteria, Archaea and Viruses. We'll use it for the purpose of this tutorial.
+We will download a shrunk database (minikraken) provided by Kraken developers that is only 4GB.</p>
+<pre><code class="bash"># First we create a databases directory in our home
+cd /mnt
+sudo mkdir databases
+cd databases
+# Then we download the minikraken database
+sudo wget https://ccb.jhu.edu/software/kraken/dl/minikraken_20171019_4GB.tgz
+sudo tar xzf minikraken_20171019_4GB.tgz
+KRAKEN_DB=/mnt/databases/minikraken_20171013_4GB
+cd
 </code></pre>
 
 <p>Now run kraken on the reads</p>
-<pre><code class="bash">mkdir kraken_results
-for i in *_1.fastq.gz
+<pre><code class="bash"># In the data/ directory
+cd ~/wms/data/sub_100000
+for i in *_1.fastq
 do
-    prefix=$(basename $i _1.fastq.gz)
-    # set number of threads to number of cores if running under SLURM, otherwise use 2 threads
-    nthreads=${SLURM_NPROCS:=2}
-    kraken --db $KRAKEN_DB --threads ${nthreads} --fastq-input --gzip-compressed \
-        ${prefix}_1.fastq.gz ${prefix}_2.fastq.gz &gt; kraken_results/${prefix}.tab
+    prefix=$(basename $i _1.fastq)
+    # print which sample is being processed
+    echo $prefix
+    kraken --db $KRAKEN_DB --threads 2 --fastq-input \
+        ${prefix}_1.fastq ${prefix}_2.fastq &gt; /home/student/wms/results/${prefix}.tab
     kraken-report --db $KRAKEN_DB \
-        kraken_results/${prefix}.tab &gt; kraken_results/${prefix}_tax.txt
+        /home/student/wms/results/${prefix}.tab &gt; /home/student/wms/results/${prefix}_tax.txt
 done
 </code></pre>
 
 <p>which produces a tab-delimited file with an assigned TaxID for each read.</p>
 <p>Kraken includes a script called <code>kraken-report</code> to transform this file into a "tree" view with the percentage of reads assigned to each taxa. We've run this script at each step in the loop. Take a look at the <code>_tax.txt</code> files!</p>
-<h3 id="abundance-estimation-using-bracken">Abundance estimation using Bracken</h3>
-<p>Bracken (Bayesian Reestimation of Abundance with KrakEN) is a highly accurate statistical method that computes the abundance of species in DNA sequences from a metagenomics sample</p>
-<p>Before starting, you need to install Bracken:</p>
-<pre><code class="bash">cd
-git clone https://github.com/jenniferlu717/Bracken.git
-chmod 755 Bracken/*.py
-chmod 755 Bracken/*.pl
-export PATH=$PATH:$HOME/Bracken
-</code></pre>
-
-<p>Unfortunately, Uppmax lacks some perl packages necessary for Bracken to work:</p>
-<p>Follow the tutorial <a href="http://www.uppmax.uu.se/support/faq/software-faq/installing-local-perl-packages/">here</a> to install <code>cpanm</code></p>
-<p>then install the two perl libraries that are missing:</p>
-<pre><code class="bash">cpanm Parallel::ForkManager
-cpanm List::MoreUtils
-</code></pre>
-
-<p>Three steps are necessary to set up Kraken abundance estimation.</p>
-<ol>
-<li>
-<p>Classify all reads using Kraken and Generate a Kraken report file. We've done this!</p>
-</li>
-<li>
-<p>Search all library input sequences against the database and compute the classifications for each perfect read of ${READ_LENGTH} base pairs from one of the input sequences.</p>
-</li>
-</ol>
-<pre><code class="bash">find -L $KRAKEN_DB/library -name &quot;*.fna&quot; -o -name &quot;*.fa&quot; -o -name &quot;*.fasta&quot; &gt; genomes.list
-cat $(grep -v '^#' genomes.list) &gt; genomes.fasta
-kraken --db=${KRAKEN_DB} --fasta-input --threads=${SLURM_NPROCS:=10} kraken.fasta &gt; database.kraken
-count-kmer-abundances.pl --db=${KRAKEN_DB} --read-length=100 database.kraken &gt; database100mers.kraken_cnts
-</code></pre>
-
-<ol>
-<li>Generate the kmer distribution file</li>
-</ol>
-<pre><code class="bash">python generate_kmer_distribution.py -i database100mers.kraken_cnts -o KMER_DISTR.TXT
-</code></pre>
-
-<p>Now, given the expected kmer distribution for genomes in a kraken database along
-with a kraken report file, the number of reads belonging to each species (or
-genus) is estimated using the estimate_abundance.py file, run with the
-following command line:</p>
-<p><code>python estimate_abundance.py -i KRAKEN.REPORT -k KMER_DISTR.TXT -o OUTPUT_FILE.TXT</code></p>
-<p>Run this command for the six <code>_tax.txt</code> files that you generated with kraken!</p>
-<p>The following required parameters must be specified:
-- KRAKEN.REPORT     :: the kraken report generated for a given dataset
-- KMER_DISTR.TXT    :: the file generated by generate_kmer_distribution.py
-- OUTPUT_FILE.TXT   :: the desired name of the output file to be generated by the code</p>
-<h3 id="visualization">Visualization</h3>
-<h4 id="alternative-1-pavian">Alternative 1: Pavian</h4>
+<h3 id="visualization-with-pavian">Visualization with Pavian</h3>
 <p>Pavian is a web application for exploring metagenomics classification results.</p>
+<p>First, go in Rstudio server by typing the address to your server in your browser:</p>
+<p><code>http://MY_IP_ADDRESS:8787/</code></p>
+<p>where you replace <code>MY_IP_ADDRESS</code> by the IP address of your Virtual Machine.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To access Rstudio server on the virtual machine, you'll need a password.
+Ask your instructor for the password!</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you wish, you may work on Rstudio on your own laptop if it is powerful enough.
+You will need an up-to-date version of R, and can install the necessary packages using <a href="https://osf.io/a7kqz/download">this script</a></p>
+</div>
 <p>Install and run Pavian:</p>
-<p>(In R or Rstudio)</p>
-<pre><code class="R">## Installs required packages from CRAN and Bioconductor
-source(&quot;https://raw.githubusercontent.com/fbreitwieser/pavian/master/inst/shinyapp/install-pavian.R&quot;)
+<pre><code class="R">options(repos = c(CRAN = &quot;http://cran.rstudio.com&quot;))
+if (!require(remotes)) { install.packages(&quot;remotes&quot;) }
+remotes::install_github(&quot;fbreitwieser/pavian&quot;)
 pavian::runApp(port=5000)
 </code></pre>
 
-<p>Pavian will be available at http://127.0.0.1:5000</p></div>
+<p>Then you will explore and compare the results produced by Kraken.</p></div>
         
     </div>
 
