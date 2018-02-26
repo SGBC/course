@@ -52,10 +52,13 @@ def binning():
     # checkm cannot set data root non-interactively
     # waiting for upstream fix
 
-    # run('mkdir -p ~/.local/data/checkm')
-    # with cd('%s' % CHECKM_DB_DIR):
-    #     run('wget --quiet %s%s' % (CHECKM_DB_WEB, CHECKM_DB_FILE))
-    #     run('tar xzf %s' % CHECKM_DB_FILE)
+
+@parallel
+def checkm():
+    run('mkdir -p ~/.local/data/checkm')
+    with cd('%s' % CHECKM_DB_DIR):
+        run('wget --quiet %s%s' % (CHECKM_DB_WEB, CHECKM_DB_FILE))
+        run('tar xzf %s' % CHECKM_DB_FILE)
     # sudo('checkm data setRoot %s' % CHECKM_DB_DIR)
 
 
