@@ -23,5 +23,5 @@ def alignment():
         run('tar xjf samtools-1.6.tar.bz2')
     with cd('~/install/samtools-1.6'):
         run('./configure --quiet')
-        run('make')
-        sudo('make install')
+        run('make --quiet')
+        sudo('make --quiet install')
