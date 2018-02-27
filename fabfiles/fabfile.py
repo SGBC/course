@@ -11,17 +11,19 @@ from student_ips import IPS, PASSWORD, test_ip, test_user
 from qc import qc
 from rna import quant
 from alignment import alignment
-from annotation import annotation, pan_genome
+from annotation import annotation, pan_genome, euk_annot
 from assembly import assembly, assembly_qc, assembly_extras
 from metagenomics import binning, metabarcoding, kraken, checkm
 
-env.hosts = IPS
+# env.hosts = IPS
 env.user = 'student'
-env.key_filename = '~/.ssh/proj_rsa'
+env.key_filename = '~/.ssh/azure_rsa'
 
 # test vm
+env.hosts = '40.71.27.91'
 # env.hosts = test_ip
 # env.user = test_user
+# env['sudo_prefix'] += '-E '
 
 RSTUDIO_WEB = 'https://download2.rstudio.org/'
 RSTUDIO_FILE = 'rstudio-server-1.0.143-amd64.deb'
@@ -41,10 +43,10 @@ def passwd():
 
 @parallel
 def setup():
-    sudo('apt -y -qq update  && apt -y -qq upgrade')
+    sudo('apt -y -qq update && apt -y -qq upgrade')
     sudo('apt -y -qq install python-pip python-dev')
     sudo('apt -y -qq install unzip')
-    sudo('apt -y -qq install make gcc')
+    sudo('apt -y -qq install make gcc git')
     sudo('apt -y -qq install default-jre')
     sudo('apt -y -qq install libncurses5-dev libbz2-dev liblzma-dev')
     sudo('apt -y -qq install zlib1g-dev libcurl4-gnutls-dev')
