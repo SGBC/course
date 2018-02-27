@@ -9,18 +9,18 @@ from fabric.network import ssh
 from student_ips import IPS, PASSWORD, test_ip, test_user
 
 from qc import qc
-from rna import quant
+from rna import quant, rna_assembly
 from alignment import alignment
 from annotation import annotation, pan_genome, euk_annot
 from assembly import assembly, assembly_qc, assembly_extras
 from metagenomics import binning, metabarcoding, kraken, checkm
 
-# env.hosts = IPS
+env.hosts = IPS
 env.user = 'student'
 env.key_filename = '~/.ssh/azure_rsa'
 
 # test vm
-env.hosts = '40.71.27.91'
+# env.hosts = '40.71.27.91'
 # env.hosts = test_ip
 # env.user = test_user
 # env['sudo_prefix'] += '-E '
