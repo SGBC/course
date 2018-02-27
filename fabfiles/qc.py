@@ -15,6 +15,7 @@ def qc():
     # fastqc
     with cd('~/install'):
         sudo('apt -y -qq install libjbzip2-java libcommons-math3-java')
+        sudo('apt -y -qq install trimmomatic')
         run('wget --quiet %s%s' % (FASTQC_WEB, FASTQC_DEB))
         sudo('dpkg -i fastqc_0.11.5+dfsg-3_all.deb')
         sudo('apt -y -qq install -f')
