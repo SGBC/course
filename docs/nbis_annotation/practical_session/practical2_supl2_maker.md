@@ -84,4 +84,4 @@ To get some statistics of your annotation you could launch :
 gff3_sp_statistics.pl --gff maker.gff
 ```
 
-We could now also visualise all this information using a genome browser, such as Webapollo or [IGV](http://software.broadinstitute.org/software/igv/). Those viewer require a genome fasta file and any number of annotation files in GTF or GFF3 format (note that GFF3 formatted file tend to look a bit weird in IGV sometimes).
+We could now also visualise all this information using a genome browser, such as [Webapollo](http://genomearchitect.github.io) or [IGV](http://software.broadinstitute.org/software/igv/). Those viewer require a genome fasta file and any number of annotation files in GTF or GFF3 format (note that GFF3 formatted file tend to look a bit weird in IGV sometimes).
