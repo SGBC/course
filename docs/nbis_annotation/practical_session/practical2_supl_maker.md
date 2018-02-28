@@ -31,7 +31,7 @@ protein\_gff= #aligned protein homology evidence from an external GFF3 file
 \#-----Repeat Masking (leave values blank to skip repeat masking)<br/>
 **model\_org=** #select a model organism for RepBase masking in RepeatMasker  
 rmlib= #provide an organism specific repeat library in fasta format for RepeatMasker   
-**repeat\_protein= #**provide a fasta file of transposable element proteins for RepeatRunner  
+**repeat\_protein=** #provide a fasta file of transposable element proteins for RepeatRunner  
 rm\_gff=**repeatmasker.chr4.gff,repeatrunner.chr4.gff** #pre-identified repeat elements from an external GFF3 file  
 prok\_rm=0 #forces MAKER to repeatmask prokaryotes (no reason to change this), 1 = yes, 0 = no  
 softmask=1 #use soft-masking rather than hard-masking in BLAST (i.e. seg and dust filtering)
