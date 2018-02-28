@@ -1,8 +1,3 @@
----
-layout: default
-title:  'Using webapollo'
----
-
 ### Using WebApollo to view annotations
 
 For this course, we have set up a WebApollo installation - as a reminder, the url is [http://annotation-prod.scilifelab.se:8080/NBIS_course](http://annotation-prod.scilifelab.se:8080/NBIS_course/).
