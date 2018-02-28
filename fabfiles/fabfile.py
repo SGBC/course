@@ -9,8 +9,8 @@ from fabric.network import ssh
 from student_ips import IPS, PASSWORD, test_ip, test_user
 
 from qc import qc
-from rna import quant, rna_assembly
 from alignment import alignment
+from rna import quant, rna_assembly
 from annotation import annotation, pan_genome, euk_annot
 from assembly import assembly, assembly_qc, assembly_extras
 from metagenomics import binning, metabarcoding, kraken, checkm

@@ -10,6 +10,14 @@ SALMON_WEB = 'https://github.com/COMBINE-lab/salmon/releases/download/v0.9.1/'
 SALMON_FILE = 'Salmon-0.9.1_linux_x86_64.tar.gz'
 SALMON_DIR = 'Salmon-latest_linux_x86_64'
 
+STRINGTIE_WEB = 'http://ccb.jhu.edu/software/stringtie/dl/'
+STRINGTIE_FILE = 'stringtie-1.3.4c.Linux_x86_64.tar.gz'
+STRINGTIE_DIR = 'stringtie-1.3.4c.Linux_x86_64'
+
+TRINITY_WEB = 'https://github.com/trinityrnaseq/trinityrnaseq/archive/'
+TRINITY_FILE = 'Trinity-v2.6.5.tar.gz'
+TRINITTY_DIR = 'trinityrnaseq-Trinity-v2.6.5'
+
 
 @parallel
 def quant():
@@ -29,15 +37,19 @@ def quant():
 
 @parallel
 def rna_assembly():
-    sudo('apt -y -qq install tophat jellyfish')
+    sudo('apt -y -qq install tophat jellyfish genometools')
     with cd('~/install'):
-        run('wget --quiet http://ccb.jhu.edu/software/stringtie/dl/stringtie-1.3.4c.Linux_x86_64.tar.gz')
-        run('tar xzf stringtie-1.3.4c.Linux_x86_64.tar.gz')
-        run('mv stringtie-1.3.4c.Linux_x86_64/stringtie ~/.local/bin')
-        run('wget --quiet https://github.com/trinityrnaseq/trinityrnaseq/archive/Trinity-v2.6.5.tar.gz')
-        run('tar xzf Trinity-v2.6.5.tar.gz')
-    with cd('~/install/trinityrnaseq-Trinity-v2.6.5'):
+        run('wget --quiet %s%s' % (STRINGTIE_WEB, STRINGTIE_FILE))
+        run('tar xzf %s' % STRINGTIE_FILE)
+        run('mv %s/stringtie ~/.local/bin' % STRINGTIE_DIR)
+        run('wget --quiet %s%s' % (TRINITY_WEB, TRINITY_FILE))
+        run('tar xzf %s' % TRINITY_FILE)
+    with cd('~/install/%s' % TRINITTY_DIR):
         run('make')
         sudo('make install')
-    run('echo "export TRINITY_HOME=/usr/local/bin/trinityrnaseq-Trinity-v2.6.5" >> ~/.bashrc')
-    run('echo "export PATH=$PATH:/usr/local/bin/trinityrnaseq-Trinity-v2.6.5" >> ~/.bashrc')
+    run(
+        'echo "export TRINITY_HOME=/usr/local/bin/%s" >> ~/.bashrc'
+        % TRINITTY_DIR)
+    run(
+        'echo "export PATH=$PATH:/usr/local/bin/%s" >> ~/.bashrc'
+        % TRINITTY_DIR)
