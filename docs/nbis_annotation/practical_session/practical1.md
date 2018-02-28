@@ -1,13 +1,9 @@
----
-layout: default
-title:  'Practical1'
----
-# 1. Foreword:
+# Foreword:
 
 We will for all exercises use data for the fruit fly, Drosophila melanogaster, as that is one of the currently best annotated organisms and there is plenty of high quality data available. However, working on eukaryotes can be time consuming. Even a small genome like Drosophila would take too long to run within the time we have for this course. Thus to be sure to perform the practicals in good conditions, we will use the smallest chromosome of the drosophila (chromosome 4) like it was a whole genome.
 An annotation project requires numerous tools and dependencies, which can take easily many days to install for a neophyte. For your convenience and in order to focus on the art of the ANNOTATION most of the tools are already installed on your machine (Thank you Hadrien :) ).
 
-# 1. First of all
+# First of all
 
 Before going into the exercises below you need to connect to your virtual machine Ubuntu 16.04 following the instruction we will provide you.
 Once connected you will move into the **annotation\_course** folder, where all the magic will happen.
