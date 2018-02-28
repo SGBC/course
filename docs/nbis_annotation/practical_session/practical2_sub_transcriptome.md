@@ -1,4 +1,4 @@
-# Assembling transcripts based on RNA-seq data (optional)
+# Assembling transcripts based on RNA-seq data
 
 Rna-seq data is in general very useful in annotation projects as the data usually comes from the actual organism you are studying and thus avoids the danger of introducing errors caused by differences in gene structure between your study organism and other species.
 
