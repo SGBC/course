@@ -40,7 +40,7 @@ This time, we do specify a reference species to be used by augustus, which will 
 
 With these settings, Maker will run augustus to predict gene loci, but inform these predictions with information from the protein and est alignments.
 
-Before running MAKER you can check you have modified the maker_opts.ctl file properly [here](practical2_supl3_maker).
+Before running MAKER you can check you have modified the maker_opts.ctl file properly [here](practical2_supl3_maker.md).
 
 ## Run Maker with ab-initio predictions
 
