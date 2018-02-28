@@ -24,7 +24,7 @@ Link the gff files you want to use into your folder:
  - protein2genome.gff 
 
 ```
-ln -s maker_no_abinitio/annotationByType/est_gff:stringtie.gff
+ln -s maker_no_abinitio/annotationByType/est_gff:stringtie.gff est_gff_stringtie.gff
 ln -s maker_no_abinitio/annotationByType/est2genome.gff 
 ln -s maker_no_abinitio/annotationByType/protein2genome.gff
 ```
