@@ -19,14 +19,14 @@ Link the gff files you want to use into your folder:
  - repeatmasker.chr4.gff (already present)
  - repeatrunner.chr4.gff (already present)
  - 4.fa (already present)
- - cufflinks2genome.chr4.gff (transcript that have been mapped by MAKER during the evidence based round of annotation) 
+ - est_gff:stringtie.gff (transcript that have been mapped by MAKER during the evidence based round of annotation) 
  - est2genome.chr4.gff 
  - protein2genome.chr4.gff 
 
 ```
-ln -s maker_no_abinitio/XXX/cufflinks2genome.chr4.gff
-ln -s maker_no_abinitio/XXX/est2genome.chr4.gff 
-ln -s maker_no_abinitio/XXX/protein2genome.chr4.gff
+ln -s maker_no_abinitio/annotationByType/est_gff:stringtie.gff
+ln -s maker_no_abinitio/annotationByType/est2genome.chr4.gff 
+ln -s maker_no_abinitio/annotationByType/protein2genome.chr4.gff
 ```
 
 This time, we do specify a reference species to be used by augustus, which will enable ab-initio gene finding and keep_preds=1 will also show abinitio prediction not supported by any evidences :
