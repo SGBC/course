@@ -19,7 +19,7 @@ Link the gff files you want to use into your folder:
  - repeatmasker.chr4.gff (already present)
  - repeatrunner.chr4.gff (already present)
  - 4.fa (already present)
- - est_gff:stringtie.gff (transcript that have been mapped by MAKER during the evidence based round of annotation) 
+ - est_gff_stringtie.gff (transcript that have been mapped by MAKER during the evidence based round of annotation) 
  - est2genome.gff 
  - protein2genome.gff 
 
