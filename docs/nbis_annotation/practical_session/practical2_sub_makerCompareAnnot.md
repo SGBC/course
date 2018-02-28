@@ -11,7 +11,7 @@ In this exercise you will take the three annotations you have created for Drosop
 
 Evaluating an annotation can be done in three ways - running busco but with the proteins obtained from the annotation, in comparison with another annotation or in reference to the evidence alignments. The former isn't so much a quality check as a measure of congruency - i.e. the resulting numbers don't tell you which of the two gene builds is more correct. On the other hand, a comparison with evidence alignments is what Maker uses internally to select gene models. After synthesizing and annotating loci, the resulting model will be ranked against the filtered evidence alignments. The more congruent these two points of information are, the lower the 'annotation edit distance' (AED) will be. The AED score can be used to e.g. check an annotation for problematic models that may then be subjected to manual curation.
 
-### BUSCO2
+### BUSCO
 
 BUSCO is run before annotating to check if the assembly is good and therefore if the annotation will be good. It is also run after the structural annotation to then compare if we indeed find a number of genes corresponding of the first run of busco.
 
