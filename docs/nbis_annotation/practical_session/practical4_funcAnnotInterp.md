@@ -109,7 +109,8 @@ In order to submit to **EBI**, the use of a tool like [EMBLmyGFF3](https://githu
 In real life, prior to a submission to ENA, you need to create an account and create a project asking a locus_tag for your annotation. You have also to fill lot of metada information related to the assembly and so on. We will skip those tasks using fake information.
 First you need to download and install EMBLmyGFF3:
 ```
-git clone https://github.com/NBISweden/EMBLmyGFF3.git
+pip install --user git+https://github.com/NBISweden/EMBLmyGFF3.git
+EMBLmyGFF3 finalOutputDir/codingGeneFeatures.gff 4.fa -o my_annotation_ready_to_submit.embl
 ```
 
 You now have a EMBL flat file ready to submit. In theory to do so, you will have to send this archived file to their ftp server. And finish the submission process in the website side too.
