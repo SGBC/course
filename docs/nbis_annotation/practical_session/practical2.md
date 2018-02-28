@@ -1,7 +1,3 @@
----
-layout: default
-title:  'Exercise Gene Building'
----
 # Gathering evidence data for annotation (Optional)
 
 This exercise is meant to get you acquainted with the type of data you would normally encounter in an annotation project.
