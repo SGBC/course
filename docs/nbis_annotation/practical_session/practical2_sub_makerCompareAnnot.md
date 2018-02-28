@@ -40,7 +40,7 @@ ln -s ../maker/maker_with_abinitio/annotationByType/maker.gff maker_abinitio.gff
 
 Then, copy or sym-link the EnsEMBL reference annotation.
 ```
-ln -s ~/annotation_course/data/annotation/drosophila_melanogaster.chr4.ensembl91.gff
+ln -s ~/annotation_course/data/annotation/ensembl.chr4.gff
 ```
 
 Now we have to sort any GFF3-formatted annotation in a way that genometools accepts.
@@ -50,7 +50,7 @@ sed -i '1i##gff-version 3' maker_abinitio.gff
 
 gt gff3 -sort maker_no_abinitio.gff > maker_no_abinitio.sorted.gff 
 gt gff3 -sort maker_abinitio.gff > maker_abinitio.sorted.gff 
-gt gff3 -sort drosophila_melanogaster.chr4.ensembl91.gff > drosophila_melanogaster.sorted.gff 
+gt gff3 -sort ensembl.chr4.gff > ensembl.sorted.gff 
 ```
 
 ### Counting features
@@ -74,7 +74,7 @@ But feature counts alone can't really give you a clear measure of overlap/differ
 
 With the sorted files, we can now perform a comparison:
 ```
-gt eval drosophila_melanogaster.sorted.gff maker_no_abinitio.sorted.gff  
+gt eval ensembl.sorted.gff maker_no_abinitio.sorted.gff  
 ```
 This will create a long list of measures for all relevant sequence features with respect to both the 'sensitivity' and 'specificity' - as a measure of how close the annotation comes to a reference. As a reminder, 'specificity' measures the fraction of a reference overlapping a prediction whereas 'sensitivity' measures the fraction of a prediction overlapping a reference.
 
