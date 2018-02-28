@@ -21,14 +21,14 @@ This meens the sequence **4** was started - and finished, with all data (annotat
 
 If you look into that folder, you will find the finished Maker annotation for this contig.
 
-rw-rw-r- 1 student student 472193 Mar 24 10:16 4.gff  
-\*rw-rw-r- 1 student student 3599 Mar 24 10:16 4.maker.augustus\_masked.proteins.fasta 
-\*rw-rw-r- 1 student student 10388 Mar 24 10:16 4.maker.augustus\_masked.transcripts.fasta  
-\*rw-rw-r- 1 student student 176 Mar 24 10:16 4.maker.non\_overlapping\_ab\_initio.proteins.fasta
-\*rw-rw-r- 1 student student 328 Mar 24 10:16 4.maker.non\_overlapping\_ab\_initio.transcripts.fasta  
-rw-rw-r- 1 student student 3931 Mar 24 10:16 4.maker.proteins.fasta  
-rw-rw-r- 1 student student 20865 Mar 24 10:16 4.maker.transcripts.fasta  
-rw-rw-r- 1 student student 4248 Mar 24 10:15 run.log  
+rw-rw-r- 1 student student 472193 Mar 24 10:16 4.gff <br/>
+\*rw-rw-r- 1 student student 3599 Mar 24 10:16 4.maker.augustus\_masked.proteins.fasta <br/>
+\*rw-rw-r- 1 student student 10388 Mar 24 10:16 4.maker.augustus\_masked.transcripts.fasta  <br/>
+\*rw-rw-r- 1 student student 176 Mar 24 10:16 4.maker.non\_overlapping\_ab\_initio.proteins.fasta <br/>
+\*rw-rw-r- 1 student student 328 Mar 24 10:16 4.maker.non\_overlapping\_ab\_initio.transcripts.fasta  <br/>
+rw-rw-r- 1 student student 3931 Mar 24 10:16 4.maker.proteins.fasta  <br/>
+rw-rw-r- 1 student student 20865 Mar 24 10:16 4.maker.transcripts.fasta  <br/>
+rw-rw-r- 1 student student 4248 Mar 24 10:15 run.log  <br/>
 drwxrwsr-x 3 student student 4096 Mar 24 10:16 theVoid.4
 
 \* only if an abinitio tool has been activated
