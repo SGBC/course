@@ -22,7 +22,7 @@ Welcome to the course!
     * [Quality Control](tutorials/docs/qc.md)
     * [De-novo Genome Assembly](tutorials/docs/assembly.md)
     * [Assembly Challenge](assembly_challenge)
-    * [Genome Annotation](tutorials/docs/annotation.md)
+    * [Genome Annotation](nbis_annotation/schedule.md)
     * [Pan-genome Analysis](tutorials/docs/pan_genome.md)
     * [Nanopore Sequencing](tutorials/docs/nanopore.md)
 
