@@ -37,7 +37,7 @@ ln -s ~/annotation_course/data/RNAseq/stringtie/stringtie2genome.chr4.gff
 gff3_sp_alignment_output_style.pl --gff stringtie2genome.chr4.gff -o stringtie2genome.chr4.ok.gff
 ```
 
-You should now have 1 repeat file, 1 EST file, 1 protein file and the genome sequence in the working directory. For Maker to use this information, we need create the three config files, as discussed previously (maker -CTL). You can leave the two files controlling external software behaviors untouched. In the actual maker options file (maker_opts.ctl), we need to provide:
+You should now have 1 repeat file, 1 EST file, 1 protein file, 1 transcript file, and the genome sequence in the working directory. For Maker to use this information, we need create the three config files, as discussed previously (maker -CTL). You can leave the two files controlling external software behaviors untouched. In the actual maker options file (maker_opts.ctl), we need to provide:
 
 - name of the genome sequence (genome=)
 - name of the 'EST' set file(s) (est=)
