@@ -6,7 +6,7 @@ An annotation project requires numerous tools and dependencies, which can take e
 # First of all
 
 Before going into the exercises below you need to connect to your virtual machine Ubuntu 16.04 following the instruction we will provide you.
-Once connected you will move into the **annotation\_course** folder, where all the magic will happen.
+Once connected you will move into the **annotation_course** folder, where all the magic will happen.
 ```
 cd ~/annotation_course
 ```
