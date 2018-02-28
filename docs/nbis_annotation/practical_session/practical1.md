@@ -29,7 +29,7 @@ Before starting an annotation project, we need to carefully inspect the assembly
 You can look at i) the Fragmentation (N50, N90, how many short contigs); ii) the Sanity of the fasta file (Presence of Ns, presence of ambiguous nucleotides, presence of lowercase nucleotides, single line sequences vs multiline sequences); iii) completeness using BUSCO; iv) presence of organelles; v) Others (GC content, How distant the investigated species is from the others annotated species available).
 The two next exercices will perform some of these checks.
 
-## 1. Checking the gene space of your assembly
+## 1.1 Checking the gene space of your assembly
 
 BUSCO2provides measures for quantitative assessment of genome assembly, gene set, and transcriptome completeness. Genes that make up the BUSCO2 sets for each major lineage are selected from orthologous groups with genes present as single-copy orthologs in at least 90% of the species. 
 
@@ -61,7 +61,7 @@ While BUSCO is running, start the exercise 2.
 When done, check the short\_summary\_4\_dmel\_busco. How many proteins are reported as complete? Does this sound reasonable?
 **Tips**: the chromosome 4 corresponds to less than 1% of the real size of the genome.
 
-## 2. Various Check of your Assembly
+## 1.2 Various Check of your Assembly
 
 **_Exercise 2_ :**
 Launching the following script will provide you some useful information. 
