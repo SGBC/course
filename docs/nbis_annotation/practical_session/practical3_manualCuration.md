@@ -33,7 +33,8 @@ The tracks available are:
 - Maker\_abinitio : A maker annotation using Ab initio evidence-drived approach.  
 - Proteins : track of reviewed proteins aligned by Maker. 
 - tophat_larva4 : RNAseq data (bam file) aligned to the genome by tophat.  
-- Cufflinks_larva4 : A cufflinks transcript assembly aligned by maker during the annotation process.
+- Cufflinks_larva4 : A cufflinks transcript assembly aligned by MAKER.
+- Stringtie_ERR305399 : A stringtie transcript assembly aligned by MAKER.
 - EST_from_NCBI : The ESTs aligned by maker during the annotation process. 
 
 A genomic region of the chrosmosome is assigned to each of you. Your aim is to manualy annotate your assigned part using all the information available in the different tracks. Genomic region has been assigned without any biological consideration. So, if genes straddle two regions don't stop you at the end of yours :).  
