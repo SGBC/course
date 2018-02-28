@@ -1,13 +1,10 @@
----
-layout: default
-title:  'Schedule'
----
+# Introduction to genome annotation
 
-**Teacher:**
-Jacques Dainat, Ph.D.
-NBIS (National Bioinformatics Infrastructure Sweden)
-Genome Annotation Service
-http://nbis.se/about/staff/jacques-dainat/
+**Teacher:**<br/>
+Jacques Dainat, Ph.D.<br/>
+NBIS (National Bioinformatics Infrastructure Sweden)<br/>
+Genome Annotation Service<br/>
+http://nbis.se/about/staff/jacques-dainat/<br/>
 http://nbis.se
 
 # Schedule
