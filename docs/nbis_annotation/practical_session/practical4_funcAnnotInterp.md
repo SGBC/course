@@ -126,4 +126,6 @@ pip install --user git+https://github.com/NBISweden/EMBLmyGFF3.git
 EMBLmyGFF3 finalOutputDir/codingGeneFeatures.gff 4.fa -o my_annotation_ready_to_submit.embl
 ```
 
-You now have a EMBL flat file ready to submit. In theory to do so, you will have to send this archived file to their ftp server. And finish the submission process in the website side too.
+You now have a EMBL flat file ready to submit. In theory to finsish the submission, you will have to send this archived file to their ftp server and finish the submission process in the website side too.
+But we will not go further. We are done. CONGRATULATION you know most of the secrets needed to understand the annotations on and perform your own !
+
