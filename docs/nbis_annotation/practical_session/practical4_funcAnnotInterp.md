@@ -47,7 +47,7 @@ Next, you could write scripts of your own to merge interproscan output into your
 - ipr\_update\_gff: adds searchable tags to the gene and mRNA features in the GFF3 files.  
 - iprscan2gff3: adds physical viewable features for domains that can be displayed in JBrowse, Gbrowse, and Web Apollo.
 ```
-ipr_update_gff maker.gff interproscan.tsv > maker.with_interpro.gff
+ipr_update_gff maker_with_abinitio.gff AA.fa.tsv >  maker_with_abinitio_with_interpro.gff
 ```
 Where a match is found, the new file will now include features called Dbxref and/or Ontology_term in the gene and transcript feature field (9th column).
 
@@ -73,7 +73,7 @@ git clone https://github.com/genomeannotation/Annie.git
 ```
 Now launch annie: 
 ```
-Annie/annie.py -b blast.out -db ~/annotation_course/data/blastdb/uniprot_dmel/uniprot_dmel.fa -g maker_with_abinitio.gff -o maker_annotation.annie
+Annie/annie.py -b blast.out -db ~/annotation_course/data/blastdb/uniprot_dmel/uniprot_dmel.fa -g maker_with_abinitio.gff -o annotation_blast.annie
 ```
 
 Annie writes in a 3-column table format file, providing gene name and mRNA product information. The purpose of annie is relatively simple. It recovers the information in the sequence header of the uniprot fasta file, from the best sequence found by Blast (the lowest e-value).
@@ -82,7 +82,7 @@ Annie writes in a 3-column table format file, providing gene name and mRNA produ
 
 Now you should be able to use the following script: 
 ```
-maker_gff3manager_JD_v8.pl -f maker.with_interpro.gff -b maker_annotation.annie -o finalOutputDir  
+maker_gff3manager_JD_v8.pl -f maker_with_abinitio_with_interpro.gff -b annotation_blast.annie --ID FLY -o finalOutputDir  
 ```
 That will add the name attribute to the "gene" feature and the description attribute (corresponding to the product information) to the "mRNA" feature into you annotation file. This script may be used for other purpose like to modify the ID value by something more convenient (i.e FLYG00000001 instead of maker-4-exonerate_protein2genome-gene-8.41).  
 The improved annotation is a file named "codingGeneFeatures.gff" inside the finalOutputDir.
