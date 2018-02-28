@@ -4,11 +4,11 @@ This exercise is meant to get you acquainted with the type of data you would nor
 
 ## 1. Protein, EST and RNA-seq data (Optional)
 
-[Here will get an idea of where to download evidence sequences.](practical2_sub_gatherEvidence)
+[Here will get an idea of where to download evidence sequences.](practical2_sub_gatherEvidence.md)
 
 ## 2. Assembling transcripts based on RNA-seq data (Optional)
 
-[Here will get an idea how to deal with RNA-seq data](practical2_sub_transcriptome)
+[Here will get an idea how to deal with RNA-seq data](practical2_sub_transcriptome.md)
 
 ## Closing remarks
 
