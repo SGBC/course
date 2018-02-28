@@ -47,3 +47,4 @@ The following people have contributed to these course material, in no particular
 * [Hadrien Gourlé](https://github.com/HadrienG)
 * [Juliette Hayer](https://github.com/jhayer)
 * [Oskar Karlsson](https://github.com/Ackia)
+* [Jacques Dainat](https://github.com/NBISweden)
