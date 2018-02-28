@@ -10,8 +10,8 @@ Important remarks to remember before starting working with RNA-seq:
 First create a dedicated folder to work in:
 ```
 cd ~/annotation_course/practical2
-mkdir RNA-seq
-cd RNA-seq
+mkdir RNAseq
+cd RNAseq
 ```
 
 ## 1. Genome guided transcriptome assembly: 
@@ -64,11 +64,11 @@ java -jar trimmomatic-0.32.jar PE -threads 8 ~/annotation_course/data/raw_comput
 Once the reads have been trimmed, we use [tophat](https://ccb.jhu.edu/software/tophat/index.shtml) to align the RNA-seq reads to a genome in order to identify exon-exon splice junctions. It is built on the ultrafast short read mapping program [Bowtie](http://bowtie-bio.sourceforge.net/index.shtml).
 
 ```
-cd ~/annotation_course/practical2/RNA-seq
+cd ~/annotation_course/practical2/RNAseq
 mkdir tophat
 cd tophat
 
-tophat --library-type=fr-firststrand ~/annotation_course/data/genome/4.fa trimmomatic/ERR305399.left_paired.fastq.gz trimmomatic/ERR305399.right_paired.fastq.gz
+tophat --library-type=fr-firststrand ~/annotation_course/data/genome/4.fa trimmomatic/ERR305399.left_paired.fastq.gz trimmomatic/ERR305399.right_paired.fastq.gz -p 8
 ```
 
 This step will take a really long time so you can use the bam file located here ~/annotation_course/data/RNAseq/tophat/accepted_hits.bam
@@ -95,6 +95,10 @@ Then, transfer the gff3 file to your computer and load it into [Webapollo](http:
 Trinity assemblies can be used as complementary evidence, particularly when trying to polish a gene build with Pasa. Before you start, check how big the raw read data is that you wish to assemble to avoid unreasonably long run times.
 
 ```
+cd ~/annotation_course/practical2/RNAseq
+mkdir trinity
+cd trinity
+
 Trinity --seqType fq --max_memory 64G --left ~/annotation_course/course_material/data/dmel/chromosome_4/raw_computes/ERR305399.left.fastq --right ~/annotation_course/course_material/data/dmel/chromosome_4/raw_computes/ERR305399.right.fastq --CPU 8 --output trinity_result --SS_lib_type RF 
 ```
 
