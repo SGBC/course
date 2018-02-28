@@ -1,8 +1,3 @@
----
-layout: default
-title:  'Exercise - Comparing and evaluating annotations'
----
-
 # Comparing and evaluating annotations
 
 In this exercise you will take the three annotations you have created for Drosophila - the pure abinitio one done with augustus, the evidence-based done with MAKER and the abinitio evidence drived one done with MAKER. First, we will count the features annotated in each of them and compare that number against the existing reference annotation. Next, we will perform a proper feature-level comparison to obtain a proper estimate of congruency.
