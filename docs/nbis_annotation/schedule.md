@@ -13,12 +13,12 @@ http://nbis.se
 
 **Thursday 1st** 
 
-**09.00-10.00** [Lecture: Understanding Annotation](slides/) 
-**10.00-10.15** Coffee break  
-**10.15-12.00** [Practical 1: Assembly assessment + Abinitio annotation](practical_session/practical1) 
-**12.00-13.00** Lunch  
-**13.00-13.45**	[Lecture: Structural annotation programs and pipelines](slides/)
-**13.45-17.00** [Practical 2: Structural annotation of eukaryote genomes (incl. coffee break)](practical_session/ExerciseGeneBuilding)
+**09.00-10.00** [Lecture: Understanding Annotation](slides/)<br/> 
+**10.00-10.15** Coffee break  <br/> 
+**10.15-11.30** [Practical 1: Assembly assessment + Abinitio annotation](practical_session/practical1.md) <br/> 
+**11.30-12.30** Lunch  <br/> 
+**12.30-13.45**	[Lecture: Structural annotation programs and pipelines](slides/)<br/> 
+**13.45-16.00** [Practical 2: Structural annotation of eukaryote genomes (incl. coffee break)](practical_session/ExerciseGeneBuilding)<br/> 
 
 **Friday 2nd**
 
