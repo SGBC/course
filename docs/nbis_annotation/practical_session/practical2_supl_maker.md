@@ -1,8 +1,3 @@
----
-layout: default
-title:  'sup maker'
----
-
 # Configure your maker project : The maker_opts.ctl file in detail:
 
  
