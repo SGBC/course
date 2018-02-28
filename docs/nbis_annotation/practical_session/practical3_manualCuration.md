@@ -1,10 +1,5 @@
----
-layout: default
-title:  'Exercise - Manual curation'
----
-
 # Manual curation
-##Overview
+## Overview
 
 It is easy to understand that automated gene build pipelines will never reach 100% accuracy in their reconstruction. This is due to a number of factors, including ambiguous information from competing input data, inherent uncertainties of ab-initio predictions as well as simplified decision processes when synthesising all available information into a transcript structure. It is therefore always important to manually inspect a gene build - and in basically all cases manual curation is highly recommended.
 
