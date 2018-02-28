@@ -100,5 +100,6 @@ Trinity --seqType fq --max_memory 64G --left ~/annotation_course/course_material
 
 Trinity takes a long time to run if you want to have a look at the results, look in ~/annotation_course/course_material/data/dmel/chromosome_4/RNAseq/ the output that will be used later on for the annotation will be Trinity.fasta
 
+## Closing remarks
 
-You have now successfully retrieve most data useful to do an annotation! 
+You have now successfully perform transcript assemblies. You have seen how to perform a genome-guided assembly as well as de-no assembly.
