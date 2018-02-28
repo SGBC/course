@@ -21,13 +21,21 @@ In addition, you will also need the genome sequence.
 ```
 ln -s ~/annotation_course/data/genome/4.fa
 ```
-To finish, you will also need EST set file, transcript set file and a protein set file:  
+Then you will also need EST and protein fasta file:  
 ```
 ln -s ~/annotation_course/data/evidence/est.chr4.fa 
-ln -s ~/annotation_course/data/evidence/proteins.chr4.fa  
+ln -s ~/annotation_course/data/evidence/proteins.chr4.fa
+```
+To finish you will could use a transcriptome assembly (This one has been made using Stringtie):
+```
+ln -s ~/annotation_course/data/RNAseq/stringtie/stringtie2genome.chr4.gff
 ```
 
-/!\\ Always check that the gff files you provides as protein or EST do not contains  genes/transcripts feature types but rather  match / match_part otherwise Maker do not recognize it.
+/!\\ Always check that the gff files you provides as protein or EST contains   match / match_part (gff alignment type ) feature types rather than genes/transcripts (gff annotation type) otherwise MAKER will not use the contained data properly. Here we have to fix the stringtie gff file.
+
+```
+gff3_sp_alignment_output_style.pl --gff stringtie2genome.chr4.gff -o stringtie2genome.chr4.ok.gff
+```
 
 You should now have 1 repeat file, 1 EST file, 1 protein file and the genome sequence in the working directory. For Maker to use this information, we need create the three config files, as discussed previously (maker -CTL). You can leave the two files controlling external software behaviors untouched. In the actual maker options file (maker_opts.ctl), we need to provide:
 
