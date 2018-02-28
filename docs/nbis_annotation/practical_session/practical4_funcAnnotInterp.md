@@ -46,8 +46,6 @@ Next, you could write scripts of your own to merge interproscan output into your
 
 - ipr\_update\_gff: adds searchable tags to the gene and mRNA features in the GFF3 files.  
 - iprscan2gff3: adds physical viewable features for domains that can be displayed in JBrowse, Gbrowse, and Web Apollo.
-
-Before to use the script allowing to load the information from Annie output to your annotation file you have to load some PATH to your profile. To do that just launch the following script(in case you have not done it yet) or just source the bash_profile:  
 ```
 ipr_update_gff maker.gff interproscan.tsv > maker.with_interpro.gff
 ```
