@@ -70,7 +70,7 @@ We will annotate the genome of the fruit fly _Drosophila melanogaster_. First we
 
 [Running Maker with only evidence data](practical2_sub_makerNoAbinit.md)
 
-### 2. Creating an abinition evidence drived annotation
+### 2. Creating an abinition evidence-driven annotation
 
 [Running Maker with ab-initio predictions](practical2_sub_makerAbinit.md)
 
