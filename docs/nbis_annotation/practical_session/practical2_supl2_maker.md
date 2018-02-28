@@ -51,6 +51,7 @@ This will create a directory called "annotations" containing:
 
  - ***annotations.gff* file**  
 
+It's a mix of all the gff tracks produced/handled by maker. It contains the annotation done by maker mixed up with other gff lines like the protein alignments, repeats, etc..
 If you use 'less' to read the annotation file *annotations.gff* ([GFF3 format](http://www.sequenceontology.org/gff3.shtml)), you will see a range of different features:
 ```
 ##gff-version 3  
@@ -72,8 +73,7 @@ And so on.
 This file contains the proteins translated from the CDS of gene models predicted.
 
  - ***annotationByType* directory**  
-The different types of information present in the annotation file (annotations.gff) are separated into independent file into the "annotationByType" directory. This is useful for a number of applications, like visualizing it as separate tracks in a genome browser. Or to compute some intersting numbers from the gene models.
-
+The different types of information present in the annotation file (annotations.gff) are separated into independent file into the "annotationByType" directory.This is useful for a number of applications, like visualizing it as separate tracks in a genome browser. Or to compute some intersting numbers from the gene models.
 
 This should contains a bunch of files, including '**maker.gff**' - which contains the actual gene models.
 
