@@ -13,7 +13,7 @@ cd ~/annotation_course
 
 **Now you need the data !!** You must download the archive of the data and uncompress it (it could take few minutes).
 ```
-wget https://u-ip-81-109.hpc2n.umu.se/tickets/dJMzFKTj409GahMxz5rzKCELAQCrPejtF0G350KEhiU/data.tar.gz/download
+wget https://u-ip-81-109.hpc2n.umu.se/tickets/J6NkG9GmP5Gvgua7FDmbmHv5lrmKcqS6rQcnUmXuZnM/data.tar.gz/download
 tar xzvf download
 rm download
 ```
