@@ -28,19 +28,29 @@ As with many tasks within bioinformatics, it is always a great idea to first loo
 
 
 ### Preparing the input files
-First you have to be situated in a folder containing the two maker annotations (with and without ab initio) and the augustus annotation. Then, copy or sym-link the EnsEMBL reference annotation that we provided you. Hint: The EnsEMBL annotation for chromosome 4 should be located in the folder course\_material/data/dmel/chromosome\_4/annotation.  
-Now we have to sort any GFF3-formatted annotation in a way that genometools accepts.
+First you have to be situated in a folder containing the two maker annotations (with and without ab initio) and the augustus annotation. 
 ```
 cd ~/annotation_course/practical2
 mkdir compare
 cd compare
-ln -s ../maker/maker_without_abinitio/annotationByType/maker.gff maker_no_abinitio.gff 
+ln -s ../maker/maker_no_abinitio/annotationByType/maker.gff maker_no_abinitio.gff 
 ln -s ../maker/maker_with_abinitio/annotationByType/maker.gff maker_abinitio.gff 
-ln -s ~/annotation_course/data/XXX/drosophila_melanogaster.chr4.gff
+```
+
+Then, copy or sym-link the EnsEMBL reference annotation.
+```
+ln -s ~/annotation_course/data/annotation/drosophila_melanogaster.chr4.ensembl91.gff
+```
+
+Now we have to sort any GFF3-formatted annotation in a way that genometools accepts.
+```
+sed -i '1i##gff-version 3' maker_no_abinitio.gff
+sed -i '1i##gff-version 3' maker_abinitio.gff
+sed -i '1i##gff-version 3' drosophila_melanogaster.chr4.ensembl91.gff
 
 gt gff3 -sort maker_no_abinitio.gff > maker_no_abinitio.sorted.gff 
 gt gff3 -sort maker_abinitio.gff > maker_abinitio.sorted.gff 
-gt gff3 -sort drosophila_melanogaster.gff > drosophila_melanogaster.sorted.gff 
+gt gff3 -sort drosophila_melanogaster.chr4.ensembl91.gff > drosophila_melanogaster.sorted.gff 
 ```
 
 ### Counting features
