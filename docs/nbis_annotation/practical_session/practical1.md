@@ -31,9 +31,9 @@ The two next exercices will perform some of these checks.
 
 ## 1.1 Checking the gene space of your assembly
 
-BUSCO2provides measures for quantitative assessment of genome assembly, gene set, and transcriptome completeness. Genes that make up the BUSCO2 sets for each major lineage are selected from orthologous groups with genes present as single-copy orthologs in at least 90% of the species. 
+BUSCO provides measures for quantitative assessment of genome assembly, gene set, and transcriptome completeness. Genes that make up the BUSCO sets for each major lineage are selected from orthologous groups with genes present as single-copy orthologs in at least 90% of the species. 
 
-***Note:*** In a real-world scenario, this step should come first and foremost. Indeed, if the result is under your expectation you might be required to enhance your assembly before to go further. If this is too long to run, you can find the results of BUSCO in XXX ~/annotation\_course/course\_material/data/dmel/chromosome\_4/.  
+***Note:*** In a real-world scenario, this step should come first and foremost. Indeed, if the result is under your expectation you might be required to enhance your assembly before to go further. 
 
 **_Exercise 1_ - BUSCO -:**
 
