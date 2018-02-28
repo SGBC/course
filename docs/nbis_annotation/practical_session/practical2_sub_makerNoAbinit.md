@@ -86,7 +86,7 @@ This should create a "maker\_no\_abinitio" directory containing a maker annotati
 
 To get some statistics of your annotation you could launch :
 ```
-gff3_sp_statistics.pl --gff maker.gff
+gff3_sp_statistics.pl --gff maker_no_abinitio/annotationByType/maker.gff
 ```
 
 We could now also visualise the annotation in the Webapollo genome browser.
