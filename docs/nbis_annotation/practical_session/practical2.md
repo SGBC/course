@@ -66,15 +66,15 @@ Finally, 'maker_opts.ctl' holds information on the location of input files and s
 
 We will annotate the genome of the fruit fly _Drosophila melanogaster_. First we will perforn a pure evidence based annotation (without ab-initio predictions) and afterwards with ab-initio.
 
-### Creating an evidence based annotation
+### 1. Creating an evidence based annotation
 
 [Running Maker with only evidence data](practical2_sub_makerNoAbinit.md)
 
-### Creating an abinition evidence drived annotation
+### 2. Creating an abinition evidence drived annotation
 
 [Running Maker with ab-initio predictions](practical2_sub_makerAbinit.md)
 
-### Inspecting the output
+### 3. Inspecting the output
 
 The running of an annotation pipeline like Maker is not actually very hard. But the complicated work is only beginning. How to we best inspect the gene builds? Count features? Visualize it? Most importantly, what steps do we need to take to create a 'finished' annotation that we can use for scientific analyses?
 
