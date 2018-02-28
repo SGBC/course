@@ -101,7 +101,7 @@ Once your are satisfied by the wonderful annotation you have done, it would usef
 
 Current state-of-the-art genome annotation tools use the GFF3 format as output, while this format is not accepted as submission format by the International Nucleotide Sequence Database Collaboration (INSDC) databases. Converting the GFF3 format to a format accepted by one of the three INSDC databases is a key step in the achievement of genome annotation projects. However, the flexibility existing in the GFF3 format makes this conversion task difficult to perform.
 
-In order to submit to NCBI, the use of a tool like [GAG](https://genomeannotation.github.io/GAG/) will save you lot time.
+In order to submit to NCBI, the use of a tool like [GAG](https://genomeannotation.github.io/GAG/) will save you lot time. 
 In order to submit to EBI, the use of a tool like [EMBLmyGFF3](https://github.com/NBISweden/EMBLmyGFF3) will be your best choice.
 
 **Let's prepare your annotation to submit to ENA (EBI)**
