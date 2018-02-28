@@ -1,9 +1,5 @@
----
-layout: default
-title:  'sup maker'
----
 
-# Configure the maker_opts.ctl properly for the abinitio evidence drived annotation:
+# Configure the maker_opts.ctl properly for the abinitio evidence-driven annotation:
 
 
 \#-----Genome (these are always required)  
@@ -15,14 +11,14 @@ organism\_type=eukaryotic #eukaryotic or prokaryotic. Default is eukaryotic
 \#-----EST Evidence (for best results provide a file for at least one)  
 **est= #**set of ESTs or assembled mRNA-seq in fasta format  
 altest= #EST/cDNA sequence file in fasta format from an alternate organism  
-**est\_gff=est2genome.chr4.gff, cufflinks2genome.chr4.gff** #aligned ESTs or mRNA-seq from an external GFF3 file  
+**est\_gff=est2genome.gff, est_gff:stringtie.gff** #aligned ESTs or mRNA-seq from an external GFF3 file  
 altest\_gff= #aligned ESTs from a closly relate species in GFF3 format
 
 ...
 
 \#-----Protein Homology Evidence (for best results provide a file for at least one)  
 **protein= #**protein sequence file in fasta format (i.e. from mutiple oransisms)  
-**protein\_gff=protein2genome.chr4.gff** #aligned protein homology evidence from an external GFF3 file
+**protein\_gff=protein2genome.gff** #aligned protein homology evidence from an external GFF3 file
 
 ...
 
