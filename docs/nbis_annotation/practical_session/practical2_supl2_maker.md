@@ -1,8 +1,3 @@
----
-layout: default
-title:  'sup maker 2'
----
-
 ## Inspect the output
 
 ### Finding your way around
