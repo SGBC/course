@@ -62,7 +62,7 @@ And again, it is probably best to link the resulting output (maker.gff) to a res
 
 To get some statistics of your annotation you could launch :
 ```
-gff3_sp_statistics.pl --gff maker.gff
+gff3_sp_statistics.pl --gff maker_with_abinitio/annotationByType/maker.gff
 ```
 
 We could now also visualise the annotation in the Webapollo genome browser.
