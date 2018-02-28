@@ -19,7 +19,7 @@ ln -s ~/annotation_course/practical2/maker/maker_with_abinitio/annotationByType/
 Extract the corresponding proteins from the gff file:
 ```
 ln -s ~/annotation_course/data/genome/4.fa
-gff3_sp_extract_sequences.pl --gff maker_with_abinitio.gff -f 4.fa -p -o AA.fa 
+gff3_sp_extract_sequences.pl --gff maker_with_abinitio.gff -f 4.fa -p --cfs -o AA.fa 
 ```
 ## Interproscan approach
  Interproscan combines a number of searches for conserved motifs and curated data sets of protein clusters etc. This step may take fairly long time. It is recommended to paralellize it for huge amount of data by doing analysis of chunks of tens or hundreds proteins.
@@ -30,12 +30,12 @@ InterproScan can be run through a website or from the command line on a linux se
 
 Launch Interproscan with the option -h if you want have a look about all the parameters.
 
-- The '-app' option allows defining the database used. Here we will use the PfamA,ProDom,SuperFamily and PIRSF databases.  
+- The '-app' option allows defining the database used. Here we will use the PfamA,ProDom and SuperFamily databases.  
 - Interproscan uses an internal database that related entries in public databases to established GO terms. By running the '-goterms' option, we can add this information to our data set.
 - If you enable the InterPro lookup ('-iprlookup'), you can also get the InterPro identifier corresponding to each motif retrieved: for example, the same motif is known as PF01623 in Pfam and as IPR002568 in InterPro. 
 - The option '-pa' provides mappings from matches to pathway information (MetaCyc,UniPathway,KEGG,Reactome).
 ``` 
-interproscan.sh -i maker_with_abinitio/annotations.proteins.fa -t p -dp -pa -appl Pfam,ProDom-2006.1,SuperFamily-1.75,PIRSF-3.01 --goterms --iprlookup
+interproscan.sh -i maker_with_abinitio/annotations.proteins.fa -t p -dp -pa -appl Pfam,ProDom-2006.1,SuperFamily-1.75 --goterms --iprlookup
 ```
 The analysis shoud take 2-3 secs per protein request - depending on how many sequences you have submitted, you can make a fairly deducted guess regarding the running time.  
 You will obtain 3 result files with the following extension '.gff3', '.tsv' and '.xml'. Explanation of these output are availabke [>>here<<](https://github.com/ebi-pf-team/interproscan/wiki/OutputFormats).
