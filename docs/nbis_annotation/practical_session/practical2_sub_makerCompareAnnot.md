@@ -16,7 +16,8 @@ cd ~/annotation_course/practical2
 mkdir busco
 cd busco
 
-ln -s ../maker/maker_with_abinition/annotations.proteins.fa   
+ln -s ../maker/maker_with_abinitio/annotations.proteins.fa   
+ln -s ~/annotation_course/practical1/busco/metazoa_odb9
 
 BUSCO.py -i annotations.proteins.fa -o dmel_maker_abinitio -m prot -c 8 -l metazoa_odb9
 ```
@@ -46,7 +47,6 @@ Now we have to sort any GFF3-formatted annotation in a way that genometools acce
 ```
 sed -i '1i##gff-version 3' maker_no_abinitio.gff
 sed -i '1i##gff-version 3' maker_abinitio.gff
-sed -i '1i##gff-version 3' drosophila_melanogaster.chr4.ensembl91.gff
 
 gt gff3 -sort maker_no_abinitio.gff > maker_no_abinitio.sorted.gff 
 gt gff3 -sort maker_abinitio.gff > maker_abinitio.sorted.gff 
@@ -59,6 +59,11 @@ Next, we get the feature counts for the three annotations and the reference from
 ```
 gt stat maker_no_abinitio.gff
 ```
+or
+```
+gff3_sp_statistics.pl --gff maker_no_abinitio.gff
+```
+
 (or whatever you decided to name the file(s). The use of the sorted file or the original one changes nothing here)
 
 As you will note, there are some differences - and of course, this is expected, since we used quite different approaches to generate the two gene builds. EnsEMBL on the other hand is originally imported from FlyBase. Obviously, a lot of manual labor and much more data has been put into the FlyBase annotation - and this highlights a common limitation of any computational pipeline. You will simply never reach the same level of quality and detail as seen in a manually curated reference annotation.
