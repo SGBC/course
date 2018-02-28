@@ -1,8 +1,3 @@
----
-layout: default
-title:  'Exercise Gene Building'
----
-
 # Obtaining Protein
 
 <u>**Swissprot:**</u> Uniprot is an excellent source for high quality protein sequences. The main site can be found at [http://www.uniprot.org](http://www.uniprot.org). This is also the place to find Swissprot, a collection of manually curated non-redundant proteins that cover a wide range of organisms while still being manageable in size.
