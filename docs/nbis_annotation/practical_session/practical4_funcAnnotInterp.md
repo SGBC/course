@@ -87,7 +87,15 @@ maker_gff3manager_JD_v8.pl -f maker_with_abinitio_with_interpro.gff -b annotatio
 That will add the name attribute to the "gene" feature and the description attribute (corresponding to the product information) to the "mRNA" feature into you annotation file. This script may be used for other purpose like to modify the ID value by something more convenient (i.e FLYG00000001 instead of maker-4-exonerate_protein2genome-gene-8.41).  
 The improved annotation is a file named "codingGeneFeatures.gff" inside the finalOutputDir.
 
+## Visualise the final annotation
 
+Transfer the finalOutputDir/codingGeneFeatures.gff file to your computer using scp in a new terminal:
+
+scp -i ~/.ssh/azure_rsa student@__IP__:/home/student/annotation_course/practical4/finalOutputDir/codingGeneFeatures.gff .
+
+Load the file in into the genome portal called drosophila_melanogaster_chr4 in the Webapollo genome browser available at the address (http://annotation-prod.scilifelab.se:8080/NBIS_course/)[http://annotation-prod.scilifelab.se:8080/NBIS_course/]. [Here find the WebApollo instruction] (UsingWebapollo.md)
+
+Wondeful ! insn't it ?
 
 ## What's next?
 
