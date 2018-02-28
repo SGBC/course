@@ -15,15 +15,15 @@ organism\_type=eukaryotic #eukaryotic or prokaryotic. Default is eukaryotic
 ...
 
 \#-----EST Evidence (for best results provide a file for at least one)  
-est=**est.chr4.fa** #set of ESTs or assembled mRNA-seq in fasta format  
+**est*est.chr4.fa** #set of ESTs or assembled mRNA-seq in fasta format  
 altest= #EST/cDNA sequence file in fasta format from an alternate organism  
-est\_gff= #aligned ESTs or mRNA-seq from an external GFF3 file  
+**est\_gff=stringtie2genome.chr4.ok.gff** #aligned ESTs or mRNA-seq from an external GFF3 file  
 altest\_gff= #aligned ESTs from a closly relate species in GFF3 format
 
 ...
 
 \#-----Protein Homology Evidence (for best results provide a file for at least one)  
-protein=**proteins.chr4.fa** #protein sequence file in fasta format (i.e. from mutiple oransisms)  
+**protein=proteins.chr4.fa** #protein sequence file in fasta format (i.e. from mutiple oransisms)  
 protein\_gff= #aligned protein homology evidence from an external GFF3 file
 
 ...
@@ -45,8 +45,8 @@ augustus\_species= #Augustus gene prediction species model
 fgenesh\_par\_file= #FGENESH parameter file  
 pred\_gff= #ab-initio predictions from an external GFF3 file  
 model\_gff= #annotated gene models from an external GFF3 file (annotation pass-through)  
-est2genome=**1** #infer gene predictions directly from ESTs, 1 = yes, 0 = no  
-protein2genome=**1** #infer predictions from protein homology, 1 = yes, 0 = no  
+**est2genome=1** #infer gene predictions directly from ESTs, 1 = yes, 0 = no  
+**protein2genome=1** #infer predictions from protein homology, 1 = yes, 0 = no  
 trna=0 #find tRNAs with tRNAscan, 1 = yes, 0 = no  
 snoscan\_rrna= #rRNA file to have Snoscan find snoRNAs  
 unmask=0 #also run ab-initio prediction programs on unmasked sequence, 1 = yes, 0 = no
