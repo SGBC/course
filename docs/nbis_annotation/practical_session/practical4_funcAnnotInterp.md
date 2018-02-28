@@ -16,7 +16,11 @@ Now link the annotation you choose to work with. The command will looks like:
 ```
 ln -s ~/annotation_course/practical2/maker/maker_with_abinitio/annotationByType/maker.gff maker_with_abinitio.gff  
 ```
-XXX extract proteins from
+Extract the corresponding proteins from the gff file:
+```
+ln -s ~/annotation_course/data/genome/4.fa
+gff3_sp_extract_sequences.pl --gff maker_with_abinitio.gff -f 4.fa -p -o AA.fa 
+```
 ## Interproscan approach
  Interproscan combines a number of searches for conserved motifs and curated data sets of protein clusters etc. This step may take fairly long time. It is recommended to paralellize it for huge amount of data by doing analysis of chunks of tens or hundreds proteins.
 
