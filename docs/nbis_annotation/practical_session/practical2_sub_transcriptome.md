@@ -14,7 +14,7 @@ mkdir RNA-seq
 cd RNA-seq
 ```
 
-## Genome guided transcriptome assembly: 
+## 1. Genome guided transcriptome assembly: 
 
 ### Checking encoding version and fastq quality score format
 
@@ -88,7 +88,7 @@ gxf_to_gff3.pl --gff transcripts.gtf -o transcripts.gff3
 ``` 
 Then, transfer the gff3 file to your computer and load it into [Webapollo](http://annotation-prod.scilifelab.se:8080/NBIS_course/). How well does it compare with your Augustus results? Looking at your results, are you happy with the default values of Stringtie (which we used in this exercise) or is there something you would like to change?
 
-## De-novo transcriptome assembly:
+## 2. De-novo transcriptome assembly:
 
 ### Trinity
 
