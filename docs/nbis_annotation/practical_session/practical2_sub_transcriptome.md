@@ -24,7 +24,7 @@ To check the technology used to sequences the RNAseq and get some extra informat
 mkdir fastqc
 cd fastqc
 mkdir fastqc_reports
-fastqc ~/annotation_course/course_material/data/dmel/chromosome_4/raw_computes/ERR305399.left.fastq.gz -o fastqc_reports/
+fastqc ~/annotation_course/data/RNAseq/fastq/ERR305399.left.fastq.gz -o fastqc_reports/
 ```
 
 Transfer the html file resulting of fastqc to your computer using scp in another terminal:   
@@ -36,7 +36,7 @@ Open it. What kind of result do you have?
 Checking the fastq quality score format
 
 ```
-fastq_guessMyFormat.pl -i ~/annotation_course/data/raw_computes/ERR305399.left.fastq.gz
+fastq_guessMyFormat.pl -i ~/annotation_course/data/RNAseq/fastq/ERR305399.left.fastq.gz
 ```
 
 In the normal mode, it differentiates between Sanger/Illumina1.8+ and Solexa/Illumina1.3+/Illumina1.5+.
@@ -56,7 +56,11 @@ The following command line will perform the following:
 	• Drop reads below the 36 bases long (MINLEN:36)  
 
 ```
-java -jar trimmomatic-0.32.jar PE -threads 8 ~/annotation_course/data/raw_computes/ERR305399.left.fastq.gz ~/annotation_course/data/raw_computes/ERR305399.right.fastq.gz trimmomatic/ERR305399.left_paired.fastq.gz trimmomatic/ERR305399.left_unpaired.fastq.gz trimmomatic/ERR305399.right_paired.fastq.gz trimmomatic/ERR305399.right_unpaired.fastq.gz ILLUMINACLIP:trimmomatic/0.32/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+cd ~/annotation_course/practical2/RNAseq
+mkdir trimmomatic
+cd trimmomatic
+
+java -jar trimmomatic-0.32.jar PE -threads 8 ~/annotation_course/data/RNAseq/fastq/ERR305399.left.fastq.gz ~/annotation_course/data/RNAseq/fastq/ERR305399.right.fastq.gz ERR305399.left_paired.fastq.gz ERR305399.left_unpaired.fastq.gz ERR305399.right_paired.fastq.gz ERR305399.right_unpaired.fastq.gz ILLUMINACLIP:trimmomatic/0.32/adapters/TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 ```
 
 ### Tophat (splice-aware mapping reads to genome)
@@ -68,7 +72,7 @@ cd ~/annotation_course/practical2/RNAseq
 mkdir tophat
 cd tophat
 
-tophat --library-type=fr-firststrand ~/annotation_course/data/genome/4.fa trimmomatic/ERR305399.left_paired.fastq.gz trimmomatic/ERR305399.right_paired.fastq.gz -p 8
+tophat --library-type=fr-firststrand ~/annotation_course/data/genome/4.fa ../trimmomatic/ERR305399.left_paired.fastq.gz ../trimmomatic/ERR305399.right_paired.fastq.gz -p 8
 ```
 
 This step will take a really long time so you can use the bam file located here ~/annotation_course/data/RNAseq/tophat/accepted_hits.bam
@@ -78,7 +82,11 @@ This step will take a really long time so you can use the bam file located here 
 StringTie is a fast and highly efficient assembler of RNA-Seq alignments into potential transcripts. It uses a novel network flow algorithm as well as an optional de novo assembly step to assemble and quantitate full-length transcripts representing multiple splice variants for each gene locus. Its input can include not only the alignments of raw reads used by other transcript assemblers, but also alignments longer sequences that have been assembled from those reads.
 
 ```
-stringtie accepted_hits.bam -o outdir/transcripts.gtf
+cd ~/annotation_course/practical2/RNAseq
+mkdir stringtie
+cd stringtie
+
+stringtie ../tophat/accepted_hits.bam -o outdir/transcripts.gtf
 ```
 
 When done you can find your results in the directory ‘outdir’. The file transcripts.gtf includes your assembled transcripts.
@@ -99,7 +107,7 @@ cd ~/annotation_course/practical2/RNAseq
 mkdir trinity
 cd trinity
 
-Trinity --seqType fq --max_memory 64G --left ~/annotation_course/course_material/data/dmel/chromosome_4/raw_computes/ERR305399.left.fastq --right ~/annotation_course/course_material/data/dmel/chromosome_4/raw_computes/ERR305399.right.fastq --CPU 8 --output trinity_result --SS_lib_type RF 
+Trinity --seqType fq --max_memory 64G --left ~/annotation_course/data/RNAseq/ERR305399.left.fastq.gz --right ~/annotation_course/data/RNAseq/ERR305399.right.fastq.gz --CPU 8 --output trinity_result --SS_lib_type RF 
 ```
 
 Trinity takes a long time to run if you want to have a look at the results, look in ~/annotation_course/course_material/data/dmel/chromosome_4/RNAseq/ the output that will be used later on for the annotation will be Trinity.fasta
