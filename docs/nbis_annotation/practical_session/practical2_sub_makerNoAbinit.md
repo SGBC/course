@@ -59,7 +59,7 @@ This will take a little while and process a lot of output to the screen. Luckily
 
 ## Inspect the output (optional)
 
-[Here you can find details about the MAKER output.](practical2_supl2_maker)
+[Here you can find details about the MAKER output.](practical2_supl2_maker.md)
 
 ## Compile the output
 
