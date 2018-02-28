@@ -86,7 +86,7 @@ cd ~/annotation_course/practical2/RNAseq
 mkdir stringtie
 cd stringtie
 
-stringtie ../tophat/accepted_hits.bam -o outdir/transcripts.gtf
+stringtie ../tophat/tophat_out/accepted_hits.bam -o outdir/transcripts.gtf
 ```
 
 When done you can find your results in the directory ‘outdir’. The file transcripts.gtf includes your assembled transcripts.
