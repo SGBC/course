@@ -23,7 +23,6 @@ Welcome to the course!
     * [De-novo Genome Assembly](tutorials/docs/assembly.md)
     * [Assembly Challenge](assembly_challenge)
     * [Genome Annotation](tutorials/docs/annotation.md)
-    * [Genome Annotation (NBIS)](nbis_annotation/schedule.md)
     * [Pan-genome Analysis](tutorials/docs/pan_genome.md)
     * [Nanopore Sequencing](tutorials/docs/nanopore.md)
 
@@ -32,6 +31,9 @@ Welcome to the course!
     * [Metabarcoding](tutorials/docs/16S.md)
     * [Metagenome assembly](tutorials/docs/meta_assembly.md)
     * [Comparative metagenomics](tutorials/docs/wms.md)
+
+* Week 5
+    * [Genome Annotation (NBIS)](nbis_annotation/schedule.md)
 
 ## License
 
