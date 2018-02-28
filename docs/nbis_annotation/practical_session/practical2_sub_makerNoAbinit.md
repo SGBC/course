@@ -1,8 +1,3 @@
----
-layout: default
-title:  'Exercise - Running Maker without ab-initio predictions'
----
-
 # Making an evidence based annotation with MAKER
 
 ## Overview
