@@ -3,8 +3,8 @@
 For this course, we have set up a WebApollo installation - as a reminder, the url is [http://annotation-prod.scilifelab.se:8080/NBIS_course](http://annotation-prod.scilifelab.se:8080/NBIS_course/).
 
 Login information are the following:<br/> 
-username: userX  (Where X is the number you have been assigned)<br/> 
-password: demo <br/> 
+**username: userX**  (Where X is the number you have been assigned)<br/> 
+**password: demo** <br/> 
 
 When logged in to the page, select the proper project corresponding to the exercice (drosophila_melanogaster_chr4 or drosophila_melanogaster_chr4_jamboree).
 
