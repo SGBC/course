@@ -3,13 +3,19 @@ layout: default
 title:  'Schedule'
 ---
 
+**Teacher:**
+Jacques Dainat, Ph.D.
+NBIS (National Bioinformatics Infrastructure Sweden)
+Genome Annotation Service
+http://nbis.se/about/staff/jacques-dainat/
+http://nbis.se
+
 # Schedule
 
 #### Click the heading of a topic to see the lecture slides or lab instructions.
 
 **Thursday 1st** 
 
-Room: XXX  
 **09.00-10.00** [Lecture: Understanding Annotation](slides/Annotation_course_may2017.ppt) 
 **10.00-10.15** Coffee break  
 **10.15-12.00** [Practical 1: Assembly assessment + Abinitio annotation](practical_session/practical1) 
@@ -19,7 +25,6 @@ Room: XXX
 
 **Friday 2nd**
 
-Room: XXX  
 **09.00-9.15** Summary of yesterday’s exercise 
 **09.15-09.30**  [Lecture: Introduction to manual curation]
 **10.00-12.00** [Practical 3: Manual curation(incl. coffee break)](practical_session/ExerciseManCuration)
