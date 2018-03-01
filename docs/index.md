@@ -32,6 +32,9 @@ Welcome to the course!
     * [Metagenome assembly](tutorials/docs/meta_assembly.md)
     * [Comparative metagenomics](tutorials/docs/wms.md)
 
+* Week 5
+    * [Genome Annotation (NBIS)](nbis_annotation/schedule.md)
+
 ## License
 
 Unless stated otherwise, all the lessons are licensed under the Creative Commons Attribution 4.0 International License.
@@ -44,3 +47,4 @@ The following people have contributed to these course material, in no particular
 * [Hadrien Gourlé](https://github.com/HadrienG)
 * [Juliette Hayer](https://github.com/jhayer)
 * [Oskar Karlsson](https://github.com/Ackia)
+* [Jacques Dainat](https://github.com/NBISweden)
