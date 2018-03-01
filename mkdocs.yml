@@ -29,6 +29,10 @@ pages:
         - Comparative metagenomics: tutorials/docs/wms.md
     - Week 5:
         - Eukaryotic Annotation: nbis_annotation/schedule.md
+        - Practical 1: nbis_annotation/practical_session/practical1.md
+        - Practical 2: nbis_annotation/practical_session/practical2.md
+        - Practical 3: nbis_annotation/practical_session/practical3_manualCuration.md
+        - Practical 4: nbis_annotation/practical_session/practical4_funcAnnotInterp.md
 
 markdown_extensions:
   - admonition
