@@ -14,11 +14,11 @@ Genome Annotation Service
 <hr>
 **Thursday 1st**
 
-**09.00-09.30:** [Lecture: Structural annotation programs and pipelines](https://github.com/SGBC/course/blob/master/docs/nbis_annotation/slides/Functional_annotation.pptx)   
+**09.00-09.30:** [Lecture: Structural annotation programs and pipelines](https://github.com/SGBC/course/blob/master/docs/nbis_annotation/slides/Functional_annotation.pptx?raw=true)   
 **10.00-10.15:** Coffee break    
 **10.15-11.30:** [Practical 1: Assembly assessment + Abinitio annotation](practical_session/practical1.md)   
 **11.30-12.30:** Lunch   
-**12.30-13.00:** [Lecture: Structural annotation programs and pipelines (part 2)](https://github.com/SGBC/course/blob/master/docs/nbis_annotation/slides/Functional_annotation.pptx)  
+**12.30-13.00:** [Lecture: Structural annotation programs and pipelines (part 2)](https://github.com/SGBC/course/blob/master/docs/nbis_annotation/slides/Functional_annotation.pptx?raw=true)  
 **13.00-16.00:** [Practical 2: Structural annotation of eukaryote genomes (incl. coffee break)](practical_session/practical2.md)<br/>
 
 <hr>
