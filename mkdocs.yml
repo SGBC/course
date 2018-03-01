@@ -27,6 +27,8 @@ pages:
         - Metabarcoding: tutorials/docs/16S.md
         - Metagenome assembly: tutorials/docs/meta_assembly.md
         - Comparative metagenomics: tutorials/docs/wms.md
+    - Week 5:
+        - Eukaryotic Annotation: nbis_annotation/schedule.md
 
 markdown_extensions:
   - admonition
