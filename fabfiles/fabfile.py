@@ -11,7 +11,7 @@ from student_ips import IPS, PASSWORD, test_ip, test_user
 from qc import qc
 from alignment import alignment
 from rna import quant, rna_assembly
-from annotation import annotation, pan_genome, euk_annot
+from annotation import annotation, pan_genome, euk_annot, functional_annot
 from assembly import assembly, assembly_qc, assembly_extras
 from metagenomics import binning, metabarcoding, kraken, checkm
 
@@ -39,6 +39,13 @@ def host_type():
 
 def passwd():
     sudo('echo "student:%s" | sudo chpasswd' % PASSWORD)
+
+
+def format_sdc():
+    with warn_only():
+        sudo('(echo n; echo p; echo 1; echo ; echo ; echo w) | sudo fdisk /dev/sdc')
+        sudo('mkfs -t ext4 /dev/sdc1')
+        sudo('mount /dev/sdc1 /opt')
 
 
 @parallel
