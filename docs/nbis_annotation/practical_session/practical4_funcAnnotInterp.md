@@ -10,7 +10,7 @@ Since we do not wish to spend too much time on this, we will again limit our ana
 
 Move in the proper folder:  
 ```
-cd ~/annotation_course/practical4 
+cd ~/annotation_course/practical4
 ```
 Now link the annotation you choose to work with. The command will looks like:
 ```
@@ -19,7 +19,7 @@ ln -s ~/annotation_course/practical2/maker/maker_with_abinitio/annotationByType/
 Extract the corresponding proteins from the gff file:
 ```
 ln -s ~/annotation_course/data/genome/4.fa
-gff3_sp_extract_sequences.pl --gff maker_with_abinitio.gff -f 4.fa -p --cfs -o AA.fa 
+gff3_sp_extract_sequences.pl --gff maker_with_abinitio.gff -f 4.fa -p --cfs -o AA.fa
 ```
 ## Interproscan approach
  Interproscan combines a number of searches for conserved motifs and curated data sets of protein clusters etc. This step may take fairly long time. It is recommended to paralellize it for huge amount of data by doing analysis of chunks of tens or hundreds proteins.
@@ -32,9 +32,9 @@ Launch Interproscan with the option -h if you want have a look about all the par
 
 - The '-app' option allows defining the database used. Here we will use the PfamA,ProDom and SuperFamily databases.  
 - Interproscan uses an internal database that related entries in public databases to established GO terms. By running the '-goterms' option, we can add this information to our data set.
-- If you enable the InterPro lookup ('-iprlookup'), you can also get the InterPro identifier corresponding to each motif retrieved: for example, the same motif is known as PF01623 in Pfam and as IPR002568 in InterPro. 
+- If you enable the InterPro lookup ('-iprlookup'), you can also get the InterPro identifier corresponding to each motif retrieved: for example, the same motif is known as PF01623 in Pfam and as IPR002568 in InterPro.
 - The option '-pa' provides mappings from matches to pathway information (MetaCyc,UniPathway,KEGG,Reactome).
-``` 
+```
 interproscan.sh -i AA.fa -t p -dp -pa -appl Pfam,ProDom-2006.1,SuperFamily-1.75 --goterms --iprlookup
 ```
 The analysis shoud take 2-3 secs per protein request - depending on how many sequences you have submitted, you can make a fairly deducted guess regarding the running time.  
@@ -69,9 +69,9 @@ The Blast outputs must be processed to retrieve the information of the closest p
 
 First download annie:  
 ```
-git clone https://github.com/genomeannotation/Annie.git 
+git clone https://github.com/genomeannotation/Annie.git
 ```
-Now launch annie: 
+Now launch annie:
 ```
 Annie/annie.py -b blast.out -db ~/annotation_course/data/blastdb/uniprot_dmel/uniprot_dmel.fa -g maker_with_abinitio.gff -o annotation_blast.annie
 ```
@@ -80,7 +80,7 @@ Annie writes in a 3-column table format file, providing gene name and mRNA produ
 
 ### load the retrieved information in your annotation file:  
 
-Now you should be able to use the following script: 
+Now you should be able to use the following script:
 ```
 maker_gff3manager_JD_v8.pl -f maker_with_abinitio_with_interpro.gff -b annotation_blast.annie --ID FLY -o finalOutputDir  
 ```
@@ -98,7 +98,7 @@ Transfer the final_annotation.gff file to your computer using scp in a new termi
 
 scp -i ~/.ssh/azure_rsa student@__IP__:/home/student/annotation_course/practical4/final_annotation.gff .
 
-Load the file in into the genome portal called drosophila_melanogaster_chr4 in the Webapollo genome browser available at the address [http://annotation-prod.scilifelab.se:8080/NBIS_course/](http://annotation-prod.scilifelab.se:8080/NBIS_course/). [Here find the WebApollo instruction](UsingWebapollo.md)
+Load the file in into the genome portal called drosophila_melanogaster_chr4 in the Webapollo genome browser available at the address [http://annotation-prod.scilifelab.se:8080/NBIS_course/](http://annotation-prod.scilifelab.se:8080/NBIS_course/). [Here find the WebApollo instruction](UsingWebapollo)
 
 Wondeful ! insn't it ?
 
@@ -128,4 +128,3 @@ EMBLmyGFF3 finalOutputDir/codingGeneFeatures.gff 4.fa -o my_annotation_ready_to_
 
 You now have a EMBL flat file ready to submit. In theory to finsish the submission, you will have to send this archived file to their ftp server and finish the submission process in the website side too.
 But we will not go further. We are done. CONGRATULATION you know most of the secrets needed to understand the annotations on and perform your own !
-
