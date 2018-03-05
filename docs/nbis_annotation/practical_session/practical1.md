@@ -31,9 +31,9 @@ The two next exercices will perform some of these checks.
 
 ## 1.1 Checking the gene space of your assembly
 
-BUSCO provides measures for quantitative assessment of genome assembly, gene set, and transcriptome completeness. Genes that make up the BUSCO sets for each major lineage are selected from orthologous groups with genes present as single-copy orthologs in at least 90% of the species. 
+BUSCO provides measures for quantitative assessment of genome assembly, gene set, and transcriptome completeness. Genes that make up the BUSCO sets for each major lineage are selected from orthologous groups with genes present as single-copy orthologs in at least 90% of the species.
 
-***Note:*** In a real-world scenario, this step should come first and foremost. Indeed, if the result is under your expectation you might be required to enhance your assembly before to go further. 
+***Note:*** In a real-world scenario, this step should come first and foremost. Indeed, if the result is under your expectation you might be required to enhance your assembly before to go further.
 
 **_Exercise 1_ - BUSCO -:**
 
@@ -64,7 +64,7 @@ When done, check the short\_summary\_4\_dmel\_busco. How many proteins are repor
 ## 1.2 Various Check of your Assembly
 
 **_Exercise 2_ :**
-Launching the following script will provide you some useful information. 
+Launching the following script will provide you some useful information.
 
 ```
 fasta_statisticsAndPlot.pl -f ~/annotation_course/data/genome/4.fa
@@ -108,7 +108,7 @@ scp -i ~/.ssh/azure_rsa student@__IP__:/home/student/annotation_course/practical
 ```
 
 We have made a genome browser called Webapollo available for you on the address [http://annotation-prod.scilifelab.se:8080/NBIS_course/](http://annotation-prod.scilifelab.se:8080/NBIS_course/).
-Load the file in into the genome portal called **drosophila\_melanogaster\_chr4**. [Here find the WebApollo instruction](UsingWebapollo.md)
+Load the file in into the genome portal called **drosophila\_melanogaster\_chr4**. [Here find the WebApollo instruction](UsingWebApollo.md)
 <br/>The official Ensembl annotation is available in the genome browser.
 How does the Augustus annotation compare with the Ensembl annotation? Are they identical?
 
@@ -119,5 +119,5 @@ Load this result file into Webapollo and compare with your earlier results. Can 
 
 # Closing remarks
 
-We have seen how to assess the quality of the assembly and how to launch a quick annotation using an abinitio tool. 
+We have seen how to assess the quality of the assembly and how to launch a quick annotation using an abinitio tool.
 We have also seen the importance to use a species specific hmm model into the ab initio tool. Thus, the limitation of this approach is linked to the pre-trained species that are available.
