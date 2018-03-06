@@ -36,6 +36,7 @@ def pan_genome():
     sudo('cpanm -f Bio::Roary')
 
 
+@parallel
 def euk_annot():
     sudo('apt -y -qq install cpanminus ncbi-blast+ snap-aligner hmmer')
     sudo('apt -y -qq install exonerate openmpi-bin libmpich-dev')
@@ -62,7 +63,7 @@ def euk_annot():
         run('wget --quiet %s%s%s' % (MAKER_WEB, MAKER_ID, MAKER_FILE))
         run('tar -xzf %s' % MAKER_FILE)
     with cd('~/.local/maker/src'):
-        run('perl Build.PL')
+        run('printf "Y\n\n\n" | perl Build.PL')
         run('./Build install')
     run('echo "export PATH=$PATH:~/.local/maker/bin" >> ~/.bashrc')
     # GAAS
@@ -70,14 +71,15 @@ def euk_annot():
     with cd('~/.local'):
         run('git clone https://github.com/NBISweden/GAAS.git')
     run('echo "export PERL5LIB=$PERL5LIB:~/.local/GAAS/annotation" >> ~/.bashrc')
-    run('echo "export PATH=$PATH:~/.local/GAAS/annotation/Tools/Maker/:~/.local/GAAS/annotation/Tools/Util/gff/:~/.local/GAAS/annotation/Tools/Util/fasta/:~/.local/GAAS/annotation/Tools/Util/" >> ~/.bashrc')
+    run('echo "export PATH=$PATH:~/.local/GAAS/annotation/Tools/Maker/:~/.local/GAAS/annotation/Tools/Util/gff/:~/.local/GAAS/annotation/Tools/Util/fasta/:~/.local/GAAS/annotation/Tools/Util/:~/.local/GAAS/annotation/Tools/Converter/" >> ~/.bashrc')
 
 
+@parallel
 def functional_annot():
-    with cd('/mnt'):
+    with cd('/opt'):
         sudo('wget --quiet ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.27-66.0/interproscan-5.27-66.0-64-bit.tar.gz')
         sudo('tar pxzf interproscan-5.27-66.0-64-bit.tar.gz')
-    with cd('/mnt/interproscan-5.27-66.0/data'):
+    with cd('/opt/interproscan-5.27-66.0/data'):
         sudo('wget --quiet ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/data/panther-data-12.0.tar.gz')
         sudo('tar pxzf panther-data-12.0.tar.gz')
-        run('echo "export PATH=$PATH:/mnt/interproscan-5.27-66.0" >> ~/.bashrc')
+    run('echo "export PATH=$PATH:~/.local/interproscan-5.27-66.0" >> ~/.bashrc')
