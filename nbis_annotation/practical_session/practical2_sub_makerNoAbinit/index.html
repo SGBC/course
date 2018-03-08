@@ -394,10 +394,16 @@ ln -s ~/annotation_course/data/evidence/proteins.chr4.fa
 <pre><code>gff3_sp_alignment_output_style.pl --gff stringtie2genome.chr4.gff -o stringtie2genome.chr4.ok.gff
 </code></pre>
 
-<p>You should now have 1 repeat file, 1 EST file, 1 protein file, 1 transcript file, and the genome sequence in the working directory. For Maker to use this information, we need create the three config files, as discussed previously (maker -CTL). You can leave the two files controlling external software behaviors untouched. In the actual maker options file (maker_opts.ctl), we need to provide:</p>
+<p>You should now have 1 repeat file, 1 EST file, 1 protein file, 1 transcript file, and the genome sequence in the working directory. </p>
+<p>For Maker to use this information, we need create the three config files, typing this command:</p>
+<pre><code>maker -CTL
+</code></pre>
+
+<p>You can leave the two files controlling external software behaviors untouched. In the actual maker options file called <strong>maker_opts.ctl</strong>, we need to provide:</p>
 <ul>
 <li>name of the genome sequence (genome=)</li>
-<li>name of the 'EST' set file(s) (est=)</li>
+<li>name of the 'EST' file in fasta format  (est=)</li>
+<li>name of the 'Transcript' file in gff format (est_gff=)</li>
 <li>name of the 'Protein' set file(s) (protein=)</li>
 <li>name of the repeatmasker and repeatrunner files (rm_gff=) </li>
 </ul>
@@ -406,6 +412,10 @@ ln -s ~/annotation_course/data/evidence/proteins.chr4.fa
 <p><i>protein2genome=1</i><br />
   <i>est2genome=1</i></p>
 <p>This will enable gene building directly from the evidence alignments.</p>
+<p>To edit the <strong>maker_opts.ctl</strong> file you can use the nano text editor:</p>
+<pre><code>nano maker_opts.ctl
+</code></pre>
+
 <p>Before running MAKER you can check you have modified the maker_opts.ctl file properly <a href="../practical2_supl_maker/">here</a>.<br/>
 /!\ Be sure to have deactivated the parameters <strong>model_org= #</strong> and <strong>repeat_protein= #</strong> to avoid the heavy work of repeatmasker.</p>
 <h2 id="run-maker">Run Maker</h2>
