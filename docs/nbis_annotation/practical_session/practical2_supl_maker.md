@@ -1,12 +1,8 @@
 # Configure your maker project : The maker_opts.ctl file in detail:
 
  
-When executing the command:
-```
-maker -CTL
-```
-MAKER creates 3 control files:
-Of these, only maker_opts.ctl is of concern to us. Have a look at the following sections and fill in the information as shown:
+When executing the command "maker -CTL" MAKER creates 3 control files.
+Of these, only **maker_opts.ctl** is of concern to us. Have a look at the following sections and fill in the information as shown:
 
 \#-----Genome (these are always required)  
 genome=**4.fa** #genome sequence (fasta file or fasta embeded in GFF3 file)  
