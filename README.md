@@ -6,11 +6,19 @@ Resources for our bioinformatics course
 
 First install mkdocs (and the theme) in a virtual environment
 
+### With virtualenv
+
 ```bash
 virtualenv mkdocs_env
 source mkdocs_env/bin/activate
 pip install mkdocs
 pip install mkdocs-cinder
+```
+
+### With pipenv
+
+```bash
+pipenv install
 ```
 
 Then clone the directory
@@ -28,6 +36,7 @@ For a live preview in your browser do
 
 ```bash
 mkdocs serve &
+# pipenv run dev
 ```
 
 ## Deployment
@@ -36,6 +45,7 @@ From the (up-to-date) `master` branch, do
 
 ```bash
 mkdocs gh-deploy
+# pipenv run deploy
 ```
 
 ## Contributing
