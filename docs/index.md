@@ -13,21 +13,17 @@ Welcome to the course!
 
 ## Table of Content
 
-### Week 1
+### First Week
 
+- Biological Databases
 - [Online Blast](blast/blast_online)
-- [Introduction to proteins analysis](proteins)
-
-### Week 2
-
 - [Introduction to the command-line](unix)
 - [Cloud Computing](cloud)
 - [Installing Software](software)
-- [Version control with Git](git)
-- [Command-line Blast](blast)
-- [Project organisation](project_organisation)
+- [Command-line Blast](blast/blast_cli)
+- [Introduction to proteins analysis](proteins)
 
-### Week 3
+### Second week
 
 - [Sequencing Technologies](seq_tech)
 - [Quality Control](tutorials/docs/qc.md)
@@ -37,16 +33,28 @@ Welcome to the course!
 - [Pan-genome Analysis](tutorials/docs/pan_genome.md)
 - [Nanopore Sequencing](tutorials/docs/nanopore.md)
 
-### Week 4
+### Third week
+
+- Genome Browsers
+- R
+
+### Fourth week
 
 - [RNA Sequencing](tutorials/docs/rna.md)
+- [Genome Annotation (NBIS)](nbis_annotation/schedule.md)
+
+### Fifth week
+
+- Phylogeny
+- Protein
+- EMBOSS
+- UGENE
+
+### Sixth week
+
 - [Metabarcoding](tutorials/docs/16S.md)
 - [Metagenome assembly](tutorials/docs/meta_assembly.md)
 - [Comparative metagenomics](tutorials/docs/wms.md)
-
-### Week 5
-
-- [Genome Annotation (NBIS)](nbis_annotation/schedule.md)
 
 ## License
 
