@@ -1,52 +1,53 @@
 site_name: Bioinformatics course
 
 theme:
-    name: cinder
+  name: cinder
 
-pages:
-    - Home: index.md
-    - Week 1:
-        - Proteins: proteins.md
-    - Week 2:
-        - Unix: unix.md
-        - Cloud Computing: cloud.md
-        - Installing Software: software.md
-        - Git: git.md
-        - Command-line Blast: blast.md
-        - Project Organisation: project_organisation.md
-    - Week 3:
-        - Sequencing Technologies: seq_tech.md
-        - Quality Control: tutorials/docs/qc.md
-        - Assembly Challenge: assembly_challenge.md
-        - De-novo Genome Assembly: tutorials/docs/assembly.md
-        - Genome Annotation: tutorials/docs/annotation.md
-        - Pan-genome Analysis: tutorials/docs/pan_genome.md
-        - Nanopore Sequencing: tutorials/docs/nanopore.md
-    - Week 4:
-        - RNA Sequencing : tutorials/docs/rna.md
-        - Metabarcoding: tutorials/docs/16S.md
-        - Metagenome assembly: tutorials/docs/meta_assembly.md
-        - Comparative metagenomics: tutorials/docs/wms.md
-    - Week 5 - Eukaryotic Annotation:
-        - Schedule: nbis_annotation/schedule.md
-        - Practical 1: nbis_annotation/practical_session/practical1.md
-        - Practical 2: nbis_annotation/practical_session/practical2.md
-        - Practical 3: nbis_annotation/practical_session/practical3_manualCuration.md
-        - Practical 4: nbis_annotation/practical_session/practical4_funcAnnotInterp.md
-        - Extras:
-            - WebApollo: nbis_annotation/practical_session/UsingWebApollo.md
-            - Protein, EST and RNA-seq data: nbis_annotation/practical_session/practical2_sub_gatherEvidence.md
-            - Assembling transcripts: nbis_annotation/practical_session/practical2_sub_transcriptome.md
-            - Evidence Based Annotation: nbis_annotation/practical_session/practical2_sub_makerNoAbinit.md
-            - Abinitio Annotation: nbis_annotation/practical_session/practical2_sub_makerAbinit.md
-            - Comparing Annotations: nbis_annotation/practical_session/practical2_sub_makerCompareAnnot.md
-            - Configuring Maker (I): nbis_annotation/practical_session/practical2_supl_maker.md
-            - Configuring Maker (I): nbis_annotation/practical_session/practical2_supl3_maker.md
-            - Inspecting Maker output: nbis_annotation/practical_session/practical2_supl2_maker.md
+nav:
+  - Home: index.md
+  - Week 1:
+      - Blast Online: blast/blast_online.md
+      - Proteins: proteins.md
+  - Week 2:
+      - Unix: unix.md
+      - Cloud Computing: cloud.md
+      - Installing Software: software.md
+      - Git: git.md
+      - Command-line Blast: blast.md
+      - Project Organisation: project_organisation.md
+  - Week 3:
+      - Sequencing Technologies: seq_tech.md
+      - Quality Control: tutorials/docs/qc.md
+      - Assembly Challenge: assembly_challenge.md
+      - De-novo Genome Assembly: tutorials/docs/assembly.md
+      - Genome Annotation: tutorials/docs/annotation.md
+      - Pan-genome Analysis: tutorials/docs/pan_genome.md
+      - Nanopore Sequencing: tutorials/docs/nanopore.md
+  - Week 4:
+      - RNA Sequencing: tutorials/docs/rna.md
+      - Metabarcoding: tutorials/docs/16S.md
+      - Metagenome assembly: tutorials/docs/meta_assembly.md
+      - Comparative metagenomics: tutorials/docs/wms.md
+  - Week 5 - Eukaryotic Annotation:
+      - Schedule: nbis_annotation/schedule.md
+      - Practical 1: nbis_annotation/practical_session/practical1.md
+      - Practical 2: nbis_annotation/practical_session/practical2.md
+      - Practical 3: nbis_annotation/practical_session/practical3_manualCuration.md
+      - Practical 4: nbis_annotation/practical_session/practical4_funcAnnotInterp.md
+      - Extras:
+          - WebApollo: nbis_annotation/practical_session/UsingWebApollo.md
+          - Protein, EST and RNA-seq data: nbis_annotation/practical_session/practical2_sub_gatherEvidence.md
+          - Assembling transcripts: nbis_annotation/practical_session/practical2_sub_transcriptome.md
+          - Evidence Based Annotation: nbis_annotation/practical_session/practical2_sub_makerNoAbinit.md
+          - Abinitio Annotation: nbis_annotation/practical_session/practical2_sub_makerAbinit.md
+          - Comparing Annotations: nbis_annotation/practical_session/practical2_sub_makerCompareAnnot.md
+          - Configuring Maker (I): nbis_annotation/practical_session/practical2_supl_maker.md
+          - Configuring Maker (I): nbis_annotation/practical_session/practical2_supl3_maker.md
+          - Inspecting Maker output: nbis_annotation/practical_session/practical2_supl2_maker.md
 
 markdown_extensions:
   - admonition
 
 extra_css:
-    - css/admonition.css
-    - css/navbar.css
+  - css/admonition.css
+  - css/navbar.css
