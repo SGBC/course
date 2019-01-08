@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>File Formats - Bioinformatics course</title>
+    
+
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/3.003/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.min.css">
+    <link href="../../../css/admonition.css" rel="stylesheet">
+    <link href="../../../css/navbar.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.6.28/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../../..">Bioinformatics course</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">First week <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../blast/blast_online/">Blast Online</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../unix/">Unix</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../cloud/">Cloud Computing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../blast/blast_cli/">Command-line Blast</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 2 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../software/">Installing Software</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../git/">Git</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../project_organisation/">Project Organisation</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 3 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../seq_tech/">Sequencing Technologies</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../qc/">Quality Control</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../assembly_challenge/">Assembly Challenge</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../assembly/">De-novo Genome Assembly</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../annotation/">Genome Annotation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../pan_genome/">Pan-genome Analysis</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../nanopore/">Nanopore Sequencing</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 4 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../proteins/">Proteins</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../rna/">RNA Sequencing</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../16S/">Metabarcoding</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../meta_assembly/">Metagenome assembly</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../wms/">Comparative metagenomics</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 5 - Eukaryotic Annotation <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../nbis_annotation/schedule/">Schedule</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../nbis_annotation/practical_session/practical1/">Practical 1</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../nbis_annotation/practical_session/practical2/">Practical 2</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../nbis_annotation/practical_session/practical3_manualCuration/">Practical 3</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../nbis_annotation/practical_session/practical4_funcAnnotInterp/">Practical 4</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Extras</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../nbis_annotation/practical_session/UsingWebApollo.md">WebApollo</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../nbis_annotation/practical_session/practical2_sub_gatherEvidence/">Protein, EST and RNA-seq data</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../nbis_annotation/practical_session/practical2_sub_transcriptome/">Assembling transcripts</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../nbis_annotation/practical_session/practical2_sub_makerNoAbinit/">Evidence Based Annotation</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../nbis_annotation/practical_session/practical2_sub_makerAbinit/">Abinitio Annotation</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../nbis_annotation/practical_session/practical2_sub_makerCompareAnnot/">Comparing Annotations</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../nbis_annotation/practical_session/practical2_supl_maker/">Configuring Maker (I)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../nbis_annotation/practical_session/practical2_supl3_maker/">Configuring Maker (I)</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../nbis_annotation/practical_session/practical2_supl2_maker/">Inspecting Maker output</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#file-formats">File Formats</a></li>
+            <li class="second-level"><a href="#table-of-contents">Table of Contents</a></li>
+                
+                <li class="third-level"><a href="#the-fasta-format">The fasta format</a></li>
+                <li class="third-level"><a href="#the-fastq-format">The fastq format</a></li>
+                <li class="third-level"><a href="#the-sambam-format">the sam/bam format</a></li>
+                <li class="third-level"><a href="#the-vcf-format">the vcf format</a></li>
+                <li class="third-level"><a href="#the-gff-format">the gff format</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="file-formats">File Formats</h1>
+<p>This lecture is aimed at making you discover the most popular file formats used in bioinformatics. You're expected to have basic working knowledge of Linux to be able to follow the lesson.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#the-fasta-format">The fasta format</a></li>
+<li><a href="#the-fastq-format">The fastq format</a></li>
+<li><a href="#the-sam-format">The sam/bam format</a></li>
+<li><a href="#the-vcf-format">The vcf format</a></li>
+<li><a href="#the-gff-format">The gff format</a></li>
+</ul>
+<h3 id="the-fasta-format">The fasta format</h3>
+<p>The fasta format was invented in 1988 and designed to represent nucleotide or peptide sequences. It originates from the <a href="https://en.wikipedia.org/wiki/FASTA">FASTA</a> software package, but is now a standard in the world of bioinformatics.</p>
+<p>The first line in a FASTA file starts with a "&gt;" (greater-than) symbol followed by the description or identifier of the sequence. Following the initial line (used for a unique description of the sequence) is the actual sequence itself in standard one-letter code.</p>
+<p>A few sample sequences:</p>
+<pre><code>&gt;KX580312.1 Homo sapiens truncated breast cancer 1 (BRCA1) gene, exon 15 and partial cds
+GTCATCCCCTTCTAAATGCCCATCATTAGATGATAGGTGGTACATGCACAGTTGCTCTGGGAGTCTTCAG
+AATAGAAACTACCCATCTCAAGAGGAGCTCATTAAGGTTGTTGATGTGGAGGAGTAACAGCTGGAAGAGT
+CTGGGCCACACGATTTGACGGAAACATCTTACTTGCCAAGGCAAGATCTAG
+</code></pre>
+
+<pre><code>&gt;KRN06561.1 heat shock [Lactobacillus sucicola DSM 21376 = JCM 15457]
+MSLVMANELTNRFNNWMKQDDFFGNLGRSFFDLDNSVNRALKTDVKETDKAYEVRIDVPGIDKKDITVDY
+HDGVLSVNAKRDSFNDESDSEGNVIASERSYGRFARQYSLPNVDESGIKAKCEDGVLKLTLPKLAEEKIN
+GNHIEIE
+</code></pre>
+
+<p>A fasta file can contain multiple sequence. Each sequence will be separated by their "header" line, starting by "&gt;".</p>
+<p>Example:</p>
+<pre><code>&gt;KRN06561.1 heat shock [Lactobacillus sucicola DSM 21376 = JCM 15457]
+MSLVMANELTNRFNNWMKQDDFFGNLGRSFFDLDNSVNRALKTDVKETDKAYEVRIDVPGIDKKDITVDY
+HDGVLSVNAKRDSFNDESDSEGNVIASERSYGRFARQYSLPNVDESGIKAKCEDGVLKLTLPKLAEEKIN
+GNHIEIE
+&gt;3HHU_A Chain A, Human Heat-Shock Protein 90 (Hsp90)
+MPEETQTQDQPMEEEEVETFAFQAEIAQLMSLIINTFYSNKEIFLRELISNSSDALDKIRYESLTDPSKL
+DSGKELHINLIPNKQDRTLTIVDTGIGMTKADLINNLGTIAKSGTKAFMEALQAGADISMIGQFGVGFYS
+AYLVAEKVTVITKHNDDEQYAWESSAGGSFTVRTDTGEPMGRGTKVILHLKEDQTEYLEERRIKEIVKKH
+SQFIGYPITLFVEK
+</code></pre>
+
+<h3 id="the-fastq-format">The fastq format</h3>
+<p>The fastq format is also a text based format to represent nucleotide sequences, but also contains the corresponding quality of each nucleotide. It is the standard for storing the output of high-throughput sequencing instruments such as the Illumina machines.</p>
+<p>A fastq file uses four lines per sequence:</p>
+<ul>
+<li>Line 1 begins with a '@' character and is followed by a sequence identifier and an optional description (like a FASTA title line).</li>
+<li>Line 2 is the raw sequence letters.</li>
+<li>Line 3 begins with a '+' character and is optionally followed by the same sequence identifier (and any description) again.</li>
+<li>Line 4 encodes the quality values for the sequence in Line 2, and must contain the same number of symbols as letters in the sequence.</li>
+</ul>
+<p>An example sequence in fastq format:</p>
+<pre><code>@SEQ_ID
+GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
++
+!''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF&gt;&gt;&gt;&gt;&gt;&gt;CCCCCCC65
+</code></pre>
+
+<h4 id="quality">Quality</h4>
+<p>The quality, also called phred score, is the probability that the corresponding basecall is incorrect.</p>
+<p>Phred scores use a logarithmic scale, and are represented by ASCII characters, mapping to a quality usually going from 0 to 40.</p>
+<table>
+<thead>
+<tr>
+<th>Phred Quality Score</th>
+<th>Probability of incorrect base call</th>
+<th>Base call accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>1 in 10</td>
+<td>90%</td>
+</tr>
+<tr>
+<td>20</td>
+<td>1 in 100</td>
+<td>99%</td>
+</tr>
+<tr>
+<td>30</td>
+<td>1 in 1000</td>
+<td>99.9%</td>
+</tr>
+<tr>
+<td>40</td>
+<td>1 in 10,000</td>
+<td>99.99%</td>
+</tr>
+<tr>
+<td>50</td>
+<td>1 in 100,000</td>
+<td>99.999%</td>
+</tr>
+<tr>
+<td>60</td>
+<td>1 in 1,000,000</td>
+<td>99.9999%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-sambam-format">the sam/bam format</h3>
+<p>From <a href="https://en.wikipedia.org/wiki/SAM_(file_format)">Wikipedia</a>:</p>
+<p>SAM (file format) is a text-based format for storing biological sequences aligned to a reference sequence developed by Heng Li. The acronym SAM stands for Sequence Alignment/Map. It is widely used for storing data, such as nucleotide sequences, generated by Next generation sequencing technologies and usually mapped to a reference.</p>
+<p>The SAM format consists of a header and an alignment section. The binary representation of a SAM file is a BAM file, which is a compressed SAM file.[1] SAM files can be analysed and edited with the software SAMtools.</p>
+<p>The SAM format has a really extensive and complex specification that you can find <a href="https://samtools.github.io/hts-specs/SAMv1.pdf">here</a>.</p>
+<p>In brief it consists of a header section and reads (with other information) in tab delimited format.</p>
+<h4 id="example-header-section">Example header section</h4>
+<pre><code>@HD VN:1.0                  SO:unsorted
+@SQ SN:O_volvulusOVOC_OM1a  LN:2816604
+@SQ SN:O_volvulusOVOC_OM1b  LN:28345163
+@SQ SN:O_volvulusOVOC_OM2   LN:25485961
+</code></pre>
+
+<h4 id="example-read">Example read</h4>
+<pre><code>M01137:130:00-A:17009:1352/14 * 0 0 * * 0 0 AGCAAAATACAACGATCTGGATGGTAGCATTAGCGATGCGACACTGCTTGAACCGTCAAAG FGGFGCFGFFGC8,,@D?E6EFCF,=AEFFGGDGGGADFGG@&gt;FFEGGG:+&lt;7D&gt;AFCFGG YT:Z:UU
+</code></pre>
+
+<h3 id="the-vcf-format">the vcf format</h3>
+<p>The vcf format is also a text-based file format. VCF stands for Variant Call Format and is used to store gene sequence variations (SNVs, indels). The format has been developped for genotyping projects, and is the standard to represent variations in the genome of a species.</p>
+<p>A vcf is a tab-delimited file, described <a href="https://samtools.github.io/hts-specs/VCFv4.2.pdf">here</a>.</p>
+<h4 id="vcf-example">VCF Example</h4>
+<pre><code>##fileformat=VCFv4.0
+##fileDate=20110705
+##reference=1000GenomesPilot-NCBI37
+##phasing=partial
+##INFO=&lt;ID=NS,Number=1,Type=Integer,Description=&quot;Number of Samples With Data&quot;&gt;
+##INFO=&lt;ID=DP,Number=1,Type=Integer,Description=&quot;Total Depth&quot;&gt;
+##INFO=&lt;ID=AF,Number=.,Type=Float,Description=&quot;Allele Frequency&quot;&gt;
+##INFO=&lt;ID=AA,Number=1,Type=String,Description=&quot;Ancestral Allele&quot;&gt;
+##INFO=&lt;ID=DB,Number=0,Type=Flag,Description=&quot;dbSNP membership, build 129&quot;&gt;
+##INFO=&lt;ID=H2,Number=0,Type=Flag,Description=&quot;HapMap2 membership&quot;&gt;
+##FILTER=&lt;ID=q10,Description=&quot;Quality below 10&quot;&gt;
+##FILTER=&lt;ID=s50,Description=&quot;Less than 50% of samples have data&quot;&gt;
+##FORMAT=&lt;ID=GQ,Number=1,Type=Integer,Description=&quot;Genotype Quality&quot;&gt;
+##FORMAT=&lt;ID=GT,Number=1,Type=String,Description=&quot;Genotype&quot;&gt;
+##FORMAT=&lt;ID=DP,Number=1,Type=Integer,Description=&quot;Read Depth&quot;&gt;
+##FORMAT=&lt;ID=HQ,Number=2,Type=Integer,Description=&quot;Haplotype Quality&quot;&gt;
+#CHROM POS    ID        REF  ALT     QUAL FILTER INFO                              FORMAT      Sample1        Sample2        Sample3
+2      4370   rs6057    G    A       29   .      NS=2;DP=13;AF=0.5;DB;H2           GT:GQ:DP:HQ 0|0:48:1:52,51 1|0:48:8:51,51 1/1:43:5:.,.
+2      7330   .         T    A       3    q10    NS=5;DP=12;AF=0.017               GT:GQ:DP:HQ 0|0:46:3:58,50 0|1:3:5:65,3   0/0:41:3
+2      110696 rs6055    A    G,T     67   PASS   NS=2;DP=10;AF=0.333,0.667;AA=T;DB GT:GQ:DP:HQ 1|2:21:6:23,27 2|1:2:0:18,2   2/2:35:4
+2      130237 .         T    .       47   .      NS=2;DP=16;AA=T                   GT:GQ:DP:HQ 0|0:54:7:56,60 0|0:48:4:56,51 0/0:61:2
+2      134567 microsat1 GTCT G,GTACT 50   PASS   NS=2;DP=9;AA=G                    GT:GQ:DP    0/1:35:4       0/2:17:2       1/1:40:3
+chr1    45796269        .       G       C
+chr1    45797505        .       C       G
+chr1    45798555        .       T       C
+chr1    45798901        .       C       T
+chr1    45805566        .       G       C
+chr2    47703379        .       C       T
+chr2    48010488        .       G       A
+chr2    48030838        .       A       T
+chr2    48032875        .       CTAT    -
+chr2    48032937        .       T       C
+chr2    48033273        .       TTTTTGTTTTAATTCCT       -
+chr2    48033551        .       C       G
+chr2    48033910        .       A       T
+chr2    215632048       .       G       T
+chr2    215632125       .       TT      -
+chr2    215632155       .       T       C
+chr2    215632192       .       G       A
+chr2    215632255       .       CA      TG
+chr2    215634055       .       C       T
+</code></pre>
+
+<h3 id="the-gff-format">the gff format</h3>
+<p>The general feature format (gff) is another text file format, used for describing genes and other features of DNA, RNA and protein sequences. It is the standard for annotation of genomes.</p>
+<p>A gff file should contain 9 columns, described <a href="https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md">here</a></p>
+<h4 id="example-gff">Example gff</h4>
+<pre><code>##description: evidence-based annotation of the human genome (GRCh38), version 25 (Ensembl 85)
+##provider: GENCODE
+##contact: gencode-help@sanger.ac.uk
+##format: gtf
+##date: 2016-07-15
+chr1    HAVANA  gene    11869   14409   .   +   .   gene_id &quot;ENSG00000223972.5&quot;; gene_type &quot;transcribed_unprocessed_pseudogene&quot;; gene_status &quot;KNOWN&quot;; gene_name &quot;DDX11L1&quot;; level 2; havana_gene &quot;OTTHUMG00000000961.2&quot;;
+chr1    HAVANA  transcript  11869   14409   .   +   .   gene_id &quot;ENSG00000223972.5&quot;; transcript_id &quot;ENST00000456328.2&quot;; gene_type &quot;transcribed_unprocessed_pseudogene&quot;; gene_status &quot;KNOWN&quot;; gene_name &quot;DDX11L1&quot;; transcript_type &quot;processed_transcript&quot;; transcript_status &quot;KNOWN&quot;; transcript_name &quot;DDX11L1-002&quot;; level 2; transcript_support_level &quot;1&quot;; tag &quot;basic&quot;; havana_gene &quot;OTTHUMG00000000961.2&quot;; havana_transcript &quot;OTTHUMT00000362751.1&quot;;
+chr1    HAVANA  exon    11869   12227   .   +   .   gene_id &quot;ENSG00000223972.5&quot;; transcript_id &quot;ENST00000456328.2&quot;; gene_type &quot;transcribed_unprocessed_pseudogene&quot;; gene_status &quot;KNOWN&quot;; gene_name &quot;DDX11L1&quot;; transcript_type &quot;processed_transcript&quot;; transcript_status &quot;KNOWN&quot;; transcript_name &quot;DDX11L1-002&quot;; exon_number 1; exon_id &quot;ENSE00002234944.1&quot;; level 2; transcript_support_level &quot;1&quot;; tag &quot;basic&quot;; havana_gene &quot;OTTHUMG00000000961.2&quot;; havana_transcript &quot;OTTHUMT00000362751.1&quot;;
+chr1    HAVANA  exon    12613   12721   .   +   .   gene_id &quot;ENSG00000223972.5&quot;; transcript_id &quot;ENST00000456328.2&quot;; gene_type &quot;transcribed_unprocessed_pseudogene&quot;; gene_status &quot;KNOWN&quot;; gene_name &quot;DDX11L1&quot;; transcript_type &quot;processed_transcript&quot;; transcript_status &quot;KNOWN&quot;; transcript_name &quot;DDX11L1-002&quot;; exon_number 2; exon_id &quot;ENSE00003582793.1&quot;; level 2; transcript_support_level &quot;1&quot;; tag &quot;basic&quot;; havana_gene &quot;OTTHUMG00000000961.2&quot;; havana_transcript &quot;OTTHUMT00000362751.1&quot;;
+chr1    HAVANA  exon    13221   14409   .   +   .   gene_id &quot;ENSG00000223972.5&quot;; transcript_id &quot;ENST00000456328.2&quot;; gene_type &quot;transcribed_unprocessed_pseudogene&quot;; gene_status &quot;KNOWN&quot;; gene_name &quot;DDX11L1&quot;; transcript_type &quot;processed_transcript&quot;; transcript_status &quot;KNOWN&quot;; transcript_name &quot;DDX11L1-002&quot;; exon_number 3; exon_id &quot;ENSE00002312635.1&quot;; level 2; transcript_support_level &quot;1&quot;; tag &quot;basic&quot;; havana_gene &quot;OTTHUMG00000000961.2&quot;; havana_transcript &quot;OTTHUMT00000362751.1&quot;;
+</code></pre></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+        
+        
+    </footer>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../../..';
+    </script>
+    <!-- <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script> -->
+    <script src="../../../js/base.js"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

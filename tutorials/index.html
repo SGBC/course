@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="../img/favicon.ico">
 
     
-    <title>Git - Bioinformatics course</title>
+    <title>Tutorials - Bioinformatics course</title>
     
 
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -42,7 +42,7 @@
      
 </head>
 
-<body>
+<body class="homepage" >
 
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -108,7 +108,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 2 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -119,8 +119,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">Git</a>
+<li >
+    <a href="../git/">Git</a>
 </li>
 
                         
@@ -147,7 +147,7 @@
                         
                             
 <li >
-    <a href="../tutorials/docs/qc/">Quality Control</a>
+    <a href="docs/qc/">Quality Control</a>
 </li>
 
                         
@@ -159,25 +159,25 @@
                         
                             
 <li >
-    <a href="../tutorials/docs/assembly/">De-novo Genome Assembly</a>
+    <a href="docs/assembly/">De-novo Genome Assembly</a>
 </li>
 
                         
                             
 <li >
-    <a href="../tutorials/docs/annotation/">Genome Annotation</a>
+    <a href="docs/annotation/">Genome Annotation</a>
 </li>
 
                         
                             
 <li >
-    <a href="../tutorials/docs/pan_genome/">Pan-genome Analysis</a>
+    <a href="docs/pan_genome/">Pan-genome Analysis</a>
 </li>
 
                         
                             
 <li >
-    <a href="../tutorials/docs/nanopore/">Nanopore Sequencing</a>
+    <a href="docs/nanopore/">Nanopore Sequencing</a>
 </li>
 
                         
@@ -198,25 +198,25 @@
                         
                             
 <li >
-    <a href="../tutorials/docs/rna/">RNA Sequencing</a>
+    <a href="docs/rna/">RNA Sequencing</a>
 </li>
 
                         
                             
 <li >
-    <a href="../tutorials/docs/16S/">Metabarcoding</a>
+    <a href="docs/16S/">Metabarcoding</a>
 </li>
 
                         
                             
 <li >
-    <a href="../tutorials/docs/meta_assembly/">Metagenome assembly</a>
+    <a href="docs/meta_assembly/">Metagenome assembly</a>
 </li>
 
                         
                             
 <li >
-    <a href="../tutorials/docs/wms/">Comparative metagenomics</a>
+    <a href="docs/wms/">Comparative metagenomics</a>
 </li>
 
                         
@@ -334,16 +334,6 @@
                             <i class="fas fa-search"></i> Search
                         </a>
                     </li>
-                    <li >
-                        <a rel="next" href="../software/">
-                            <i class="fas fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="../project_organisation/">
-                            Next <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </li>
             </ul>
         </div>
     </div>
@@ -354,24 +344,44 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#introduction-to-git">Introduction to Git</a></li>
-            <li class="second-level"><a href="#useful-resources">Useful resources</a></li>
+        <li class="first-level active"><a href="#tutorials">Tutorials</a></li>
+            <li class="second-level"><a href="#dev">Dev</a></li>
+                
+            <li class="second-level"><a href="#deploy">Deploy</a></li>
                 
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="introduction-to-git">Introduction to Git</h1>
-<p>Most of the introduction to Git material can be found at <a href="https://software-carpentry.org">https://software-carpentry.org</a></p>
-<p>Many thanks to them for existing!</p>
-<h2 id="useful-resources">Useful resources</h2>
-<ul>
-<li><a href="http://swcarpentry.github.io/git-novice/">Link to the course material from software carpentry</a></li>
-<li><a href="http://swcarpentry.github.io/git-novice/reference/">reference of concepts and commands seen during the lesson</a></li>
-<li><a href="https://git-scm.com">The official git website</a></li>
-<li><a href="https://medium.com/flow-ci/github-vs-bitbucket-vs-gitlab-vs-coding-7cf2b43888a1">Comparison of popular git hosting services - Medium article</a></li>
-<li><a href="https://choosealicense.com">https://choosealicense.com</a></li>
-</ul></div>
+<h1 id="tutorials">Tutorials</h1>
+<p>This repository contains basic tutorials and walkthroughs on various
+bioinformatics subjects:</p>
+<h2 id="dev">Dev</h2>
+<p>First install mkdocs in a virtual environment</p>
+<pre><code class="bash">virtualenv mkdocs_env
+source mkdocs_env/bin/activate
+pip install mkdocs
+</code></pre>
+
+<p>then the theme</p>
+<pre><code class="bash">pip install mkdocs-material
+</code></pre>
+
+<p>Then clone the directory</p>
+<pre><code class="bash">git clone https://github.com/HadrienG/tutorials.git
+cd tutorials
+</code></pre>
+
+<p>For a live preview in your browser do</p>
+<pre><code class="bash">mkdocs serve &amp;
+</code></pre>
+
+<h2 id="deploy">Deploy</h2>
+<p>The following command will build and push your website to a <code>gh-pages</code> branch.
+Only do this if you want your own version of the website! If you are modifying
+the original, please open a pull request.</p>
+<pre><code class="bash">mkdocs gh-deploy
+</code></pre></div>
         
         
     </div>
@@ -426,3 +436,8 @@
     </body>
 
 </html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-01-08 10:11:17
+-->
