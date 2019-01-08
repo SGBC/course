@@ -69,3 +69,8 @@ We can select an organism to restrict our search.
     `MVLSAADKGNVKAAWGKVGGHAAEYGAEALERMFLSFPTTKTYFPHFDLSHGSAQVKGHG`  
     `AKVAAALTKAVEHLDDLPGALSELSDLHAHKLRVDPVNFKLLSHSLLVTLASHLPSDFTP`  
     `AVHASLDKFLANVSTVLTSKYR`
+
+### What's next?
+
+[The Command-line](../unix)
+[An Introduction to Cloud computing](../cloud)

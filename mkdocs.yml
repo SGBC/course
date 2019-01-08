@@ -5,15 +5,14 @@ theme:
 
 nav:
   - Home: index.md
-  - Week 1:
+  - First week:
       - Blast Online: blast/blast_online.md
-      - Proteins: proteins.md
-  - Week 2:
       - Unix: unix.md
       - Cloud Computing: cloud.md
+      - Command-line Blast: blast/blast_cli.md
+  - Week 2:
       - Installing Software: software.md
       - Git: git.md
-      - Command-line Blast: blast.md
       - Project Organisation: project_organisation.md
   - Week 3:
       - Sequencing Technologies: seq_tech.md
@@ -24,6 +23,7 @@ nav:
       - Pan-genome Analysis: tutorials/docs/pan_genome.md
       - Nanopore Sequencing: tutorials/docs/nanopore.md
   - Week 4:
+      - Proteins: proteins.md
       - RNA Sequencing: tutorials/docs/rna.md
       - Metabarcoding: tutorials/docs/16S.md
       - Metagenome assembly: tutorials/docs/meta_assembly.md
