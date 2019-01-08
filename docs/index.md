@@ -8,6 +8,7 @@ This website is a collection of lectures and tutorials given during the annual B
 - Where: SLU, Campus Ultuna, Uppsala, Sweden
 - When: 21 Jan - 25 March 2019
 - Course page: [link](https://www.slu.se/en/education/programmes-courses/courses/?sprak=en&anmkod=30181.1819)
+- Course schedule: [link (Google docs)](https://docs.google.com/spreadsheets/d/1DqTmq7ltJygI92FrURwPuZsbGhZBNHF8G-qcwPrN4XM/edit?usp=sharing)
 
 Welcome to the course!
 
@@ -21,7 +22,7 @@ Welcome to the course!
 - [Cloud Computing](cloud)
 - [Installing Software](software)
 - [Command-line Blast](blast/blast_cli)
-- [Introduction to proteins analysis](proteins)
+
 
 ### Second week
 
@@ -46,12 +47,12 @@ Welcome to the course!
 ### Fifth week
 
 - Phylogeny
-- Protein
 - EMBOSS
 - UGENE
 
 ### Sixth week
 
+- [Introduction to proteins analysis](proteins)
 - [Metabarcoding](tutorials/docs/16S.md)
 - [Metagenome assembly](tutorials/docs/meta_assembly.md)
 - [Comparative metagenomics](tutorials/docs/wms.md)
