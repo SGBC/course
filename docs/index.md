@@ -23,7 +23,6 @@ Welcome to the course!
 - [Installing Software](software)
 - [Command-line Blast](blast/blast_cli)
 
-
 ### Second week
 
 - [Sequencing Technologies](seq_tech)
