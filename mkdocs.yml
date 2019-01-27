@@ -10,10 +10,14 @@ nav:
       - Unix: unix.md
       - Cloud Computing: cloud.md
       - Command-line Blast: blast/blast_cli.md
-  - Week 2:
-      - Installing Software: software.md
-      - Git: git.md
-      - Project Organisation: project_organisation.md
+  - Second week:
+      - Sequencing Technologies: seq_tech.md
+      - Quality Control: tutorials/docs/qc.md
+      - De-novo Genome Assembly: tutorials/docs/assembly.md
+      - Assembly Challenge: assembly_challenge.md
+      - Genome Annotation: tutorials/docs/annotation.md
+      - Pan-genome Analysis: tutorials/docs/pan_genome.md
+      - Nanopore Sequencing: tutorials/docs/nanopore.md
   - Week 3:
       - Sequencing Technologies: seq_tech.md
       - Quality Control: tutorials/docs/qc.md
