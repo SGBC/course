@@ -109,24 +109,48 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 2 <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Second week <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../../../software/">Installing Software</a>
+    <a href="../../../seq_tech/">Sequencing Technologies</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../../git/">Git</a>
+    <a href="./">Quality Control</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../../project_organisation/">Project Organisation</a>
+    <a href="../assembly/">De-novo Genome Assembly</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../assembly_challenge/">Assembly Challenge</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../annotation/">Genome Annotation</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../pan_genome/">Pan-genome Analysis</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../nanopore/">Nanopore Sequencing</a>
 </li>
 
                         
@@ -379,7 +403,8 @@
 
 <h1 id="quality-control-and-trimming">Quality Control and Trimming</h1>
 <h2 id="lecture">Lecture</h2>
-<iframe src='https://onedrive.live.com/embed?cid=2326C09709B01D03&resid=2326C09709B01D03%214400&authkey=ANPbEbk0W1h20vk&em=2&wdAr=1.7777777777777777' width='610px' height='367px' frameborder='0'></iframe>
+<p><br></p>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR7ZN5Gc-3q5DR8CWQgyHhjUIc-6uKJnB48lDVMB7tWrt4gpZFipbJRVWfaqdxSw9n_WnMfXoFMZXds/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="389" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 <h2 id="practical">Practical</h2>
 <p>In this practical you will learn to import, view and check the quality of raw high thoughput sequencing sequencing data.</p>
@@ -444,17 +469,17 @@ cd ~/work
 
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Use the spacebar to scroll down, and type ‘q’ to exit ‘less’</p>
 </div>
+<p>Use the spacebar to scroll down, and type ‘q’ to exit ‘less’</p>
 <p>You can read more on the FASTQ format in the <a href="../file_formats/">File Formats</a> lesson.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Where does the filename come from?</p>
 </div>
+<p>Where does the filename come from?</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Why are there 1 and 2 in the file names?    </p>
 </div>
+<p>Why are there 1 and 2 in the file names?</p>
 <h2 id="fastqc">FastQC</h2>
 <p>To check the quality of the sequence data we will use a tool called FastQC.</p>
 <p>FastQC has a graphical interface and can be downloaded and run on a Windows or Linux computer without installation.
@@ -477,12 +502,12 @@ To run FastQC on our two files</p>
 </ul>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>What should you pay attention to in the FastQC report?</p>
 </div>
+<p>What should you pay attention to in the FastQC report?</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>Which file is of better quality?</p>
 </div>
+<p>Which file is of better quality?</p>
 <p>Pay special attention to the per base sequence quality and sequence length distribution.
 Explanations for the various quality modules can be found <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/">here</a>.
 Also, have a look at examples of a <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html">good</a> and a <a href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html">bad</a> illumina read set for comparison.</p>
@@ -502,8 +527,8 @@ scythe -a adapters.fasta -o SRR957824_adapt_R2.fastq SRR957824_500K_R2.fastq.gz
 
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>What adapters do you use?</p>
 </div>
+<p>What adapters do you use?</p>
 <h2 id="sickle">Sickle</h2>
 <p>Most modern sequencing technologies produce reads that have deteriorating quality towards the 3'-end and some towards the 5'-end as well.
 Incorrectly called bases in both regions negatively impact assembles, mapping, and downstream bioinformatics analyses.</p>
@@ -549,8 +574,8 @@ FastQ single records discarded: 13263 (from PE1: 2169, from PE2: 11094)
 </ul>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>What did the trimming do to the per-base sequence quality, the per sequence quality scores and the sequence length distribution?</p>
-</div></div>
+</div>
+<p>What did the trimming do to the per-base sequence quality, the per sequence quality scores and the sequence length distribution?</p></div>
         
         
     </div>
