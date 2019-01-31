@@ -437,7 +437,7 @@ wtpoa-cns -i assembly.ctg.lay -fo assembly.ctg.fa
 </code></pre>
 
 <h2 id="polishing">Polishing</h2>
-<p>Since the miniasm assembly likely contains a lot if errors, we correct it with Illumina reads.</p>
+<p>Since the assembly likely contains a lot of errors, we correct it with Illumina reads.</p>
 <p>First we map the short reads against the assembly</p>
 <pre><code>bowtie2-build assembly.ctg.fa assembly
 bowtie2 -x assembly -1 ecoli_hiseq_R1.fastq.gz -2 ecoli_hiseq_R2.fastq.gz | \
@@ -457,7 +457,7 @@ samtools index assembly_short_sorted.bam
 <h3 id="an-existing-assembly">an existing assembly</h3>
 <p>Go to <a href="https://www.ncbi.nlm.nih.gov">https://www.ncbi.nlm.nih.gov</a> and search for NC_000913.
 Download the associated genome in fasta format and rename it to <code>ecoli_ref.fasta</code></p>
-<pre><code class="bash">nucmer --maxmatch -c 100 -p ecoli ERR1147227_trimmed.fastq ecoli_ref.fasta
+<pre><code class="bash">nucmer --maxmatch -c 100 -p ecoli assembly_polished.fasta ecoli_ref.fasta
 mummerplot --fat --filter --png --large -p ecoli ecoli.delta
 </code></pre>
 
@@ -466,17 +466,15 @@ mummerplot --fat --filter --png --large -p ecoli ecoli.delta
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 </div>
-<p>First you need to assembly the illumina data</p>
+<p>First you need to assemble the illumina data</p>
 <p>Then run busco and quast on the 3 assemblies</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 </div>
 <p>which assembly would you say is the best?</p>
 <h2 id="annotation">Annotation</h2>
-<p>If you havw time, train your annotation skills by running prokka on your genome!</p>
-<pre><code class="bash">awk '/^&gt;/{print &quot;&gt;ctg&quot; ++i; next}{print}' &lt; assembly_polished.fasta \
-    &gt; assembly_polished_formatted.fasta
-prokka --outdir annotation --kingdom Bacteria assembly_polished_formatted.fasta
+<p>If you have time, train your annotation skills by running prokka on your genome!</p>
+<pre><code class="bash">prokka --outdir annotation --kingdom Bacteria assembly_polished.fasta
 </code></pre>
 
 <p>You can open the output to see how it went</p>
