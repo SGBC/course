@@ -26,9 +26,7 @@ The Maker pipeline can work with any combination of the following data sets:
 
 * Proteins from more distantly related organisms (e.g. Uniprot/Swissprot)  
 
-* EST sequences from the same species or very closely related species  
-
-* RNA-seq data from the same or very closely related species - in the form of splice sites or assembled transcripts  
+* Transcriptome sequences from the same species or very closely related species  
 
 * Ab-initio predictions from one or more tools (directly supported are: Augustus, Snap, GeneMark, Fgenesh)  
 
