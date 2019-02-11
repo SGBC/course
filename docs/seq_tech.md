@@ -1,21 +1,19 @@
 # Sequencing Technologies
 
-<br><br>
+<br>
 
-<iframe src='https://onedrive.live.com/embed?cid=2326C09709B01D03&resid=2326C09709B01D03%214379&authkey=AO8wMS6ow9y4i14&em=2&wdAr=1.7777777777777777' width='610px' height='367px' frameborder='0'>This is an embedded <a target='_blank' href='https://office.com'>Microsoft Office</a> presentation, powered by <a target='_blank' href='https://office.com/webapps'>Office Online</a>.</iframe>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS6omhzpH6cU2qTKO6NP0vZx4NiJc06Pgyl_FCiJTh1TDhnpIX_BBCKegZAOFZ0RzGWxUXWCKTmiusp/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="389" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 <br>
 
 ## Exercise
 
-Begin by reading [Goodwin *et. al.* 2016](https://1drv.ms/b/s!AgMdsAmXwCYjojJMCq3idBipkjgU)
+You will be divided into small groups. Each group will be given a small research project.
 
-You will be divided into four groups; each group will focus on one sequencing technology: Illumina, Ion Torrent, PacBio and Oxford Nanopore.
+Each group will present a short presentation (5-7 minutes) answering the following question:
 
-Each group will present a short review of the technology, pros and cons as well as how they are used currently.
+> Which sequencing technology(-ies) would you use for your experiment and why?
 
-1. What are the unique characteristics of the technology?
-2. What are the major use-cases for the technology?
-3. Describe the significant landmarks of the technology.
+## Litterature
 
-Write a short presentation about the technology and present for the group. 10 min in total, 5-7 min presentation and 3 min questions.
+- [Coming of age: ten years of next-generation sequencing technologies](https://www.nature.com/articles/nrg.2016.49)
