@@ -15,7 +15,7 @@ Genome Annotation Service
 
 **Thursday**
 
-**09.00-09.30:** [Lecture: Structural annotation programs and pipelines](https://github.com/SGBC/course/blob/master/docs/nbis_annotation/slides/Structural_annotation_general.pdf?raw=true)   
+**09.00-09.45:** [Lecture: Structural annotation overwiew](https://github.com/SGBC/course/blob/master/docs/nbis_annotation/slides/Structural_annotation_general.pdf?raw=true)   
 **10.00-10.15:** Coffee break    
 **10.15-11.30:** [Practical 1: Assembly assessment + Abinitio annotation](practical_session/practical1.md)   
 **11.30-12.30:** Lunch   
