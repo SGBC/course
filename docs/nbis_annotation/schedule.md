@@ -12,7 +12,8 @@ Genome Annotation Service
 *Click the heading of a topic to see the lecture slides or lab instructions.*
 
 <hr>
-**Thursday 1st**
+
+**Thursday**
 
 **09.00-09.30:** [Lecture: Structural annotation programs and pipelines](https://github.com/SGBC/course/blob/master/docs/nbis_annotation/slides/Structural_annotation_general.pdf?raw=true)   
 **10.00-10.15:** Coffee break    
@@ -22,7 +23,8 @@ Genome Annotation Service
 **13.00-16.00:** [Practical 2: Structural annotation of eukaryote genomes (incl. coffee break)](practical_session/practical2.md)<br/>
 
 <hr>
-**Friday 2nd**
+
+**Friday**
 
 **09.00-09.15:** Summary of yesterday’s exercise  
 **09.15-09.30:**  Lecture: Introduction to manual curation  
