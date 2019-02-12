@@ -8,6 +8,13 @@ An annotation project requires numerous tools and dependencies, which can take e
   * **Connection to your virtual machine**  
 Before going into the exercises below you need to connect to your virtual machine Ubuntu 16.04 following the instruction we will provide you.
 
+  * **Create the folder structure**  
+Once connected you will create and move into the **annotation\_course** folder, where all the magic will happen.
+```
+mkdir -p ~/annotation_course/practical1
+cd ~/annotation_course
+```
+
   * **Install the missing tools**  
 That step could be long (>20 min).
 
@@ -22,18 +29,12 @@ That step could be long (>20 min).
 
     * **git repository**
        ```
+       cd ~/annotation_course
        git clone https://github.com/NBISweden/GAAS.git
        cd GAAS
        make install
        source ~/annotation_course/GAAS/profiles/activate_env
        ```
-
-  * **Create the folder structure**  
-Once connected you will create and move into the **annotation\_course** folder, where all the magic will happen.
-```
-mkdir -p ~/annotation_course/practical1
-cd ~/annotation_course
-```
 
   * **Download the data**  
 Now you need the data !! You must download the archive of the data and uncompress it (it could take few minutes).
@@ -72,7 +73,7 @@ cd busco
 ```
 
 The [BUSCO website](http://busco.ezlab.org) provides a list of datasets containing the cores genes expected in the different branches of the tree of life. To know in which part/branch of the tree of life is originated your species you can have a look at the [NCBI taxonomy website](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7227) (Lineage line).
-Then select the proper BUSCO Dataset [busco website](http://busco.ezlab.org) to check the completness of your assembly. To download the dataset to the cluster, you need the URL (right click on it, Copy Link). Then download the dataset.
+Then select the proper BUSCO Dataset on the [busco website](http://busco.ezlab.org) to check the completness of your assembly. To download the dataset to the cluster, you need the URL (right click on it, Copy Link). Then download the dataset.
 /!\ In the example below the link copied is **http://busco.ezlab.org/datasets/metazoa_odb9.tar.gz**, so replace it by something else if you decided to take another dataset.
 ```
 wget http://busco.ezlab.org/datasets/metazoa_odb9.tar.gz
@@ -81,11 +82,11 @@ tar xzvf metazoa_odb9.tar.gz
 
 Now you are ready to launch BUSCO on our genome (genome.fa).
 ```
-BUSCO.py -i ~/annotation_course/data/genome/genome.fa -o genome_dmel_busco -m geno -c 8 -l metazoa_odb9
+run_busco -i ~/annotation_course/data/genome/genome.fa -o genome_dmel_busco -m geno -c 8 -l metazoa_odb9
 ```
 
 While BUSCO is running, start the exercise 2.
-When done, check the short\_summary\_genome\_dmel\_busco. How many proteins are reported as complete? Does this sound reasonable?
+When done, check the short\_summary\_genome\_dmel\_busco file in the output folder. How many core genes have been searched in you assembly ? How many are reported as complete? Does this sound reasonable?
 **Tips**: the "genome" is here in fact only the chromosome 4 that corresponds to less than 1% of the real size of the genome.
 
 ## 1.2 Various Check of your Assembly
@@ -94,6 +95,9 @@ When done, check the short\_summary\_genome\_dmel\_busco. How many proteins are 
 Launching the following script will provide you some useful information.
 
 ```
+cd ~/annotation_course/practical1
+mkdir fasta_check
+cd fasta_check
 fasta_statisticsAndPlot.pl -f ~/annotation_course/data/genome/4.fa
 ```
 
