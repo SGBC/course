@@ -76,7 +76,7 @@ This time, we do not specify a reference species to be used by augustus, which w
 This will enable gene building directly from the evidence alignments.
 
 Before running MAKER you can check you have modified the maker_opts.ctl file properly [here](practical2_supl_maker.md).<br/>
-/!\ Be sure to have deactivated the parameters **model\_org= #** and **repeat\_protein= #** to avoid the heavy work of repeatmasker.
+**/!\ Be sure to have deactivated the parameters _model\_org= #_ and _repeat\_protein= #_ to avoid the heavy work of repeatmasker.**
 
 ## Run Maker
 
