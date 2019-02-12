@@ -145,7 +145,7 @@ scp -i ~/.ssh/azure_rsa student@__IP__:/home/student/annotation_course/practical
 ```
 
 We have made a genome browser called Webapollo available for you on the address [http://annotation-prod.scilifelab.se:8080/NBIS_course/](http://annotation-prod.scilifelab.se:8080/NBIS_course/).
-Load the file in into the genome portal called **drosophila\_melanogaster\_chr4**. [Here find the WebApollo instruction](UsingWebApollo.md)
+Load the file in into the genome portal called **drosophila\_melanogaster\_chr4**. [Here find the WebApollo instruction](UsingWebapollo.md)
 <br/>The official Ensembl annotation is available in the genome browser.
 How does the Augustus annotation compare with the Ensembl annotation? Are they identical?
 
