@@ -19,7 +19,7 @@ Genome Annotation Service
 **10.00-10.15:** Coffee break    
 **10.15-11.30:** [Practical 1: Assembly assessment + Abinitio annotation](practical_session/practical1.md)   
 **11.30-12.30:** Lunch   
-**12.30-13.00:** [Lecture: MAKER annotation pipeline](https://github.com/SGBC/course/blob/master/docs/nbis_annotation/slides/Structural_annotation_MAKER.pdf?raw=true)
+**12.30-13.00:** [Lecture: MAKER annotation pipeline](https://github.com/SGBC/course/blob/master/docs/nbis_annotation/slides/Structural_annotation_MAKER.pdf?raw=true)  
 **13.00-16.00:** [Practical 2: Structural annotation with MAKER (incl. coffee break)](practical_session/practical2.md)<br/>
 
 <hr>
