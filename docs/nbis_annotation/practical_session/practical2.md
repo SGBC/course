@@ -38,6 +38,7 @@ Maker strings together a range of different tools into a complex pipeline (e.g. 
 Check that everything is running smoothly by creating the MAKER config files:
 
 ```
+mkdir -p ~/annotation_course/practical2
 cd ~/annotation_course/practical2
 mkdir maker
 cd maker
