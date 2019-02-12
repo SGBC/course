@@ -137,7 +137,7 @@ gff3_sp_statistics.pl --gff augustus_drosophila.gff
 ```
 How many genes have you annotated ?
 
-It if of interest to view your annotation in a genome browser, this is more concrete and much nicer. A visual inspection is often the most effective way to assess the quality o your annotation.
+It is of interest to view your annotation in a genome browser, this is more concrete and much nicer. A visual inspection is often the most effective way to assess the quality o your annotation.
 
 Transfer the augustus\_drosophila.gff3 to your computer using scp in a new terminal:   
 ```
