@@ -98,7 +98,7 @@ Launching the following script will provide you some useful information.
 cd ~/annotation_course/practical1
 mkdir fasta_check
 cd fasta_check
-fasta_statisticsAndPlot.pl -f ~/annotation_course/data/genome/4.fa
+fasta_statisticsAndPlot.pl -f ~/annotation_course/data/genome/genome.fa
 ```
 
 If you don't see any peculiarities, you can then decide to go forward and start to perform your first wonderful annotation.
