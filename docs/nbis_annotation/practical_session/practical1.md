@@ -20,7 +20,7 @@ That step could be long (>20 min).
 
     * **conda**
        ```
-       conda create --name nbis python=2.7
+       conda create --name nbis python=2.7.15-h9bab390_6
        conda activate nbis
        conda install maker=2.31.10 
        conda install busco=3.0.2
