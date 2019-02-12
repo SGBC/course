@@ -8,13 +8,6 @@ An annotation project requires numerous tools and dependencies, which can take e
   * **Connection to your virtual machine**  
 Before going into the exercises below you need to connect to your virtual machine Ubuntu 16.04 following the instruction we will provide you.
 
-  * **Create the folder structure**  
-Once connected you will create and move into the **annotation\_course** folder, where all the magic will happen.
-```
-mkdir -p ~/annotation_course/practical1
-cd ~/annotation_course
-```
-
   * **Install the missing tools**  
 That step could be long (>20 min).
 
@@ -27,11 +20,20 @@ That step could be long (>20 min).
      conda install perl-statistics-r
 ```  
 
-  * **git repository**
-     * git clone https://github.com/NBISweden/GAAS.git
-       cd GAAS
-       make install
-       source ~/annotation_course/GAAS/profiles/activate_env
+    * **git repository**
+```
+     git clone https://github.com/NBISweden/GAAS.git
+     cd GAAS
+     make install
+     source ~/annotation_course/GAAS/profiles/activate_env
+```
+
+  * **Create the folder structure**  
+Once connected you will create and move into the **annotation\_course** folder, where all the magic will happen.
+```
+mkdir -p ~/annotation_course/practical1
+cd ~/annotation_course
+```
 
   * **Download the data**  
 Now you need the data !! You must download the archive of the data and uncompress it (it could take few minutes).
