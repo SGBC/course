@@ -8,7 +8,7 @@ Let's do this step-by-step:
 
 ## Prepare the folder and input data
 
-Create the folder where we will lunach this maker run.
+Create the folder where we will launch this maker run.
 
 ```
 cd ~/annotation_course/practical2/maker/
