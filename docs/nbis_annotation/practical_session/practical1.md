@@ -3,21 +3,36 @@
 We will for all exercises use data for the fruit fly, Drosophila melanogaster, as that is one of the currently best annotated organisms and there is plenty of high quality data available. However, working on eukaryotes can be time consuming. Even a small genome like Drosophila would take too long to run within the time we have for this course. Thus to be sure to perform the practicals in good conditions, we will use the smallest chromosome of the drosophila (chromosome 4) like it was a whole genome.
 An annotation project requires numerous tools and dependencies, which can take easily many days to install for a neophyte. For your convenience and in order to focus on the art of the ANNOTATION most of the tools are already installed on your machine (Thank you Hadrien :) ).
 
-# First of all
+# Prerequisites
 
+  * **Connection to your virtual machine**  
 Before going into the exercises below you need to connect to your virtual machine Ubuntu 16.04 following the instruction we will provide you.
-Once connected you will move into the **annotation\_course** folder, where all the magic will happen.
+
+  * **Create the folder structure**  
+Once connected you will create and move into the **annotation\_course** folder, where all the magic will happen.
 ```
+mkdir -p ~/annotation_course/practical1
 cd ~/annotation_course
 ```
 
-**Now you need the data !!** You must download the archive of the data and uncompress it (it could take few minutes).
+  * **Install the tools with conda **  
+If not yet done, install the missing tools:
+    * conda install maker=2.31.10 (~8 minutes) 
+    * conda install busco=3.0.2 (~4 minutes) 
+    * git clone https://github.com/NBISweden/GAAS.git
+      cd GAAS
+      make install
+      source ~/annotation_course/GAAS/profiles/activate_env
+
+  * **Download the data**  
+Now you need the data !! You must download the archive of the data and uncompress it (it could take few minutes).
 ```
-wget https://u-ip-81-109.hpc2n.umu.se/tickets/La34or2kms3wMdf1Gp5HdbsmT4fFCIfayQeHvew8kaU/data.tar.gz/download
+wget https://u-ip-81-109.hpc2n.umu.se/tickets/7mIStX-Y-zjj_XPzI-iYQni2_0LVBSdBtHf_vhiA_Zk/data.tar.gz/download
 tar xzvf download
 rm download
 ```
 
+  * **Move the proper folder to start the excercice**  
 Now move into the **practical1** folder and you are ready to start for this morning !
 ```
 cd ~/annotation_course/practical1
@@ -45,21 +60,22 @@ mkdir busco
 cd busco
 ```
 
-Then visit the [busco website](http://busco.ezlab.org) and choose the best data set among the vast choice. Once you know which one you want to use, right click on it and copy the link to it. Then download the dataset.
-/!\ Replace **http://busco.ezlab.org/datasets/metazoa_odb9.tar.gz** link by the link to the dataset you have chosen.
+The [BUSCO website](http://busco.ezlab.org) provides a list of datasets containing the cores genes expected in the different branches of the tree of life. To know in which part/branch of the tree of life is originated your species you can have a look at the [NCBI taxonomy website](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7227) (Lineage line).
+Then select the proper BUSCO Dataset [busco website](http://busco.ezlab.org) to check the completness of your assembly. To download the dataset to the cluster, you need the URL (right click on it, Copy Link). Then download the dataset.
+/!\ In the example below the link copied is **http://busco.ezlab.org/datasets/metazoa_odb9.tar.gz**, so replace it by something else if you decided to take another dataset.
 ```
 wget http://busco.ezlab.org/datasets/metazoa_odb9.tar.gz
 tar xzvf metazoa_odb9.tar.gz
 ```
 
-Now you are ready to launch BUSCO on our genome (reminder: the genome is the chormosome 4 called 4.fa).
+Now you are ready to launch BUSCO on our genome (genome.fa).
 ```
-BUSCO.py -i ~/annotation_course/data/genome/4.fa -o 4_dmel_busco -m geno -c 8 -l metazoa_odb9
+BUSCO.py -i ~/annotation_course/data/genome/genome.fa -o genome_dmel_busco -m geno -c 8 -l metazoa_odb9
 ```
 
 While BUSCO is running, start the exercise 2.
-When done, check the short\_summary\_4\_dmel\_busco. How many proteins are reported as complete? Does this sound reasonable?
-**Tips**: the chromosome 4 corresponds to less than 1% of the real size of the genome.
+When done, check the short\_summary\_genome\_dmel\_busco. How many proteins are reported as complete? Does this sound reasonable?
+**Tips**: the "genome" is here in fact only the chromosome 4 that corresponds to less than 1% of the real size of the genome.
 
 ## 1.2 Various Check of your Assembly
 
