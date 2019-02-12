@@ -82,7 +82,7 @@ Before running MAKER you can check you have modified the maker_opts.ctl file pro
 
 If your maker\_opts.ctl is configured correctly, you should be able to run maker:
 ```
-mpiexec -n 8 maker
+maker -c 8
 ```
 This will start Maker on 8 cores, if everything is configured correctly.
 This will take a little while and process a lot of output to the screen. Luckily, much of the heavy work - such as repeat masking - are already done, so the total running time is quite manageable, even on a small number of cores.
