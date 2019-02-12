@@ -24,8 +24,13 @@ That step could be long (>20 min).
        conda activate nbis
        conda install maker=2.31.10 
        conda install busco=3.0.2
-       conda install perl-statistics-r
+       conda install perl-app-cpanminus
        ```
+       
+    * **perl module** (not working to install with conda)
+      ```
+      cpanm Statistics::R --force
+      ```
 
     * **git repository**
        ```
@@ -98,9 +103,10 @@ Launching the following script will provide you some useful information.
 cd ~/annotation_course/practical1
 mkdir fasta_check
 cd fasta_check
-fasta_statisticsAndPlot.pl -f ~/annotation_course/data/genome/genome.fa
+fasta_statisticsAndPlot.pl -f ~/annotation_course/data/genome/genome.fa -o output
 ```
 
+Is your genome very fragmented (number of sequences)? Do you have high GC content ? Do you have lowercase nucleotides ? Do you have N at sequence extremities? 
 If you don't see any peculiarities, you can then decide to go forward and start to perform your first wonderful annotation.
 
 # 2. Running an ab initio gene finder
@@ -116,11 +122,11 @@ Run Augustus on your genome file using:
 cd ~/annotation_course/practical1
 mkdir augustus
 cd augustus
-augustus --species=fly ~/annotation_course/data/genome/4.fa --gff3=yes > augustus_drosophila.gff
+augustus --species=fly ~/annotation_course/data/genome/genome.fa --gff3=yes --progress=true > augustus_drosophila.gff
 ```
 if you wish to annotate isoforms too, use the following command:
 ```
-augustus --species=fly ~/annotation_course/data/genome/4.fa --gff3=yes --alternatives-from-sampling=true > augustus_drosophila_isoform.gff
+augustus --species=fly ~/annotation_course/data/genome/genome.fa --gff3=yes --progress=true --alternatives-from-sampling=true > augustus_drosophila_isoform.gff
 ```
 
 Take a look at the gff result file using the command ‘less augustus_drosophila.gff’. What kinds of features have been annotated? Does it tell you anything about UTRs?
