@@ -63,7 +63,7 @@ BUSCO provides measures for quantitative assessment of genome assembly, gene set
 
 **_Exercise 1_ - BUSCO -:**
 
-You will run BUSCO on chromosome 4 of Drosophila melanogaster.
+You will run BUSCO on the genome assembly.
 
 First create a busco folder where you work:
 ```
