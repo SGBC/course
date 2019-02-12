@@ -6,38 +6,46 @@ The first run of Maker will be done without ab-initio predictions. What are your
 
 Let's do this step-by-step:
 
-## Prepare the input data
+## Prepare the folder and input data
+
+Create the folder where we will lunach this maker run.
+
+```
+cd ~/annotation_course/practical2/maker/
+mdkir evidence
+cd evidence
+```
 
 Link the raw computes you want to use into your folder. The files you will need are:
 
 - the gff file of the pre-computed repeats (coordinates of repeatmasked regions)
 
 ```
-ln -s ~/annotation_course/data/raw_computes/repeatmasker.chr4.gff
-ln -s ~/annotation_course/data/raw_computes/repeatrunner.chr4.gff
+ln -s ~/annotation_course/data/raw_computes/repeatmasker.genome.gff
+ln -s ~/annotation_course/data/raw_computes/repeatrunner.genome.gff
 ```
 
 In addition, you will also need the genome sequence.
 ```
-ln -s ~/annotation_course/data/genome/4.fa
+ln -s ~/annotation_course/data/genome/genome.fa
 ```
 Then you will also need EST and protein fasta file:  
 ```
-ln -s ~/annotation_course/data/evidence/est.chr4.fa 
-ln -s ~/annotation_course/data/evidence/proteins.chr4.fa
+ln -s ~/annotation_course/data/evidence/est.genome.fa 
+ln -s ~/annotation_course/data/evidence/proteins.genome.fa
 ```
 To finish you will could use a transcriptome assembly (This one has been made using Stringtie):
 ```
-ln -s ~/annotation_course/data/RNAseq/stringtie/stringtie2genome.chr4.gff
+ln -s ~/annotation_course/data/RNAseq/stringtie/stringtie2genome.genome.gff
 ```
 
-/!\\ Always check that the gff files you provides as protein or EST contains   match / match_part (gff alignment type ) feature types rather than genes/transcripts (gff annotation type) otherwise MAKER will not use the contained data properly. Here we have to fix the stringtie gff file.
+/!\\ Always check that the gff files you provides as protein or EST contains match/match_part (gff alignment type ) feature types rather than genes/transcripts (gff annotation type) otherwise MAKER will not use the contained data properly. Here we have to fix the stringtie gff file.
 
 ```
-gff3_sp_alignment_output_style.pl --gff stringtie2genome.chr4.gff -o stringtie2genome.chr4.ok.gff
+gff3_sp_alignment_output_style.pl --gff stringtie2genome.genome.gff -o stringtie2genome.genome.ok.gff
 ```
 
-You should now have 1 repeat file, 1 EST file, 1 protein file, 1 transcript file, and the genome sequence in the working directory. 
+You should now have 2 repeat files, 1 EST file, 1 protein file, 1 transcript file, and the genome sequence in the working directory. 
 
 For Maker to use this information, we need create the three config files, typing this command:
 ```
