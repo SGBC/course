@@ -12,21 +12,21 @@ Before going into the exercises below you need to connect to your virtual machin
 That step could be long (>20 min).
 
     * **conda**
-```
-     conda create --name nbis python=2.7
-     conda activate nbis
-     conda install maker=2.31.10 
-     conda install busco=3.0.2
-     conda install perl-statistics-r
-```  
+       ```
+       conda create --name nbis python=2.7
+       conda activate nbis
+       conda install maker=2.31.10 
+       conda install busco=3.0.2
+       conda install perl-statistics-r
+       ```
 
     * **git repository**
-```
-     git clone https://github.com/NBISweden/GAAS.git
-     cd GAAS
-     make install
-     source ~/annotation_course/GAAS/profiles/activate_env
-```
+       ```
+       git clone https://github.com/NBISweden/GAAS.git
+       cd GAAS
+       make install
+       source ~/annotation_course/GAAS/profiles/activate_env
+       ```
 
   * **Create the folder structure**  
 Once connected you will create and move into the **annotation\_course** folder, where all the magic will happen.
