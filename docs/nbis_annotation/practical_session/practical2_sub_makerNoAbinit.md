@@ -52,7 +52,13 @@ For Maker to use this information, we need create the three config files, typing
 maker -CTL
 ```
 
-You can leave the two files controlling external software behaviors untouched. In the actual maker options file called **maker_opts.ctl**, we need to provide:
+You can leave the two files controlling external software behaviors untouched but you need to provide the proper parameters in the file called **maker_opts.ctl**.
+To edit the **maker_opts.ctl** file you can use the nano text editor:  
+```
+nano maker_opts.ctl
+```
+
+In the **maker_opts.ctl** you will set:
 
 - name of the genome sequence (genome=)
 - name of the 'EST' file in fasta format  (est=)
@@ -68,11 +74,6 @@ This time, we do not specify a reference species to be used by augustus, which w
   <i>est2genome=1</i>
 
 This will enable gene building directly from the evidence alignments.
-
-To edit the **maker_opts.ctl** file you can use the nano text editor:
-```
-nano maker_opts.ctl
-```
 
 Before running MAKER you can check you have modified the maker_opts.ctl file properly [here](practical2_supl_maker.md).<br/>
 /!\ Be sure to have deactivated the parameters **model\_org= #** and **repeat\_protein= #** to avoid the heavy work of repeatmasker.
