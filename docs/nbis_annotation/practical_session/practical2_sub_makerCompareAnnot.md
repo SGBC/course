@@ -16,10 +16,10 @@ cd ~/annotation_course/practical2
 mkdir busco
 cd busco
 
-ln -s ../maker/maker_with_abinitio/annotations.proteins.fa   
+ln -s ../maker/maker_abinitio/genome.all.maker.proteins.fasta
 ln -s ~/annotation_course/practical1/busco/metazoa_odb9
 
-BUSCO.py -i annotations.proteins.fa -o dmel_maker_abinitio -m prot -c 8 -l metazoa_odb9
+BUSCO.py -i genome.all.maker.proteins.fasta -o dmel_maker_abinitio -m prot -c 8 -l metazoa_odb9
 ```
 - if you compare with you first busco results what do you see?
 
@@ -34,13 +34,13 @@ First you have to be situated in a folder containing the two maker annotations (
 cd ~/annotation_course/practical2
 mkdir compare
 cd compare
-ln -s ../maker/maker_no_abinitio/annotationByType/maker.gff maker_no_abinitio.gff 
-ln -s ../maker/maker_with_abinitio/annotationByType/maker.gff maker_abinitio.gff 
+ln -s ../maker/maker_evidence/maker.gff maker_evidence.gff 
+ln -s ../maker/maker_abinitio/maker.gff maker_abinitio.gff 
 ```
 
 Then, copy or sym-link the EnsEMBL reference annotation.
 ```
-ln -s ~/annotation_course/data/annotation/ensembl.chr4.gff
+ln -s ~/annotation_course/data/annotation/ensembl.genome.gff
 ```
 
 Now we have to sort any GFF3-formatted annotation in a way that genometools accepts.
