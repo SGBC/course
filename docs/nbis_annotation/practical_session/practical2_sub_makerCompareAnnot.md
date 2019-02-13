@@ -1,6 +1,37 @@
 # Comparing and evaluating annotations
 
-In this exercise you will take the three annotations you have created for Drosophila - the pure abinitio one done with augustus, the evidence-based done with MAKER and the abinitio evidence drived one done with MAKER. First, we will count the features annotated in each of them and compare that number against the existing reference annotation. Next, we will perform a proper feature-level comparison to obtain a proper estimate of congruency.
+## Prerequisites  
+
+First create the folder where yo will work:  
+```
+cd ~/annotation_course/practical2
+mkdir assess
+cd assess
+```
+
+In this exercise you will handle different annotation files: 
+
+ * the pure abinitio one done with augustus (practical1),
+ ```
+ ln -s ~/annotation_course/practical1/augustus/augustus_drosophila.gff 
+ ```
+
+ * the evidence-based done with MAKER
+  ```
+ ln -s ../maker/maker_evidence/maker.gff maker_evidence.gff 
+ ```
+ 
+ * the abinitio evidence drived one done with MAKER.
+  ```
+ ln -s ../maker/maker_abinitio/maker.gff maker_abinitio.gff
+ ```
+ 
+ * the official annotation from Ensembl
+  ```
+ ln -s ~/annotation_course/data/annotation/ensembl.genome.gff
+ ```
+ 
+ First, we will count the features annotated in each of them and compare that number against the existing reference annotation. Next, we will perform a proper feature-level comparison to obtain a proper estimate of congruency.
 
 ## Evaluating annotation quality
 
@@ -34,8 +65,6 @@ First you have to be situated in a folder containing the two maker annotations (
 cd ~/annotation_course/practical2
 mkdir compare
 cd compare
-ln -s ../maker/maker_evidence/maker.gff maker_evidence.gff 
-ln -s ../maker/maker_abinitio/maker.gff maker_abinitio.gff 
 ```
 
 Then, copy or sym-link the EnsEMBL reference annotation.
