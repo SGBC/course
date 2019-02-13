@@ -41,13 +41,37 @@ Evaluating an annotation can be done in different ways:
 It isn't so much a quality check as a measure of congruency - i.e. the resulting numbers don't tell you which of the two gene builds is more correct.
 
  * comparison with another annotation  
- It doesnät help neither to see the quality of your annotaiton but could help to understand the major differences between several annotation.
+ It doesnt help neither to see the quality of your annotation but could help to understand the major differences between several annotation.
 
+ * comparison against a reference
+ This case is really rare in real life.
+ 
  * running busco on proteins obtained from the annotation  
  It provides a nice feeling about the quality of the annotaiton but is biasied by the fact it focus only on well conserved genes between sepeceis during evolution. So, what about species specific genes ?
  
  * in reference to the evidence alignments (AED score)  
  It is what Maker uses internally to select gene models. After synthesizing and annotating loci, the resulting model will be ranked against the filtered evidence alignments. The more congruent these two points of information are, the lower the 'annotation edit distance' (AED) will be. The AED score can be used to e.g. check an annotation for problematic models that may then be subjected to manual curation.
+
+### Gene number
+
+As already seen previousy you can have a look at the statistics of an anntoation with the **gff3_sp_statistics.pl** script.
+
+### Comparison with another annotation
+
+We will compare the two anntation made with MAKER: the evidence one and the abinitio one.
+```
+maker_checkFusionSplitBetweenTwoBuilds.pl --ref maker_evidence.gff --tar maker_abinitio.gff --out maker_evidence_compare_to_abinitio
+cd maker_evidence_compare_to_abinitio
+cat resume.txt
+```
+
+How many genes are specific to each annotation ? How many genes from the evidence annotation have been merged/fused together by the abinitio annotation ?
+
+Those two annotations have genes that are not in common (non-overlaping). Let's create a non-redundant concatenated gene set:
+```
+gff3_sp_complement_annotations.pl --ref maker_abinitio.gff --add maker_evidence.gff -o maker_ab_cplt_by_ev.gff
+
+
 
 ### BUSCO
 
