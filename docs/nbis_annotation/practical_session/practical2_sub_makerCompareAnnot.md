@@ -45,10 +45,10 @@ ln -s ~/annotation_course/data/annotation/ensembl.genome.gff
 
 Now we have to sort any GFF3-formatted annotation in a way that genometools accepts.
 ```
-sed -i '1i##gff-version 3' maker_no_abinitio.gff
+sed -i '1i##gff-version 3' maker_evidence.gff
 sed -i '1i##gff-version 3' maker_abinitio.gff
 
-gt gff3 -sort maker_no_abinitio.gff > maker_no_abinitio.sorted.gff 
+gt gff3 -sort maker_evidence.gff > maker_evidence.sorted.gff 
 gt gff3 -sort maker_abinitio.gff > maker_abinitio.sorted.gff 
 gt gff3 -sort ensembl.chr4.gff > ensembl.sorted.gff 
 ```
