@@ -14,26 +14,26 @@ Within the main output directory, Maker keeps a copy of the config files, a data
 
 Out of these files, only the 4\_master\_datastore\_index is really interesting to us. It includes a log of all the contigs included in the genome fasta file - together with their processing status (ideally: FINISHED) and the location of the output files. Since Maker can technically run in parallel on a large number of contigs, it creates separate folders for each of these input data. For larger genomes, this can generate a very deep and confusing folder tree. The 4\_master\_datastore\_index helps you make sense of it:
 ```
-4       4\_datastore/A8/7F/4/ STARTED  
-4       4\_datastore/A8/7F/4/ FINISHED
+4       genome\_datastore/A8/7F/4/ STARTED  
+4       genome\_datastore/A8/7F/4/ FINISHED
 ```
-This meens the sequence **4** was started - and finished, with all data (annotation, protein predictions etc) written to the subfolder 4\_datastore/A8/7F/4/.
+This meens the sequence **4** was started - and finished, with all data (annotation, protein predictions etc) written to the subfolder genome\_datastore/A8/7F/4/.
 
 If you look into that folder, you will find the finished Maker annotation for this contig.
 ```
-rw-rw-r- 1 student student 472193 Mar 24 10:16 4.gff <br/>
-\*rw-rw-r- 1 student student 3599 Mar 24 10:16 4.maker.augustus\_masked.proteins.fasta <br/>
-\*rw-rw-r- 1 student student 10388 Mar 24 10:16 4.maker.augustus\_masked.transcripts.fasta  <br/>
-\*rw-rw-r- 1 student student 176 Mar 24 10:16 4.maker.non\_overlapping\_ab\_initio.proteins.fasta <br/>
-\*rw-rw-r- 1 student student 328 Mar 24 10:16 4.maker.non\_overlapping\_ab\_initio.transcripts.fasta  <br/>
-rw-rw-r- 1 student student 3931 Mar 24 10:16 4.maker.proteins.fasta  <br/>
-rw-rw-r- 1 student student 20865 Mar 24 10:16 4.maker.transcripts.fasta  <br/>
+rw-rw-r- 1 student student 472193 Mar 24 10:16 genome.gff <br/>
+\*rw-rw-r- 1 student student 3599 Mar 24 10:16 genome.maker.augustus\_masked.proteins.fasta <br/>
+\*rw-rw-r- 1 student student 10388 Mar 24 10:16 genome.maker.augustus\_masked.transcripts.fasta  <br/>
+\*rw-rw-r- 1 student student 176 Mar 24 10:16 genome.maker.non\_overlapping\_ab\_initio.proteins.fasta <br/>
+\*rw-rw-r- 1 student student 328 Mar 24 10:16 genome.maker.non\_overlapping\_ab\_initio.transcripts.fasta  <br/>
+rw-rw-r- 1 student student 3931 Mar 24 10:16 genome.maker.proteins.fasta  <br/>
+rw-rw-r- 1 student student 20865 Mar 24 10:16 genome.maker.transcripts.fasta  <br/>
 rw-rw-r- 1 student student 4248 Mar 24 10:15 run.log  <br/>
-drwxrwsr-x 3 student student 4096 Mar 24 10:16 theVoid.4
+drwxrwsr-x 3 student student 4096 Mar 24 10:16 theVoid.genome
 ```
 \* only if an abinitio tool has been activated
 
-The main annotation file is '4.gff' - including both the finished gene models and all the raw compute data. The other files include fasta files for the different sequence features that have been annotated - based on ab-initio predictions through augustus as well as on the finished gene models. The folder 'theVoid' include all the raw computations that Maker has performed to synthesize the evidence into gene models.
+The main annotation file is 'genome.gff' - including both the finished gene models and all the raw compute data. The other files include fasta files for the different sequence features that have been annotated - based on ab-initio predictions through augustus as well as on the finished gene models. The folder 'theVoid' include all the raw computations that Maker has performed to synthesize the evidence into gene models.
 
 ## Understanding a Maker annotation
 
@@ -43,19 +43,51 @@ From the folder you have run Maker, run the script called 'maker\_merge\_outputs
 ```
 maker_merge_outputs_from_datastore.pl 
 ```
-This will create a directory called "**annotations**" containing:
+This will create a directory called "**maker_output_processed**" containing a long list of files depending on parameters used for running MAKER.  
 
-\-annotations.gff  
-\-annotations.proteins.fa  
-\-annotationByType/  
+```
+augustus_masked.gff
+cdna2genome.gff
+est_gff_est2genome.gff
+evm.gff
+fgenesh_masked.gff
+genemark.gff
+genome.all.maker.augustus_masked.proteins.fasta
+genome.all.maker.augustus_masked.transcripts.fasta
+genome.all.maker.evm.proteins.fasta
+genome.all.maker.evm.transcripts.fasta
+genome.all.maker.fgenesh.proteins.fasta
+genome.all.maker.fgenesh.transcripts.fasta
+genome.all.maker.genemark.proteins.fasta
+genome.all.maker.genemark.transcripts.fasta
+genome.all.maker.noncoding.fasta
+genome.all.maker.non_overlapping_ab_initio.proteins.fasta
+genome.all.maker.non_overlapping_ab_initio.transcripts.fasta
+genome.all.maker.proteins.fasta
+genome.all.maker.snap_masked.proteins.fasta
+genome.all.maker.snap_masked.transcripts.fasta
+genome.all.maker.transcripts.fasta
+genome.all.maker.trnascan.noncoding.fasta
+maker_bopts.ctl
+maker_evm.ctl
+maker_exe.ctl
+maker.gff
+maker_opts.ctl
+maker_stat.txt
+protein_gff_protein2genome.gff
+repeat_gff_repeatmasker.gff
+repeat_gff_repeatrunner.gff
+snap_masked.gff
+tblastx.gff
+```
 
- - ***annotations.gff* file**  
+Here is a describtion of the most important files:
 
-It's a mix of all the gff tracks produced/handled by maker. It contains the annotation done by maker mixed up with other gff lines like the protein alignments, repeats, etc..
-If you use 'less' to read the annotation file *annotations.gff* ([GFF3 format](http://www.sequenceontology.org/gff3.shtml)), you will see a range of different features:
+ * **maker.gff** 
+
+It contains the annotation done by maker in ([GFF3 format](http://www.sequenceontology.org/gff3.shtml)). If you use 'less' to read this annotation file, you will see a range of different features:
 ```
 ##gff-version 3  
-4       .       contig  1       1351857 .       .       .       ID=4;Name=4
 4       maker   gene    24134   25665   .       +       .       ID=maker-4-exonerate_protein2genome-gene-0.0;Name=maker-4-exonerate_protein2genome-gene-0.0
 4       maker   mRNA    24134   25665   917     +       .       ID=maker-4-exonerate_protein2genome-gene-0.0-mRNA-1;Parent=maker-4-exonerate_protein2genome-gene-0.0;Name=maker-4-exonerate_protein2genome-gene-0.0-mRNA-1;_AED=0.09;_eAED=0.09;_QI=0|0.33|0.25|1|0|0|4|44|290
 ```
@@ -63,16 +95,14 @@ If you use 'less' to read the annotation file *annotations.gff* ([GFF3 format](h
 
 For example, the above lines read:
 
-A new contig is being shown, with the id '4' and a length of 1351857 nucleotides  
-On this contig, a gene feature is located from position 24134 to 25665, on the plus strand and with the id 'maker-4-exonerate\_protein2genome-gene-0.0'. 
-On this contig, belonging to the gene, is located a transcript from position 24134 to 25665, on the plus strand and with the id 'maker-4-exonerate\_protein2genome-gene-0.0-mRNA-1'. It's quality, or AED score, is 0.09 - which means that the evidence alignments are close to be in perfect agreement with the transcript model.
+On the sequence with id ´4´, there is a gene feature located from position 24134 to 25665, on the plus strand and with the id 'maker-4-exonerate\_protein2genome-gene-0.0'. 
+On this same sequence, belonging to the gene, is located a transcript from position 24134 to 25665, on the plus strand and with the id 'maker-4-exonerate\_protein2genome-gene-0.0-mRNA-1'. It's quality, or AED score, is 0.09 - which means that the evidence alignments are close to be in perfect agreement with the transcript model.
 
 And so on.
 
- - ***annotations.proteins.fa* file**  
-This file contains the proteins translated from the CDS of gene models predicted.
+ * **genome.all.maker.proteins.fasta**  
+This file contains the proteins translated from the CDS of the MAKER gene models.
 
- - ***annotationByType* directory**  
-The different types of information present in the annotation file (annotations.gff) are separated into independent file into the "annotationByType" directory.This is useful for a number of applications, like visualizing it as separate tracks in a genome browser. Or to compute some intersting numbers from the gene models.
+ * **cdna2genome.gff**  
 
-This should contains a bunch of files, including '**maker.gff**' - which contains the actual gene models.
+Contains the fasta sequence provided by the **est=** parameter that have been succefuly mapped onto the assembly.
