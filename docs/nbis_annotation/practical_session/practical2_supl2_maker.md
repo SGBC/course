@@ -102,6 +102,9 @@ On the sequence with id ´4´, there is a gene feature located from position 241
 On this same sequence, belonging to the gene, is located a transcript from position 24134 to 25665, on the plus strand and with the id 'maker-4-exonerate\_protein2genome-gene-0.0-mRNA-1'. It's quality, or AED score, is 0.09 - which means that the evidence alignments are close to be in perfect agreement with the transcript model.
 And so on.
 
+ * **maker_stat.txt**  
+Statistics of the annotation (maker.gff annotation file).
+
  * **genome.all.maker.transcripts.fasta**  
 This fasta file contains the nucleotide sequences of the transcripts (mRNA) of the MAKER gene models.
 
