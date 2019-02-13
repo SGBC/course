@@ -100,11 +100,13 @@ For example, the above lines read:
 
 On the sequence with id ´4´, there is a gene feature located from position 24134 to 25665, on the plus strand and with the id 'maker-4-exonerate\_protein2genome-gene-0.0'. 
 On this same sequence, belonging to the gene, is located a transcript from position 24134 to 25665, on the plus strand and with the id 'maker-4-exonerate\_protein2genome-gene-0.0-mRNA-1'. It's quality, or AED score, is 0.09 - which means that the evidence alignments are close to be in perfect agreement with the transcript model.
-
 And so on.
 
- * **genome.all.maker.proteins.fasta**  
-This file contains the proteins translated from the CDS of the MAKER gene models.
+ * **genome.all.maker.transcripts.fasta**  
+This fasta file contains the nucleotide sequences of the transcripts (mRNA) of the MAKER gene models.
+
+ * **genome.all.maker.proteins.fasta** 
+This fasta file contains the amino acid sequences of the proteins translated from the CDS of the MAKER gene models.
 
  * **cdna2genome.gff**  
 Contains the fasta sequences provided by the **est=** parameter that have been succefuly mapped onto the assembly.
@@ -133,9 +135,18 @@ Contains the repeat masking results when **model_org=**  or/and  **rmlib=**  par
  * **repeatrunner.gff**  
 Contains the repeatrunner results when **repeat_protein=** parameter is used.
 
- * **maker_xxx.ctl**  
-All the file with **.ctl** extensions are copy of the control files used to produce the result contained in the current folder.
-
  * **genome.all.maker.trnascan.noncoding.fasta**  
 Contains the result in fasta format of the tRNAscan analysis when the parameter **trna=1** parameter is used. The corresponding gff result is within the maker.gff file.
+
+ * **augustus_masked.gff**  
+Contains the raw augustus annotation (not filter by MAKER) un gff format.
+
+ * **genome.all.maker.augustus_masked.transcripts.fasta**  
+Contains the transcripts of the raw augustus annotation (not filter by MAKER) in fasta format.
+
+ * **genome.all.maker.augustus_masked.proteins.fasta**  
+Contains the proteins of the raw augustus annotation (not filter by MAKER) in fasta format (translated CDS).
+
+ * **maker_xxx.ctl**  
+All the file with **.ctl** extensions are copy of the control files used to produce the result contained in the current folder.
 
