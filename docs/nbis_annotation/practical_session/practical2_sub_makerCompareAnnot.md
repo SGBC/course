@@ -50,7 +50,7 @@ sed -i '1i##gff-version 3' maker_abinitio.gff
 
 gt gff3 -sort maker_evidence.gff > maker_evidence.sorted.gff 
 gt gff3 -sort maker_abinitio.gff > maker_abinitio.sorted.gff 
-gt gff3 -sort ensembl.chr4.gff > ensembl.sorted.gff 
+gt gff3 -sort ensembl.genome.gff > ensembl.sorted.gff 
 ```
 
 ### Counting features
