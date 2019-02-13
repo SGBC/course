@@ -82,7 +82,8 @@ The improved annotation is the gff file inside the maker_final.interpro.blast.ID
 
 ### Polish your file for a nice display within Webapollo
 
-For displaying the ***product*** attribute in Webapollo you have to change it by the ***description*** attribute using this script:
+For a nice display of a gff file within Webapollo some modification might be needed.
+As example the attribute ***product*** is not displayed in Webapollo, whereas renaming it ***description*** will work out.
 ```
 ~/annotation_course/GAAS/annotation/WebApollo/gff3_webApollo_compliant.pl -gff maker_final.interpro.blast.ID/maker_final.gff -o final_annotation.gff
 ```
