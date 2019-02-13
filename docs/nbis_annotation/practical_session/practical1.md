@@ -15,34 +15,15 @@ mkdir -p ~/annotation_course/practical1
 cd ~/annotation_course
 ```
 
-  * **Install the missing tools**  
-That step could be long (>20 min).
+  * **List of tools needed. For your convenience they all hae been pre-installed.**  
 
-    * **conda**
-       ```
-       conda create --name nbis python=2.7.15-h9bab390_6
-       conda activate nbis
-       conda install maker=2.31.10 
-       conda install busco=3.0.2
-       conda install perl-app-cpanminus
-       ```
-       
-    * **perl module** (not working to install with conda)
-      ```
-      cpanm Statistics::R --force
-      ```
-
-    * **git repository**
-       ```
-       cd ~/annotation_course
-       git clone https://github.com/NBISweden/GAAS.git
-       cd GAAS
-       make install
-       source ~/annotation_course/GAAS/profiles/activate_env
-       ```
+    * MAKER 
+    * BUSCO
+    * augustsus
+    * GAAS repository
 
   * **Download the data**  
-Now you need the data !! You must download the archive of the data and uncompress it (it could take few minutes).
+You must download the archive of the data and uncompress it (it could take few minutes).
 ```
 wget https://u-ip-81-109.hpc2n.umu.se/tickets/7mIStX-Y-zjj_XPzI-iYQni2_0LVBSdBtHf_vhiA_Zk/data.tar.gz/download
 tar xzvf download
