@@ -8,10 +8,10 @@ organism\_type=eukaryotic #eukaryotic or prokaryotic. Default is eukaryotic
 
 ...
 
-\#-----EST Evidence (for best results provide a file for at least one) 
+\#-----EST Evidence (for best results provide a file for at least one)  
 **est=** #set of ESTs or assembled mRNA-seq in fasta format  
 altest= #EST/cDNA sequence file in fasta format from an alternate organism  
-**est\_gff=est2genome.gff, est_gff_stringtie.gff** #aligned ESTs or mRNA-seq from an external GFF3 file  
+**est\_gff=stringtie2genome.genome.ok.gff,est2genome.gff** #aligned ESTs or mRNA-seq from an external GFF3 file  
 altest\_gff= #aligned ESTs from a closly relate species in GFF3 format
 
 ...
@@ -26,7 +26,7 @@ altest\_gff= #aligned ESTs from a closly relate species in GFF3 format
 **model\_org=** #select a model organism for RepBase masking in RepeatMasker  
 rmlib= #provide an organism specific repeat library in fasta format for RepeatMasker   
 **repeat\_protein=** #provide a fasta file of transposable element proteins for RepeatRunner  
-**rm\_gff=repeatmasker.chr4.gff,repeatrunner.chr4.gff** #pre-identified repeat elements from an external GFF3 file  
+**rm\_gff=repeatmasker.genome.gff,repeatrunner.genome.gff** #pre-identified repeat elements from an external GFF3 file  
 prok\_rm=0 #forces MAKER to repeatmask prokaryotes (no reason to change this), 1 = yes, 0 = no  
 softmask=1 #use soft-masking rather than hard-masking in BLAST (i.e. seg and dust filtering)
 
