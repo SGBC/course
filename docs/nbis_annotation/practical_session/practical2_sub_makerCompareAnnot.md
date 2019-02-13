@@ -6,7 +6,7 @@ In this exercise you will handle different annotation files:
 
  * the evidence-based done with MAKER
  
- * the abinitio evidence drived one done with MAKER.
+ * the abinitio evidence-driven one done with MAKER.
  
  * the official annotation from Ensembl
 
@@ -18,7 +18,7 @@ Evaluating an annotation can be done in different ways:
 It isn't so much a quality check as a measure of congruency - i.e. the resulting numbers don't tell you which of the two gene builds is more correct.
 
  * comparison with another annotation  
- It doesnt help neither to see the quality of your annotation but could help to understand the major differences between several annotation.
+ It doesnt help neither to see the quality of your annotation but could help to understand the major differences between several annotations.
 
  * comparison against a reference
  This case is really rare in real life.
@@ -115,6 +115,20 @@ This will create a long list of measures for all relevant sequence features with
 Note that the measures employed by genometools function in a all-or-nothing fashion. If the overlap is not 100%, it doesn't count (which is why you are unlikely to find gene-level congruencies between your gene builds and the reference annotation).  
 
 From the comparison of your annotations (the pure abinitio Augustus one and the one made with MAKER) to the Ensembl annotation, which one **seems** to be the most comprehensive to you ?
+
+### Filter MAKER annotation by AED score
+
+A AED value of 0 means the whole gene model is supported by evidence while 1 means there is none. Let's try to select only models with good congruency with evidence lines, AED <0.3. 
+
+```
+cd ~/annotation_course/practical2/
+mkdir filter
+cd filter
+ln -s ~/annotation_course/practical2/complement/maker_abinitio_cplt_by_evidence.gff
+maker_select_models_by_AED_score.pl -f maker_abinitio_cplt_by_evidence.gff -v 0.3 -t "<" -o result
+```
+
+How many genes have passed your filter ? How many have been discarded ?
 
 ## Visualising annotations
 
