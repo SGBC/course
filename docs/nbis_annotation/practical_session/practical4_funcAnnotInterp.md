@@ -10,16 +10,13 @@ Since we do not wish to spend too much time on this, we will again limit our ana
 
 Move in the proper folder:  
 ```
+mkdir -p ~/annotation_course/practical4
 cd ~/annotation_course/practical4
 ```
 Now link the annotation you choose to work with. The command will looks like:
 ```
-ln -s ~/annotation_course/practical2/maker/maker_with_abinitio/annotationByType/maker.gff maker_with_abinitio.gff  
-```
-Extract the corresponding proteins from the gff file:
-```
-ln -s ~/annotation_course/data/genome/4.fa
-gff3_sp_extract_sequences.pl --gff maker_with_abinitio.gff -f 4.fa -p --cfs -o AA.fa
+ln -s ~/annotation_course/practical2/complement/maker_abinitio_cplt_by_evidence.gff maker_final.gff  
+ln -s ~/annotation_course/practical2/complement/maker_abinitio_cplt_by_evidence.fasta maker_final.faa
 ```
 ## Interproscan approach
  Interproscan combines a number of searches for conserved motifs and curated data sets of protein clusters etc. This step may take fairly long time. It is recommended to paralellize it for huge amount of data by doing analysis of chunks of tens or hundreds proteins.
@@ -35,7 +32,7 @@ Launch Interproscan with the option -h if you want have a look about all the par
 - If you enable the InterPro lookup ('-iprlookup'), you can also get the InterPro identifier corresponding to each motif retrieved: for example, the same motif is known as PF01623 in Pfam and as IPR002568 in InterPro.
 - The option '-pa' provides mappings from matches to pathway information (MetaCyc,UniPathway,KEGG,Reactome).
 ```
-interproscan.sh -i AA.fa -t p -dp -pa -appl Pfam,ProDom-2006.1,SuperFamily-1.75 --goterms --iprlookup
+interproscan.sh -i maker_final.fa -t p -dp -pa -appl Pfam,ProDom-2006.1,SuperFamily-1.75 --goterms --iprlookup
 ```
 The analysis shoud take 2-3 secs per protein request - depending on how many sequences you have submitted, you can make a fairly deducted guess regarding the running time.  
 You will obtain 3 result files with the following extension '.gff3', '.tsv' and '.xml'. Explanation of these output are available [>>here<<](https://github.com/ebi-pf-team/interproscan/wiki/OutputFormats).
@@ -47,10 +44,9 @@ Next, you could write scripts of your own to merge interproscan output into your
 - ipr\_update\_gff: adds searchable tags to the gene and mRNA features in the GFF3 files.  
 - iprscan2gff3: adds physical viewable features for domains that can be displayed in JBrowse, Gbrowse, and Web Apollo.
 ```
-ipr_update_gff maker_with_abinitio.gff AA.fa.tsv >  maker_with_abinitio_with_interpro.gff
+gff3_sp_manage_functional_annotation.pl --gff maker_final.gff -i maker_final.faa.tsv -o  maker_final.interpro.gff
 ```
 Where a match is found, the new file will now include features called Dbxref and/or Ontology_term in the gene and transcript feature field (9th column).
-
 
 ## BLAST approach
 Blast searches provide an indication about potential homology to known proteins.
@@ -60,7 +56,7 @@ A 'full' Blast analysis can run for several days and consume several GB of Ram. 
 
 To run Blast on your data, use the Ncbi Blast+ package against a Drosophila-specific database (included in the folder we have provided for you, under **annotation\_course/data/blastdb/uniprot\_dmel/uniprot\_dmel.fa**) - of course, any other NCBI database would also work:
 ```
-blastp -db ~/annotation_course/data/blastdb/uniprot_dmel/uniprot_dmel.fa -query AA.fa -outfmt 6 -out blast.out -num_threads 8
+blastp -db ~/annotation_course/data/blastdb/uniprot_dmel/uniprot_dmel.faa -query AA.fa -outfmt 6 -out blast.out -num_threads 8
 ```
 Against the Drosophila-specific database, the blast search takes about 2 secs per protein request - depending on how many sequences you have submitted, you can make a fairly deducted guess regarding the running time.
 
