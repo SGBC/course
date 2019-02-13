@@ -52,6 +52,11 @@ maker -c 8
 ```
 We probably expect this to take a little bit longer than before, since we have added another step to our analysis.
 
+Once the run is finished, check that everything went properly. If problems are detected, launch Maker again.  
+```
+maker_check_progress.sh
+```
+
 ## Compile the output
 
 When Maker has finished, compile the output:
