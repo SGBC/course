@@ -48,7 +48,7 @@ Before running MAKER you can check you have modified the maker_opts.ctl file pro
 
 With everything configured, run Maker as you did for the previous analysis:
 ```
-mpiexec -n 8 maker
+maker -c 8
 ```
 We probably expect this to take a little bit longer than before, since we have added another step to our analysis.
 
