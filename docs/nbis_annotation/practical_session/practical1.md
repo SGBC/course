@@ -111,7 +111,7 @@ Then you can have a look at the list of species that already have a trained hmm 
 augustus --species=help
 ```
 
-Did you see the approprate model for Drosophila Melanogaster ?
+   * Did you see the approprate model for Drosophila Melanogaster ?
 
 So, let's now launch Augustus on our genome with the `fly` model.
 
