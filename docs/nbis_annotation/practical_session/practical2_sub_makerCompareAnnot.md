@@ -47,7 +47,8 @@ maker_checkFusionSplitBetweenTwoBuilds.pl --ref maker_evidence.gff --tar maker_a
 cat maker_evidence_compare_to_abinitio/resume.txt
 ```
 
-How many genes are specific to each annotation ? How many genes from the evidence annotation have been merged/fused together by the abinitio annotation ?
+- How many genes are specific to each annotation ?  
+- How many genes from the evidence annotation have been merged/fused together by the abinitio annotation ?  
 
 Those two annotations have genes that are not in common (non-overlaping). Let's create a non-redundant concatenated gene set:
 ```
