@@ -1,37 +1,14 @@
 # Comparing and evaluating annotations
 
-## Prerequisites  
-
-First create the folder where yo will work:  
-```
-cd ~/annotation_course/practical2
-mkdir assess
-cd assess
-```
-
 In this exercise you will handle different annotation files: 
 
  * the pure abinitio one done with augustus (practical1),
- ```
- ln -s ~/annotation_course/practical1/augustus/augustus_drosophila.gff 
- ```
 
  * the evidence-based done with MAKER
-  ```
- ln -s ../maker/maker_evidence/maker.gff maker_evidence.gff 
- ```
  
  * the abinitio evidence drived one done with MAKER.
-  ```
- ln -s ../maker/maker_abinitio/maker.gff maker_abinitio.gff
- ```
  
  * the official annotation from Ensembl
-  ```
- ln -s ~/annotation_course/data/annotation/ensembl.genome.gff
- ```
- 
- First, we will count the features annotated in each of them and compare that number against the existing reference annotation. Next, we will perform a proper feature-level comparison to obtain a proper estimate of congruency.
 
 ## Evaluating annotation quality
 
@@ -54,13 +31,18 @@ It isn't so much a quality check as a measure of congruency - i.e. the resulting
 
 ### Gene number
 
-As already seen previousy you can have a look at the statistics of an anntoation with the **gff3_sp_statistics.pl** script.
+As already seen previousy you can have a look at the statistics of an anntoation with the **gff3_sp_statistics.pl** script.  
 As you will note, there are some differences - and of course, this is expected, since different approaches has been used to generate them. The EnsEMBL annotation is originally imported from FlyBase. Obviously, a lot of manual labor and much more data has been put into the FlyBase annotation - and this highlights a common limitation of any computational pipeline. You will simply never reach the same level of quality and detail as seen in a manually curated reference annotation.
 
 ### Comparison with another annotation
 
 We will compare the two anntation made with MAKER: the evidence one and the abinitio one.
 ```
+cd ~/annotation_course/practical2
+mkdir complement
+cd complement
+ln -s ../maker/maker_evidence/maker.gff maker_evidence.gff
+ln -s ../maker/maker_abinitio/maker.gff maker_abinitio.gff
 maker_checkFusionSplitBetweenTwoBuilds.pl --ref maker_evidence.gff --tar maker_abinitio.gff --out maker_evidence_compare_to_abinitio
 cat maker_evidence_compare_to_abinitio/resume.txt
 ```
@@ -89,7 +71,7 @@ cd ~/annotation_course/practical2
 mkdir busco
 cd busco
 
-ln -s  ~/annotation_course/practical2/assess/maker_abinitio_cplt_by_evidence.fasta
+ln -s  ~/annotation_course/practical2/complement/maker_abinitio_cplt_by_evidence.fasta
 ln -s ~/annotation_course/practical1/busco/metazoa_odb9
 
 BUSCO.py -i maker_abinitio_cplt_by_evidence.fasta -o dmel_maker_abinitio_cplt_by_evidence -m prot -c 8 -l metazoa_odb9
@@ -104,7 +86,7 @@ As with many tasks within bioinformatics, it is always a great idea to first loo
  * Preparing the input files
 First you have to be situated in a folder containing the two maker annotations (with and without ab initio) and the augustus annotation. 
 ```
-cd ~/annotation_course/practical2/assess
+cd ~/annotation_course/practical2/
 mkdir compare_ref
 cd compare_ref
 ```
@@ -112,7 +94,7 @@ cd compare_ref
 Then, copy or sym-link the EnsEMBL reference annotation as well as yours.
 ```
 ln -s ~/annotation_course/practical1/augustus/augustus_drosophila.gff
-ln -s ~/annotation_course/practical2/assess/maker_abinitio_cplt_by_evidence.gff 
+ln -s ~/annotation_course/practical2/complement/maker_abinitio_cplt_by_evidence.gff 
 ln -s ~/annotation_course/data/annotation/ensembl.genome.gff
 ```
 
