@@ -67,7 +67,7 @@ tar xzvf metazoa_odb9.tar.gz
 
 Now you are ready to launch BUSCO on our genome (genome.fa).
 ```
-run_busco -i ~/annotation_course/data/genome/genome.fa -o genome_dmel_busco -m geno -c 8 -l metazoa_odb9
+BUSCO.py -i ~/annotation_course/data/genome/genome.fa -o genome_dmel_busco -m geno -c 8 -l metazoa_odb9
 ```
 
 While BUSCO is running, start the exercise 2.
