@@ -81,10 +81,8 @@ BUSCO.py -i maker_abinitio_cplt_by_evidence.fasta -o dmel_maker_abinitio_cplt_by
 
 ### Comparison with the reference annotation
 
-As with many tasks within bioinformatics, it is always a great idea to first look around for existing solutions. In the case of comparing annotations, there are in fact options already out there. One such example is genometools, which we have briefly used before.
+As with many tasks within bioinformatics, it is always a great idea to first look around for existing solutions. In the case of comparing annotations, there are in fact options already out there. One such example is genometools, which we have briefly used before.  
 
-
- * Preparing the input files
 First create the worling folder: 
 ```
 cd ~/annotation_course/practical2/
@@ -99,18 +97,19 @@ ln -s ~/annotation_course/practical2/complement/maker_abinitio_cplt_by_evidence.
 ln -s ~/annotation_course/data/annotation/ensembl.genome.gff
 ```
 
-Now we have to sort any GFF3-formatted annotation in a way that genometools accepts.
+Now we have to sort any GFF3-formatted annotation in a way that genometools accepts:
 ```
 gt gff3 -sort augustus_drosophila.gff > augustus_drosophila.sorted.gff
 gt gff3 -sort maker_abinitio_cplt_by_evidence.gff > maker_abinitio_cplt_by_evidence.sorted.gff 
 gt gff3 -sort ensembl.genome.gff > ensembl.sorted.gff 
 ```
 
-With the sorted files, we can now perform a comparison:
+With the sorted files, we can now perform a comparison two by two:
 ```
 gt eval ensembl.sorted.gff augustus_drosophila.sorted.gff
 gt eval ensembl.sorted.gff maker_abinitio_cplt_by_evidence.sorted.gff
 ```
+
 This will create a long list of measures for all relevant sequence features with respect to both the 'sensitivity' and 'specificity' - as a measure of how close the annotation comes to a reference. As a reminder, 'specificity' measures the fraction of a reference overlapping a prediction whereas 'sensitivity' measures the fraction of a prediction overlapping a reference.
 
 Note that the measures employed by genometools function in a all-or-nothing fashion. If the overlap is not 100%, it doesn't count (which is why you are unlikely to find gene-level congruencies between your gene builds and the reference annotation).  
