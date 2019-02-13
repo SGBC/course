@@ -114,7 +114,7 @@ This will create a long list of measures for all relevant sequence features with
 
 Note that the measures employed by genometools function in a all-or-nothing fashion. If the overlap is not 100%, it doesn't count (which is why you are unlikely to find gene-level congruencies between your gene builds and the reference annotation).  
 
-From the comparison of your annotations (the pure abinitio Augustus one and the one made with MAKER) to the Ensembl annotation, which one **seems** to be the most comprehensive to you ?
+ * From the comparison of your annotations (the pure abinitio Augustus one and the one made with MAKER) to the Ensembl annotation, which one **seems** to be the most comprehensive to you ?
 
 ### Filter MAKER annotation by AED score
 
@@ -128,7 +128,7 @@ ln -s ~/annotation_course/practical2/complement/maker_abinitio_cplt_by_evidence.
 maker_select_models_by_AED_score.pl -f maker_abinitio_cplt_by_evidence.gff -v 0.3 -t "<" -o result
 ```
 
-How many genes have passed your filter ? How many have been discarded ?
+ * How many genes have passed your filter ? How many have been discarded ?
 
 ## Visualising annotations
 
