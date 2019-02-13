@@ -24,8 +24,8 @@ Link the gff files you want to use into your folder:
  - protein2genome.gff 
 
 ```
-ln -s maker_no_abinitio/annotationByType/est2genome.gff 
-ln -s maker_no_abinitio/annotationByType/protein2genome.gff
+ln -s maker_evidence/annotationByType/est2genome.gff 
+ln -s maker_evidence/annotationByType/protein2genome.gff
 ```
 
 This time, we do specify a reference species to be used by augustus, which will enable ab-initio gene finding and keep_preds=1 will also show abinitio prediction not supported by any evidences :  
