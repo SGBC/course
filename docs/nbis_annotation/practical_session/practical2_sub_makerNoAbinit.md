@@ -85,6 +85,11 @@ maker -c 8
 This will start Maker on 8 cores, if everything is configured correctly.
 This will take a little while and process a lot of output to the screen. Luckily, much of the heavy work - such as repeat masking - are already done, so the total running time is quite manageable, even on a small number of cores.
 
+Once the run is finished, check that everything went properly. If problems are detected, launch MAKER again.
+```
+maker_check_progress.sh
+```
+
 ## Inspect the output (optional)
 
 [Here you can find details about the MAKER output.](practical2_supl2_maker.md)
