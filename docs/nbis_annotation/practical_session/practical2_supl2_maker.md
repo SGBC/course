@@ -8,11 +8,11 @@ By default, Maker will write the output of its different analyses into a folder 
 
 In our case:
 
-**4.maker.output**
+**genome.maker.output**
 
-Within the main output directory, Maker keeps a copy of the config files, a database (here: 4.db), directories for the blast databases created from your evidence data and a file called 4\_master\_datastore\_index.log.
+Within the main output directory, Maker keeps a copy of the config files, a database (here: genome.db), directories for the blast databases created from your evidence data and a file called genome\_master\_datastore\_index.log.
 
-Out of these files, only the 4\_master\_datastore\_index is really interesting to us. It includes a log of all the contigs included in the genome fasta file - together with their processing status (ideally: FINISHED) and the location of the output files. Since Maker can technically run in parallel on a large number of contigs, it creates separate folders for each of these input data. For larger genomes, this can generate a very deep and confusing folder tree. The 4\_master\_datastore\_index helps you make sense of it:
+Out of these files, only the genome\_master\_datastore\_index is really interesting to us. It includes a log of all the contigs included in the genome fasta file - together with their processing status (ideally: FINISHED) and the location of the output files. Since Maker can technically run in parallel on a large number of contigs, it creates separate folders for each of these input data. For larger genomes, this can generate a very deep and confusing folder tree. The genome\_master\_datastore\_index helps you make sense of it:
 ```
 4       genome\_datastore/A8/7F/4/ STARTED  
 4       genome\_datastore/A8/7F/4/ FINISHED
