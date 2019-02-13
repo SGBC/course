@@ -52,7 +52,7 @@ maker -c 8
 ```
 We probably expect this to take a little bit longer than before, since we have added another step to our analysis.
 
-Once the run is finished, check that everything went properly. If problems are detected, launch Maker again.  
+Once the run is finished, check that everything went properly. If problems are detected, launch MAKER again.  
 ```
 maker_check_progress.sh
 ```
