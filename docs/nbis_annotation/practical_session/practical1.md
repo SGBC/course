@@ -17,7 +17,6 @@ cd ~/annotation_course
 
   * **List of tools needed. For your convenience they all hae been pre-installed.**  
 
-    * MAKER 
     * BUSCO
     * augustsus
     * GAAS repository
