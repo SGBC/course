@@ -10,7 +10,7 @@ In this exercise you will handle different annotation files:
  
  * the official annotation from Ensembl
 
-## Evaluating annotation quality
+## overwiev
 
 Evaluating an annotation can be done in different ways:
 
