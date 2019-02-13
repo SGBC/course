@@ -12,8 +12,6 @@ Create the folder where we will launch this maker run.
 
 ```
 cd ~/annotation_course/practical2/maker/
-mdkir evidence
-cd evidence
 ```
 
 Link the raw computes you want to use into your folder. The files you will need are:
@@ -95,20 +93,20 @@ This will take a little while and process a lot of output to the screen. Luckily
 
 Once Maker is finished, compile the annotation:
 ```
-maker_merge_outputs_from_datastore.pl --output maker_no_abinitio
+maker_merge_outputs_from_datastore.pl --output maker_evidence
 ```
 We have specified a name for the output directory since we will be creating more than one annotation and need to be able to tell them apart.  
 
-This should create a "maker\_no\_abinitio" directory containing a maker annotation file together with the matching protein predictions file and a sub-directory containing different annotation files including the **maker.gff** which is the result to keep from this analysis. 
+This should create a **maker\_evidence** folder containing all computed data including **maker.gff** which is the maker annotation file and **genome.all.maker.proteins.fasta** which is the protein fasta file of this annotation. Those two files are the most important outputs from this analysis. 
 
-=> You could sym-link the maker.gff file to another folder called e.g. dmel\_results, so everything is in the same place in the end. Just make sure to call the link something other than maker.gff, since any maker output will be called that.
+=> You could sym-link the **maker.gff** and **genome.all.maker.proteins.fasta** files to another folder called e.g. dmel\_results, so everything is in the same place in the end. Just make sure to call the links with specific names, since any maker output will be called similarly.
 
 
 ## Inspect the gene models
 
-To get some statistics of your annotation you could launch :
+To get some statistics of your annotation you could read the **maker_stat.txt** file from the **maker\_evidence** folder or launch this script that work on any gff file :
 ```
-gff3_sp_statistics.pl --gff maker_no_abinitio/annotationByType/maker.gff
+gff3_sp_statistics.pl --gff maker_evidence/annotationByType/maker.gff
 ```
 
 We could now also visualise the annotation in the Webapollo genome browser.
