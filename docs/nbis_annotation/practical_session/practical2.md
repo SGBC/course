@@ -1,4 +1,6 @@
-# Prerequisites
+# Structural annotation with the MAKER pipeline
+
+## Prerequisites
 
   * **Connection to your virtual machine**  
 Before going into the exercises below you need to connect to your virtual machine Ubuntu 16.04 following the instruction we will provide you.
