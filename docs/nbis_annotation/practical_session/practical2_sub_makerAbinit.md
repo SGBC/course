@@ -56,7 +56,7 @@ We probably expect this to take a little bit longer than before, since we have a
 
 When Maker has finished, compile the output:
 ```
-maker_merge_outputs_from_datastore.pl --output maker_with_abinitio 
+maker_merge_outputs_from_datastore.pl --output maker_abinitio 
 ```
 And again, it is probably best to link the resulting output (maker.gff) to a result folder (the same as defined in the previous exercise e.g. dmel\_results), under a descriptive name.
 
@@ -64,7 +64,7 @@ And again, it is probably best to link the resulting output (maker.gff) to a res
 
 To get some statistics of your annotation you could launch :
 ```
-gff3_sp_statistics.pl --gff maker_with_abinitio/annotationByType/maker.gff
+gff3_sp_statistics.pl --gff maker_abinitio/maker.gff
 ```
 
 We could now also visualise the annotation in the Webapollo genome browser.
