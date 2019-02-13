@@ -3,7 +3,7 @@
 
 
 \#-----Genome (these are always required)  
-**genome=4.fa** #genome sequence (fasta file or fasta embeded in GFF3 file)  
+**genome=genome.fa** #genome sequence (fasta file or fasta embeded in GFF3 file)  
 organism\_type=eukaryotic #eukaryotic or prokaryotic. Default is eukaryotic
 
 ...
