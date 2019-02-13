@@ -47,7 +47,7 @@ Next, you could write scripts of your own to merge interproscan output into your
 gff3_sp_manage_functional_annotation.pl --gff maker_final.gff -i maker_final.faa.tsv -o  maker_final.interpro
 ```
 Where a match is found, the new file will now include features called Dbxref and/or Ontology_term in the gene and transcript feature field (9th column).
-The improved annotation is a file named "codingGeneFeatures.gff" inside the finalOutputDir.
+The improved annotation is the gff file inside the maker_final.interpro folder.
 
 ## BLAST approach
 Blast searches provide an indication about potential homology to known proteins.
@@ -65,23 +65,26 @@ Against the Drosophila-specific database, the blast search takes about 2 secs pe
 
 Now you should be able to use the following script:
 ```
-gff3_sp_manage_functional_annotation.pl -f maker_final.interpro.gff -b blast.out --db  ~/annotation_course/data/blastdb/uniprot_dmel/uniprot_dmel.faa --ID FLY -o maker_final.interpro.blast  
+gff3_sp_manage_functional_annotation.pl -f maker_final.interpro.gff -b blast.out --db  ~/annotation_course/data/blastdb/uniprot_dmel/uniprot_dmel.faa -o maker_final.interpro.blast  
 ```
 That will add the name attribute to the "gene" feature and the description attribute (corresponding to the product information) to the "mRNA" feature into you annotation file. 
-The improved annotation is a file named "codingGeneFeatures.gff" inside the finalOutputDir.
+The improved annotation is the gff file inside the maker_final.interpro.blast folder.
 
+ * How many genes do not have any names ?
+ 
 ### Set nice IDs
 
 The purpose is to modify the ID value by something more convenient (i.e FLYG00000001 instead of maker-4-exonerate_protein2genome-gene-8.41).  
 ```
-gff3_sp_manage_functional_annotation.pl -f maker_final.interpro.gff --ID FLY -o maker_final.interpro.blast.ID  
+gff3_sp_manage_functional_annotation.pl -f maker_final.interpro.blast/maker_final.gff --ID FLY -o maker_final.interpro.blast.ID  
 ```
+The improved annotation is the gff file inside the maker_final.interpro.blast.ID folder.
 
-### Polish your file for a nice display wihtin Webapollo
+### Polish your file for a nice display within Webapollo
 
-For displaying the product attribute in Webapollo you can change this attribute by description using this script:
+For displaying the ***product*** attribute in Webapollo you have to change it by the ***description*** attribute using this script:
 ```
-/home/student/.local/GAAS/annotation/WebApollo/gff3_webApollo_compliant.pl --gff finalOutputDir/codingGeneFeatures.gff -o final_annotation.gff
+~/annotation_course/GAAS/annotation/WebApollo/gff3_webApollo_compliant.pl -gff maker_final.interpro.blast.ID/maker_final.gff -o final_annotation.gff
 ```
 
 ## Visualise the final annotation
