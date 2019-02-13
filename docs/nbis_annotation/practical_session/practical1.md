@@ -97,14 +97,30 @@ Now we are satisfied by the quality of the assembly we can start the annotation.
 
 **_Exercise 3_ - Augustus:**
 
-Run Augustus on your genome file using:  
+First create a folder where to run Augustus.  
+
 ```
 cd ~/annotation_course/practical1
 mkdir augustus
 cd augustus
+```
+
+Then you can have a look at the list of species that already have a trained hmm model.  
+
+```
+augustus --species=help
+```
+
+Did you see the approprate model for Drosophila Melanogaster ?
+
+So, let's now launch Augustus on our genome with the `fly` model.
+
+```
 augustus --species=fly ~/annotation_course/data/genome/genome.fa --gff3=yes --progress=true > augustus_drosophila.gff
 ```
+
 if you wish to annotate isoforms too, use the following command:
+
 ```
 augustus --species=fly ~/annotation_course/data/genome/genome.fa --gff3=yes --progress=true --alternatives-from-sampling=true > augustus_drosophila_isoform.gff
 ```
