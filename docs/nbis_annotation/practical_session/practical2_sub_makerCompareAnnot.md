@@ -85,14 +85,14 @@ As with many tasks within bioinformatics, it is always a great idea to first loo
 
 
  * Preparing the input files
-First you have to be situated in a folder containing the two maker annotations (with and without ab initio) and the augustus annotation. 
+First create the worling folder: 
 ```
 cd ~/annotation_course/practical2/
 mkdir compare_ref
 cd compare_ref
 ```
 
-Then, copy or sym-link the EnsEMBL reference annotation as well as yours.
+Then, copy or sym-link the EnsEMBL reference annotation as well as yours:
 ```
 ln -s ~/annotation_course/practical1/augustus/augustus_drosophila.gff
 ln -s ~/annotation_course/practical2/complement/maker_abinitio_cplt_by_evidence.gff 
