@@ -18,25 +18,27 @@ Link the gff files you want to use into your folder:
 
  - repeatmasker.chr4.gff (already present)
  - repeatrunner.chr4.gff (already present)
- - 4.fa (already present)
- - est_gff_stringtie.gff (transcript that have been mapped by MAKER during the evidence based round of annotation) 
+ - genome.fa (already present)
+ - stringtie2genome.genome.gff (already present) 
  - est2genome.gff 
  - protein2genome.gff 
 
 ```
-ln -s maker_no_abinitio/annotationByType/est_gff:stringtie.gff est_gff_stringtie.gff
 ln -s maker_no_abinitio/annotationByType/est2genome.gff 
 ln -s maker_no_abinitio/annotationByType/protein2genome.gff
 ```
 
-This time, we do specify a reference species to be used by augustus, which will enable ab-initio gene finding and keep_preds=1 will also show abinitio prediction not supported by any evidences :
+This time, we do specify a reference species to be used by augustus, which will enable ab-initio gene finding and keep_preds=1 will also show abinitio prediction not supported by any evidences :  
 
-*augustus\_species=fly* #Augustus gene prediction species model  (this is where you can call the database you trained for augustus)
-...  
+*augustus\_species=fly* #Augustus gene prediction species model  (this is where you can call the database you trained for augustus)   
+...
+*keep_preds=1*
+
+We must deactivate the evidence base predidction to enable MAKER to pass those alignalignents/hints to the ab-initio tool (That enable the ab-initio evidence-driven mode. Otherwise it would be pure abinitio).  
+
 <i>protein2genome=0</i>  
 <i>est2genome=0</i>
 
-*keep_preds=1*
 
 With these settings, Maker will run augustus to predict gene loci, but inform these predictions with information from the protein and est alignments.
 
