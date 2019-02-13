@@ -47,6 +47,8 @@ This will create a directory called "**maker_output_processed**" containing a lo
 
 ```
 augustus_masked.gff
+blastn.gff
+blastx.gff
 cdna2genome.gff
 est_gff_est2genome.gff
 evm.gff
@@ -74,6 +76,7 @@ maker_exe.ctl
 maker.gff
 maker_opts.ctl
 maker_stat.txt
+protein2genome.gff
 protein_gff_protein2genome.gff
 repeat_gff_repeatmasker.gff
 repeat_gff_repeatrunner.gff
@@ -104,5 +107,35 @@ And so on.
 This file contains the proteins translated from the CDS of the MAKER gene models.
 
  * **cdna2genome.gff**  
+Contains the fasta sequences provided by the **est=** parameter that have been succefuly mapped onto the assembly.
 
-Contains the fasta sequence provided by the **est=** parameter that have been succefuly mapped onto the assembly.
+ * **est_gff_xxx_.gff**  
+Contains the gff data provided by the **est_gff=** parameter that have been kept.
+
+ * **protein2genome.gff**  
+Contains the fasta sequences provided by the **protein=** parameter that have been succefuly mapped onto the assembly.
+
+ * **protein_gff_xxx_.gff**  
+Contains the gff data provided by the **protein_gff=** parameter that have been kept.
+
+ * **blastx.gff**  
+Contains the blast results of the protein fasta sequences provided by the **protein=** parameter.
+
+ * **blastn.gff**  
+Contains the blast results of the nucleotide sequences provided by the **est=** parameter.
+
+ * **tblastx.gff**  
+Contains the blast results of the nucleotide sequences provided by the **alt_est=** parameter.
+
+ * **repeatmasker.gff**  
+Contains the repeat masking results when **model_org=**  or/and  **rmlib=**  parameter is used.
+
+ * **repeatrunner.gff**  
+Contains the repeatrunner results when **repeat_protein=** parameter is used.
+
+ * **maker_xxx.ctl**  
+All the file with **.ctl** extensions are copy of the control files used to produce the result contained in the current folder.
+
+ * **genome.all.maker.trnascan.noncoding.fasta**  
+Contains the result in fasta format of the tRNAscan analysis when the parameter **trna=1** parameter is used. The corresponding gff result is within the maker.gff file.
+
