@@ -6,7 +6,7 @@ from __future__ import print_function, with_statement
 from fabric.api import *
 from fabric.network import ssh
 
-from student_ips import IPS, PASSWORD, test_ip, test_user
+from student_ips import IPS, PASSWORD
 
 from qc import qc
 from alignment import alignment
@@ -17,7 +17,7 @@ from metagenomics import binning, metabarcoding, kraken, checkm
 
 env.hosts = IPS
 env.user = 'student'
-env.key_filename = '~/.ssh/azure_rsa'
+env.key_filename = '~/.ssh/azure_2019.rsa'
 
 # test vm
 # env.hosts = '40.71.27.91'
@@ -41,6 +41,7 @@ def passwd():
     sudo('echo "student:%s" | sudo chpasswd' % PASSWORD)
 
 
+@parallel
 def format_sdc():
     with warn_only():
         sudo('(echo n; echo p; echo 1; echo ; echo ; echo w) | sudo fdisk /dev/sdc')
@@ -50,7 +51,7 @@ def format_sdc():
 
 @parallel
 def setup():
-    sudo('apt -y -qq update && apt -y -qq upgrade')
+    #     format_sdc()
     sudo('apt -y -qq install python-pip python-dev')
     sudo('apt -y -qq install unzip')
     sudo('apt -y -qq install make gcc git')
@@ -58,9 +59,9 @@ def setup():
     sudo('apt -y -qq install libncurses5-dev libbz2-dev liblzma-dev')
     sudo('apt -y -qq install zlib1g-dev libcurl4-gnutls-dev')
     run('mkdir -p ~/install')
-    run('mkdir -p /home/$(whoami)/.local/bin')
-    run('mkdir -p /home/$(whoami)/.local/share')
-    run('mkdir -p /home/$(whoami)/.local/lib')
+    sudo('mkdir -p /opt/sw/bin')
+    sudo('mkdir -p /opt/sw/share')
+    sudo('mkdir -p /opt/sw/lib')
 
 
 @parallel
@@ -77,6 +78,7 @@ def rstudio():
         sudo('gdebi -n %s' % RSTUDIO_FILE)
 
 
+@parallel
 def cleanup():
     with cd('~/install'):
         sudo('rm -rf *')
@@ -84,7 +86,5 @@ def cleanup():
 
 def full_cleanup():
     cleanup()
-    sudo('rm -rf ~/.local/')
-    run('mkdir -p /home/$(whoami)/.local/bin')
-    run('mkdir -p /home/$(whoami)/.local/share')
+    sudo('rm -rf /opt/sw/*')
     setup()
