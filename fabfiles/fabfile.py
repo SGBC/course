@@ -11,8 +11,8 @@ from student_ips import IPS, PASSWORD
 from qc import qc
 from alignment import alignment
 from rna import quant, rna_assembly
-from annotation import annotation, pan_genome, euk_annot, functional_annot
-from assembly import assembly, assembly_qc, assembly_extras
+from annotation import annotation, pan_genome, euk_deps, euk_progs, maker, gaas, functional_annot
+from assembly import assembly, quast, busco, augustus, assembly_extras
 from metagenomics import binning, metabarcoding, kraken, checkm
 
 env.hosts = IPS

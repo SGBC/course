@@ -14,8 +14,8 @@ MAKER_FILE = 'maker-2.31.9.tgz'
 
 REPEATMASKER_WEB = 'http://www.repeatmasker.org/'
 REPEATMASKER_FILE = 'RepeatMasker-open-4-0-7.tar.gz'
-REPBASE_WEB = 'http://www.girinst.org/server/RepBase/protected/repeatmaskerlibraries/'
-REPBASE_FILE = 'RepBaseRepeatMaskerEdition-20170127.tar.gz'
+REPBASE_WEB = 'https://www.girinst.org/server/RepBase/protected/'
+REPBASE_FILE = 'RepBase24.01.fasta.tar.gz'
 
 
 @parallel
@@ -37,49 +37,59 @@ def pan_genome():
 
 
 @parallel
-def euk_annot():
+def euk_deps():
     sudo('apt -y -qq install cpanminus ncbi-blast+ snap-aligner hmmer')
     sudo('apt -y -qq install exonerate openmpi-bin libmpich-dev')
     sudo('cpanm -f DBI DBD::SQLite forks forks::shared File::Which IO::All')
     sudo('cpanm -f Perl::Unsafe::Signals Bit::Vector Inline::C IO::Prompt')
     sudo('cpanm -f Text::Soundex Statistics::R LWP::UserAgent')
     sudo('cpanm -f Bio::Perl')
+
+
+@parallel
+def euk_progs():
     # trf
     with cd('~/install'):
         run('wget --quiet http://tandem.bu.edu/trf/downloads/trf409.linux64')
         run('chmod +x trf409.linux64')
-        run('mv trf409.linux64 ~/.local/bin/trf')
+        sudo('mv trf409.linux64 /opt/sw/bin/trf')
     # repeatmasker
-    with cd('~/.local'):
-        run('wget --quiet %s%s' % (REPEATMASKER_WEB, REPEATMASKER_FILE))
-        run('tar xzf %s' % REPEATMASKER_FILE)
-    with cd('~/.local/RepeatMasker'):
-        run('curl -O -u %s %s%s' % (repbase_id, REPBASE_WEB, REPBASE_FILE))
-        run('tar xzf %s' % REPBASE_FILE)
-        run('printf "\nenv\n\n\n4\n/usr/bin\nY\n5\n" | perl ./configure')
-    run('echo "export PATH=$PATH:~/.local/RepeatMasker" >> ~/.bashrc')
-    # maker
-    with cd('~/.local'):
+    with cd('/opt/sw/share'):
+        sudo('wget --quiet %s%s' % (REPEATMASKER_WEB, REPEATMASKER_FILE))
+        sudo('tar xzf %s' % REPEATMASKER_FILE)
+    with cd('/opt/sw/share/RepeatMasker'):
+        sudo('curl -O -u %s %s%s' % (repbase_id, REPBASE_WEB, REPBASE_FILE))
+        sudo('tar xzf %s' % REPBASE_FILE)
+        sudo('printf "\nenv\n\n\n4\n/usr/bin\nY\n5\n" | perl ./configure')
+    run('echo "export PATH=$PATH:/opt/sw/share/RepeatMasker" >> ~/.bashrc')
+
+
+@parallel
+def maker():
+    with cd('/opt/sw/share'):
         run('wget --quiet %s%s%s' % (MAKER_WEB, MAKER_ID, MAKER_FILE))
         run('tar -xzf %s' % MAKER_FILE)
-    with cd('~/.local/maker/src'):
-        run('printf "Y\n\n\n" | perl Build.PL')
-        run('./Build install')
-    run('echo "export PATH=$PATH:~/.local/maker/bin" >> ~/.bashrc')
-    # GAAS
+    with cd('opt/sw/share/maker/src'):
+        sudo('printf "Y\n\n\n" | perl Build.PL')
+        sudo('./Build install')
+    run('echo "export PATH=$PATH:~/opt/sw/share/maker/bin/" >> ~/.bashrc')
+
+
+@parallel
+def gaas():
     sudo('cpanm -f Moose Clone Graph::Directed')
-    with cd('~/.local'):
-        run('git clone https://github.com/NBISweden/GAAS.git')
-    run('echo "export PERL5LIB=$PERL5LIB:~/.local/GAAS/annotation" >> ~/.bashrc')
-    run('echo "export PATH=$PATH:~/.local/GAAS/annotation/Tools/Maker/:~/.local/GAAS/annotation/Tools/Util/gff/:~/.local/GAAS/annotation/Tools/Util/fasta/:~/.local/GAAS/annotation/Tools/Util/:~/.local/GAAS/annotation/Tools/Converter/" >> ~/.bashrc')
+    with cd('/opt/sw/bin'):
+        sudo('git clone https://github.com/NBISweden/GAAS.git')
+    run('echo "export PERL5LIB=$PERL5LIB:/opt/sw/bin/GAAS/annotation" >> ~/.bashrc')
+    run('echo "export PATH=$PATH:/opt/sw/GAAS/annotation/Tools/Maker/:/opt/sw/GAAS/annotation/Tools/Util/gff/:/opt/sw/GAAS/annotation/Tools/Util/fasta/:/opt/sw/GAAS/annotation/Tools/Util/:/opt/sw/GAAS/annotation/Tools/Converter/" >> ~/.bashrc')
 
 
 @parallel
 def functional_annot():
-    with cd('/opt'):
+    with cd('/opt/sw'):
         sudo('wget --quiet ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.27-66.0/interproscan-5.27-66.0-64-bit.tar.gz')
         sudo('tar pxzf interproscan-5.27-66.0-64-bit.tar.gz')
-    with cd('/opt/interproscan-5.27-66.0/data'):
-        sudo('wget --quiet ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/data/panther-data-12.0.tar.gz')
-        sudo('tar pxzf panther-data-12.0.tar.gz')
-    run('echo "export PATH=$PATH:~/.local/interproscan-5.27-66.0" >> ~/.bashrc')
+    # with cd('/opt/interproscan-5.27-66.0/data'):
+        # sudo('wget --quiet ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/data/panther-data-12.0.tar.gz')
+        # sudo('tar pxzf panther-data-12.0.tar.gz')
+    run('echo "export PATH=$PATH:/opt/sw/interproscan-5.27-66.0" >> ~/.bashrc')
