@@ -81,9 +81,7 @@ Launching the following script will provide you some useful information.
 
 ```
 cd ~/annotation_course/practical1
-mkdir fasta_check
-cd fasta_check
-fasta_statisticsAndPlot.pl -f ~/annotation_course/data/genome/genome.fa -o output
+fasta_statisticsAndPlot.pl -f ~/annotation_course/data/genome/genome.fa -o fasta_check
 ```
 
 Is your genome very fragmented (number of sequences)? Do you have high GC content ? Do you have lowercase nucleotides ? Do you have N at sequence extremities? 
@@ -146,7 +144,7 @@ Load the file in into the genome portal called **drosophila\_melanogaster\_chr4*
 How does the Augustus annotation compare with the Ensembl annotation? Are they identical?
 
 **_Exercise 4 -_ Augustus with yeast models:**  
-Run augustus on the same genome file but using settings for yeast instead (change species to Saccharomyces).
+Run augustus on the same genome file but using settings for yeast instead (change species to **saccharomyces**).
 
 Load this result file into Webapollo and compare with your earlier results. Can you based on this draw any conclusions about how a typical yeast gene differs from a typical Drosophila gene?
 
