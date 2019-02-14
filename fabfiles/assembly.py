@@ -45,16 +45,17 @@ def assembly():
 
 
 @parallel
-def assembly_qc():
-    # quast
-    sudo('apt -y -qq install csh libboost1.58-dev')
+def quast():
+    sudo('apt -y -qq install csh libboost-all-dev')
     with cd('~/install'):
         run('wget --quiet %s%s' % (QUAST_WEB, QUAST_FILE))
         run('tar xzf %s' % QUAST_FILE)
     with cd('~/install/%s' % QUAST_DIR):
         sudo('./setup.py install')
 
-    # busco
+
+@parallel
+def augustus():
     sudo('apt -y -qq install hmmer libboost-iostreams-dev libbamtools-dev')
     with cd('~/install'):
         run('wget --quiet %s%s' % (AUGUSTUS_WEB, AUGUSTUS_FILE))
@@ -63,10 +64,14 @@ def assembly_qc():
         sudo('mv bin/* /opt/sw/bin/')
         sudo('mv config /opt/sw/share/aug_config')
         run('echo "export AUGUSTUS_CONFIG_PATH=~/.local/aug_config" >> ~/.bashrc')
+
+
+@parallel
+def busco():
     with cd('~/install'):
         run('git clone -q https://gitlab.com/ezlab/busco.git -b 2.0.1')
     with cd('~/install/busco'):
-        suco('mv BUSCO.py /opw/sw/bin')
+        sudo('mv BUSCO.py /opt/sw/bin')
         sudo('mv BUSCO_plot.py /opt/sw/bin')
 
 
