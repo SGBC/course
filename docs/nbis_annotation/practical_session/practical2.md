@@ -1,20 +1,22 @@
-# Gathering evidence data for annotation (Optional)
+# Structural annotation with the MAKER pipeline
 
-This exercise is meant to get you acquainted with the type of data you would normally encounter in an annotation project.
+## Prerequisites
 
-## 1. Protein, EST and RNA-seq data (Optional)
+  * **Connection to your virtual machine**  
+Before going into the exercises below you need to connect to your virtual machine Ubuntu 16.04 following the instruction we will provide you.
 
-[Here will get an idea of where to download evidence sequences.](practical2_sub_gatherEvidence.md)
+  * **Create the folder structure**  
+Now create and move into the **practical2** folder and you are ready to start !
+```
+mkdir -p ~/annotation_course/practical2
+cd ~/annotation_course/practical2
+```
 
-## 2. Assembling transcripts based on RNA-seq data (Optional)
+  * **List of tools needed. For your convenience they all hae been pre-installed.**  
 
-[Here will get an idea how to deal with RNA-seq data](practical2_sub_transcriptome.md)
-
-## Closing remarks
-
-Now you know how to obtain evidence data, which will be useful to perform a nice annotation.
-
-# Running the Maker gene build pipeline
+    * MAKER
+    * augustsus
+    * GAAS repository
 
 ## Overview
 
@@ -26,9 +28,7 @@ The Maker pipeline can work with any combination of the following data sets:
 
 * Proteins from more distantly related organisms (e.g. Uniprot/Swissprot)  
 
-* EST sequences from the same species or very closely related species  
-
-* RNA-seq data from the same or very closely related species - in the form of splice sites or assembled transcripts  
+* Transcriptome sequences from the same species or very closely related species  
 
 * Ab-initio predictions from one or more tools (directly supported are: Augustus, Snap, GeneMark, Fgenesh)  
 
@@ -40,9 +40,8 @@ Maker strings together a range of different tools into a complex pipeline (e.g. 
 Check that everything is running smoothly by creating the MAKER config files:
 
 ```
-cd ~/annotation_course/practical2
-mkdir maker
-cd maker
+mkdir -p ~/annotation_course/practical2/maker
+cd ~/annotation_course/practical2/maker
 maker -CTL
 ```
 

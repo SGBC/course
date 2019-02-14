@@ -3,21 +3,33 @@
 We will for all exercises use data for the fruit fly, Drosophila melanogaster, as that is one of the currently best annotated organisms and there is plenty of high quality data available. However, working on eukaryotes can be time consuming. Even a small genome like Drosophila would take too long to run within the time we have for this course. Thus to be sure to perform the practicals in good conditions, we will use the smallest chromosome of the drosophila (chromosome 4) like it was a whole genome.
 An annotation project requires numerous tools and dependencies, which can take easily many days to install for a neophyte. For your convenience and in order to focus on the art of the ANNOTATION most of the tools are already installed on your machine (Thank you Hadrien :) ).
 
-# First of all
+# Prerequisites
 
+  * **Connection to your virtual machine**  
 Before going into the exercises below you need to connect to your virtual machine Ubuntu 16.04 following the instruction we will provide you.
-Once connected you will move into the **annotation\_course** folder, where all the magic will happen.
+
+  * **Create the folder structure**  
+Once connected you will create and move into the **annotation\_course** folder, where all the magic will happen.
 ```
+mkdir -p ~/annotation_course/practical1
 cd ~/annotation_course
 ```
 
-**Now you need the data !!** You must download the archive of the data and uncompress it (it could take few minutes).
+  * **List of tools needed. For your convenience they all hae been pre-installed.**  
+
+    * BUSCO
+    * augustsus
+    * GAAS repository
+
+  * **Download the data**  
+You must download the archive of the data and uncompress it (it could take few minutes).
 ```
-wget https://u-ip-81-109.hpc2n.umu.se/tickets/La34or2kms3wMdf1Gp5HdbsmT4fFCIfayQeHvew8kaU/data.tar.gz/download
+wget https://u-ip-81-109.hpc2n.umu.se/tickets/7mIStX-Y-zjj_XPzI-iYQni2_0LVBSdBtHf_vhiA_Zk/data.tar.gz/download
 tar xzvf download
 rm download
 ```
 
+  * **Move the proper folder to start the excercice**  
 Now move into the **practical1** folder and you are ready to start for this morning !
 ```
 cd ~/annotation_course/practical1
@@ -37,7 +49,7 @@ BUSCO provides measures for quantitative assessment of genome assembly, gene set
 
 **_Exercise 1_ - BUSCO -:**
 
-You will run BUSCO on chromosome 4 of Drosophila melanogaster.
+You will run BUSCO on the genome assembly.
 
 First create a busco folder where you work:
 ```
@@ -45,21 +57,22 @@ mkdir busco
 cd busco
 ```
 
-Then visit the [busco website](http://busco.ezlab.org) and choose the best data set among the vast choice. Once you know which one you want to use, right click on it and copy the link to it. Then download the dataset.
-/!\ Replace **http://busco.ezlab.org/datasets/metazoa_odb9.tar.gz** link by the link to the dataset you have chosen.
+The [BUSCO website](http://busco.ezlab.org) provides a list of datasets containing the cores genes expected in the different branches of the tree of life. To know in which part/branch of the tree of life is originated your species you can have a look at the [NCBI taxonomy website](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7227) (Lineage line).
+Then select the proper BUSCO Dataset on the [busco website](http://busco.ezlab.org) to check the completness of your assembly. To download the dataset to the cluster, you need the URL (right click on it, Copy Link). Then download the dataset.
+/!\ In the example below the link copied is **http://busco.ezlab.org/datasets/metazoa_odb9.tar.gz**, so replace it by something else if you decided to take another dataset.
 ```
 wget http://busco.ezlab.org/datasets/metazoa_odb9.tar.gz
 tar xzvf metazoa_odb9.tar.gz
 ```
 
-Now you are ready to launch BUSCO on our genome (reminder: the genome is the chormosome 4 called 4.fa).
+Now you are ready to launch BUSCO on our genome (genome.fa).
 ```
-BUSCO.py -i ~/annotation_course/data/genome/4.fa -o 4_dmel_busco -m geno -c 8 -l metazoa_odb9
+BUSCO.py -i ~/annotation_course/data/genome/genome.fa -o genome_dmel_busco -m geno -c 8 -l metazoa_odb9
 ```
 
 While BUSCO is running, start the exercise 2.
-When done, check the short\_summary\_4\_dmel\_busco. How many proteins are reported as complete? Does this sound reasonable?
-**Tips**: the chromosome 4 corresponds to less than 1% of the real size of the genome.
+When done, check the short\_summary\_genome\_dmel\_busco file in the output folder. How many core genes have been searched in you assembly ? How many are reported as complete? Does this sound reasonable?
+**Tips**: the "genome" is here in fact only the chromosome 4 that corresponds to less than 1% of the real size of the genome.
 
 ## 1.2 Various Check of your Assembly
 
@@ -67,9 +80,13 @@ When done, check the short\_summary\_4\_dmel\_busco. How many proteins are repor
 Launching the following script will provide you some useful information.
 
 ```
-fasta_statisticsAndPlot.pl -f ~/annotation_course/data/genome/4.fa
+cd ~/annotation_course/practical1
+mkdir fasta_check
+cd fasta_check
+fasta_statisticsAndPlot.pl -f ~/annotation_course/data/genome/genome.fa -o output
 ```
 
+Is your genome very fragmented (number of sequences)? Do you have high GC content ? Do you have lowercase nucleotides ? Do you have N at sequence extremities? 
 If you don't see any peculiarities, you can then decide to go forward and start to perform your first wonderful annotation.
 
 # 2. Running an ab initio gene finder
@@ -80,16 +97,32 @@ Now we are satisfied by the quality of the assembly we can start the annotation.
 
 **_Exercise 3_ - Augustus:**
 
-Run Augustus on your genome file using:  
+First create a folder where to run Augustus.  
+
 ```
 cd ~/annotation_course/practical1
 mkdir augustus
 cd augustus
-augustus --species=fly ~/annotation_course/data/genome/4.fa --gff3=yes > augustus_drosophila.gff
 ```
+
+Then you can have a look at the list of species that already have a trained hmm model.  
+
+```
+augustus --species=help
+```
+
+   * Did you see the approprate model for Drosophila Melanogaster ?
+
+So, let's now launch Augustus on our genome with the `fly` model.
+
+```
+augustus --species=fly ~/annotation_course/data/genome/genome.fa --gff3=yes --progress=true > augustus_drosophila.gff
+```
+
 if you wish to annotate isoforms too, use the following command:
+
 ```
-augustus --species=fly ~/annotation_course/data/genome/4.fa --gff3=yes --alternatives-from-sampling=true > augustus_drosophila_isoform.gff
+augustus --species=fly ~/annotation_course/data/genome/genome.fa --gff3=yes --progress=true --alternatives-from-sampling=true > augustus_drosophila_isoform.gff
 ```
 
 Take a look at the gff result file using the command ‘less augustus_drosophila.gff’. What kinds of features have been annotated? Does it tell you anything about UTRs?
@@ -100,7 +133,7 @@ gff3_sp_statistics.pl --gff augustus_drosophila.gff
 ```
 How many genes have you annotated ?
 
-It if of interest to view your annotation in a genome browser, this is more concrete and much nicer. A visual inspection is often the most effective way to assess the quality o your annotation.
+It is of interest to view your annotation in a genome browser, this is more concrete and much nicer. A visual inspection is often the most effective way to assess the quality o your annotation.
 
 Transfer the augustus\_drosophila.gff3 to your computer using scp in a new terminal:   
 ```
@@ -108,7 +141,7 @@ scp -i ~/.ssh/azure_rsa student@__IP__:/home/student/annotation_course/practical
 ```
 
 We have made a genome browser called Webapollo available for you on the address [http://annotation-prod.scilifelab.se:8080/NBIS_course/](http://annotation-prod.scilifelab.se:8080/NBIS_course/).
-Load the file in into the genome portal called **drosophila\_melanogaster\_chr4**. [Here find the WebApollo instruction](UsingWebApollo.md)
+Load the file in into the genome portal called **drosophila\_melanogaster\_chr4**. [Here find the WebApollo instruction.](UsingWebapollo.md)
 <br/>The official Ensembl annotation is available in the genome browser.
 How does the Augustus annotation compare with the Ensembl annotation? Are they identical?
 

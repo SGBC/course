@@ -10,16 +10,13 @@ Since we do not wish to spend too much time on this, we will again limit our ana
 
 Move in the proper folder:  
 ```
+mkdir -p ~/annotation_course/practical4
 cd ~/annotation_course/practical4
 ```
 Now link the annotation you choose to work with. The command will looks like:
 ```
-ln -s ~/annotation_course/practical2/maker/maker_with_abinitio/annotationByType/maker.gff maker_with_abinitio.gff  
-```
-Extract the corresponding proteins from the gff file:
-```
-ln -s ~/annotation_course/data/genome/4.fa
-gff3_sp_extract_sequences.pl --gff maker_with_abinitio.gff -f 4.fa -p --cfs -o AA.fa
+ln -s ~/annotation_course/practical2/complement/maker_abinitio_cplt_by_evidence.gff maker_final.gff  
+ln -s ~/annotation_course/practical2/complement/maker_abinitio_cplt_by_evidence.fasta maker_final.faa
 ```
 ## Interproscan approach
  Interproscan combines a number of searches for conserved motifs and curated data sets of protein clusters etc. This step may take fairly long time. It is recommended to paralellize it for huge amount of data by doing analysis of chunks of tens or hundreds proteins.
@@ -35,7 +32,7 @@ Launch Interproscan with the option -h if you want have a look about all the par
 - If you enable the InterPro lookup ('-iprlookup'), you can also get the InterPro identifier corresponding to each motif retrieved: for example, the same motif is known as PF01623 in Pfam and as IPR002568 in InterPro.
 - The option '-pa' provides mappings from matches to pathway information (MetaCyc,UniPathway,KEGG,Reactome).
 ```
-interproscan.sh -i AA.fa -t p -dp -pa -appl Pfam,ProDom-2006.1,SuperFamily-1.75 --goterms --iprlookup
+interproscan.sh -i maker_final.fa -t p -dp -pa -appl Pfam,ProDom-2006.1,SuperFamily-1.75 --goterms --iprlookup
 ```
 The analysis shoud take 2-3 secs per protein request - depending on how many sequences you have submitted, you can make a fairly deducted guess regarding the running time.  
 You will obtain 3 result files with the following extension '.gff3', '.tsv' and '.xml'. Explanation of these output are available [>>here<<](https://github.com/ebi-pf-team/interproscan/wiki/OutputFormats).
@@ -47,10 +44,10 @@ Next, you could write scripts of your own to merge interproscan output into your
 - ipr\_update\_gff: adds searchable tags to the gene and mRNA features in the GFF3 files.  
 - iprscan2gff3: adds physical viewable features for domains that can be displayed in JBrowse, Gbrowse, and Web Apollo.
 ```
-ipr_update_gff maker_with_abinitio.gff AA.fa.tsv >  maker_with_abinitio_with_interpro.gff
+gff3_sp_manage_functional_annotation.pl --gff maker_final.gff -i maker_final.faa.tsv -o  maker_final.interpro
 ```
 Where a match is found, the new file will now include features called Dbxref and/or Ontology_term in the gene and transcript feature field (9th column).
-
+The improved annotation is the gff file inside the maker_final.interpro folder.
 
 ## BLAST approach
 Blast searches provide an indication about potential homology to known proteins.
@@ -60,36 +57,35 @@ A 'full' Blast analysis can run for several days and consume several GB of Ram. 
 
 To run Blast on your data, use the Ncbi Blast+ package against a Drosophila-specific database (included in the folder we have provided for you, under **annotation\_course/data/blastdb/uniprot\_dmel/uniprot\_dmel.fa**) - of course, any other NCBI database would also work:
 ```
-blastp -db ~/annotation_course/data/blastdb/uniprot_dmel/uniprot_dmel.fa -query AA.fa -outfmt 6 -out blast.out -num_threads 8
+blastp -db ~/annotation_course/data/blastdb/uniprot_dmel/uniprot_dmel.fa -query maker_final.faa -outfmt 6 -out blast.out -num_threads 8
 ```
 Against the Drosophila-specific database, the blast search takes about 2 secs per protein request - depending on how many sequences you have submitted, you can make a fairly deducted guess regarding the running time.
-
-### Process the blast outout with Annie
-The Blast outputs must be processed to retrieve the information of the closest protein (best e-value) found by Blast. This work will be done using [annie](https://github.com/genomeannotation/annie).  
-
-First download annie:  
-```
-git clone https://github.com/genomeannotation/Annie.git
-```
-Now launch annie:
-```
-Annie/annie.py -b blast.out -db ~/annotation_course/data/blastdb/uniprot_dmel/uniprot_dmel.fa -g maker_with_abinitio.gff -o annotation_blast.annie
-```
-
-Annie writes in a 3-column table format file, providing gene name and mRNA product information. The purpose of annie is relatively simple. It recovers the information in the sequence header of the uniprot fasta file, from the best sequence found by Blast (the lowest e-value).
 
 ### load the retrieved information in your annotation file:  
 
 Now you should be able to use the following script:
 ```
-maker_gff3manager_JD_v8.pl -f maker_with_abinitio_with_interpro.gff -b annotation_blast.annie --ID FLY -o finalOutputDir  
+gff3_sp_manage_functional_annotation.pl -f maker_final.interpro.gff -b blast.out --db  ~/annotation_course/data/blastdb/uniprot_dmel/uniprot_dmel.faa -o maker_final.interpro.blast  
 ```
-That will add the name attribute to the "gene" feature and the description attribute (corresponding to the product information) to the "mRNA" feature into you annotation file. This script may be used for other purpose like to modify the ID value by something more convenient (i.e FLYG00000001 instead of maker-4-exonerate_protein2genome-gene-8.41).  
-The improved annotation is a file named "codingGeneFeatures.gff" inside the finalOutputDir.
+That will add the name attribute to the "gene" feature and the description attribute (corresponding to the product information) to the "mRNA" feature into you annotation file. 
+The improved annotation is the gff file inside the maker_final.interpro.blast folder.
 
-For displaying the product attribute in Webapollo you can change this attribute by description using this script:
+ * How many genes do not have any names ?
+ 
+### Set nice IDs
+
+The purpose is to modify the ID value by something more convenient (i.e FLYG00000001 instead of maker-4-exonerate_protein2genome-gene-8.41).  
 ```
-/home/student/.local/GAAS/annotation/WebApollo/gff3_webApollo_compliant.pl --gff finalOutputDir/codingGeneFeatures.gff -o final_annotation.gff
+gff3_sp_manage_functional_annotation.pl -f maker_final.interpro.blast/maker_final.gff --ID FLY -o maker_final.interpro.blast.ID  
+```
+The improved annotation is the gff file inside the maker_final.interpro.blast.ID folder.
+
+### Polish your file for a nice display within Webapollo
+
+For a nice display of a gff file within Webapollo some modification might be needed.
+As example the attribute ***product*** is not displayed in Webapollo, whereas renaming it ***description*** will work out.
+```
+~/annotation_course/GAAS/annotation/WebApollo/gff3_webApollo_compliant.pl -gff maker_final.interpro.blast.ID/maker_final.gff -o final_annotation.gff
 ```
 
 ## Visualise the final annotation
