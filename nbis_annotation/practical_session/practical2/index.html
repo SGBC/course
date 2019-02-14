@@ -378,14 +378,9 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#gathering-evidence-data-for-annotation-optional">Gathering evidence data for annotation (Optional)</a></li>
-            <li class="second-level"><a href="#1-protein-est-and-rna-seq-data-optional">1. Protein, EST and RNA-seq data (Optional)</a></li>
+        <li class="first-level active"><a href="#structural-annotation-with-the-maker-pipeline">Structural annotation with the MAKER pipeline</a></li>
+            <li class="second-level"><a href="#prerequisites">Prerequisites</a></li>
                 
-            <li class="second-level"><a href="#2-assembling-transcripts-based-on-rna-seq-data-optional">2. Assembling transcripts based on RNA-seq data (Optional)</a></li>
-                
-            <li class="second-level"><a href="#closing-remarks">Closing remarks</a></li>
-                
-        <li class="first-level "><a href="#running-the-maker-gene-build-pipeline">Running the Maker gene build pipeline</a></li>
             <li class="second-level"><a href="#overview">Overview</a></li>
                 
             <li class="second-level"><a href="#understanding-makers-control-files">Understanding Makers control files</a></li>
@@ -395,21 +390,38 @@
                 <li class="third-level"><a href="#1-creating-an-evidence-based-annotation">1. Creating an evidence based annotation</a></li>
                 <li class="third-level"><a href="#2-creating-an-abinition-evidence-driven-annotation">2. Creating an abinition evidence-driven annotation</a></li>
                 <li class="third-level"><a href="#3-inspecting-the-output">3. Inspecting the output</a></li>
-            <li class="second-level"><a href="#closing-remarks_1">Closing remarks</a></li>
+            <li class="second-level"><a href="#closing-remarks">Closing remarks</a></li>
                 
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="gathering-evidence-data-for-annotation-optional">Gathering evidence data for annotation (Optional)</h1>
-<p>This exercise is meant to get you acquainted with the type of data you would normally encounter in an annotation project.</p>
-<h2 id="1-protein-est-and-rna-seq-data-optional">1. Protein, EST and RNA-seq data (Optional)</h2>
-<p><a href="../practical2_sub_gatherEvidence/">Here will get an idea of where to download evidence sequences.</a></p>
-<h2 id="2-assembling-transcripts-based-on-rna-seq-data-optional">2. Assembling transcripts based on RNA-seq data (Optional)</h2>
-<p><a href="../practical2_sub_transcriptome/">Here will get an idea how to deal with RNA-seq data</a></p>
-<h2 id="closing-remarks">Closing remarks</h2>
-<p>Now you know how to obtain evidence data, which will be useful to perform a nice annotation.</p>
-<h1 id="running-the-maker-gene-build-pipeline">Running the Maker gene build pipeline</h1>
+<h1 id="structural-annotation-with-the-maker-pipeline">Structural annotation with the MAKER pipeline</h1>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>
+<p><strong>Connection to your virtual machine</strong><br />
+Before going into the exercises below you need to connect to your virtual machine Ubuntu 16.04 following the instruction we will provide you.</p>
+</li>
+<li>
+<p><strong>Create the folder structure</strong><br />
+Now create and move into the <strong>practical2</strong> folder and you are ready to start !</p>
+</li>
+</ul>
+<pre><code>mkdir -p ~/annotation_course/practical2
+cd ~/annotation_course/practical2
+</code></pre>
+
+<ul>
+<li>
+<p><strong>List of tools needed. For your convenience they all hae been pre-installed.</strong>  </p>
+<ul>
+<li>MAKER</li>
+<li>augustsus</li>
+<li>GAAS repository</li>
+</ul>
+</li>
+</ul>
 <h2 id="overview">Overview</h2>
 <p><strong>MAKER</strong> is a computational pipeline to automatically generate annotations from a range of input data - including proteins, ESTs, RNA-seq transcripts and ab-initio gene predictions. During this exercise, you will learn how to use Maker with different forms of input data, and how to judge the quality of the resulting annotations.</p>
 <p>The Maker pipeline can work with any combination of the following data sets:</p>
@@ -421,10 +433,7 @@
 <p>Proteins from more distantly related organisms (e.g. Uniprot/Swissprot)  </p>
 </li>
 <li>
-<p>EST sequences from the same species or very closely related species  </p>
-</li>
-<li>
-<p>RNA-seq data from the same or very closely related species - in the form of splice sites or assembled transcripts  </p>
+<p>Transcriptome sequences from the same species or very closely related species  </p>
 </li>
 <li>
 <p>Ab-initio predictions from one or more tools (directly supported are: Augustus, Snap, GeneMark, Fgenesh)  </p>
@@ -434,9 +443,8 @@
 <p>We will therefore first run our annotation project in the traditional way, with proteins and ESTs, and then repeat the process with a well-trained ab-initio gene predictor. You can then compare the output to get an idea of how crucial the use of a gene predictor is. However, before we get our hands dirty, we need to understand Maker a little better...</p>
 <p>Maker strings together a range of different tools into a complex pipeline (e.g. blast, exonerate, repeatmasker, augustus...), fortunately all its various dependencies have been already installed for you. 
 Check that everything is running smoothly by creating the MAKER config files:</p>
-<pre><code>cd ~/annotation_course/practical2
-mkdir maker
-cd maker
+<pre><code>mkdir -p ~/annotation_course/practical2/maker
+cd ~/annotation_course/practical2/maker
 maker -CTL
 </code></pre>
 
@@ -460,7 +468,7 @@ maker -CTL
 <h3 id="3-inspecting-the-output">3. Inspecting the output</h3>
 <p>The running of an annotation pipeline like Maker is not actually very hard. But the complicated work is only beginning. How to we best inspect the gene builds? Count features? Visualize it? Most importantly, what steps do we need to take to create a 'finished' annotation that we can use for scientific analyses?</p>
 <p><a href="../practical2_sub_makerCompareAnnot/">Comparing and evaluating annotations</a></p>
-<h2 id="closing-remarks_1">Closing remarks</h2>
+<h2 id="closing-remarks">Closing remarks</h2>
 <p>This concludes the gene building part. We have learned how to use the Maker annotation pipeline and have created gene builds with and without ab-initio predictions. Moreover, we have employed some measures to describe and judge these annotations. An essential part that we decided to leave out is the training of ab-initio gene finders. The reason for this omission was that there isn't really any one best way to do this and your mileage may vary a lot based on your organism and input data. Perhaps the most direct approach available at the moment is a combination of evidence-based annotation with Maker and to use the resulting, crude gene models to train SNAP. Since Maker can improve ab-initio predictions 'on the fly', it can tolerate a bit of noise from a less-than-perfect ab-initio profile. If you are setting out on an annotation project, the NBIS annotation service would be happy to discuss the best approach for your data with you.</p>
 <p>With that being said, generating a gene build is only one part of an annotation project. Next, we will inspect the annotation in genome browser and make an attempt at functional inference for the predicted gene models.</p></div>
         

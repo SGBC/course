@@ -387,24 +387,24 @@
 <p>When executing the command "maker -CTL" MAKER creates 3 control files.
 Of these, only <strong>maker_opts.ctl</strong> is of concern to us. Have a look at the following sections and fill in the information as shown:</p>
 <p>#-----Genome (these are always required)<br />
-genome=<strong>4.fa</strong> #genome sequence (fasta file or fasta embeded in GFF3 file)<br />
+genome=<strong>genome.fa</strong> #genome sequence (fasta file or fasta embeded in GFF3 file)<br />
 organism_type=eukaryotic #eukaryotic or prokaryotic. Default is eukaryotic</p>
 <p>...</p>
 <p>#-----EST Evidence (for best results provide a file for at least one)<br />
-<strong>est=est.chr4.fa</strong> #set of ESTs or assembled mRNA-seq in fasta format<br />
+<strong>est=est.genome.fa</strong> #set of ESTs or assembled mRNA-seq in fasta format<br />
 altest= #EST/cDNA sequence file in fasta format from an alternate organism<br />
-<strong>est_gff=stringtie2genome.chr4.ok.gff</strong> #aligned ESTs or mRNA-seq from an external GFF3 file<br />
+<strong>est_gff=stringtie2genome.genome.ok.gff</strong> #aligned ESTs or mRNA-seq from an external GFF3 file<br />
 altest_gff= #aligned ESTs from a closly relate species in GFF3 format</p>
 <p>...</p>
 <p>#-----Protein Homology Evidence (for best results provide a file for at least one)<br />
-<strong>protein=proteins.chr4.fa</strong> #protein sequence file in fasta format (i.e. from mutiple oransisms)<br />
+<strong>protein=proteins.genome.fa</strong> #protein sequence file in fasta format (i.e. from mutiple oransisms)<br />
 protein_gff= #aligned protein homology evidence from an external GFF3 file</p>
 <p>...</p>
 <p>#-----Repeat Masking (leave values blank to skip repeat masking)<br/>
 <strong>model_org=</strong> #select a model organism for RepBase masking in RepeatMasker<br />
 rmlib= #provide an organism specific repeat library in fasta format for RepeatMasker <br />
 <strong>repeat_protein=</strong> #provide a fasta file of transposable element proteins for RepeatRunner<br />
-rm_gff=<strong>repeatmasker.chr4.gff,repeatrunner.chr4.gff</strong> #pre-identified repeat elements from an external GFF3 file<br />
+rm_gff=<strong>repeatmasker.genome.gff,repeatrunner.genome.gff</strong> #pre-identified repeat elements from an external GFF3 file<br />
 prok_rm=0 #forces MAKER to repeatmask prokaryotes (no reason to change this), 1 = yes, 0 = no<br />
 softmask=1 #use soft-masking rather than hard-masking in BLAST (i.e. seg and dust filtering)</p>
 <p>...</p>

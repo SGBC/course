@@ -385,13 +385,13 @@
 
 <h1 id="configure-the-maker_optsctl-properly-for-the-abinitio-evidence-driven-annotation">Configure the maker_opts.ctl properly for the abinitio evidence-driven annotation:</h1>
 <p>#-----Genome (these are always required)<br />
-<strong>genome=4.fa</strong> #genome sequence (fasta file or fasta embeded in GFF3 file)<br />
+<strong>genome=genome.fa</strong> #genome sequence (fasta file or fasta embeded in GFF3 file)<br />
 organism_type=eukaryotic #eukaryotic or prokaryotic. Default is eukaryotic</p>
 <p>...</p>
-<p>#-----EST Evidence (for best results provide a file for at least one) 
+<p>#-----EST Evidence (for best results provide a file for at least one)<br />
 <strong>est=</strong> #set of ESTs or assembled mRNA-seq in fasta format<br />
 altest= #EST/cDNA sequence file in fasta format from an alternate organism<br />
-<strong>est_gff=est2genome.gff, est_gff_stringtie.gff</strong> #aligned ESTs or mRNA-seq from an external GFF3 file<br />
+<strong>est_gff=stringtie2genome.genome.ok.gff,est2genome.gff</strong> #aligned ESTs or mRNA-seq from an external GFF3 file<br />
 altest_gff= #aligned ESTs from a closly relate species in GFF3 format</p>
 <p>...</p>
 <p>#-----Protein Homology Evidence (for best results provide a file for at least one)<br />
@@ -402,7 +402,7 @@ altest_gff= #aligned ESTs from a closly relate species in GFF3 format</p>
 <strong>model_org=</strong> #select a model organism for RepBase masking in RepeatMasker<br />
 rmlib= #provide an organism specific repeat library in fasta format for RepeatMasker <br />
 <strong>repeat_protein=</strong> #provide a fasta file of transposable element proteins for RepeatRunner<br />
-<strong>rm_gff=repeatmasker.chr4.gff,repeatrunner.chr4.gff</strong> #pre-identified repeat elements from an external GFF3 file<br />
+<strong>rm_gff=repeatmasker.genome.gff,repeatrunner.genome.gff</strong> #pre-identified repeat elements from an external GFF3 file<br />
 prok_rm=0 #forces MAKER to repeatmask prokaryotes (no reason to change this), 1 = yes, 0 = no<br />
 softmask=1 #use soft-masking rather than hard-masking in BLAST (i.e. seg and dust filtering)</p>
 <p>...</p>

@@ -379,14 +379,13 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#comparing-and-evaluating-annotations">Comparing and evaluating annotations</a></li>
-            <li class="second-level"><a href="#evaluating-annotation-quality">Evaluating annotation quality</a></li>
+            <li class="second-level"><a href="#overwiev">overwiev</a></li>
                 
+                <li class="third-level"><a href="#gene-number">Gene number</a></li>
+                <li class="third-level"><a href="#comparison-with-another-annotation">Comparison with another annotation</a></li>
                 <li class="third-level"><a href="#busco">BUSCO</a></li>
-            <li class="second-level"><a href="#comparing-annotations">Comparing annotations</a></li>
-                
-                <li class="third-level"><a href="#preparing-the-input-files">Preparing the input files</a></li>
-                <li class="third-level"><a href="#counting-features">Counting features</a></li>
-                <li class="third-level"><a href="#pairwise-comparison-of-features">Pairwise comparison of features</a></li>
+                <li class="third-level"><a href="#comparison-with-the-reference-annotation">Comparison with the reference annotation</a></li>
+                <li class="third-level"><a href="#filter-maker-annotation-by-aed-score">Filter MAKER annotation by AED score</a></li>
             <li class="second-level"><a href="#visualising-annotations">Visualising annotations</a></li>
                 
                 <li class="third-level"><a href="#using-webapollo-to-view-annotations">Using WebApollo to view annotations</a></li>
@@ -395,9 +394,73 @@
         <div class="col-md-9" role="main">
 
 <h1 id="comparing-and-evaluating-annotations">Comparing and evaluating annotations</h1>
-<p>In this exercise you will take the three annotations you have created for Drosophila - the pure abinitio one done with augustus, the evidence-based done with MAKER and the abinitio evidence drived one done with MAKER. First, we will count the features annotated in each of them and compare that number against the existing reference annotation. Next, we will perform a proper feature-level comparison to obtain a proper estimate of congruency.</p>
-<h2 id="evaluating-annotation-quality">Evaluating annotation quality</h2>
-<p>Evaluating an annotation can be done in three ways - running busco but with the proteins obtained from the annotation, in comparison with another annotation or in reference to the evidence alignments. The former isn't so much a quality check as a measure of congruency - i.e. the resulting numbers don't tell you which of the two gene builds is more correct. On the other hand, a comparison with evidence alignments is what Maker uses internally to select gene models. After synthesizing and annotating loci, the resulting model will be ranked against the filtered evidence alignments. The more congruent these two points of information are, the lower the 'annotation edit distance' (AED) will be. The AED score can be used to e.g. check an annotation for problematic models that may then be subjected to manual curation.</p>
+<p>In this exercise you will handle different annotation files: </p>
+<ul>
+<li>
+<p>the pure abinitio one done with augustus (practical1),</p>
+</li>
+<li>
+<p>the evidence-based done with MAKER</p>
+</li>
+<li>
+<p>the abinitio evidence-driven one done with MAKER.</p>
+</li>
+<li>
+<p>the official annotation from Ensembl</p>
+</li>
+</ul>
+<h2 id="overwiev">overwiev</h2>
+<p>Evaluating an annotation can be done in different ways:</p>
+<ul>
+<li>
+<p>looking at the number of genes<br />
+It isn't so much a quality check as a measure of congruency - i.e. the resulting numbers don't tell you which of the two gene builds is more correct.</p>
+</li>
+<li>
+<p>comparison with another annotation<br />
+ It doesnt help neither to see the quality of your annotation but could help to understand the major differences between several annotations.</p>
+</li>
+<li>
+<p>comparison against a reference
+ This case is really rare in real life.</p>
+</li>
+<li>
+<p>running busco on proteins obtained from the annotation<br />
+ It provides a nice feeling about the quality of the annotaiton but is biasied by the fact it focus only on well conserved genes between sepeceis during evolution. So, what about species specific genes ?</p>
+</li>
+<li>
+<p>in reference to the evidence alignments (AED score)<br />
+ It is what Maker uses internally to select gene models. After synthesizing and annotating loci, the resulting model will be ranked against the filtered evidence alignments. The more congruent these two points of information are, the lower the 'annotation edit distance' (AED) will be. The AED score can be used to e.g. check an annotation for problematic models that may then be subjected to manual curation.</p>
+</li>
+</ul>
+<h3 id="gene-number">Gene number</h3>
+<p>As already seen previousy you can have a look at the statistics of an anntoation with the <strong>gff3_sp_statistics.pl</strong> script.<br />
+As you will note, there are some differences - and of course, this is expected, since different approaches has been used to generate them. The EnsEMBL annotation is originally imported from FlyBase. Obviously, a lot of manual labor and much more data has been put into the FlyBase annotation - and this highlights a common limitation of any computational pipeline. You will simply never reach the same level of quality and detail as seen in a manually curated reference annotation.</p>
+<h3 id="comparison-with-another-annotation">Comparison with another annotation</h3>
+<p>We will compare the two anntation made with MAKER: the evidence one and the abinitio one.</p>
+<pre><code>cd ~/annotation_course/practical2
+mkdir complement
+cd complement
+ln -s ../maker/maker_evidence/maker.gff maker_evidence.gff
+ln -s ../maker/maker_abinitio/maker.gff maker_abinitio.gff
+maker_checkFusionSplitBetweenTwoBuilds.pl --ref maker_evidence.gff --tar maker_abinitio.gff --out maker_evidence_compare_to_abinitio
+cat maker_evidence_compare_to_abinitio/resume.txt
+</code></pre>
+
+<ul>
+<li>How many genes are specific to each annotation ?  </li>
+<li>How many genes from the evidence annotation have been merged/fused together by the abinitio annotation ?  </li>
+</ul>
+<p>Those two annotations have genes that are not in common (non-overlaping). Let's create a non-redundant concatenated gene set:</p>
+<pre><code>gff3_sp_complement_annotations.pl --ref maker_abinitio.gff --add maker_evidence.gff -o maker_abinitio_cplt_by_evidence.gff
+</code></pre>
+
+<p>How many genes have been added in this new maker_abinitio_cplt_by_evidence.gff annotation ?</p>
+<p>Let's extract the proteins form this new annotation:</p>
+<pre><code>ln -s ~/annotation_course/data/genome/genome.fa
+gff3_sp_extract_sequences.pl -gff maker_abinitio_cplt_by_evidence.gff -f genome.fa -p -o maker_abinitio_cplt_by_evidence.fasta
+</code></pre>
+
 <h3 id="busco">BUSCO</h3>
 <p>BUSCO is run before annotating to check if the assembly is good and therefore if the annotation will be good. It is also run after the structural annotation to then compare if we indeed find a number of genes corresponding of the first run of busco.</p>
 <p>You will need to link the protein file created by maker on the run with the ab-initio</p>
@@ -405,59 +468,57 @@
 mkdir busco
 cd busco
 
-ln -s ../maker/maker_with_abinitio/annotations.proteins.fa   
+ln -s  ~/annotation_course/practical2/complement/maker_abinitio_cplt_by_evidence.fasta
 ln -s ~/annotation_course/practical1/busco/metazoa_odb9
 
-BUSCO.py -i annotations.proteins.fa -o dmel_maker_abinitio -m prot -c 8 -l metazoa_odb9
+BUSCO.py -i maker_abinitio_cplt_by_evidence.fasta -o dmel_maker_abinitio_cplt_by_evidence -m prot -c 8 -l metazoa_odb9
 </code></pre>
 
 <ul>
 <li>if you compare with you first busco results what do you see?</li>
 </ul>
-<h2 id="comparing-annotations">Comparing annotations</h2>
-<p>As with many tasks within bioinformatics, it is always a great idea to first look around for existing solutions. In the case of comparing annotations, there are in fact options already out there. One such example is genometools, which we have briefly used before.</p>
-<h3 id="preparing-the-input-files">Preparing the input files</h3>
-<p>First you have to be situated in a folder containing the two maker annotations (with and without ab initio) and the augustus annotation. </p>
-<pre><code>cd ~/annotation_course/practical2
-mkdir compare
-cd compare
-ln -s ../maker/maker_no_abinitio/annotationByType/maker.gff maker_no_abinitio.gff 
-ln -s ../maker/maker_with_abinitio/annotationByType/maker.gff maker_abinitio.gff 
+<h3 id="comparison-with-the-reference-annotation">Comparison with the reference annotation</h3>
+<p>As with many tasks within bioinformatics, it is always a great idea to first look around for existing solutions. In the case of comparing annotations, there are in fact options already out there. One such example is genometools, which we have briefly used before.  </p>
+<p>First create the worling folder: </p>
+<pre><code>cd ~/annotation_course/practical2/
+mkdir compare_ref
+cd compare_ref
 </code></pre>
 
-<p>Then, copy or sym-link the EnsEMBL reference annotation.</p>
-<pre><code>ln -s ~/annotation_course/data/annotation/ensembl.chr4.gff
+<p>Then, copy or sym-link the EnsEMBL reference annotation as well as yours:</p>
+<pre><code>ln -s ~/annotation_course/practical1/augustus/augustus_drosophila.gff
+ln -s ~/annotation_course/practical2/complement/maker_abinitio_cplt_by_evidence.gff 
+ln -s ~/annotation_course/data/annotation/ensembl.genome.gff
 </code></pre>
 
-<p>Now we have to sort any GFF3-formatted annotation in a way that genometools accepts.</p>
-<pre><code>sed -i '1i##gff-version 3' maker_no_abinitio.gff
-sed -i '1i##gff-version 3' maker_abinitio.gff
-
-gt gff3 -sort maker_no_abinitio.gff &gt; maker_no_abinitio.sorted.gff 
-gt gff3 -sort maker_abinitio.gff &gt; maker_abinitio.sorted.gff 
-gt gff3 -sort ensembl.chr4.gff &gt; ensembl.sorted.gff 
+<p>Now we have to sort any GFF3-formatted annotation in a way that genometools accepts:</p>
+<pre><code>gt gff3 -sort augustus_drosophila.gff &gt; augustus_drosophila.sorted.gff
+gt gff3 -sort maker_abinitio_cplt_by_evidence.gff &gt; maker_abinitio_cplt_by_evidence.sorted.gff 
+gt gff3 -sort ensembl.genome.gff &gt; ensembl.sorted.gff 
 </code></pre>
 
-<h3 id="counting-features">Counting features</h3>
-<p>Next, we get the feature counts for the three annotations and the reference from EnsEMBL:</p>
-<pre><code>gt stat maker_no_abinitio.gff
-</code></pre>
-
-<p>or</p>
-<pre><code>gff3_sp_statistics.pl --gff maker_no_abinitio.gff
-</code></pre>
-
-<p>(or whatever you decided to name the file(s). The use of the sorted file or the original one changes nothing here)</p>
-<p>As you will note, there are some differences - and of course, this is expected, since we used quite different approaches to generate the two gene builds. EnsEMBL on the other hand is originally imported from FlyBase. Obviously, a lot of manual labor and much more data has been put into the FlyBase annotation - and this highlights a common limitation of any computational pipeline. You will simply never reach the same level of quality and detail as seen in a manually curated reference annotation.</p>
-<h3 id="pairwise-comparison-of-features">Pairwise comparison of features</h3>
-<p>But feature counts alone can't really give you a clear measure of overlap/differences between any two annotations. In order to properly compare them, we can use another function included in genometools.</p>
-<p>With the sorted files, we can now perform a comparison:</p>
-<pre><code>gt eval ensembl.sorted.gff maker_no_abinitio.sorted.gff  
+<p>With the sorted files, we can now perform a comparison two by two:</p>
+<pre><code>gt eval ensembl.sorted.gff augustus_drosophila.sorted.gff
+gt eval ensembl.sorted.gff maker_abinitio_cplt_by_evidence.sorted.gff
 </code></pre>
 
 <p>This will create a long list of measures for all relevant sequence features with respect to both the 'sensitivity' and 'specificity' - as a measure of how close the annotation comes to a reference. As a reminder, 'specificity' measures the fraction of a reference overlapping a prediction whereas 'sensitivity' measures the fraction of a prediction overlapping a reference.</p>
 <p>Note that the measures employed by genometools function in a all-or-nothing fashion. If the overlap is not 100%, it doesn't count (which is why you are unlikely to find gene-level congruencies between your gene builds and the reference annotation).  </p>
-<p>From the comparison of your annotations to the Ensembl annotation, which one <strong>seems</strong> to be the most comprehensive to you ?</p>
+<ul>
+<li>From the comparison of your annotations (the pure abinitio Augustus one and the one made with MAKER) to the Ensembl annotation, which one <strong>seems</strong> to be the most comprehensive to you ?</li>
+</ul>
+<h3 id="filter-maker-annotation-by-aed-score">Filter MAKER annotation by AED score</h3>
+<p>A AED value of 0 means the whole gene model is supported by evidence while 1 means there is none. Let's try to select only models with good congruency with evidence lines, AED &lt;0.3. </p>
+<pre><code>cd ~/annotation_course/practical2/
+mkdir filter
+cd filter
+ln -s ~/annotation_course/practical2/complement/maker_abinitio_cplt_by_evidence.gff
+maker_select_models_by_AED_score.pl -f maker_abinitio_cplt_by_evidence.gff -v 0.3 -t &quot;&lt;&quot; -o result
+</code></pre>
+
+<ul>
+<li>How many genes have passed your filter ? How many have been discarded ?</li>
+</ul>
 <h2 id="visualising-annotations">Visualising annotations</h2>
 <p><strong>Note:</strong> The following section overlaps with some of the exercises you have done earlier (comparing augustus predictions against the reference annotation).</p>
 <p>In the previous tasks, we have looked at the overlap between different gene builds. While this gives us an indication of how similar two annotations are, <strong>it doesn't really allow us to judge the overall quality and similarity of annotations</strong>. Remember, sensitivity and specificity are 'all-or-nothing' - two annotations may be considered very different, but provide similar information, biologically. By that, we mean that two gene models don't need to be 100% identical in their coordinates to tell the scientist that a gene indeed exists in a given location and what it's product looks like.</p>

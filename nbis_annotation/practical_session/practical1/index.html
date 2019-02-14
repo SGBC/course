@@ -379,7 +379,7 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="first-level active"><a href="#foreword">Foreword:</a></li>
-        <li class="first-level "><a href="#first-of-all">First of all</a></li>
+        <li class="first-level "><a href="#prerequisites">Prerequisites</a></li>
         <li class="first-level "><a href="#1-assembly-check">1. Assembly Check</a></li>
             <li class="second-level"><a href="#11-checking-the-gene-space-of-your-assembly">1.1 Checking the gene space of your assembly</a></li>
                 
@@ -394,19 +394,44 @@
 <h1 id="foreword">Foreword:</h1>
 <p>We will for all exercises use data for the fruit fly, Drosophila melanogaster, as that is one of the currently best annotated organisms and there is plenty of high quality data available. However, working on eukaryotes can be time consuming. Even a small genome like Drosophila would take too long to run within the time we have for this course. Thus to be sure to perform the practicals in good conditions, we will use the smallest chromosome of the drosophila (chromosome 4) like it was a whole genome.
 An annotation project requires numerous tools and dependencies, which can take easily many days to install for a neophyte. For your convenience and in order to focus on the art of the ANNOTATION most of the tools are already installed on your machine (Thank you Hadrien :) ).</p>
-<h1 id="first-of-all">First of all</h1>
-<p>Before going into the exercises below you need to connect to your virtual machine Ubuntu 16.04 following the instruction we will provide you.
-Once connected you will move into the <strong>annotation_course</strong> folder, where all the magic will happen.</p>
-<pre><code>cd ~/annotation_course
+<h1 id="prerequisites">Prerequisites</h1>
+<ul>
+<li>
+<p><strong>Connection to your virtual machine</strong><br />
+Before going into the exercises below you need to connect to your virtual machine Ubuntu 16.04 following the instruction we will provide you.</p>
+</li>
+<li>
+<p><strong>Create the folder structure</strong><br />
+Once connected you will create and move into the <strong>annotation_course</strong> folder, where all the magic will happen.</p>
+</li>
+</ul>
+<pre><code>mkdir -p ~/annotation_course/practical1
+cd ~/annotation_course
 </code></pre>
 
-<p><strong>Now you need the data !!</strong> You must download the archive of the data and uncompress it (it could take few minutes).</p>
-<pre><code>wget https://u-ip-81-109.hpc2n.umu.se/tickets/La34or2kms3wMdf1Gp5HdbsmT4fFCIfayQeHvew8kaU/data.tar.gz/download
+<ul>
+<li>
+<p><strong>List of tools needed. For your convenience they all hae been pre-installed.</strong>  </p>
+<ul>
+<li>BUSCO</li>
+<li>augustsus</li>
+<li>GAAS repository</li>
+</ul>
+</li>
+<li>
+<p><strong>Download the data</strong><br />
+You must download the archive of the data and uncompress it (it could take few minutes).</p>
+</li>
+</ul>
+<pre><code>wget https://u-ip-81-109.hpc2n.umu.se/tickets/7mIStX-Y-zjj_XPzI-iYQni2_0LVBSdBtHf_vhiA_Zk/data.tar.gz/download
 tar xzvf download
 rm download
 </code></pre>
 
-<p>Now move into the <strong>practical1</strong> folder and you are ready to start for this morning !</p>
+<ul>
+<li><strong>Move the proper folder to start the excercice</strong><br />
+Now move into the <strong>practical1</strong> folder and you are ready to start for this morning !</li>
+</ul>
 <pre><code>cd ~/annotation_course/practical1
 </code></pre>
 
@@ -418,45 +443,60 @@ The two next exercices will perform some of these checks.</p>
 <p>BUSCO provides measures for quantitative assessment of genome assembly, gene set, and transcriptome completeness. Genes that make up the BUSCO sets for each major lineage are selected from orthologous groups with genes present as single-copy orthologs in at least 90% of the species.</p>
 <p><strong><em>Note:</em></strong> In a real-world scenario, this step should come first and foremost. Indeed, if the result is under your expectation you might be required to enhance your assembly before to go further.</p>
 <p><strong><em>Exercise 1</em> - BUSCO -:</strong></p>
-<p>You will run BUSCO on chromosome 4 of Drosophila melanogaster.</p>
+<p>You will run BUSCO on the genome assembly.</p>
 <p>First create a busco folder where you work:</p>
 <pre><code>mkdir busco
 cd busco
 </code></pre>
 
-<p>Then visit the <a href="http://busco.ezlab.org">busco website</a> and choose the best data set among the vast choice. Once you know which one you want to use, right click on it and copy the link to it. Then download the dataset.
-/!\ Replace <strong>http://busco.ezlab.org/datasets/metazoa_odb9.tar.gz</strong> link by the link to the dataset you have chosen.</p>
+<p>The <a href="http://busco.ezlab.org">BUSCO website</a> provides a list of datasets containing the cores genes expected in the different branches of the tree of life. To know in which part/branch of the tree of life is originated your species you can have a look at the <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7227">NCBI taxonomy website</a> (Lineage line).
+Then select the proper BUSCO Dataset on the <a href="http://busco.ezlab.org">busco website</a> to check the completness of your assembly. To download the dataset to the cluster, you need the URL (right click on it, Copy Link). Then download the dataset.
+/!\ In the example below the link copied is <strong>http://busco.ezlab.org/datasets/metazoa_odb9.tar.gz</strong>, so replace it by something else if you decided to take another dataset.</p>
 <pre><code>wget http://busco.ezlab.org/datasets/metazoa_odb9.tar.gz
 tar xzvf metazoa_odb9.tar.gz
 </code></pre>
 
-<p>Now you are ready to launch BUSCO on our genome (reminder: the genome is the chormosome 4 called 4.fa).</p>
-<pre><code>BUSCO.py -i ~/annotation_course/data/genome/4.fa -o 4_dmel_busco -m geno -c 8 -l metazoa_odb9
+<p>Now you are ready to launch BUSCO on our genome (genome.fa).</p>
+<pre><code>BUSCO.py -i ~/annotation_course/data/genome/genome.fa -o genome_dmel_busco -m geno -c 8 -l metazoa_odb9
 </code></pre>
 
 <p>While BUSCO is running, start the exercise 2.
-When done, check the short_summary_4_dmel_busco. How many proteins are reported as complete? Does this sound reasonable?
-<strong>Tips</strong>: the chromosome 4 corresponds to less than 1% of the real size of the genome.</p>
+When done, check the short_summary_genome_dmel_busco file in the output folder. How many core genes have been searched in you assembly ? How many are reported as complete? Does this sound reasonable?
+<strong>Tips</strong>: the "genome" is here in fact only the chromosome 4 that corresponds to less than 1% of the real size of the genome.</p>
 <h2 id="12-various-check-of-your-assembly">1.2 Various Check of your Assembly</h2>
 <p><strong><em>Exercise 2</em> :</strong>
 Launching the following script will provide you some useful information.</p>
-<pre><code>fasta_statisticsAndPlot.pl -f ~/annotation_course/data/genome/4.fa
+<pre><code>cd ~/annotation_course/practical1
+mkdir fasta_check
+cd fasta_check
+fasta_statisticsAndPlot.pl -f ~/annotation_course/data/genome/genome.fa -o output
 </code></pre>
 
-<p>If you don't see any peculiarities, you can then decide to go forward and start to perform your first wonderful annotation.</p>
+<p>Is your genome very fragmented (number of sequences)? Do you have high GC content ? Do you have lowercase nucleotides ? Do you have N at sequence extremities? 
+If you don't see any peculiarities, you can then decide to go forward and start to perform your first wonderful annotation.</p>
 <h1 id="2-running-an-ab-initio-gene-finder">2. Running an ab initio gene finder</h1>
 <p>Now we are satisfied by the quality of the assembly we can start the annotation.</p>
 <p><u><strong>Ab initio gene finders:</strong></u> These methods have been around for a very long time, and there are many different programs to try. We will in this exercise focus on the gene finder Augustus. These gene finders use likelihoods to find the most likely genes in the genome. They are aware of start and stop codons and splice sites, and will only try to predict genes that follow these rules. The most important factor here is that the gene finder needs to be trained on the organism you are running the program on, otherwise the probabilities for introns, exons, etc. will not be correct. Luckily, these training files are available for Drosophila.</p>
 <p><strong><em>Exercise 3</em> - Augustus:</strong></p>
-<p>Run Augustus on your genome file using:  </p>
+<p>First create a folder where to run Augustus.  </p>
 <pre><code>cd ~/annotation_course/practical1
 mkdir augustus
 cd augustus
-augustus --species=fly ~/annotation_course/data/genome/4.fa --gff3=yes &gt; augustus_drosophila.gff
+</code></pre>
+
+<p>Then you can have a look at the list of species that already have a trained hmm model.  </p>
+<pre><code>augustus --species=help
+</code></pre>
+
+<ul>
+<li>Did you see the approprate model for Drosophila Melanogaster ?</li>
+</ul>
+<p>So, let's now launch Augustus on our genome with the <code>fly</code> model.</p>
+<pre><code>augustus --species=fly ~/annotation_course/data/genome/genome.fa --gff3=yes --progress=true &gt; augustus_drosophila.gff
 </code></pre>
 
 <p>if you wish to annotate isoforms too, use the following command:</p>
-<pre><code>augustus --species=fly ~/annotation_course/data/genome/4.fa --gff3=yes --alternatives-from-sampling=true &gt; augustus_drosophila_isoform.gff
+<pre><code>augustus --species=fly ~/annotation_course/data/genome/genome.fa --gff3=yes --progress=true --alternatives-from-sampling=true &gt; augustus_drosophila_isoform.gff
 </code></pre>
 
 <p>Take a look at the gff result file using the command ‘less augustus_drosophila.gff’. What kinds of features have been annotated? Does it tell you anything about UTRs?</p>
@@ -465,13 +505,13 @@ augustus --species=fly ~/annotation_course/data/genome/4.fa --gff3=yes &gt; augu
 </code></pre>
 
 <p>How many genes have you annotated ?</p>
-<p>It if of interest to view your annotation in a genome browser, this is more concrete and much nicer. A visual inspection is often the most effective way to assess the quality o your annotation.</p>
+<p>It is of interest to view your annotation in a genome browser, this is more concrete and much nicer. A visual inspection is often the most effective way to assess the quality o your annotation.</p>
 <p>Transfer the augustus_drosophila.gff3 to your computer using scp in a new terminal:   </p>
 <pre><code>scp -i ~/.ssh/azure_rsa student@__IP__:/home/student/annotation_course/practical1/augustus/augustus_drosophila.gff .
 </code></pre>
 
 <p>We have made a genome browser called Webapollo available for you on the address <a href="http://annotation-prod.scilifelab.se:8080/NBIS_course/">http://annotation-prod.scilifelab.se:8080/NBIS_course/</a>.
-Load the file in into the genome portal called <strong>drosophila_melanogaster_chr4</strong>. <a href="UsingWebApollo.md">Here find the WebApollo instruction</a>
+Load the file in into the genome portal called <strong>drosophila_melanogaster_chr4</strong>. <a href="../UsingWebapollo/">Here find the WebApollo instruction.</a>
 <br/>The official Ensembl annotation is available in the genome browser.
 How does the Augustus annotation compare with the Ensembl annotation? Are they identical?</p>
 <p><strong><em>Exercise 4 -</em> Augustus with yeast models:</strong><br />
