@@ -15,7 +15,7 @@ mkdir -p ~/annotation_course/practical1
 cd ~/annotation_course
 ```
 
-  * **List of tools needed. For your convenience they all hae been pre-installed.**  
+  * **List of tools needed. For your convenience they all have been pre-installed.**  
 
     * BUSCO
     * augustsus
@@ -29,7 +29,7 @@ tar xzvf download
 rm download
 ```
 
-  * **Move the proper folder to start the excercice**  
+  * **Move into the proper folder to start the excercice**  
 Now move into the **practical1** folder and you are ready to start for this morning !
 ```
 cd ~/annotation_course/practical1
