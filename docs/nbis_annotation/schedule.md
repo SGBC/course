@@ -15,6 +15,8 @@ Genome Annotation Service
 
 **Thursday**
 
+data access: [https://u-ip-81-109.hpc2n.umu.se/tickets/WUZJrx-nDRNrfwFdrii6ehXQZva-fJAOJmS6lzQasjs/annotation_course.tar.gz/download](https://u-ip-81-109.hpc2n.umu.se/tickets/WUZJrx-nDRNrfwFdrii6ehXQZva-fJAOJmS6lzQasjs/annotation_course.tar.gz/download)
+
 **09.00-10.00:** [Lecture: Structural annotation overwiew](https://github.com/SGBC/course/blob/master/docs/nbis_annotation/slides/Structural_annotation_general.pdf?raw=true)   
 **10.00-10.15:** Coffee break    
 **10.15-11.30:** [Practical 1: Assembly assessment + Abinitio annotation](practical_session/practical1.md)   
