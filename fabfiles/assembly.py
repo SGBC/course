@@ -11,8 +11,8 @@ QUAST_FILE = 'quast_4.6.2.tar.gz'
 QUAST_DIR = 'quast-quast_4.6.2'
 
 AUGUSTUS_WEB = 'http://bioinf.uni-greifswald.de/augustus/binaries/'
-AUGUSTUS_FILE = 'augustus-3.3.tar.gz'
-AUGUSTUS_DIR = 'augustus-3.3'
+AUGUSTUS_FILE = 'augustus-3.3.2.tar.gz'
+AUGUSTUS_DIR = 'augustus-3.3.2'
 
 PILON_WEB = 'https://github.com/broadinstitute/pilon/releases/download/v1.22/'
 PILON_FILE = 'pilon-1.22.jar'
@@ -59,17 +59,15 @@ def assembly_qc():
     with cd('~/install'):
         run('wget --quiet %s%s' % (AUGUSTUS_WEB, AUGUSTUS_FILE))
         run('tar xzf %s' % AUGUSTUS_FILE)
-    with cd('~/install/augustus'):
-        run('make')
-        sudo('make install')
-        sudo('cp -r /opt/%s/scripts/* ~/.local/bin' % AUGUSTUS_DIR)
-        run('echo "export AUGUSTUS_CONFIG_PATH=/opt/%s/config/" >> ~/.bashrc'
-            % AUGUSTUS_DIR)
+    with cd('~/install/%s' % AUGUSTUS_DIR):
+        sudo('mv bin/* /opt/sw/bin/')
+        sudo('mv config /opt/sw/share/aug_config')
+        run('echo "export AUGUSTUS_CONFIG_PATH=~/.local/aug_config" >> ~/.bashrc')
     with cd('~/install'):
         run('git clone -q https://gitlab.com/ezlab/busco.git -b 2.0.1')
     with cd('~/install/busco'):
-        run('mv BUSCO.py ~/.local/bin')
-        run('mv BUSCO_plot.py ~/.local/bin')
+        suco('mv BUSCO.py /opw/sw/bin')
+        sudo('mv BUSCO_plot.py /opt/sw/bin')
 
 
 @parallel
