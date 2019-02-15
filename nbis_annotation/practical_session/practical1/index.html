@@ -411,7 +411,7 @@ cd ~/annotation_course
 
 <ul>
 <li>
-<p><strong>List of tools needed. For your convenience they all hae been pre-installed.</strong>  </p>
+<p><strong>List of tools needed. For your convenience they all have been pre-installed.</strong>  </p>
 <ul>
 <li>BUSCO</li>
 <li>augustsus</li>
@@ -429,7 +429,7 @@ rm download
 </code></pre>
 
 <ul>
-<li><strong>Move the proper folder to start the excercice</strong><br />
+<li><strong>Move into the proper folder to start the excercice</strong><br />
 Now move into the <strong>practical1</strong> folder and you are ready to start for this morning !</li>
 </ul>
 <pre><code>cd ~/annotation_course/practical1
@@ -467,9 +467,7 @@ When done, check the short_summary_genome_dmel_busco file in the output folder. 
 <p><strong><em>Exercise 2</em> :</strong>
 Launching the following script will provide you some useful information.</p>
 <pre><code>cd ~/annotation_course/practical1
-mkdir fasta_check
-cd fasta_check
-fasta_statisticsAndPlot.pl -f ~/annotation_course/data/genome/genome.fa -o output
+fasta_statisticsAndPlot.pl -f ~/annotation_course/data/genome/genome.fa -o fasta_check
 </code></pre>
 
 <p>Is your genome very fragmented (number of sequences)? Do you have high GC content ? Do you have lowercase nucleotides ? Do you have N at sequence extremities? 
@@ -515,7 +513,7 @@ Load the file in into the genome portal called <strong>drosophila_melanogaster_c
 <br/>The official Ensembl annotation is available in the genome browser.
 How does the Augustus annotation compare with the Ensembl annotation? Are they identical?</p>
 <p><strong><em>Exercise 4 -</em> Augustus with yeast models:</strong><br />
-Run augustus on the same genome file but using settings for yeast instead (change species to Saccharomyces).</p>
+Run augustus on the same genome file but using settings for yeast instead (change species to <strong>saccharomyces</strong>).</p>
 <p>Load this result file into Webapollo and compare with your earlier results. Can you based on this draw any conclusions about how a typical yeast gene differs from a typical Drosophila gene?</p>
 <h1 id="closing-remarks">Closing remarks</h1>
 <p>We have seen how to assess the quality of the assembly and how to launch a quick annotation using an abinitio tool.
