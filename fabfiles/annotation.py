@@ -60,16 +60,16 @@ def euk_progs():
     with cd('/opt/sw/share/RepeatMasker'):
         sudo('curl -O -u %s %s%s' % (repbase_id, REPBASE_WEB, REPBASE_FILE))
         sudo('tar xzf %s' % REPBASE_FILE)
-        sudo('printf "\nenv\n\n\n4\n/usr/bin\nY\n5\n" | perl ./configure')
+        sudo('printf "\nenv\n\n/opt/sw/bin/trf\n4\n/usr/bin\nY\n5\n" | perl ./configure')
     run('echo "export PATH=$PATH:/opt/sw/share/RepeatMasker" >> ~/.bashrc')
 
 
 @parallel
 def maker():
     with cd('/opt/sw/share'):
-        run('wget --quiet %s%s%s' % (MAKER_WEB, MAKER_ID, MAKER_FILE))
-        run('tar -xzf %s' % MAKER_FILE)
-    with cd('opt/sw/share/maker/src'):
+        sudo('wget --quiet %s%s%s' % (MAKER_WEB, MAKER_ID, MAKER_FILE))
+        sudo('tar -xzf %s' % MAKER_FILE)
+    with cd('/opt/sw/share/maker/src'):
         sudo('printf "Y\n\n\n" | perl Build.PL')
         sudo('./Build install')
     run('echo "export PATH=$PATH:~/opt/sw/share/maker/bin/" >> ~/.bashrc')
@@ -78,9 +78,9 @@ def maker():
 @parallel
 def gaas():
     sudo('cpanm -f Moose Clone Graph::Directed')
-    with cd('/opt/sw/bin'):
+    with cd('/opt/sw'):
         sudo('git clone https://github.com/NBISweden/GAAS.git')
-    run('echo "export PERL5LIB=$PERL5LIB:/opt/sw/bin/GAAS/annotation" >> ~/.bashrc')
+    run('echo "export PERL5LIB=$PERL5LIB:/opt/sw/GAAS/annotation" >> ~/.bashrc')
     run('echo "export PATH=$PATH:/opt/sw/GAAS/annotation/Tools/Maker/:/opt/sw/GAAS/annotation/Tools/Util/gff/:/opt/sw/GAAS/annotation/Tools/Util/fasta/:/opt/sw/GAAS/annotation/Tools/Util/:/opt/sw/GAAS/annotation/Tools/Converter/" >> ~/.bashrc')
 
 
@@ -92,4 +92,4 @@ def functional_annot():
     # with cd('/opt/interproscan-5.27-66.0/data'):
         # sudo('wget --quiet ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/data/panther-data-12.0.tar.gz')
         # sudo('tar pxzf panther-data-12.0.tar.gz')
-    run('echo "export PATH=$PATH:/opt/sw/interproscan-5.27-66.0" >> ~/.bashrc')
+    # run('echo "export PATH=$PATH:/opt/sw/interproscan-5.27-66.0" >> ~/.bashrc')
