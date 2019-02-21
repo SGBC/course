@@ -42,6 +42,11 @@ def passwd():
 
 
 @parallel
+def mount():
+    sudo("mount /dev/sdc1 /opt")
+
+
+@parallel
 def format_sdc():
     with warn_only():
         sudo('(echo n; echo p; echo 1; echo ; echo ; echo w) | sudo fdisk /dev/sdc')
@@ -65,17 +70,15 @@ def setup():
 
 
 @parallel
-def rstudio():
-    sudo('apt-key adv --keyserver %s --recv-keys %s' % (KEY_SERVER, KEY))
-    sudo('add-apt-repository "deb [arch=amd64,i386] %s xenial/"' % REPO)
+def r():
     sudo('apt-get update')
     sudo('apt -y -qq install --allow-unauthenticated r-base r-base-dev')
     sudo('apt -y -qq install --allow-unauthenticated libxml2-dev libssl-dev')
     sudo('apt -y -qq install --allow-unauthenticated libcurl4-openssl-dev')
-    sudo('apt -y -qq install gdebi-core')
-    with cd('~/install'):
-        run('wget --quiet %s%s' % (RSTUDIO_WEB, RSTUDIO_FILE))
-        sudo('gdebi -n %s' % RSTUDIO_FILE)
+#     sudo('apt -y -qq install gdebi-core')
+#     with cd('~/install'):
+#         run('wget --quiet %s%s' % (RSTUDIO_WEB, RSTUDIO_FILE))
+#         sudo('gdebi -n %s' % RSTUDIO_FILE)
 
 
 @parallel
