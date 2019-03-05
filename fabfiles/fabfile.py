@@ -12,7 +12,7 @@ from qc import qc
 from alignment import alignment
 from rna import quant, rna_assembly
 from annotation import annotation, pan_genome, euk_deps, euk_progs, maker, gaas, functional_annot
-from assembly import assembly, quast, busco, augustus, assembly_extras
+from assembly import assembly
 from metagenomics import binning, metabarcoding, kraken, checkm
 
 env.hosts = IPS
@@ -51,12 +51,24 @@ def format_sdc():
     with warn_only():
         sudo('(echo n; echo p; echo 1; echo ; echo ; echo w) | sudo fdisk /dev/sdc')
         sudo('mkfs -t ext4 /dev/sdc1')
-        sudo('mount /dev/sdc1 /opt')
+        # sudo('mount /dev/sdc1 /opt')
+
+
+@parallel
+def conda():
+    run("wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh")
+    run("bash Miniconda3-latest-Linux-x86_64.sh -b -f")
+    run("rm Miniconda3-latest-Linux-x86_64.sh")
+    run('echo "export PATH=$PATH:~/miniconda3/bin" >> ~/.bashrc')
+    run("~/miniconda3/bin/conda config --add channels defaults")
+    run("~/miniconda3/bin/conda config --add channels bioconda")
+    run("~/miniconda3/bin/conda config --add channels conda-forge")
 
 
 @parallel
 def setup():
     #     format_sdc()
+    mount()
     sudo('apt -y -qq install python-pip python-dev')
     sudo('apt -y -qq install unzip')
     sudo('apt -y -qq install make gcc git')

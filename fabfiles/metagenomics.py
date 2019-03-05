@@ -28,29 +28,30 @@ KRAKEN_DIR = 'kraken-1.1'
 @parallel
 def binning():
     # metabat
-    with cd('~/install'):
-        run('wget --quiet %s%s' % (METABAT_WEB, METABAT_FILE))
-        run('tar xzf %s' % METABAT_FILE)
-    run('rm ~/install/%s/*.txt' % METABAT_DIR)
-    run('rm ~/install/%s/*.md' % METABAT_DIR)
-    run('mv ~/install/%s/* ~/.local/bin/' % METABAT_DIR)
+    run("~/miniconda3/bin/conda install -y pplacer=1.1.alpha19 python=2.7.15 checkm-genome=1.0.12 metabat2=2.12.1 checkm-genome=1.0.12 ")
+#     with cd('~/install'):
+#         run('wget --quiet %s%s' % (METABAT_WEB, METABAT_FILE))
+#         run('tar xzf %s' % METABAT_FILE)
+#     run('rm ~/install/%s/*.txt' % METABAT_DIR)
+#     run('rm ~/install/%s/*.md' % METABAT_DIR)
+#     run('mv ~/install/%s/* ~/.local/bin/' % METABAT_DIR)
 
-    # checkm
-    sudo('apt install -y -qq hmmer')
-    with cd('~/install'):
-        run('wget --quiet %s%s' % (PRODIGAL_WEB, PRODIGAL_FILE))
-        run('chmod +x %s' % PRODIGAL_FILE)
-    run('mv ~/install/%s ~/.local/bin/prodigal' % PRODIGAL_FILE)
-    with cd('~/install'):
-        run('wget --quiet %s%s' % (PPLACER_WEB, PPLACER_FILE))
-        run('unzip -q %s' % PPLACER_FILE)
-    with cd('~/install/%s' % PPLACER_DIR):
-        run('mv guppy pplacer rppr ~/.local/bin/')
-    sudo('pip install -q numpy')
-    sudo('pip install -q checkm-genome')
+#     # checkm
+    sudo('~/miniconda3/bin/conda install -y hmmer')
+#     with cd('~/install'):
+#         run('wget --quiet %s%s' % (PRODIGAL_WEB, PRODIGAL_FILE))
+#         run('chmod +x %s' % PRODIGAL_FILE)
+#     run('mv ~/install/%s ~/.local/bin/prodigal' % PRODIGAL_FILE)
+#     with cd('~/install'):
+#         run('wget --quiet %s%s' % (PPLACER_WEB, PPLACER_FILE))
+#         run('unzip -q %s' % PPLACER_FILE)
+#     with cd('~/install/%s' % PPLACER_DIR):
+#         run('mv guppy pplacer rppr ~/.local/bin/')
+#     sudo('pip install -q numpy')
+#     sudo('pip install -q checkm-genome')
 
-    # checkm cannot set data root non-interactively
-    # waiting for upstream fix
+#     # checkm cannot set data root non-interactively
+#     # waiting for upstream fix
 
 
 @parallel
