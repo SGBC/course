@@ -27,27 +27,29 @@ nav:
       - Pan-genome Analysis: tutorials/docs/pan_genome.md
       - Nanopore Sequencing: tutorials/docs/nanopore.md
   - Week 4:
-      - Proteins: proteins.md
       - RNA Sequencing: tutorials/docs/rna.md
-      - Metabarcoding: tutorials/docs/16S.md
-      - Metagenome assembly: tutorials/docs/meta_assembly.md
-      - Comparative metagenomics: tutorials/docs/wms.md
-  - Week 5 - Eukaryotic Annotation:
-      - Schedule: nbis_annotation/schedule.md
-      - Practical 1: nbis_annotation/practical_session/practical1.md
-      - Practical 2: nbis_annotation/practical_session/practical2.md
-      - Practical 3: nbis_annotation/practical_session/practical3_manualCuration.md
-      - Practical 4: nbis_annotation/practical_session/practical4_funcAnnotInterp.md
-      - Extras:
-          - WebApollo: nbis_annotation/practical_session/UsingWebApollo.md
-          - Protein, EST and RNA-seq data: nbis_annotation/practical_session/practical2_sub_gatherEvidence.md
-          - Assembling transcripts: nbis_annotation/practical_session/practical2_sub_transcriptome.md
-          - Evidence Based Annotation: nbis_annotation/practical_session/practical2_sub_makerNoAbinit.md
-          - Abinitio Annotation: nbis_annotation/practical_session/practical2_sub_makerAbinit.md
-          - Comparing Annotations: nbis_annotation/practical_session/practical2_sub_makerCompareAnnot.md
-          - Configuring Maker (I): nbis_annotation/practical_session/practical2_supl_maker.md
-          - Configuring Maker (I): nbis_annotation/practical_session/practical2_supl3_maker.md
-          - Inspecting Maker output: nbis_annotation/practical_session/practical2_supl2_maker.md
+      - Eukaryotic Annotation:
+        - Intro: nbis_annotation/schedule.md
+        - Practical 1: nbis_annotation/practical_session/practical1.md
+        - Practical 2: nbis_annotation/practical_session/practical2.md
+        - Practical 3: nbis_annotation/practical_session/practical3_manualCuration.md
+        - Practical 4: nbis_annotation/practical_session/practical4_funcAnnotInterp.md
+        - WebApollo: nbis_annotation/practical_session/UsingWebApollo.md
+        - Protein, EST and RNA-seq data: nbis_annotation/practical_session/practical2_sub_gatherEvidence.md
+        - Assembling transcripts: nbis_annotation/practical_session/practical2_sub_transcriptome.md
+        - Evidence Based Annotation: nbis_annotation/practical_session/practical2_sub_makerNoAbinit.md
+        - Abinitio Annotation: nbis_annotation/practical_session/practical2_sub_makerAbinit.md
+        - Comparing Annotations: nbis_annotation/practical_session/practical2_sub_makerCompareAnnot.md
+        - Configuring Maker (I): nbis_annotation/practical_session/practical2_supl_maker.md
+        - Configuring Maker (I): nbis_annotation/practical_session/practical2_supl3_maker.md
+        - Inspecting Maker output: nbis_annotation/practical_session/practical2_supl2_maker.md
+  - Week 5:
+    - Metabarcoding: tutorials/docs/16S.md
+    - Proteins: proteins.md
+  - Week 6:
+    - Metagenome assembly: tutorials/docs/meta_assembly.md
+    - Comparative metagenomics: tutorials/docs/wms.md
+    - Viral metagenomics: tutorials/docs/metavir.md
 
 markdown_extensions:
   - admonition
