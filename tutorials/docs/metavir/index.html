@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="../../../img/favicon.ico">
 
     
-    <title>Nanopore Sequencing - Bioinformatics course</title>
+    <title>Viral metagenomics - Bioinformatics course</title>
     
 
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -150,7 +150,7 @@
                         
                             
 <li >
-    <a href="./">Nanopore Sequencing</a>
+    <a href="../nanopore/">Nanopore Sequencing</a>
 </li>
 
                         
@@ -159,7 +159,7 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 3 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -200,8 +200,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">Nanopore Sequencing</a>
+<li >
+    <a href="../nanopore/">Nanopore Sequencing</a>
 </li>
 
                         
@@ -339,7 +339,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Week 6 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -356,8 +356,8 @@
 
                         
                             
-<li >
-    <a href="../metavir/">Viral metagenomics</a>
+<li class="active">
+    <a href="./">Viral metagenomics</a>
 </li>
 
                         
@@ -374,12 +374,12 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="next" href="../pan_genome/">
+                        <a rel="next" href="../wms/">
                             <i class="fas fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li >
-                        <a rel="prev" href="../rna/">
+                    <li class="disabled">
+                        <a rel="prev" >
                             Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
@@ -393,113 +393,238 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#introduction-to-nanopore-sequencing">Introduction to Nanopore Sequencing</a></li>
-            <li class="second-level"><a href="#get-the-data">Get the Data</a></li>
+        <li class="first-level active"><a href="#viral-metagenome-from-a-dolphin-sample-hunting-for-a-disease-causing-virus">Viral Metagenome from a dolphin sample: hunting for a disease causing virus</a></li>
+            <li class="second-level"><a href="#getting-the-data">Getting the Data</a></li>
                 
-            <li class="second-level"><a href="#adapter-trimming">Adapter trimming</a></li>
+            <li class="second-level"><a href="#quality-control">Quality Control</a></li>
+                
+            <li class="second-level"><a href="#quality-control-with-fastp">Quality control with Fastp</a></li>
+                
+            <li class="second-level"><a href="#removing-the-host-sequences-by-mappingaligning-on-the-dolphin-genome">Removing the host sequences by mapping/aligning on the dolphin genome</a></li>
+                
+            <li class="second-level"><a href="#taxonomic-classification-of-the-trimmed-reads">Taxonomic classification of the trimmed reads</a></li>
                 
             <li class="second-level"><a href="#assembly">Assembly</a></li>
                 
-            <li class="second-level"><a href="#polishing">Polishing</a></li>
+            <li class="second-level"><a href="#taxonomic-classification-of-contigs">Taxonomic classification of contigs</a></li>
                 
-            <li class="second-level"><a href="#compare-with-the-existing-assembly-and-an-illumina-only-assembly">Compare with the existing assembly and an illumina only assembly</a></li>
+            <li class="second-level"><a href="#extraction-of-the-contig-of-interest">Extraction of the contig of interest</a></li>
                 
-                <li class="third-level"><a href="#an-existing-assembly">an existing assembly</a></li>
-                <li class="third-level"><a href="#compare-metrics">compare metrics</a></li>
-            <li class="second-level"><a href="#annotation">Annotation</a></li>
+            <li class="second-level"><a href="#genome-annotation-of-the-contig-of-interest">Genome annotation of the contig of interest</a></li>
+                
+            <li class="second-level"><a href="#visualization-and-manual-curation">Visualization and manual curation.</a></li>
+                
+            <li class="second-level"><a href="#go-further-with-proteins-functions">Go further with proteins functions</a></li>
                 
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="introduction-to-nanopore-sequencing">Introduction to Nanopore Sequencing</h1>
-<p>In this tutorial we will assemble the <em>E. coli</em> genome using a mix of long, error-prone reads from the MinION (Oxford Nanopore) and short reads from a HiSeq instrument (Illumina).</p>
-<p>The MinION data used in this tutorial come a test run by the <a href="http://lab.loman.net/2015/09/24/first-sqk-map-006-experiment/">Loman lab</a>.<br />
-The Illumina data were simulated using <a href="https://github.com/HadrienG/InSilicoSeq">InSilicoSeq</a></p>
-<h2 id="get-the-data">Get the Data</h2>
-<p>First download the nanopore data</p>
-<pre><code class="bash">wget http://s3.climb.ac.uk/nanopore/ecoli_allreads.fasta
+<h1 id="viral-metagenome-from-a-dolphin-sample-hunting-for-a-disease-causing-virus">Viral Metagenome from a dolphin sample: hunting for a disease causing virus</h1>
+<p>In this tutorial you will learn how to investigate metagenomics data and retrieve draft genome from an assembled metagenome.</p>
+<p>We will use a real dataset published in 2017 in a study in dolphins,
+where fecal samples where prepared for viral metagenomics study.
+The dolphin had a self-limiting gastroenteritis of suspected viral origin.</p>
+<h2 id="getting-the-data">Getting the Data</h2>
+<p>First, create an appropriate directory to put the data:</p>
+<pre><code class="bash">mkdir -p ~/dolphin/data
+cd ~/dolphin/data
 </code></pre>
 
-<p>You will not need the HiSeq data right away, but you can start the download in another window</p>
-<pre><code class="bash">curl -O -J -L https://osf.io/pxk7f/download
-curl -O -J -L https://osf.io/zax3c/download
+<p>You can download them from here:</p>
+<pre><code>curl -O -J -L https://osf.io/4x6qs/download
+curl -O -J -L https://osf.io/z2xed/download
 </code></pre>
 
-<p>look at basic stats of the nanopore reads</p>
-<pre><code class="bash">assembly-stats ecoli_allreads.fasta
+<p>Alternatively, your instructor will let you know where to get the dataset from.</p>
+<p>You should get 2 compressed files:</p>
+<pre><code>Dol1_S19_L001_R1_001.fastq.gz
+Dol1_S19_L001_R2_001.fastq.gz
+</code></pre>
+
+<h2 id="quality-control">Quality Control</h2>
+<p>We will use FastQC to check the quality of our data, as well as fastp for trimming the bad quality part of the reads.
+If you need a refresher on how and why to check the quality of sequence data, please check the <a href="qc">Quality Control and Trimming</a> tutorial</p>
+<pre><code class="bash">mkdir -p ~/dolphin/results
+cd ~/dolphin/results
+ln -s ~/dolphin/data/Dol1* .
+fastqc Dol1_*.fastq.gz
 </code></pre>
 
 <div class="admonition question">
 <p class="admonition-title">Question</p>
+<p>What is the average read length? The average quality?</p>
 </div>
-<p>How many nanopore reads do we have?</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
+<p>Compared to single genome sequencing, which graphs differ?</p>
 </div>
-<p>How long is the longest read?</p>
+<h2 id="quality-control-with-fastp">Quality control with Fastp</h2>
+<p>We will removing the adapters and trim by quality.</p>
+<p>Now we run fastp our read files</p>
+<pre><code class="bash">fastp -i Dol1_S19_L001_R1_001.fastq.gz -o Dol1_trimmed_R1.fastq \
+ -I Dol1_S19_L001_R2_001.fastq.gz -O Dol1_trimmed_R2.fastq \
+ --detect_adapter_for_pe --length_required 30 \
+ --cut_front --cut_tail --cut_mean_quality 10
+</code></pre>
+
+<p>Check the html report produced.</p>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
+<p>How many reads were trimmed?</p>
 </div>
-<p>What is the average read length?</p>
-<h2 id="adapter-trimming">Adapter trimming</h2>
-<p>The guppy basecaller, i.e. the program that transform raw electrical signal in fastq files, already demultiplex and trim for us.</p>
-<h2 id="assembly">Assembly</h2>
-<p>We assemble the reads using wtdbg2 (version &gt; 2.3)</p>
-<pre><code class="bash">head -n 20000 ecoli_allreads.fasta &gt; subset.fasta
-wtdbg2 -x ont -i subset.fasta -fo assembly
-wtpoa-cns -i assembly.ctg.lay.gz -fo assembly.ctg.fa
+<h2 id="removing-the-host-sequences-by-mappingaligning-on-the-dolphin-genome">Removing the host sequences by mapping/aligning on the dolphin genome</h2>
+<p>For this we will use Bowtie2.
+We have downloaded the genome of Tursiops truncatus from Ensembl (fasta file). Then we have run the following command to produce the indexes of the dolphin genome for Bowtie2 (do not run it, we have pre-calculated the results for you):</p>
+<pre><code>bowtie2-build Tursiops_truncatus.turTru1.dna.toplevel.fa Tursiops_truncatus
 </code></pre>
 
-<h2 id="polishing">Polishing</h2>
-<p>Since the assembly likely contains a lot of errors, we correct it with Illumina reads.</p>
-<p>First we map the short reads against the assembly</p>
-<pre><code>bowtie2-build assembly.ctg.fa assembly
-bowtie2 -x assembly -1 ecoli_hiseq_R1.fastq.gz -2 ecoli_hiseq_R2.fastq.gz | \
-    samtools view -bS -o assembly_short_reads.bam
-samtools sort assembly_short_reads.bam -o assembly_short_sorted.bam
-samtools index assembly_short_sorted.bam
+<p>Because this step takes a while, we have precomputed the index files, you can get them from here:</p>
+<pre><code>curl -O -J -L https://osf.io/wfk9t/download
 </code></pre>
 
-<p>then we run the consensus step</p>
-<pre><code>samtools view assembly_short_sorted.bam | wtpoa-cns -t 16 -x sam-sr \
-    -d assembly.ctg.fa -i - -fo assembly_polished.fasta
+<p>First we will extract the bowtie indexes of the dolphin genome into our results directory:</p>
+<pre><code>tar -xzvf host_genome.tar.gz
 </code></pre>
 
-<p>which will correct eventual misamatches in our assembly and write the new improved assembly to <code>assembly_polished.fasta</code></p>
-<p>For better results we should perform more than one round of polishing.</p>
-<h2 id="compare-with-the-existing-assembly-and-an-illumina-only-assembly">Compare with the existing assembly and an illumina only assembly</h2>
-<h3 id="an-existing-assembly">an existing assembly</h3>
-<p>Go to <a href="https://www.ncbi.nlm.nih.gov">https://www.ncbi.nlm.nih.gov</a> and search for NC_000913.
-Download the associated genome in fasta format and rename it to <code>ecoli_ref.fasta</code></p>
-<pre><code class="bash">nucmer --maxmatch -c 100 -p ecoli assembly_polished.fasta ecoli_ref.fasta
-mummerplot --fat --filter --png --large -p ecoli ecoli.delta
+<p>Now we are ready to map our sequencing reads on the dolphin genome:</p>
+<pre><code>bowtie2 -x host_genome/Tursiops_truncatus \
+-1 Dol1_trimmed_R1.fastq -2 Dol1_trimmed_R2.fastq \
+-S dol_map.sam --un-conc Dol_reads_unmapped.fastq --threads 4
 </code></pre>
 
-<p>then take a look at <code>ecoli.png</code></p>
-<h3 id="compare-metrics">compare metrics</h3>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many reads mapped on the dolphin genome?</p>
+</div>
+<h2 id="taxonomic-classification-of-the-trimmed-reads">Taxonomic classification of the trimmed reads</h2>
+<p>We will use Kaiju for the classification of the produced contigs. As we are mainly interested in detecting the viral sequences in our dataset and we want to reduce the computing time and the memory needed, we will build a viruses-only database.</p>
+<pre><code class="bash"># Kaiju needs to be installed
+cd
+mkdir -p databases/kaijudb
+cd databases/kaijudb
+makeDB.sh -v
+</code></pre>
+
+<p>Once the database built, Kaiju tells us that we need only 3 files:
+Then other files and directories can be removed</p>
+<pre><code class="bash"># Removing un-needed things
+rm -r genomes/
+rm kaiju_db.bwt
+rm kaiju_db.sa
+rm merged.dmp
+rm kaiju_db.faa
+</code></pre>
+
+<p>We are now ready to run Kaiju on our trimmed reads</p>
+<pre><code class="bash">cd dolphin/results
+kaiju -t ~/databases/kaijudb/nodes.dmp -f ~/databases/kaijudb/kaiju_db.fmi \
+ -i Dol_reads_unmapped.1.fastq -j Dol_reads_unmapped.2.fastq \
+ -o Dol1_reads_kaiju.out
+</code></pre>
+
+<p>In order to visualise the results, we will produce a Krona chart.
+This step requires to have KronaTools installed:</p>
+<pre><code>conda install -c bioconda krona
+</code></pre>
+
+<pre><code class="bash">kaiju2krona -t ~/databases/kaijudb/nodes.dmp -n ~/databases/kaijudb/names.dmp \
+-i Dol1_reads_kaiju.out -o Dol1_reads_kaiju.krona -u
+
+ktImportText -o Dol1_reads_kaiju.krona.html Dol1_reads_kaiju.krona
+
+</code></pre>
+
 <div class="admonition note">
 <p class="admonition-title">Note</p>
+<p>If we were interested in bacteria and had a databases containing them, we could also use the command kaijuReport to get a text summary. Unfortunately, it does not provide taxonomic levels for viruses.</p>
 </div>
-<p>First you need to assemble the illumina data</p>
-<p>Then run busco and quast on the 3 assemblies</p>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-</div>
-<p>which assembly would you say is the best?</p>
-<h2 id="annotation">Annotation</h2>
-<p>If you have time, train your annotation skills by running prokka on your genome!</p>
-<pre><code class="bash">prokka --outdir annotation --kingdom Bacteria assembly_polished.fasta
+<p>Then we copy the produced html file locally to visualise in our web browser.</p>
+<h2 id="assembly">Assembly</h2>
+<p>Megahit will be used for the <em>de novo</em> assembly of the metagenome.</p>
+<pre><code>megahit -1 Dol_reads_unmapped.1.fastq -2 Dol_reads_unmapped.2.fastq -o assembly
 </code></pre>
 
-<p>You can open the output to see how it went</p>
-<pre><code class="bash">cat annotation/*.txt
+<p>The resulting assembly can be found under <code>assembly/final.contigs.fa</code>.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many contigs does this assembly contain? Is there any long contig?</p>
+</div>
+<h2 id="taxonomic-classification-of-contigs">Taxonomic classification of contigs</h2>
+<p>We will use Kaiju again with the same viruses-only database for the classification of the produced contigs.</p>
+<pre><code class="bash">cd assembly
+
+kaiju -t ~/databases/kaijudb/nodes.dmp -f ~/databases/kaijudb/kaiju_db.fmi \
+ -i final.contigs.fa -o Dol1_contigs_kaiju.out
+</code></pre>
+
+<p>Then we produce the Krona chart:</p>
+<pre><code class="bash">kaiju2krona -t ~/databases/kaijudb/nodes.dmp -n ~/databases/kaijudb/names.dmp \
+ -i Dol1_contigs_kaiju.out -o Dol1_contigs_kaiju.krona -u
+
+ktImportText -o Dol1_contigs_kaiju.krona.html Dol1_contigs_kaiju.krona
 </code></pre>
 
 <div class="admonition question">
 <p class="admonition-title">Question</p>
+<p>Does the classification of contigs produce different results than the classification of reads?</p>
 </div>
-<p>Does it fit your expectations? How many genes were you expecting?</p></div>
+<h2 id="extraction-of-the-contig-of-interest">Extraction of the contig of interest</h2>
+<p>Let's go for a little practice of your Unix skills!</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Find a way to to find the longest contig. They look like this:</p>
+</div>
+<pre><code>&gt;k141_1 flag=1 multi=1.0000 len=301
+&gt;k141_2 flag=1 multi=1.0000 len=303
+</code></pre>
+
+<p><strong>hint 1</strong>: all lines containing '&gt;'</p>
+<p><strong>hint 2</strong>: use grep and sed</p>
+<p>Once we have this file, we want to sort all the sequences headers by the sequence length (len=X):</p>
+<pre><code class="bash">cat final.contigs.fa | grep &quot;&gt;&quot; | sed s/len=// | sort -k4,4n | tail -1
+</code></pre>
+
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What is the size of the longest contig?</p>
+</div>
+<p>Now that you have identified the sequence header or id of the longest contig, you want to save it to a fasta file.</p>
+<pre><code class="bash">grep -i '&gt;k141_XXX' -A 1 &gt; longest_contig.fasta
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need to replace the XXX by the correct header.
+The option -A 1 of grep allows to print 1 line additionally to the matching line (which enables to print the full sequence that corresponds to one line).
+Test with -A 2 (without the redirection to longest_contig.fasta) to see what happens.</p>
+</div>
+<p>Now that you have identified the longest contig, you will check in Kaiju results what was the taxon assigned to this contig.</p>
+<p>Have a look at the file <strong>Dol1_contigs_kaiju.out</strong>. It is structured in 3 columns:
+classification status (C/U), sequence id, assigned TaxID.</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Identify the TaxID of the longest contig and search on NCBI Taxonomy database to which species it corresponds to.</p>
+</div>
+<h2 id="genome-annotation-of-the-contig-of-interest">Genome annotation of the contig of interest</h2>
+<p>Once the contig to annotate is extracted and saved in the file longest_contig.fasta, we will use Prokka to detect ORFs (Open Reading Frames) in order to predict genes and their resulting proteins.</p>
+<p>First, go to Uniprot database and retrieve a set of protein sequences
+belonging to adenoviruses. Save the file as <code>adenovirus.faa</code> and copy it in
+your results directory.</p>
+<pre><code class="bash">prokka --outdir annotation --kingdom Viruses \
+--proteins adenovirus.faa longest_contig.fasta
+</code></pre>
+
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How many genes and proteins were predicted?</p>
+</div>
+<h2 id="visualization-and-manual-curation">Visualization and manual curation.</h2>
+<p>If there is some time left, you can visualise the produced annotation (gff file)
+in Ugene or Artemis for example.</p>
+<h2 id="go-further-with-proteins-functions">Go further with proteins functions</h2>
+<p>For the predicted proteins that are left "hypotetical", you can try running
+<a href="https://www.ebi.ac.uk/interpro/search/sequence-search">Interproscan</a> on them to get more information on domains and motifs.</p></div>
         
         
     </div>
