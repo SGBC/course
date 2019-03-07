@@ -582,7 +582,7 @@ ktImportText -o Dol1_contigs_kaiju.krona.html Dol1_contigs_kaiju.krona
 <p><strong>hint 1</strong>: all lines containing '&gt;'</p>
 <p><strong>hint 2</strong>: use grep and sed</p>
 <p>Once we have this file, we want to sort all the sequences headers by the sequence length (len=X):</p>
-<pre><code class="bash">cat final.contigs.fa | grep &quot;&gt;&quot; | sed s/len=// | sort -k4,4n | tail -1
+<pre><code class="bash">cat final.contigs.fa | grep &quot;&gt;&quot; | sed s/len=// | sort -k4n | tail -1
 </code></pre>
 
 <div class="admonition question">
@@ -590,7 +590,7 @@ ktImportText -o Dol1_contigs_kaiju.krona.html Dol1_contigs_kaiju.krona
 <p>What is the size of the longest contig?</p>
 </div>
 <p>Now that you have identified the sequence header or id of the longest contig, you want to save it to a fasta file.</p>
-<pre><code class="bash">grep -i '&gt;k141_XXX' -A 1 &gt; longest_contig.fasta
+<pre><code class="bash">grep -i '&gt;k141_XXX' -A 1 final.contigs.fa &gt; longest_contig.fasta
 </code></pre>
 
 <div class="admonition note">
