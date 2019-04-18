@@ -85,11 +85,11 @@
         },
         "mkdocs-cinder": {
             "hashes": [
-                "sha256:17681dbee850dfe7bbd99c80afa9a6801987cf79a73dfda862b7094e18dc00ce",
-                "sha256:c3f08a45d3a457456d55f790ade016bd4fa629794e3e7553da4ba40ed7437a52"
+                "sha256:0623b3b8c3a70fb735e966da805ff6f33e6c547ae9b26e6146d4995053e182f5",
+                "sha256:984ba6df20916240647e5386d8444e6dbf3a8200e4d6db2d58cb145f40f99ff2"
             ],
             "index": "pypi",
-            "version": "==0.16.3"
+            "version": "==0.17.0"
         },
         "pyyaml": {
             "hashes": [
